@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while read file
+do
+	case "$1" in 
+		"w") xwallpaper --stretch "$file" && notify-send "Sxiv" "$file wallpaper set!" ;;
+		"c") xclip -sel c -t image/png -i "$file" ;;
+		"r") convert "$file" -rotate 90 /tmp/out.jpg ;;
+		"m") curl -F"file=@$file" 0x0.st | xclip -sel c ;;
+	esac
+done

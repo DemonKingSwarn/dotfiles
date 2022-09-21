@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf "%s" "🔋$(acpi -b | awk '/^Battery 1/' | awk -F ',' '{print $2}')"

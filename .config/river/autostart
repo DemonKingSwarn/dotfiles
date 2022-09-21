@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#swhkd &
+waybar &
+dunst &
+swaybg -i /home/demonkingswarn/pix/wall/87.jpg &

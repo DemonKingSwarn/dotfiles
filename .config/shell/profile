@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+  # To start x session
+  if [ "$TTY" = "/dev/tty1" ]; then
+	  printf "\033[1;32mBooting into bspwm!\033[0m\n"
+	  startx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty 2> /dev/null
+  fi
+
+
+#export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
+# export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/Applications"
+
+# Adds '~/.scripts' and all directories in $PATH
+# export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"

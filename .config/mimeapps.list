@@ -1,0 +1,13 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+image/png=nsxiv.desktop
+image/jpeg=nsxiv.desktop
+image/tiff=nsxiv.desktop;
+image/webp=nsxiv.desktop
+image/gif=mpv.desktop;
+application/octet-stream=mpv.desktop;
+text/markdown=emacsclient.desktop
