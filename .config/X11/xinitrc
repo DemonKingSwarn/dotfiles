@@ -2,4 +2,11 @@
 
 $HOME/.scripts/system/startup.sh &
 
+
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/X11/xprofile" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/X11/xprofile"
+else
+	. "$HOME/.xprofile"
+fi
+
 exec bspwm
