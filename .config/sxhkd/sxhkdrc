@@ -51,6 +51,12 @@ XF86AudioMute
 super + shift + x
 	~/.scripts/system/lock.sh
 
+F9
+    killall --user $USER --ignore-case --signal SIGTERM ffmpeg
+
+F10
+    killall -s1 ffmpeg
+
 super + alt + {q,r}
 	bspc {quit,wm -r}
 

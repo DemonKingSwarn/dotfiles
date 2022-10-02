@@ -1,6 +1,6 @@
 configuration {
-	modi: "run,ssh,drun";
-	font: "monospace 12";
+	modi: "run,ssh,drun,file-browser-extended";
+	font: "Monocraft 15";
 	location: 2;
 	terminal: "kitty";
 	kb-remove-char-back: "BackSpace";
