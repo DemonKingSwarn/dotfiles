@@ -1,7 +1,3 @@
-# DO NOT EDIT! This file will be overwritten by LXAppearance.
-# Any customization should be done in ~/.gtkrc-2.0.mine instead.
-
-include "/home/demonkingswarn/.gtkrc-2.0.mine"
 gtk-theme-name="gtk-master"
 gtk-icon-theme-name="Dracula"
 gtk-font-name="Monocraft 10"

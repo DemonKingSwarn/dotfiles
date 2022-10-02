@@ -16,10 +16,10 @@ alt + d
 	dmenu_run -p "RUN: "
 
 super + Return
-	st
+	kitty -1
 
 super + shift + Return
-    kitty -1
+    st
 
 super + w
 	$HOME/.scripts/custom_emoji/custom_emoji.sh
