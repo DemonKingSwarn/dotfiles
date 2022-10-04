@@ -1,6 +1,6 @@
 gtk-theme-name="gtk-master"
-gtk-icon-theme-name="Dracula"
-gtk-font-name="Monocraft 10"
+gtk-icon-theme-name="kora"
+gtk-font-name="JetBrains Mono 10"
 gtk-cursor-theme-name="Simp1e-Catppuccin-Frappe"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH

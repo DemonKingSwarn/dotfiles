@@ -2,16 +2,19 @@
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
-riverctl map normal Super Return spawn "kitty -1"
-riverctl map normal Super D spawn "wofi --show run"
-riverctl map normal Print spawn "wayss"
+riverctl spawn "/home/demonkingswarn/.config/river/autostart"
+
+riverctl map normal Super Return spawn "st"
+riverctl map normal Super D spawn "tofi-drun --drun-launch=true"
+riverctl map normal Super Print spawn "wayss"
+riverctl map normal Super Shift X spawn "swaylock"
 
 # Super+Shift+Q to close the focused view
 riverctl map normal Super+Shift Q close
 
 # Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit
-riverctl map normal Super+Shift R spawn "source /home/demonkingswarn/.config/river/autostart"
+#riverctl map normal Super+Shift R spawn "source /home/demonkingswarn/.config/river/autostart"
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next

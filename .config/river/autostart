@@ -1,6 +1,8 @@
 #!/bin/sh
 
 #swhkd &
+xrdb -merge ~/.Xresources &
 waybar &
 dunst &
-swaybg -i /home/demonkingswarn/pix/wall/87.jpg &
+swaybg -i /home/demonkingswarn/hdd/pix/wall/87.jpg &
+/home/demonkingswarn/.scripts/system/waylock.sh &
