@@ -2,8 +2,9 @@
 
   # To start x session
   if [ "$TTY" = "/dev/tty1" ]; then
-	  printf "\033[1;32mBooting into bspwm!\033[0m\n"
-	  startx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty 2> /dev/null
+	  printf "\033[1;32mBooting into river!\033[0m\n"
+	  #startx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty 2> /dev/null
+      $HOME/.local/bin/startw -- -keeptty 2> /dev/null
   fi
 
 

@@ -46,7 +46,7 @@ alias cp='cpg -ig'
 alias shred='shred -f -u -z -v -n 3'
 
 # QoL
-alias e="$EDITOR --nofork"
+alias e="$EDITOR"
 alias c='clear'
 alias xcc='xclip -selection clipboard'
 alias xco='xclip -selection clipboard -o'
