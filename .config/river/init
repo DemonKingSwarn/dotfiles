@@ -140,9 +140,9 @@ do
 done
 
 # Set background and border color
-riverctl background-color 0x101419
-riverctl border-color-focused 0x7ddac5
-riverctl border-color-unfocused 0x171B20
+riverctl background-color "#282a36"
+riverctl border-color-focused "#ff79c6"
+riverctl border-color-unfocused "#6272a4"
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
@@ -153,9 +153,6 @@ riverctl float-filter-add title "popup title with spaces"
 
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
-
-# Autostart
-source /home/luke/.config/river/autostart &
 
 # Focus follows mouse
 riverctl focus-follows-cursor always

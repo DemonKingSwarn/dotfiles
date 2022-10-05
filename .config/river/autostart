@@ -6,4 +6,4 @@ xrdb -merge ~/.Xresources &
 waybar &
 dunst &
 swaybg -i /home/demonkingswarn/hdd/pix/wall/87.jpg &
-#/home/demonkingswarn/.scripts/system/waylock.sh &
+/home/demonkingswarn/.scripts/system/waylock.sh &
