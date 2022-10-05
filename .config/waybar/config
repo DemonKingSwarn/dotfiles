@@ -82,11 +82,6 @@
         "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
         "on-click": "playerctl play-pause"
     },
-    "custom/launcher":{
-        "format": "",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
-    },
     "custom/power":{
         "format": " ",
         "on-click": "bash ~/.config/rofi/leave/leave.sh",
