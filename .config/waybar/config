@@ -1,18 +1,8 @@
 {
 	"layer": "top",
 	"modules-left": ["custom/launcher","river/tags","tray"],
-	"modules-right": ["custom/wallpaper","custom/updates","backlight","battery","pulseaudio","clock","custom/power"],
-	
-	"pulseaudio": {
-		"tooltip": false,
-		"scroll-step": 5,
-		"format": "{icon} {volume}%",
-		"format-muted": "{icon} {volume}%",
-		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"format-icons": {
-			"default": ["", "", ""]
-		}
-	},
+	"modules-right": ["custom/wallpaper","custom/updates","backlight","battery","clock","custom/power"],
+
 
   "river/tags": {
 	"num-tags": 9,
@@ -81,6 +71,11 @@
         "escape": true,
         "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
         "on-click": "playerctl play-pause"
+    },
+    "custom/launcher":{
+        "format": "",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi"
     },
     "custom/power":{
         "format": " ",
