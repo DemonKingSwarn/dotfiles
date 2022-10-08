@@ -7,7 +7,7 @@
 
 [urgency_normal]
     background = "#282a36"
-    foreground = ""
+    foreground = "#6272a4"
     timeout = 5
     default_icon = /home/demonkingswarn/.config/dunst/normal.png
 
