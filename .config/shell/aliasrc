@@ -16,6 +16,8 @@ alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias monerod='monerod --data-dir "$XDG_DATA_HOME"/bitmonero'
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias diff='diff --color=auto'
+alias df='duf -hide special'
+alias ping='gping'
 #alias aria2c="aria2c --file-allocation=none"
 
 
@@ -52,7 +54,7 @@ alias xcc='xclip -selection clipboard'
 alias xco='xclip -selection clipboard -o'
 
 # Package Management
-alias install="paru -S --noconfirm"
+alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 alias uninstall="paru -R --noconfirm"
 alias update="paru -Syu --noconfirm"
 alias garbage="paru -Rcns $(paru -Qqdtt) --noconfirm"
