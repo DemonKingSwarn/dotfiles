@@ -1,97 +1,180 @@
 {
-	"layer": "top",
-	"modules-left": ["custom/launcher","river/tags","tray"],
-	"modules-right": ["custom/wallpaper","custom/updates","backlight","battery","clock","custom/power"],
-
-
-  "river/tags": {
-	"num-tags": 9,
-    "tag-labels": [
-        "一",
-        "二",
-        "三",
-        "四",
-        "五",
-        "六", 
-        "七",
-        "八",
-        "九" 
-    ]
-  },
-	"network": {
-		"tooltip": false,
-		"format-wifi": "  {essid}",
-		"format-ethernet": ""
-	},
-	"backlight": {
-		"tooltip": false,
-		"format": " {}%",
-		"interval":1,
-        "on-scroll-up": "light -A 5",
-		"on-scroll-down": "light -U 5"
-	},
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+    "layer": "top",
+    "position": "top",
+    "height": 42,
+    "margin": 0,
+    "modules-left": ["custom/os", "wlr/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "bluetooth", "network", "custom/vpn", "battery", "hyprland/language", "custom/power"],
+    "wlr/workspaces": {
+        "tooltip": false,
+        "disable-scroll": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "1":  "<span font='13'> 爵</span>",
+            "2":  "<span font='13'> </span>",
+            "3":  "<span font='13'> </span>",
+            "4":  "<span font='13'> </span>",
+            "5":  "<span font='13'> </span>",
+            "6":  "<span font='13'> </span>",
+            "7":  "<span font='13'> </span>",
+            "8":  "<span font='13'> </span>",
+            "9":  "<span font='13'> </span>",
+            "10": "<span font='13'> 﫵</span>"
+        }
     },
-	"tray":{
-		"icon-size":18,
-		"spacing": 10
-	},
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    },
     "clock": {
-        "format": "{: %I:%M %p   %d/%m/%Y}"
+        "tooltip": false,
+        "format": "  {:%a %d %b %I:%M %p}",
+        "on-click":"$HOME/.config/eww/launch.sh status"
+    },
+    "hyprland/language": {
+        "format": " {}",
+        "format-en": "en",
+        "format-de": "de",
+        "format-tr": "tr"
     },
     "cpu": {
-        "interval": 15,
-        "format": " {}%",
-        "max-length": 10
+        "format": "龍 {usage:02}%"
     },
     "memory": {
+        "format": " {percentage:02}%"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", ""],
+        "on-scroll-up": "light -A 5",
+        "on-scroll-down": "light -U 5"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity:02}%",
+        "format-charging": " {capacity:02}%",
+        "format-plugged": " {capacity:02}%",
+        "format-full": "{icon} full",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "upower": {
+        "icon-size": 14,
+        "hide-if-empty": true,
+        "tooltip": true,
+        "tooltip-spacing": 16
+    },
+    "disk#root": {
+        "interval": 60,
+        "format": " {percentage_used:02}%",
+        "path": "/"
+    },
+    "disk#home": {
+        "interval": 60,
+        "format": " {percentage_used:02}%",
+        "path": "/home"
+    },
+    "network": {
         "interval": 30,
-        "format": " {}%",
-        "max-length": 10
+        "max-length": 8,
+        "format-wifi": "{icon} {signalStrength}%",
+        "format-ethernet": "{icon} {ifname}",
+        "format-linked": "{icon} no ip",
+        "format-disconnected": "{icon}",
+        "format-icons": {
+            "wifi": "直",
+            "ethernet": "",
+            "linked": "",
+            "disconnected": ""
+        },
+        "tooltip": true,
+        "tooltip-format-wifi": "{essid} {signalStrength}%",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click-right": "foot -w 720x420 -a nmtui -T nmtui nmtui"
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon} {volume:02}% {format_source}",
+        "format-bluetooth": "{icon} {volume:02}% {format_source}",
+        "format-bluetooth-muted": "{icon} 婢 {format_source}",
+        "format-muted": "{icon}  婢  {format_source}",
+        "format-source": " {volume:02}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "speaker": "蓼",
+            "hands-free": "魯",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["奄", "奔", "墳"]
+        },
+        "on-click-right": "pavucontrol"
+    },
+    "bluetooth": {
+        "format": "{icon} {status}",
+        "format-connected": "{icon} {device_alias}",
+        "format-connected-battery": "{icon} {device_alias} {device_battery_percentage}%",
+        "format-disabled": "{icon} off",
+        "format-icons": {
+            "enabled": "",
+            "disabled": ""
+        },
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "rfkill toggle bluetooth",
+        "on-click-right": "blueman-manager"
+    },
+    "custom/vpn": {
+        "interval": 4,
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/scripts/vpn.sh gettext",
+        "return-type": "json",
+        "on-click": "$HOME/.config/waybar/scripts/vpn.sh toggle"
     },
     "custom/media": {
-        "interval": 30,
         "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 20,
-        "format-icons": {
-            "spotify": " ",
-            "default": " "
-        },
+        "max-length": 32,
         "escape": true,
-        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
-        "on-click": "playerctl play-pause"
+        "format-icons": {
+            "spotify": "阮",
+            "default": ""
+        },
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "custom/launcher":{
-        "format": "",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
+    "custom/os": {
+        "tooltip": false,
+        "format": "",
+        "on-click": "! pgrep -x wofi && wofi"
     },
-    "custom/power":{
-        "format": " ",
-        "on-click": "bash ~/.config/rofi/leave/leave.sh",
-    },
-    "custom/updates":{
-        "format": " {}",
-        "exec": "checkupdates | wc -l",
-        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-        "interval": 15,
-        "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
-    },
-    "custom/wallpaper":{
-        "format":"{}",
-        "exec": "time_theme --icon",
-        "interval": "1",
-        "on-click": "time_theme --toggle"
+    "custom/power": {
+        "tooltip": false,
+        "format": "襤",
+        "on-click": "$HOME/.config/eww/launch.sh power"
     }
 }

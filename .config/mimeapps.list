@@ -10,4 +10,4 @@ image/tiff=nsxiv.desktop;
 image/webp=nsxiv.desktop
 image/gif=mpv.desktop;
 application/octet-stream=mpv.desktop;
-text/markdown=editor.desktop
+text/markdown=emacs.desktop

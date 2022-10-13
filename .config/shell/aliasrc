@@ -18,6 +18,7 @@ alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias diff='diff --color=auto'
 alias df='duf -hide special'
 alias ping='gping'
+alias sekiro='WINEDLLOVERRIDES="dinput8.dll=n,b" $HOME/.local/bin/game'
 #alias aria2c="aria2c --file-allocation=none"
 
 

@@ -1,0 +1,47 @@
+body {
+	color: #2e2e2e;
+	text-align: justified;
+    font-family: "Inconsolata", monospace;
+	width: 60%;
+	margin: auto;
+}
+
+hr {
+	background-color: #ffffff;
+}
+
+a {
+	color: #0000f8;
+}
+
+a:hover:not(.page-heading):not(#anylink) {
+    color: #ffffff;
+    background-color: #000000;
+    text-decoration: none;
+    padding: 2px;
+    margin: -2px;
+}
+
+.page-heading {
+	text-align: center;
+	text-decoration: none;
+	font-family: "Open Sans";
+	font-weight: 100;
+	font-size: 20px;
+}
+
+.footer {
+	position: relative;
+	width: 100%;
+}
+
+.copyright {
+	text-align: center;
+	font-family: "Open Sans";
+	font-size: 15px;
+}
+
+#anylink {
+	text-decoration: none;
+	color: #A8080A;
+}
