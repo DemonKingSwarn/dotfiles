@@ -170,7 +170,7 @@
     "custom/os": {
         "tooltip": false,
         "format": "",
-        "on-click": "! pgrep -x wofi && wofi"
+        "on-click": "tofi-drun --drun-launch=true"
     },
     "custom/power": {
         "tooltip": false,
