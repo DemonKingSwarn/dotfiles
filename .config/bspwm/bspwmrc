@@ -51,3 +51,4 @@ bspc rule -a Nvidia-settings state=floating
 bspc rule -a Steam state=floating
 bspc rule -a heroic state=floating
 bspc rule -a python3.10 state=floating
+bspc rule -a Lutris state=floating

@@ -4,7 +4,8 @@
 
 riverctl spawn "/home/demonkingswarn/.config/river/autostart"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"
+riverctl spawn "xrdb -merge ~/.Xresources"
 
 riverctl map normal Super Return spawn "st"
 riverctl map normal Super D spawn "tofi-drun --drun-launch=true"
