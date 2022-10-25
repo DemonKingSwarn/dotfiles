@@ -24,8 +24,6 @@ alias sekiro='WINEDLLOVERRIDES="dinput8.dll=n,b" $HOME/.local/bin/game'
 
 if [ "$TERM" = "xterm-kitty" ] ; then
         alias neofetch='neofetch --kitty ~/.config/neofetch/neofetch.jpeg --size 15%'
-else
-        alias neofetch='neofetch --ascii_distro logo'
 fi
 
 alias cat="bat --paging=never"
