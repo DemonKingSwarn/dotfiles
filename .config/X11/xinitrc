@@ -10,3 +10,8 @@ else
 fi
 
 exec bspwm
+
+#### GNOME Session ####
+#export XDG_SESSION_TYPE=x11
+#export GDK_BACKEND=x11
+#exec gnome-session
