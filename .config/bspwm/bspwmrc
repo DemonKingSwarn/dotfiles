@@ -37,7 +37,7 @@ bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/external_rules"
 
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
-bspc rule -a Pcmanfm state=floating
+#bspc rule -a Pcmanfm state=floating
 bspc rule -a supertuxkart state=tiled
 bspc rule -a Pavucontrol state=floating
 bspc rule -a St desktop=^2
