@@ -5,7 +5,7 @@
     "margin": 0,
     "modules-left": ["custom/os", "wlr/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "bluetooth", "network", "custom/vpn", "battery", "hyprland/language", "custom/power"],
+    "modules-right": ["pulseaudio", "network", "battery"],
     "wlr/workspaces": {
         "tooltip": false,
         "disable-scroll": true,

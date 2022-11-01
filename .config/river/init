@@ -4,7 +4,7 @@
 
 riverctl spawn "/home/demonkingswarn/.config/river/autostart"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"
+riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "xrdb -merge ~/.Xresources"
 
 riverctl map normal Super Return spawn "st"
@@ -142,8 +142,8 @@ done
 
 # Set background and border color
 riverctl background-color "#282a36"
-riverctl border-color-focused "#ff79c6"
-riverctl border-color-unfocused "#6272a4"
+riverctl border-color-focused 0xada400ff
+riverctl border-color-unfocused 0x66333333
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300

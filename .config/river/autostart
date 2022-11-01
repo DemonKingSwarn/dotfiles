@@ -5,3 +5,4 @@ waybar &
 dunst &
 swaybg -i /home/demonkingswarn/hdd/pix/wall/62.jpg &
 /home/demonkingswarn/.scripts/system/waylock.sh &
+udiskie &
