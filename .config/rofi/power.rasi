@@ -1,0 +1,144 @@
+configuration {
+    show-icons:                 false;
+}
+
+* {
+	rosewater: #F5E0DC;
+	flamingo: #F2CDCD;
+	pink: #F5C2E7;
+	mauve: #CBA6F7;
+	red: #F38BA8;
+	maroon: #EBA0AC;
+	peach: #FAB387;
+	yellow: #F9E2AF;
+	green: #A6E3A1;
+	teal: #94E2D5;
+	sky: #89DCEB;
+	sapphire: #74C7EC;
+	blue: #89B4FA;
+	lavender: #B4BEFE;
+
+	text: #CDD6F4;
+	subtext1: #BAC2DE;
+	subtext0: #A6ADC8;
+	overlay2: #9399B2;
+	overlay1: #7F849C;
+	overlay0: #6C7086;
+	surface2: #585B70;
+	surface1: #45475A;
+	surface0: #313244;
+
+	base: #1E1E2E;
+	base-mod: #1E1E2Ef0;
+	mantle: #181825;
+	crust: #11111B;
+
+    /* Resolution : 1920x1080 */
+    mainbox-spacing:             100px;
+    mainbox-margin:              100px 300px;
+    message-margin:              0px 400px;
+    message-padding:             15px;
+    message-border-radius:       100%;
+    listview-spacing:            60px;
+    element-padding:             40px;
+    element-border-radius:       100%;
+
+    prompt-font:                 "CartographCF Nerd Font Bold Italic 64";
+    textbox-font:                "CartographCF Nerd Font 16";
+    element-text-font:           "feather bold 44";
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  true;
+    cursor:                      "default";
+    background-color:            var(base-mod);
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     var(mainbox-spacing);
+    margin:                      var(mainbox-margin);
+    background-color:            transparent;
+    children:                    [ "dummy", "inputbar", "listview", "message", "dummy" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    background-color:            transparent;
+    children:                    [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+prompt {
+    enabled:                     true;
+    font:                        var(prompt-font);
+    background-color:            transparent;
+    text-color:                  var(text);
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      var(message-margin);
+    padding:                     var(message-padding);
+    border-radius:               var(message-border-radius);
+    background-color:            transparent;
+    text-color:                  var(text);
+}
+textbox {
+    font:                        var(textbox-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    expand:                      false;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     var(listview-spacing);
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     var(element-padding);
+    border-radius:               var(element-border-radius);
+    background-color:            var(base);
+    text-color:                  var(text);
+    cursor:                      pointer;
+}
+element-text {
+    font:                        var(element-text-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+element selected.normal {
+    background-color:            var(mauve);
+    text-color:                  var(base);
+}
