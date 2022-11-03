@@ -1,3 +1,3 @@
 #!/bin/sh
 
-STEAM_COMPAT_DATA_PATH=~/.proton STEAM_COMPAT_CLIENT_INSTALL_PATH=~/.local/share/Steam VKD3D_CONFIG=dxr PROTON_ENABLE_NVAPI=1 WINE_FULLSCREEN_FSR=1 MANGOHUD=1 LD_PRELOAD=$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0 ~/.steam/steam/compatibilitytools.d/GE-Proton7-38/proton run $*
+STEAM_COMPAT_DATA_PATH=~/.proton STEAM_COMPAT_CLIENT_INSTALL_PATH=~/.local/share/Steam VKD3D_CONFIG=dxr PROTON_ENABLE_NVAPI=1 WINEESYNC=1 WINE_FULLSCREEN_FSR=1 MANGOHUD=1 LD_PRELOAD=$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0 ~/.steam/steam/compatibilitytools.d/GE-Proton7-38/proton run $*
