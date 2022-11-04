@@ -2,12 +2,12 @@
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
-riverctl spawn "/home/demonkingswarn/.config/river/autostart"
+riverctl spawn "$HOME/.config/river/autostart"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "xrdb -merge ~/.Xresources"
 
-riverctl map normal Super Return spawn "st"
+riverctl map normal Super Return spawn "foot"
 riverctl map normal Super D spawn "tofi-drun --drun-launch=true"
 riverctl map normal Super Print spawn "wayss"
 riverctl map normal Super+Shift X spawn "swaylock -i $HOME/hdd/pix/wall/01.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
