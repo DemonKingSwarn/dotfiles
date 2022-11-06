@@ -10,6 +10,7 @@ else
 fi
 
 exec bspwm
+#exec leftwm
 
 #### GNOME Session ####
 #export XDG_SESSION_TYPE=x11
