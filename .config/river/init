@@ -10,7 +10,7 @@ riverctl spawn "xrdb -merge ~/.Xresources"
 riverctl map normal Super Return spawn "foot"
 riverctl map normal Super D spawn "tofi-drun --drun-launch=true"
 riverctl map normal Super Print spawn "wayss"
-riverctl map normal Super+Shift X spawn "swaylock -i $HOME/hdd/pix/wall/01.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
+riverctl map normal Super+Shift X spawn "swaylock -i $HOME/hdd/pix/wall/93.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
 riverctl map normal Super T spawn "bartoggle"
 
 # Super+Shift+Q to close the focused view
