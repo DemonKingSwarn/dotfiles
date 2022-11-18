@@ -1,4 +1,5 @@
-BRIDGE="$HOME/Files/discord-rpc/winediscordipcbridge-steam.sh"
+#!/bin/sh
+
 PROTON="$HOME/.steam/steam/compatibilitytools.d/GE-Proton7-38/proton"
 
-STEAM_COMPAT_DATA_PATH="$HOME/.proton" STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.local/share/Steam" VKD3D_CONFIG=dxr PROTON_ENABLE_NVAPI=1 WINEESYNC=1 WINEFSYNC=1  WINE_FULLSCREEN_FSR=1 MANGOHUD=1 LD_PRELOAD=$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0 "$BRIDGE" "$PROTON" run $*
+STEAM_COMPAT_DATA_PATH="$HOME/.proton" STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.local/share/Steam" VKD3D_CONFIG=dxr PROTON_ENABLE_NVAPI=1 WINE_FULLSCREEN_FSR=1 MANGOHUD=1 LD_PRELOAD=$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0 "$PROTON" run $*
