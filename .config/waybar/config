@@ -7,8 +7,8 @@
     "modules-center": ["clock"],
     "modules-right": ["pulseaudio", "network", "battery"],
     "wlr/workspaces": {
-        "tooltip": false,
-        "disable-scroll": true,
+        "tooltip": true,
+        "disable-scroll": false,
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {

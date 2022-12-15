@@ -95,6 +95,7 @@ plugins_dir="/usr/share/zsh/plugins"
 source "$HOME/.config/shell/profile"
 source "$HOME/.config/shell/aliasrc"
 source "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$plugins_dir/fzf-tab/fzf-tab.plugin.zsh"
 
 eval "$(zoxide init zsh)"
 

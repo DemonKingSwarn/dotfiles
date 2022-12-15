@@ -56,4 +56,4 @@ alias xco='xclip -selection clipboard -o'
 alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 alias uninstall="paru -R --noconfirm"
 alias update="paru -Syu --noconfirm"
-alias garbage="paru -Rcns $(paru -Qqdtt) --noconfirm"
+alias garbage="paru -Rcns $(paru -Qqdtt)"

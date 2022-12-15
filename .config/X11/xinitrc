@@ -9,8 +9,9 @@ else
 	. "$HOME/.xprofile"
 fi
 
-exec bspwm
+#exec bspwm
 #exec leftwm
+exec openbox
 
 #### GNOME Session ####
 #export XDG_SESSION_TYPE=x11

@@ -3,6 +3,7 @@
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 waybar &
 dunst &
-swaybg -i /home/demonkingswarn/hdd/pix/wall/93.jpg &
+swaybg -i /home/demonkingswarn/hdd/pix/wall/95.jpg &
 /home/demonkingswarn/.scripts/system/waylock.sh &
 udiskie &
+hyprctl setcursor macOS-BigSur 24 &
