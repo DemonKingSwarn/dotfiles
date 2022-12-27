@@ -86,6 +86,11 @@ yt() {
     mpv ytdl://ytsearch:"$*"
 }
 
+hst() {
+    hist=$(cat $HOME/.local/state/zsh/history | sort | uniq | fzf)
+    printf "%s" "$hist" | wl-copy
+}
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
