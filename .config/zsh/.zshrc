@@ -82,9 +82,9 @@ fshow() {
 FZF-EOF"
 }
 
-yt() {
-    mpv ytdl://ytsearch:"$*"
-}
+#yt() {
+#    mpv ytdl://ytsearch:"$*"
+#}
 
 hst() {
     hist=$(cat $HOME/.local/state/zsh/history | sort | uniq | fzf)

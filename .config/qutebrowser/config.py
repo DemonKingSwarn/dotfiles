@@ -29,7 +29,7 @@ c.url.start_pages = 'https://search.bus-hit.me/'
 c.url.searchengines = {'DEFAULT':'https://search.bus-hit.me/?q={}'}
 
 #fonts
-c.fonts.default_family = "Monocraft"
+c.fonts.default_family = "JetBrains Mono"
 c.fonts.default_size = "12pt"
 c.fonts.contextmenu = 'default_size default_family'
 c.fonts.prompts = 'default_size default_family'
