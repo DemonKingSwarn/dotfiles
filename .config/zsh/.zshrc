@@ -86,6 +86,10 @@ FZF-EOF"
 #    mpv ytdl://ytsearch:"$*"
 #}
 
+upload() {
+    [ -z $1 ] && echo "no args given" || uwu=$(curl -F"f=@$1" https://oshi.at | tail -n 1 | awk '{print $2}' | wl-copy)
+}
+
 hst() {
     hist=$(cat $HOME/.local/state/zsh/history | sort | uniq | fzf)
     printf "%s" "$hist" | wl-copy
