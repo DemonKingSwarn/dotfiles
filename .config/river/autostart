@@ -7,3 +7,4 @@ swaybg -i /home/demonkingswarn/hdd/pix/wall/86.jpg &
 /home/demonkingswarn/.scripts/system/waylock.sh &
 udiskie &
 hyprctl setcursor macOS-BigSur 24 &
+hyprpaper &
