@@ -1,0 +1,166 @@
+@define-color white #F0F0F0;
+@define-color black #101010;
+@define-color grey  #808080;
+@define-color red   #C23A23;
+@define-color green #90C861;
+
+* {
+    border: none;
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @white;
+}
+
+.modules-left, .modules-center, .modules-right {
+    margin: 4px 8px 6px 8px;
+    padding: 0px 2px;
+    background-color: rgba(32, 32, 32, 0.75);
+    border-radius: 12px;
+    box-shadow: 4px 4px 2px 1px @black;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+*/
+
+label:focus {
+    background-color: @black;
+}
+
+#workspaces button {
+    margin: 0px 4px;
+    background-color: transparent;
+    color: @grey;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: @white;
+}
+
+#workspaces button.focused {
+    color: @white;
+}
+
+
+#workspaces button.active {
+    color: @white;
+}
+
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#mode,
+#clock,
+#battery,
+#upower,
+#bluetooth,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-os,
+#custom-vpn,
+#custom-power,
+#tray,
+#mode,
+#idle_inhibitor,
+#language {
+    margin: 0px 8px;
+    background-color: transparent;
+    color: @white;
+}
+
+#battery.charging, #battery.plugged, #upower.charging {
+    color: @green;
+}
+
+@keyframes blink {
+    to {
+        color: @white;
+    }
+}
+
+#battery.critical:not(.charging), #upower.empty {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network.disconnected {
+    color: @grey;
+}
+
+#pulseaudio.muted {
+    color: @grey;
+}
+
+#bluetooth.disabled {
+    color: @grey;
+}
+
+#custom-vpn.disconnected {
+    color: @grey;
+}
+
+#custom-media {
+    color: #66CC99;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    color: #66CC99;
+}
+
+#custom-media.custom-vlc {
+    color: #FFA000;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: @red;
+}
+
+#idle_inhibitor {
+    color: @grey;
+}
+
+#idle_inhibitor.activated {
+    color: @white;
+}

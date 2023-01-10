@@ -1,166 +1,140 @@
-@define-color white #F0F0F0;
-@define-color black #101010;
-@define-color grey  #808080;
-@define-color red   #C23A23;
-@define-color green #90C861;
-
 * {
     border: none;
-    font-family: JetBrainsMono Nerd Font;
+    border-radius: 0;
+    font-family: "JetBrains Mono";
     font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: transparent;
-    color: @white;
+    /*background: transparent;*/
+    background: #282a36;
+    color: #f8f8f2;
 }
 
-.modules-left, .modules-center, .modules-right {
-    margin: 4px 8px 6px 8px;
-    padding: 0px 2px;
-    background-color: rgba(32, 32, 32, 0.75);
-    border-radius: 12px;
-    box-shadow: 4px 4px 2px 1px @black;
+#window {
+    font-weight: normal;
+    font-family: "JetBrains Mono";
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-*/
-
-label:focus {
-    background-color: @black;
+#workspaces {
+    padding: 0 5px;
 }
 
 #workspaces button {
-    margin: 0px 4px;
-    background-color: transparent;
-    color: @grey;
+    padding: 0 5px;
+    color: #f8f8f2;
 }
 
-#workspaces button:hover {
-    background: transparent;
-    color: @white;
+#workspaces button.visible {
+  color: inherit;
+  background-color: #6a548d
+}
+
+#workspaces button.active{
+  color: inherit;
+  background-color: #6a548d
 }
 
 #workspaces button.focused {
-    color: @white;
+    color: #f8f8f2;
+    background-color: #aa86e1 ;
 }
-
-
-#workspaces button.active {
-    color: @white;
-}
-
 
 #workspaces button.urgent {
-    color: @red;
+  color: #ea6962;
+}
+#workspaces button.hidden {
+  color: #ea6962;
 }
 
-#mode,
-#clock,
-#battery,
-#upower,
-#bluetooth,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
-#custom-os,
-#custom-vpn,
-#custom-power,
-#tray,
-#mode,
-#idle_inhibitor,
-#language {
-    margin: 0px 8px;
-    background-color: transparent;
-    color: @white;
+#tags button {
+    padding: 0 5px;
+    color: #f8f8f2;
 }
 
-#battery.charging, #battery.plugged, #upower.charging {
-    color: @green;
+#tags button.occupied {
+  color: inherit;
+  background-color: #6a548d
+}
+
+
+
+#tags button.focused {
+    color: #f8f8f2;
+    background-color: #aa86e1 ;
+}
+
+#tags button.urgent {
+  color: #ea6962;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid #f8f8f2;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode, #custom-wofi-power {
+    padding: 0 10px;
+    margin: 0 2px;
+
+    color: #f8f8f2;
+}
+
+#clock {
+    font-weight: normal;
+}
+
+#battery {
+}
+
+#battery icon {
+    color: #ff5555;
+}
+
+#battery.charging {
 }
 
 @keyframes blink {
     to {
-        color: @white;
+        background-color: #f8f8f2;
+        color: black;
     }
 }
 
-#battery.critical:not(.charging), #upower.empty {
-    color: @red;
+#battery.warning:not(.charging) {
+    color: #f8f8f2;
     animation-name: blink;
-    animation-duration: 1.0s;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
+#cpu {
+}
+
+#memory {
+}
+
+#network {
+}
+
 #network.disconnected {
-    color: @grey;
+    background: #ff5555;
+}
+
+#pulseaudio {
 }
 
 #pulseaudio.muted {
-    color: @grey;
 }
 
-#bluetooth.disabled {
-    color: @grey;
+#custom-spotify {
+    color: #bd93f9;
+    /*color: #6272a4;*/
 }
 
-#custom-vpn.disconnected {
-    color: @grey;
+#tray {
 }
 
-#custom-media {
-    color: #66CC99;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    color: #66CC99;
-}
-
-#custom-media.custom-vlc {
-    color: #FFA000;
-}
-
-#temperature.critical {
-    color: @red;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    color: @red;
-}
-
-#idle_inhibitor {
-    color: @grey;
-}
-
-#idle_inhibitor.activated {
-    color: @white;
-}

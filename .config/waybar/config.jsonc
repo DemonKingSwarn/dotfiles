@@ -3,25 +3,23 @@
     "position": "top",
     "height": 42,
     "margin": 0,
-    "modules-left": ["custom/os", "wlr/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "battery"],
+    "modules-left": ["wlr/workspaces"],
+    "modules-right": ["pulseaudio", "network", "clock", "battery"],
     "wlr/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "1":  "<span font='13'> 爵</span>",
-            "2":  "<span font='13'> </span>",
-            "3":  "<span font='13'> </span>",
-            "4":  "<span font='13'> </span>",
-            "5":  "<span font='13'> </span>",
-            "6":  "<span font='13'> </span>",
-            "7":  "<span font='13'> </span>",
-            "8":  "<span font='13'> </span>",
-            "9":  "<span font='13'> </span>",
-            "10": "<span font='13'> 﫵</span>"
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九"
         }
     },
     "idle_inhibitor": {
