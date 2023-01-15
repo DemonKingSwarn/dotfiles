@@ -30,8 +30,6 @@
                  (literal :class "workspaces" :content workspace)
                  (label :class "spacer" :text "")
                  (box :orientation "horizontal" :class "bar_right"
-                       (circular-progress :class "disk" :value "${round(EWW_DISK[`/home`].used/EWW_DISK[`/home`].total*100,0)}"
-                                           :max-value 100 :min-value 0 :thickness 2 :size 20 "SSD")
                      (circular-progress :class "cpu" :value "${round(EWW_CPU.avg,0)}"
                                          :max-value 100 :min-value 0 :thickness 2 :size 20 "CPU")
                      (circular-progress :class "mem" :value "${round(EWW_RAM.used_mem/EWW_RAM.total_mem*100,0)}"
