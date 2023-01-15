@@ -18,13 +18,7 @@ alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias diff='diff --color=auto'
 alias df='duf -hide special'
 #alias aria2c="aria2c --file-allocation=none"
-
-
-if [ "$TERM" = "xterm-kitty" ] ; then
-        alias neofetch='neofetch --kitty ~/.config/neofetch/neofetch.jpeg --size 15%'
-else
-        alias neofetch='neofetch --ascii ~/.config/neofetch/ascii-anime-arch'
-fi
+alias neofetch='neofetch --kitty ~/.config/neofetch/neofetch.jpeg --size 20%'
 
 alias cat="bat --paging=never"
 alias less="bat --paging=always"
