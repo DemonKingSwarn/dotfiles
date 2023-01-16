@@ -1,10 +1,10 @@
 * {
-	palenight1: #292D3E;
-	palenight2: #242837;
-	palenight3: #A6Accd;
-	palenight4: #82aaff;
-	palenight5: #89DDFF;
-	palenight6: #ff5370;
+	palenight1: #282a36;
+	palenight2: #21222c;
+	palenight3: #f8f8f2;
+	palenight4: #6272a4;
+	palenight5: #ff5555;
+	palenight6: #ff6e6e;
 	spacing: 2;
 	background-color: var(palenight1);
 	background: var(palenight1);

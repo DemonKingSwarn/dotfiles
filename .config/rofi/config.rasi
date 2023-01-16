@@ -1,8 +1,8 @@
 configuration {
-	modi: "run,ssh,drun,file-browser-extended";
+	modi: "run,ssh,drun,file-browser-extended,window";
 	font: "JetBrains Mono 15";
 	location: 2;
-	terminal: "kitty";
+	terminal: "foot";
 	kb-remove-char-back: "BackSpace";
 	kb-remove-to-eol: "Control+Shift+e";
 	kb-accept-entry: "Control+m,Return,KP_Enter";
