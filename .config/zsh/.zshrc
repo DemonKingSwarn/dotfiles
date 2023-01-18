@@ -87,7 +87,7 @@ FZF-EOF"
 #}
 
 upload() {
-    [ -z $1 ] && echo "no args given" || uwu=$(curl -F"file=@$1" 0x0.st | tail -n 1 | wl-copy)
+    [ -z $1 ] && echo "no args given" || uwu=$(curl -F"f=@$1" https://oshi.at | tail -n 1 | awk '{print $2}' | wl-copy)
 }
 
 hst() {
