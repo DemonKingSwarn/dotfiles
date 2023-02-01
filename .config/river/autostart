@@ -2,4 +2,6 @@
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 dunst &
+waybar &
 udiskie &
+$HOME/.scripts/setbg/set_wallpaper &
