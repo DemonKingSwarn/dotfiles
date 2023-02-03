@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export AMD_VULKAN_ICD=RADV
+igpu=$(lspci -nn | grep VGA | sed 's/^.*\[//;s/\].*$//' | head -n 1)
+
+gamescope --default-touch-mode 4 --prefer-vk-device $igpu --rt -w 1920 -h 1080 -W 1920 -H 1080 -f -U $@
