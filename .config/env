@@ -34,18 +34,31 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export W3M_DIR="$XDG_DATA_HOME"/w3m
+#nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1
 export QT_SCREEN_SCALE_FACTORS="1;1;1"
 export GDK_SCALE=1
 export GDK_DPI_SCALE=1
+export XCURSOR_SIZE=24
+
+# discord rpc for games
+export WINEDLLPATH=/opt/discord-rpc/bin64:/opt/discord-rpc/bin32
+
+export TERM="st-256color"
 
 # set fzf defaults
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 # make bat as a manpage
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# server ip
+export MUNDUS_IP="13.235.105.29"
+export PHONE_IP="192.168.29.29"
 
 export LF_ICONS="\
 di=:\
