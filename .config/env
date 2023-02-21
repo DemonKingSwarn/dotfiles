@@ -8,7 +8,7 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/Applications:$HOME/.local/bin/statusba
 
 # Default applications:
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="wezterm"
 export BROWSER="firefox"
 
 # XDG_BASE_DIR
