@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# copy it to /etc/zsh/zshenv
+
 export ZDOTDIR="$HOME/.config/zsh"
 
 export PATH=/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/sbin:/bin
