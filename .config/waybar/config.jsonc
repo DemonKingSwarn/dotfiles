@@ -1,10 +1,18 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 42,
-    "margin": 0,
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 40, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    // "margin-left":25,
+    // "margin-right":25,
+    "margin-bottom":-5,
+    // "margin-top": 10,
     "modules-left": ["wlr/workspaces"],
-    "modules-right": ["pulseaudio", "network", "clock", "battery"],
+    "modules-center": ["custom/media"],
+    "modules-right": ["network","battery","pulseaudio","clock","tray"],
+    // Modules configuration
     "wlr/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
@@ -22,157 +30,117 @@
             "9": "九"
         }
     },
-    "idle_inhibitor": {
+    // custom modules ////////////////
+    "custom/dunst": {
+        "exec": "~/.config/waybar/scripts/dunst.sh",
+        "return-type": "json",
+        "restart-interval": 1,
+        "on-click": "dunstctl set-paused toggle",
+    },
+    //////////////////////////////////
+    "wlr/workspaces": {
         "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
+        "format-active": " {icon} ",
+        "on-click": "activate",
+        // "format-icons":{
+        //     "10":"10"
+        // }
+        "persistent_workspaces" : {
+            "3" : [],
         }
     },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
     "tray": {
-        "icon-size": 14,
-        "spacing": 8
+        "spacing": 10
     },
     "clock": {
-        "tooltip": false,
-        "format": "  {:%a %d %b %I:%M %p}",
-        "on-click":"$HOME/.config/eww/launch.sh status"
-    },
-    "hyprland/language": {
-        "format": " {}",
-        "format-en": "en",
-        "format-de": "de",
-        "format-tr": "tr"
-    },
-    "cpu": {
-        "format": "龍 {usage:02}%"
+        "format": "{:%A, %B %d, %Y - %H:%M}",
+        "tooltip-format": "{calendar}",
+        "interval": 30,
+        "on-click": "dunstctl history-pop",
     },
     "memory": {
-        "format": " {percentage:02}%"
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "interval": 30,
+        "format": "{used:0.1f}/{total:0.1f}G"
     },
     "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", ""],
-        "on-scroll-up": "light -A 5",
-        "on-scroll-down": "light -U 5"
+        "device": "amdgpu_bl1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
+        "format": "<span font='Liga SFMono Nerd Font'>{icon}</span>  {capacity}% - {time}",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  Charged",
+        "interval": 30,
         "states": {
-            "warning": 30,
-            "critical": 15
+            "warning": 25,
+            "critical": 10
         },
-        "format": "{icon} {capacity:02}%",
-        "format-charging": " {capacity:02}%",
-        "format-plugged": " {capacity:02}%",
-        "format-full": "{icon} full",
-        "format-alt": "{icon} {time}",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "upower": {
-        "icon-size": 14,
-        "hide-if-empty": true,
-        "tooltip": true,
-        "tooltip-spacing": 16
-    },
-    "disk#root": {
-        "interval": 60,
-        "format": " {percentage_used:02}%",
-        "path": "/"
-    },
-    "disk#home": {
-        "interval": 60,
-        "format": " {percentage_used:02}%",
-        "path": "/home"
+        "tooltip": false,
     },
     "network": {
-        "interval": 30,
-        "max-length": 8,
-        "format-wifi": "{icon} {signalStrength}%",
-        "format-ethernet": "{icon} {ifname}",
-        "format-linked": "{icon} no ip",
-        "format-disconnected": "{icon}",
-        "format-icons": {
-            "wifi": "直",
-            "ethernet": "",
-            "linked": "",
-            "disconnected": ""
-        },
-        "tooltip": true,
-        "tooltip-format-wifi": "{essid} {signalStrength}%",
-        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "Disconnected",
-        "on-click-right": "foot -w 720x420 -a nmtui -T nmtui nmtui"
+        "format-wifi": "{essid} ",
+        "tooltip-format": "via {gwaddr} {ifname}",
+        "format-disconnected": "wifi",
+        "on-click": "wofi-wifi-menu",
     },
     "pulseaudio": {
-        "scroll-step": 1,
-        "format": "{icon} {volume:02}% {format_source}",
-        "format-bluetooth": "{icon} {volume:02}% {format_source}",
-        "format-bluetooth-muted": "{icon} 婢 {format_source}",
-        "format-muted": "{icon}  婢  {format_source}",
-        "format-source": " {volume:02}%",
-        "format-source-muted": "",
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
         "format-icons": {
             "headphone": "",
-            "speaker": "蓼",
-            "hands-free": "魯",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["奄", "奔", "墳"]
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
         },
-        "on-click-right": "pavucontrol"
-    },
-    "bluetooth": {
-        "format": "{icon} {status}",
-        "format-connected": "{icon} {device_alias}",
-        "format-connected-battery": "{icon} {device_alias} {device_battery_percentage}%",
-        "format-disabled": "{icon} off",
-        "format-icons": {
-            "enabled": "",
-            "disabled": ""
-        },
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "rfkill toggle bluetooth",
-        "on-click-right": "blueman-manager"
-    },
-    "custom/vpn": {
-        "interval": 4,
-        "format": "{}",
-        "exec": "$HOME/.config/waybar/scripts/vpn.sh gettext",
-        "return-type": "json",
-        "on-click": "$HOME/.config/waybar/scripts/vpn.sh toggle"
+        "on-click": "pavucontrol"
     },
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 32,
-        "escape": true,
+        "max-length": 40,
+        "on-click" : "playerctl -p spotify_player play-pause",
+        "on-click-right" : "playerctl -p spotify_player next",
         "format-icons": {
-            "spotify": "阮",
-            "default": ""
+            "spotify": " ",
+            "default": " "
         },
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl stop",
-        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "custom/os": {
-        "tooltip": false,
-        "format": "",
-        "on-click": "tofi-drun --drun-launch=true"
-    },
-    "custom/power": {
-        "tooltip": false,
-        "format": "襤",
-        "on-click": "$HOME/.config/eww/launch.sh power"
+        "escape": true,
+        "exec": "python $HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null" // Script in resources folder
     }
 }
+
