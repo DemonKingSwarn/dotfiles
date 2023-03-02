@@ -1,11 +1,7 @@
 configuration {
-	font: "JetBrains Mono Nerd Font 13";
-  show-icons: true;
-  icon-theme: "Dracula";
-  display-drun: "";
-  display-run: "";
-  display-window: "﩯 ";
-  display-combi: "  ";
+	modi: "run,ssh,drun,file-browser-extended,window";
+	font: "JetBrains Mono 15";
+	location: 2;
 	terminal: "wezterm";
 	kb-remove-char-back: "BackSpace";
 	kb-remove-to-eol: "Control+Shift+e";
@@ -25,4 +21,4 @@ configuration {
   }
 }
 
-@theme "~/.config/rofi/styles/main.rasi"
+@theme "~/.config/rofi/palenight.rasi"

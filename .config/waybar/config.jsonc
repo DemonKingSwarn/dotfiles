@@ -38,17 +38,6 @@
         "on-click": "dunstctl set-paused toggle",
     },
     //////////////////////////////////
-    "wlr/workspaces": {
-        "format": "{icon}",
-        "format-active": " {icon} ",
-        "on-click": "activate",
-        // "format-icons":{
-        //     "10":"10"
-        // }
-        "persistent_workspaces" : {
-            "3" : [],
-        }
-    },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
         "format-disconnected": "Disconnected ",
