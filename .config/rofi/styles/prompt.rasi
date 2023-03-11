@@ -31,7 +31,7 @@ configuration {
     vertical-align: 0.5;
     
     // Colors
-    fg: #ffffff;
+    fg: #dde1e6;
     transparent: #00000000;
 }
 window {
@@ -44,7 +44,7 @@ window {
     border-radius: 0;
 }
 window {
-    background-color: #161616;
+    background-color: #262626;
     //background-color: @bg;
 }
 mainbox,inputbar,listview,message,textbox,prompt,entry{
