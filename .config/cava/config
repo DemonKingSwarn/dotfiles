@@ -1,3 +1,7 @@
+[general]
+
+;bar_width = 1
+
 [color]
 
 gradient = 1
