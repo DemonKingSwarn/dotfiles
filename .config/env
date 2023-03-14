@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# copy it to /etc/zsh/zshenv
-
 export ZDOTDIR="$HOME/.config/zsh"
 
 export PATH=/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/sbin:/bin
@@ -45,7 +43,8 @@ export QT_SCALE_FACTOR=1
 export QT_SCREEN_SCALE_FACTORS="1;1;1"
 export GDK_SCALE=1
 export GDK_DPI_SCALE=1
-export XCURSOR_SIZE=24
+export XCURSOR_SIZE=18
+export XCURSOR_THEME="Bibata-Modern-Amber"
 
 # discord rpc for games
 export WINEDLLPATH=/opt/discord-rpc/bin64:/opt/discord-rpc/bin32
@@ -61,6 +60,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # server ip
 export MUNDUS_IP="13.235.105.29"
 export PHONE_IP="192.168.29.29"
+
+export OPENAI_API_KEY="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"
 
 export LF_ICONS="\
 di=:\
