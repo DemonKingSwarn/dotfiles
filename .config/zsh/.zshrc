@@ -15,6 +15,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.local/state/zsh/history
 
+PROMPT_EOL_MARK=' ⏎ '
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
