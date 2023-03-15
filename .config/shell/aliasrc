@@ -18,7 +18,7 @@ alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias diff='diff --color=auto'
 alias df='duf -hide special'
 #alias aria2c="aria2c --file-allocation=none"
-alias neofetch='neofetch --kitty ~/.config/neofetch/neofetch.jpeg --size 20%'
+alias neofetch='neofetch --sixel ~/.config/neofetch/neofetch.jpeg --size 20%'
 alias irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/irssi"
 alias cat="bat --paging=never"
 alias less="bat --paging=always"
