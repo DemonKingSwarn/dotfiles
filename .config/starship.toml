@@ -1,6 +1,6 @@
 # Don't print a new line at the start of the prompt
 add_newline = true
-
+command_timeout = 100000000
 # Make prompt a single line instead of two lines
 [line_break]
 disabled = true
