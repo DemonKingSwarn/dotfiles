@@ -1,0 +1,18 @@
+#!/bin/sh
+
+menu()
+{
+	printf "Yes\n"
+	printf "No\n"
+}
+
+choice=$(menu | rofi -theme ~/.config/rofi/styles/prompt.rasi -dmenu -p "Do you want to shutdown?")
+
+case $choice in
+	Yes)
+		poweroff ;;
+	No)
+		notify-send "SMENU" "Exiting..." && exit 0 ;;
+	*)
+		notify-send "SMENU" "Nothing selected..." && exit 1 ;;
+esac
