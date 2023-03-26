@@ -10,7 +10,7 @@ choice=$(menu | rofi -theme ~/.config/rofi/styles/prompt.rasi -dmenu -p "Do you 
 
 case $choice in
 	Yes)
-		poweroff ;;
+		pkexec poweroff ;;
 	No)
 		notify-send "SMENU" "Exiting..." && exit 0 ;;
 	*)

@@ -17,7 +17,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export LIBVA_DRIVER_NAME=nvidia
-export VDPAU_DRIVER=nvidia
+#export VDPAU_DRIVER=nvidia
 #export __NV_PRIME_RENDER_OFFLOAD=1
 #export __GL_SYNC_TO_VBLANK=0
 
