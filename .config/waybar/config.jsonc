@@ -11,7 +11,7 @@
     // "margin-top": 10,
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["custom/media"],
-    "modules-right": ["network","battery","pulseaudio","clock","tray"],
+    "modules-right": ["network","battery","pulseaudio", "backlight", "clock","tray"],
     // Modules configuration
     "wlr/workspaces": {
         "tooltip": true,
@@ -78,8 +78,9 @@
         "format": "{used:0.1f}/{total:0.1f}G"
     },
     "backlight": {
-        "device": "amdgpu_bl1",
-        "format": "{percent}% {icon}",
+        "device": "intel_backlight",
+        "scroll-step": 5,
+	"format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
