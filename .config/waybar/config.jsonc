@@ -11,6 +11,7 @@
     // "margin-top": 10,
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["custom/media"],
+    //"modules-center": ["hyprland/window"],
     "modules-right": ["network","battery","pulseaudio", "backlight", "clock","tray"],
     // Modules configuration
     "wlr/workspaces": {
@@ -131,6 +132,9 @@
         },
         "escape": true,
         "exec": "python $HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null" // Script in resources folder
-    }
+    },
+    "hyprland/window": {
+        "format": "{}"
+    },
 }
 
