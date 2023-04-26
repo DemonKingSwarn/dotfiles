@@ -1,18 +1,18 @@
-/* Make sure to change the font, which I have set to "Liga SFMono Nerd Font 15" in this config */
+@import     "/home/demonkingswarn/.config/rofi/styles/colors.rasi"
 
 configuration {
-    show-icons: true;
+    show-icons:         false;
 }
 
 * {
-    pink:             #ff7eb6;
-    cyan:             #82cfff;
+    pink:               @base0C;
+    cyan:               @base0F;
 
-    accent-color:     #ffffff;
-    urgent-color:     #ee5396;
+    accent-color:       @base06;
+    urgent-color:       @base0A;
 
-    background-color: transparent;
-    text-color:       #ffffff;
+    background-color:   transparent;
+    text-color:         @text;
     margin:             0;
     padding:            0;
 }
@@ -24,13 +24,13 @@ window {
     y-offset:           -100px;
 
     enabled:            true;
-    background-color:   #262626;
+    background-color:   @background;
     cursor:             "default";
 }
 
 inputbar {
     enabled:            true;
-    background-color:   #161616;
+    background-color:   @prompt;
     padding:            10px;
     children:           ["entry"];
 }
@@ -62,14 +62,15 @@ prompt {
 
 textbox {
     padding:            0.5em 1.5em;
-    background-color:   #161616;
+    background-color:   @prompt;
 }
 
 element {
     enabled:            true;
-    padding:            0.75em 1.25em;
+    margin:             0 0.75em;
+    padding:            0.5em 1em;
     cursor:             pointer;
-    orientation:        horizontal;
+    orientation:        vertical;
 }
 
 element-text {
@@ -77,32 +78,9 @@ element-text {
     cursor:             inherit;
     vertical-align:     0.5;
     horizontal-align:   0.0;
-    font:              "Liga SFMono Nerd Font 15";
+    font:               "JetBrains Mono Nerd Font 14";
 }
 
 element-text selected {
-  text-color: @cyan;
-}
-
-@media (min-width: 2400) {
-    listview {
-        rows:                    12;
-    }
-}
-
-@media (min-width: 3440) {
-    listview {
-        rows:                    16;
-    }
-}
-
-element-icon {
-    padding:                        -40px 0px;
-    border:                         4px 4px solid 4px 4px;
-    border-radius:                  10;
-    size:                           180;
-}
-
-element-icon selected {
-    border-color:                   @pink;
+    text-color:           @cyan;
 }

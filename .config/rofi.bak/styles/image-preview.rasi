@@ -1,18 +1,18 @@
-/* Make sure to change the font, which I have set to "Liga SFMono Nerd Font 15" in this config */
+@import     "/home/demonkingswarn/.config/rofi/styles/colors.rasi"
 
 configuration {
     show-icons: true;
 }
 
 * {
-    pink:             #ff7eb6;
-    cyan:             #82cfff;
+    pink:             @base0C;
+    cyan:             @base0F;
 
-    accent-color:     #ffffff;
-    urgent-color:     #ee5396;
+    accent-color:     @base06;
+    urgent-color:     @base0A;
 
     background-color: transparent;
-    text-color:       #ffffff;
+    text-color:       @base06;
     margin:             0;
     padding:            0;
 }
@@ -24,13 +24,13 @@ window {
     y-offset:           -100px;
 
     enabled:            true;
-    background-color:   #262626;
+    background-color:   @background;
     cursor:             "default";
 }
 
 inputbar {
     enabled:            true;
-    background-color:   #161616;
+    background-color:   @prompt;
     padding:            10px;
     children:           ["entry"];
 }
@@ -62,7 +62,7 @@ prompt {
 
 textbox {
     padding:            0.5em 1.5em;
-    background-color:   #161616;
+    background-color:   @prompt;
 }
 
 element {
@@ -73,11 +73,11 @@ element {
 }
 
 element-text {
-    highlight:          @pink;
+    highlight: @pink;
     cursor:             inherit;
     vertical-align:     0.5;
     horizontal-align:   0.0;
-    font:              "Liga SFMono Nerd Font 15";
+    font:              "JetBrains Mono Nerd Font 15";
 }
 
 element-text selected {

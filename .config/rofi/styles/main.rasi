@@ -78,7 +78,7 @@ element-text {
     cursor:             inherit;
     vertical-align:     0.5;
     horizontal-align:   0.0;
-    font:               "JetBrains Mono Nerd Font 14";
+    font:               "Liga SFMono Nerd Font 14";
 }
 
 element-text selected {

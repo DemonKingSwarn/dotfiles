@@ -1,7 +1,7 @@
 configuration {
-	font: "JetBrains Mono 13";
+	font: "JetBrains Mono 12";
   show-icons: true;
-  icon-theme: "Papirus";
+  icon-theme: "Dracula";
   display-drun: "";
   display-run: "";
   display-window: "﩯 ";
@@ -25,4 +25,4 @@ configuration {
   }
 }
 
-@theme "~/.config/rofi/styles/main.rasi"
+@theme "~/.config/rofi/material.rasi"

@@ -1,7 +1,7 @@
 @import     "/home/demonkingswarn/.config/rofi/styles/colors.rasi"
 
 configuration {
-    font:               "JetBrains Mono 13";
+    font:               "JetBrains Mono Nerd Font 13";
     sidebar-mode:       false;
     show-icons:         true;
     icon-theme:         "Dracula";
@@ -34,7 +34,7 @@ prompt {
 button {
     action:             "ok";
     str:                " ";
-    font:               "Liga SFMono Nerd Font 13";
+    font:               "JetBrains Mono Nerd Font 13";
     expand:             false;
     text-color:         @text;
     background-color:   @transparent;
@@ -43,7 +43,7 @@ button {
 }
 
 entry {
-    font:               "Liga SFMono Nerd Font 13";
+    font:               "JetBrains Mono Nerd Font 13";
     background-color:   @transparent;
     text-color:         @text;
     expand:             true;
@@ -116,7 +116,7 @@ element-icon {
 
 element-text {
     highlight:          @pink;
-    font:               "JetBrains Mono 13";
+    font:               "JetBrains Mono Nerd Font Regular 13";
     expand:             true;
     horizontal-align:   0;
     vertical-align:     0.5;

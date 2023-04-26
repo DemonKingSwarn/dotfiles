@@ -1,12 +1,12 @@
 configuration {
 	font: "JetBrains Mono 13";
   show-icons: true;
-  icon-theme: "Papirus";
+  icon-theme: "Dracula";
   display-drun: "";
   display-run: "";
   display-window: "﩯 ";
   display-combi: "  ";
-	terminal: "footclient";
+	terminal: "wezterm";
 	kb-remove-char-back: "BackSpace";
 	kb-remove-to-eol: "Control+Shift+e";
 	kb-accept-entry: "Control+m,Return,KP_Enter";
