@@ -120,4 +120,4 @@ else
     eval "$(starship init zsh)"
 fi
 
-figlet "$(date '+ %H:%M %p')" | lolcat
+#figlet "$(date '+ %I:%M %p')" | lolcat
