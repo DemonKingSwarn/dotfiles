@@ -33,10 +33,10 @@ else
 fi
 
 # Confirmations
-#alias mv='mvg -ig'
+alias mv='mvg -ig'
 alias rm='rip -i'
 alias ln='ln -i'
-#alias cp='cpg -ig'
+alias cp='cpg -ig'
 
 alias shred='shred -f -u -z -v -n 3'
 
