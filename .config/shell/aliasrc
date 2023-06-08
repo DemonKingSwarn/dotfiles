@@ -23,6 +23,7 @@ abbr irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/i
 abbr cat="bat --paging=never"
 abbr less="bat --paging=always"
 abbr x='exit'
+abbr logout='pkill -u $USER'
 
 if [ "$TERM" = "linux" ] ; then
         abbr ls='/bin/ls --color=auto'
