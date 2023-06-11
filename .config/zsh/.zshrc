@@ -110,7 +110,7 @@ plugins_dir="/usr/share/zsh/plugins"
 source "$HOME/.config/shell/profile"
 source "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$plugins_dir/fzf-tab/fzf-tab.plugin.zsh"
-source "$plugins_dir/zsh-abbr/zsh-abbr.zsh"
+#source "$plugins_dir/zsh-abbr/zsh-abbr.zsh"
 source "$HOME/.config/shell/aliasrc"
 
 eval "$(zoxide init zsh)"

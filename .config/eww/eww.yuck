@@ -1,6 +1,3 @@
-;; Variables
-
-(defpoll monitors :interval "1m" "hyprctl monitors -j | jq -rc '[ .[].id ] | sort_by( . )'")
 (defpoll clock_time :interval "5s" "date '+\%H:\%M'")
 (defpoll clock_date :interval "1h" "date '+%b %d, %Y'")
 (defpoll calendar_day :interval "2h" "date '+%d'")
@@ -11,16 +8,20 @@
 (defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
 (deflisten workspace "scripts/workspace")
 (deflisten appname "scripts/appname")
+(deflisten idle "scripts/idel")
 
-(defvar vol_reveal false)
+(defvar vol_reveal true)
 (defvar wifi_rev false)
 (defvar time_rev false)
-
-;; widgets
 
 (defwidget workspaces []
   (literal
   :content workspace))
+
+(defwidget idle []
+    (literal
+    :class "idle"
+    :content idle))
 
 (defwidget appnames []
   (eventbox
@@ -103,6 +104,7 @@
         :class "clock_time_class"
       :onclick "${EWW_CMD} open --toggle calendar" clock_date))))
 
+
 (defwidget sep []
   (box
     :class "module-2"
@@ -144,11 +146,10 @@
     (volume)
     (wifi)
     (sep)
-    (mem)
+    (idle)
     (sep)
     (clock_module)
   ))
-
 (defwidget bar_layout []
   (centerbox
     :class "bar_class"
@@ -157,62 +158,29 @@
     (center)
     (right)
   ))
-(defwindow bar0
-  :monitor 0
-  :exclusive false
-  :geometry (geometry
-    :x "15px"
-    :y "0px"
-    :width "100%"
-    :height "50px"
-  :anchor "top center")
-  :stacking "fg"
-  :windowtype "dock"
-  (bar_layout))
-(defwindow bar1
-  :monitor 1
-  :exclusive false
-  :geometry (geometry
-    :x "15px"
-    :y "0px"
-    :width "99%"
-    :height "50px"
-  :anchor "top center")
-  :stacking "fg"
-  :windowtype "dock"
-  (bar_layout))
-(defwindow bar2
-  :monitor 2
-  :exclusive false
-  :geometry (geometry
-    :x "15px"
-    :y "0px"
-    :width "99%"
-    :height "50px"
-  :anchor "top center")
-  :stacking "fg"
-  :windowtype "dock"
-  (bar_layout))
 
-;;Calendar Widget
-(defwidget cal []
-  (box
-    :class "cal"
-    :orientation "v"
-    (box
-      :class "cal-in"
-      (calendar
-        :day calendar_day
-      :year calendar_year))))
-(defwindow calendar
-  :stacking "fg"
-  :focusable "false"
-  :screen 1
+(defwindow bar
   :monitor 0
+  :exclusive true
   :geometry (geometry
-    :x "20"
-    :y "7%"
+    :height "3%"
+    :width "100%"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :windowtype "dock"
+(bar_layout))
+
+
+(defwindow calendar
+  :monitor 0
+  :exclusive false
+  :geometry (geometry
+    :height "20%"
+    :width "20%"
     :anchor "top right"
-    :width "270px"
-  :height "60px")
-  (cal))
+  )
+  :stacking "fg"
+  :windowtype "normal"
+(cal))
+

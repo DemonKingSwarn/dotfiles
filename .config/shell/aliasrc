@@ -1,54 +1,54 @@
 #!/bin/zsh
 
-abbr dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-abbr ..='z ..'
-abbr cd='z'
-abbr zrc="nvim $HOME/.config/zsh/.zshrc"
-abbr ga='git add'
-abbr gc='git commit -m'
-abbr push='git push'
-abbr weather='curl -s "https://wttr.in/?1n"'
-abbr vps='ssh -p 54783 demon@3.108.32.164'
-abbr pacgraph='pacgraph --show-req-by -b "#232738" -l "#9778d3" -t "#cca9c6" -d "#b8d0eb"'
-abbr grep='grep --color=auto'
-abbr stow='stow --ignore=.git'
-abbr wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
-abbr monerod='monerod --data-dir "$XDG_DATA_HOME"/bitmonero'
-abbr yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
-abbr diff='diff --color=auto'
-abbr df='duf -hide special'
-#abbr aria2c="aria2c --file-allocation=none"
-abbr neofetch='neofetch --sixel ~/.config/neofetch/neofetch.jpeg --size 20%'
-abbr irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/irssi"
-abbr cat="bat --paging=never"
-abbr less="bat --paging=always"
-abbr x='exit'
-abbr logout='pkill -u $USER'
+alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias ..='z ..'
+alias cd='z'
+alias zrc="nvim $HOME/.config/zsh/.zshrc"
+alias ga='git add'
+alias gc='git commit -m'
+alias push='git push'
+alias weather='curl -s "https://wttr.in/?1n"'
+alias vps='ssh -p 54783 demon@3.108.32.164'
+alias pacgraph='pacgraph --show-req-by -b "#232738" -l "#9778d3" -t "#cca9c6" -d "#b8d0eb"'
+alias grep='grep --color=auto'
+alias stow='stow --ignore=.git'
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias monerod='monerod --data-dir "$XDG_DATA_HOME"/bitmonero'
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+alias diff='diff --color=auto'
+alias df='duf -hide special'
+#alias aria2c="aria2c --file-allocation=none"
+alias neofetch='neofetch --sixel ~/.config/neofetch/neofetch.jpeg --size 20%'
+alias irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/irssi"
+alias cat="bat --paging=never"
+alias less="bat --paging=always"
+alias x='exit'
+alias logout='pkill -u $USER'
 
 if [ "$TERM" = "linux" ] ; then
-        abbr ls='/bin/ls --color=auto'
+        alias ls='/bin/ls --color=auto'
 else
-        abbr ls='exa --icons'
-        abbr ll='exa -lgh --icons'
-        abbr la='exa -lagh --icons'
+        alias ls='exa --icons'
+        alias ll='exa -lgh --icons'
+        alias la='exa -lagh --icons'
 fi
 
 # Confirmations
-abbr mv='mvg -ig'
-abbr rm='rip -i'
-abbr ln='ln -i'
-abbr cp='cpg -ig'
+alias mv='mvg -ig'
+alias rm='rip -i'
+alias ln='ln -i'
+alias cp='cpg -ig'
 
-abbr shred='shred -f -u -z -v -n 3'
+alias shred='shred -f -u -z -v -n 3'
 
 # QoL
-abbr e="$EDITOR"
-abbr c='clear'
-abbr xcc='xclip -selection clipboard'
-abbr xco='xclip -selection clipboard -o'
+alias e="$EDITOR"
+alias c='clear'
+alias xcc='xclip -selection clipboard'
+alias xco='xclip -selection clipboard -o'
 
 # Package Management
-abbr install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
-abbr uninstall="paru -R --noconfirm"
-abbr update="paru -Syu --noconfirm"
-abbr garbage="paru -Rcns $(paru -Qqdtt)"
+alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
+alias uninstall="paru -R --noconfirm"
+alias update="paru -Syu --noconfirm"
+alias garbage="paru -Rcns $(paru -Qqdtt)"
