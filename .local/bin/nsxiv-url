@@ -29,4 +29,4 @@ while [ -n "$1" ]; do
 done
 
 [ "$(find "$cache_dir" -type f -print | wc -l)" -ne 0 ] &&
-  nsxiv -p "$cache_dir"
+  nsxiv -tfpo "$cache_dir"
