@@ -2,8 +2,8 @@
 export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-export XDG_CURRENT_DESKTOP=hyprland
-export XDG_SESSION_DESKTOP=hyprland
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
 export XDG_CURRENT_SESSION_TYPE=wayland
 
 export GDK_BACKEND="wayland,x11"
@@ -14,12 +14,13 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME=qt5ct 
 
-export GBM_BACKEND=nvidia-drm
+#export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export LIBVA_DRIVER_NAME=nvidia
-#export VDPAU_DRIVER=nvidia
+export VDPAU_DRIVER=nvidia
 #export __NV_PRIME_RENDER_OFFLOAD=1
 #export __GL_SYNC_TO_VBLANK=0
 
-exec Hyprland
+exec sway --unsupported-gpu
+#exec Hyprland
 #exec river

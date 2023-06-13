@@ -6,6 +6,7 @@
 (defpoll memory_usage :interval "1s" "scripts/memory")
 (defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
 (defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
+(defpoll battery :interval "5s" "acpi | awk '{print $4}' | cut -d',' -f1")
 (deflisten workspace "scripts/workspace")
 (deflisten appname "scripts/appname")
 (deflisten idle "scripts/idel")
@@ -88,6 +89,16 @@
     :text memory_usage)
   ))
 
+(defwidget bat []
+    (box
+        :class "bat_module"
+        :vexpand "false"
+        :hexpand "false"
+        (label
+        :text battery)
+    )
+)
+
 (defwidget clock_module []
   (eventbox
     :onhover "${EWW_CMD} update time_rev=true"
@@ -145,6 +156,8 @@
     :class "right_modules"
     (volume)
     (wifi)
+    (sep)
+    (bat)
     (sep)
     (idle)
     (sep)
