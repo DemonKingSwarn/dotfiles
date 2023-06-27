@@ -133,6 +133,12 @@
         "escape": true,
         "exec": "python $HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null" // Script in resources folder
     },
+    
+    "custom/appname": {
+        "max-length": 40,
+        "escape": true,
+        "exec": "~/.config/eww/scripts/appname 2> /dev/null"
+    },
     "hyprland/window": {
         "format": "{}"
     },

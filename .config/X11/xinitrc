@@ -9,6 +9,7 @@ else
 	. "$HOME/.xprofile"
 fi
 
+
 exec bspwm
 #exec leftwm
 #exec openbox

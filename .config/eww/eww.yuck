@@ -2,16 +2,17 @@
 (defpoll clock_date :interval "1h" "date '+%b %d, %Y'")
 (defpoll calendar_day :interval "2h" "date '+%d'")
 (defpoll calendar_year :interval "2h" "date '+%Y'")
-(defpoll volume_percent :interval "1s"  "scripts/volume get")
+(defpoll volume_percent :interval "1s"  "pamixer --get-volume")
 (defpoll memory_usage :interval "1s" "scripts/memory")
 (defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
 (defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
-(defpoll battery :interval "5s" "acpi | awk '{print $4}' | cut -d',' -f1")
+(defpoll battery :interval "5s" "echo $(cat /sys/class/power_supply/BAT1/capacity)%")
 (deflisten workspace "scripts/workspace")
 (deflisten appname "scripts/appname")
 (deflisten idle "scripts/idel")
+(deflisten pow "scripts/pow")
 
-(defvar vol_reveal true)
+(defvar vol_reveal false)
 (defvar wifi_rev false)
 (defvar time_rev false)
 
@@ -23,6 +24,11 @@
     (literal
     :class "idle"
     :content idle))
+
+(defwidget pow []
+    (literal
+    :class "power"
+    :content pow))
 
 (defwidget appnames []
   (eventbox

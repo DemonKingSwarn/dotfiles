@@ -1,0 +1,13 @@
+#!/bin/sh
+
+while true
+do
+      if pgrep -x "byebye" > /dev/null
+      then 
+         echo "(button :class \"power_btn_on\" :onclick \"killall byebye\"\"⏻\")"
+      else
+         echo "(button :class \"power_btn_off\" :onclick \"byebye &\"\"⏻\")"
+      fi
+      sleep 1
+done
+

@@ -16,7 +16,7 @@ alt + d
 	dmenu_run -p "RUN: "
 
 super + Return
-	st
+	wezterm
 
 alt + Return
     kitty -1

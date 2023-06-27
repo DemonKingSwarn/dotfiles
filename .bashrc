@@ -1,5 +1,7 @@
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
+shopt -s autocd
+
 alias diff='diff --color=auto'
 
 eval "$(starship init bash)"

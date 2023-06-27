@@ -101,6 +101,37 @@ help() {
     "$@" --help 2>&1 | bat --plain --language=help
 }
 
+pipdepuninstall () 
+{ 
+    pip install -q pipdeptree
+    pipdeptree -p$1 -fj | jq ".[] | .package.key" | xargs pip uninstall -y
+}
+
+transfer() {
+  if tty -s; then
+    file="$1"
+    file_name=$(basename "$file")
+    
+    if [ ! -e "$file" ]; then
+      echo "$file: No such file or directory" >&2
+      return 1
+    fi
+    
+    if [ -d "$file" ]; then
+      file_name="$file_name.zip"
+      (
+        cd "$file" && zip -r -q - .
+      ) | curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name" | tee /dev/null | grep https | wl-copy
+    else
+      cat "$file" | curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name" | tee /dev/null | grep https | wl-copy
+    fi
+  else
+    file_name=$1
+    curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name" | tee /dev/null | grep https | wl-copy
+  fi
+}
+
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
