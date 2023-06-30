@@ -27,6 +27,19 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'gpanders/nvim-parinfer'
+Plug 'mfussenegger/nvim-dap'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
+
 call plug#end()
 
 
@@ -34,7 +47,7 @@ call plug#end()
 set autoindent
 set expandtab
 set number relativenumber
-colorscheme dracula
+" colorscheme dracula
 set background=dark
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_diff_background = 1
