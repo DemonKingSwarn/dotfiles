@@ -10,9 +10,9 @@
     "margin-bottom":-5,
     // "margin-top": 10,
     "modules-left": ["wlr/workspaces"],
-    "modules-center": ["custom/media"],
+    //"modules-center": [],
     //"modules-center": ["hyprland/window"],
-    "modules-right": ["network","battery","pulseaudio", "backlight", "clock","tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "backlight", "clock","tray"],
     // Modules configuration
     "wlr/workspaces": {
         "tooltip": true,
@@ -29,14 +29,21 @@
             "7": "七",
             "8": "八",
             "9": "九"
-        }
+        },
+        "active-only": false,
+        "sort-by-name": true,
+        "all-outputs":  true
+    },
+    "river/tags": {
+    "num-tags": 9,
+    "tag-labels": ["一","二","三","四","五","六","七","八","九"]
     },
     // custom modules ////////////////
     "custom/dunst": {
         "exec": "~/.config/waybar/scripts/dunst.sh",
         "return-type": "json",
         "restart-interval": 1,
-        "on-click": "dunstctl set-paused toggle",
+        "on-click": "dunstctl set-paused toggle"
     },
     //////////////////////////////////
     "mpd": {
@@ -65,6 +72,14 @@
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        },
+        "on-click": "way-inhibitor"
+    },
     "tray": {
         "spacing": 10
     },
@@ -72,7 +87,7 @@
         "format": "{:%A, %B %d, %Y - %I:%M %p}",
         "tooltip-format": "{calendar}",
         "interval": 30,
-        "on-click": "dunstctl history-pop",
+        "on-click": "notify-send history-pop"
     },
     "memory": {
         "interval": 30,
