@@ -18,17 +18,17 @@
 
 (defwidget workspaces []
   (literal
-  :content workspace))
+   :content workspace))
 
 (defwidget idle []
     (literal
-    :class "idle"
-    :content idle))
+     :class "idle"
+     :content idle))
 
 (defwidget pow []
     (literal
-    :class "power"
-    :content pow))
+     :class "power"
+     :content pow))
 
 (defwidget appnames []
   (eventbox
@@ -38,7 +38,7 @@
       :vexpand "false"
       :hexpand "false"
       (literal
-      :content appname))))
+       :content appname))))
 
 (defwidget volume []
   (eventbox
@@ -60,11 +60,11 @@
           :tooltip "${volume_percent}%"
           :max 100
           :min 0
-        :onchange "pamixer --set-volume {}" ))
+         :onchange "pamixer --set-volume {}"))
       (button
         :onclick "${EWW_CMD} open --toggle audio_ctl"
         :class "volume_icon"
-      "墳"))))
+       "墳"))))
 
 (defwidget wifi []
   (eventbox
@@ -80,11 +80,11 @@
         :duration "350ms"
         (label
           :class "module_essid"
-        :text ESSID_WLAN))
+         :text ESSID_WLAN))
       (button
         :class "module-wif"
         :onclick "networkmanager_dmenu"
-      WLAN_ICON))))
+       WLAN_ICON))))
 
 (defwidget mem []
   (box
@@ -92,8 +92,8 @@
     :vexpand "false"
     :hexpand "false"
     (label
-    :text memory_usage)
-  ))
+     :text memory_usage)))
+  
 
 (defwidget bat []
     (box
@@ -101,9 +101,9 @@
         :vexpand "false"
         :hexpand "false"
         (label
-        :text battery)
-    )
-)
+         :text battery)))
+    
+
 
 (defwidget clock_module []
   (eventbox
@@ -116,10 +116,10 @@
       :spacing "0"
       (label
         :text clock_time
-      :class "clock_time_class" )
+       :class "clock_time_class")
       (button
         :class "clock_time_class"
-      :onclick "${EWW_CMD} open --toggle calendar" clock_date))))
+       :onclick "${EWW_CMD} open --toggle calendar" clock_date))))
 
 
 (defwidget sep []
@@ -129,14 +129,14 @@
     :hexpand "false"
     (label
       :class "separ"
-    :text "|")))
+     :text "|")))
 
 (defwidget gap []
   (box
     :orientation "h"
     :hexpand "false"
     :visible "true"
-  :width "150"))
+   :width "150"))
 
 
 ;;define widget groups
@@ -167,41 +167,41 @@
     (sep)
     (idle)
     (sep)
-    (clock_module)
-  ))
+    (clock_module)))
+  
 (defwidget bar_layout []
   (centerbox
     :class "bar_class"
     :orientation "h"
     (left)
     (center)
-    (right)
-  ))
+    (right)))
+  
 
 (defwindow bar
   :monitor 0
   :exclusive true
   :geometry (geometry
-    :height "3%"
-    :width "100%"
-    :anchor "top center"
-  )
+             :height "3%"
+             :width "100%"
+             :anchor "top center")
+  
   :stacking "fg"
   :windowtype "dock"
-(bar_layout))
+ (bar_layout))
 
 
 (defwindow calendar
   :monitor 0
   :exclusive false
   :geometry (geometry
-    :height "20%"
-    :width "20%"
-    :anchor "top right"
-  )
+             :height "20%"
+             :width "20%"
+             :anchor "top right")
+  
   :stacking "fg"
   :windowtype "normal"
-(cal))
+ (cal))
 
 (defpoll date :interval "5s"
          `date +'{"hour":"%I","min":"%M","am_pm":"%p","day":"%d","month":"%m","year":"%Y"}'`)
