@@ -11,3 +11,4 @@ image/webp=feh.desktop
 image/gif=mpv.desktop;
 application/octet-stream=mpv.desktop;
 text/markdown=emacs.desktop
+x-scheme-handler/whatsapp=WhatsApp.desktop
