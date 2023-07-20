@@ -1,7 +1,8 @@
 #!/bin/sh
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-mako &
+#mako &
+dunst &
 #~/.config/eww/launch_bar &
 waybar &
 udiskie &

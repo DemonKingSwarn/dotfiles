@@ -11,7 +11,7 @@ HIST_FILE="${MY_PATH}/history.txt"
 OPENER=xdg-open
 TERM_EMU=$TERMINAL
 TEXT_EDITOR=$EDITOR
-FILE_MANAGER=nautilus
+FILE_MANAGER=pcmanfm
 BLUETOOTH_SEND=blueman-sendto
 
 CUR_DIR=$PWD
