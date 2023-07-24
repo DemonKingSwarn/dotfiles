@@ -1,6 +1,6 @@
 sort=+time
 layer=overlay
-default-timeout=5000
+default-timeout=5
 max-visible=5
 max-history=20
 
