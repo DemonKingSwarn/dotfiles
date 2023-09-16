@@ -23,4 +23,5 @@ export __GL_SYNC_TO_VBLANK=0
 
 #exec sway --unsupported-gpu
 #exec Hyprland
-exec river
+#exec river
+exec gnome-session
