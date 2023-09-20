@@ -88,10 +88,6 @@ FZF-EOF"
 #    mpv ytdl://ytsearch:"$*"
 #}
 
-upload() {
-    [ -z $1 ] && echo "no args given" || uwu=$(curl -F"f=@$1" https://oshi.at)
-}
-
 hst() {
     hist=$(cat $HOME/.local/state/zsh/history | sort | uniq | fzf)
     printf "%s" "$hist" | wl-copy
@@ -107,30 +103,18 @@ pipdepuninstall ()
     pipdeptree -p$1 -fj | jq ".[] | .package.key" | xargs pip uninstall -y
 }
 
-transfer() {
-  if tty -s; then
-    file="$1"
-    file_name=$(basename "$file")
-    
-    if [ ! -e "$file" ]; then
-      echo "$file: No such file or directory" >&2
-      return 1
-    fi
-    
-    if [ -d "$file" ]; then
-      file_name="$file_name.zip"
-      (
-        cd "$file" && zip -r -q - .
-      ) | curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name" | tee /dev/null | grep https | wl-copy
-    else
-      cat "$file" | curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name" | tee /dev/null | grep https | wl-copy
-    fi
-  else
-    file_name=$1
-    curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name" | tee /dev/null | grep https | wl-copy
-  fi
+upfile() {
+    dir=$(uuidgen | cut -d'-' -f1)
+    mkdir /tmp/$dir
+    cp $1 /tmp/$dir
+    zip -r /tmp/$dir.zip /tmp/$dir
+    zipcloak /tmp/$dir.zip
+    curl -F"file=@/tmp/$dir.zip" 0x0.st
 }
 
+epic() {
+    cd $HOME/.local/share/wine/drive_c/Program\ Files\ \(x86\)/Epic\ Games/Launcher/Portal/Binaries/Win64/
+}
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -141,13 +125,12 @@ plugins_dir="/usr/share/zsh/plugins"
 source "$HOME/.config/shell/profile"
 source "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$plugins_dir/fzf-tab/fzf-tab.plugin.zsh"
-#source "$plugins_dir/zsh-abbr/zsh-abbr.zsh"
 source "$HOME/.config/shell/aliasrc"
 
 eval "$(zoxide init zsh)"
 
 if [ "$TERM" = "linux" ] ; then
-        colorscript -r
+        echo ""
 else
     eval "$(starship init zsh)"
 fi
