@@ -8,7 +8,7 @@ For daily usage, I recommend forking [[https://github.com/demonkingswarn/dotfile
 
 Enjoy! 🚀
 
-[[https://github.com/DemonKingSwarn/dotfiles/raw/main/screenshot.png]]
+[[https://raw.githubusercontent.com/DemonKingSwarn/dotfiles/master/screenshot.png]]
 
 ** Some of the worthy tools that I use:
 
