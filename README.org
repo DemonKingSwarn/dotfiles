@@ -2,7 +2,7 @@
 
 Explore the repo and incorporate what you like into your own setup. If you have any questions, comments or suggestions, feel free to open and issue or PR!
 
-When you fork, remember to grep for #demonkingswarn# and replace with your username.
+When you fork, remember to grep for =demonkingswarn= and replace with your username.
 
 For daily usage, I recommend forking [[https://github.com/demonkingswarn/dotfiles][my repo]] instead of using it directly, as I am changing things on daily basis 🙂
 
