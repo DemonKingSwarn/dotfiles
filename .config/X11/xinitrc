@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 $HOME/.scripts/system/startup.sh &
+dwmblocks &
 
 
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/X11/xprofile" ]; then
@@ -10,7 +11,8 @@ else
 fi
 
 
-exec bspwm
+#exec bspwm
+exec dwm
 #exec leftwm
 #exec openbox
 

@@ -1,2 +1,27 @@
-* Dotfiles
+* ~/.dots
+
+Explore the repo and incorporate what you like into your own setup. If you have any questions, comments or suggestions, feel free to open and issue or PR!
+
+When you fork, remember to grep for #demonkingswarn# and replace with your username.
+
+For daily usage, I recommend forking [[https://github.com/demonkingswarn/dotfiles][my repo]] instead of using it directly, as I am changing things on daily basis 🙂
+
+Enjoy! 🚀
+
+[[https://github.com/DemonKingSwarn/dotfiles/raw/main/screenshot.png]]
+
+** Some of the worthy tools that I use:
+
+- [Hyprland](hyprctl monitors -j) (window manager) + [[https://github.com/elkowar/eww][eww]] (status bar)
+- [[https://github.com/wez/wezterm][wezterm]] - fast GPU accelerated terminal
+- [[https://github.com/neovim/neovim][neovim]] - text editor
+- [[https://www.zsh.org/][zsh]] with various other plugins
+
+** Usage:
+
+#+begin_src sh
+git clone https://github.com/demonkingswarn/dotfiles ~/.dots
+cd ~/.dots
+stow --ignore=screenshot.png --ignore=README.org .
+#+end_src
 

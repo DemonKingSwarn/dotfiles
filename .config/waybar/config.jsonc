@@ -1,49 +1,42 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 16, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    // "margin-left":25,
-    // "margin-right":25,
-    "margin-bottom":-5,
-    // "margin-top": 10,
-    "modules-left": ["wlr/workspaces"],
-    //"modules-center": [],
-    //"modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "backlight", "clock","tray"],
-    // Modules configuration
-    "wlr/workspaces": {
-        "tooltip": true,
-        "disable-scroll": false,
-        "on-click": "activate",
-        "format": "{icon}",
-        "format-icons": {
-            "1": "一",
-            "2": "二",
-            "3": "三",
-            "4": "四",
-            "5": "五",
-            "6": "六",
-            "7": "七",
-            "8": "八",
-            "9": "九"
-        },
-        "active-only": false,
-        "sort-by-name": true,
-        "all-outputs":  true
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "wlr/workspaces"
+  ],
+  //"modules-center": [
+   // "mpd"
+  //],
+  "modules-right": [
+    "idle_inhibitor", 
+    "pulseaudio", 
+    "network", 
+    "battery", 
+    "backlight", 
+    "clock",
+    "tray"  
+  ],
+  //////////////////////////////////
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九"
     },
-    "river/tags": {
+    "format-active": " {icon} ",
+    "on-click": "activate"
+  },
+  
+"river/tags": {
     "num-tags": 9,
     "tag-labels": ["一","二","三","四","五","六","七","八","九"]
-    },
-    // custom modules ////////////////
-    "custom/dunst": {
-        "exec": "~/.config/waybar/scripts/dunst.sh",
-        "return-type": "json",
-        "restart-interval": 1,
-        "on-click": "dunstctl set-paused toggle"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -56,7 +49,9 @@
     "tray": {
         "spacing": 10
     },
-    "clock": {
+
+  
+"clock": {
         "format": "{:%A, %B %d, %Y - %I:%M %p}",
         "tooltip-format": "{calendar}",
         "interval": 30,
@@ -69,7 +64,7 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
-        "format": "<span font='Liga SFMono Nerd Font'>{icon}</span>  {capacity}% - {time}",
+        "format": "<span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
@@ -81,13 +76,18 @@
         },
         "tooltip": false,
     },
-    "network": {
+
+  "memory": {
+    "interval": 30,
+    "format": "{used:0.1f}/{total:0.1f}G"
+  },
+ "network": {
         "format-wifi": "{essid} ",
         "tooltip-format": "via {gwaddr} {ifname}",
         "format-disconnected": "wifi",
         "on-click": "wofi-wifi-menu",
-    },
-    "pulseaudio": {
+    }, 
+"pulseaudio": {
         "scroll-step": 5, // %, can be a float
         "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
@@ -104,53 +104,5 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "on-click" : "playerctl -p spotify_player play-pause",
-        "on-click-right" : "playerctl -p spotify_player next",
-        "format-icons": {
-            "spotify": " ",
-            "default": " "
-        },
-        "escape": true,
-        "exec": "python $HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null" // Script in resources folder
-    },
-
-     "custom/playerctl": {
-      "format": "{icon}",
-      "return-type": "json",
-      "max-length": 64,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click-middle": "playerctl play-pause",
-      "on-click": "playerctl previous",
-      "on-click-right": "playerctl next",
-      "format-icons": {
-        "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
-        "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
-      }
-     },
-
-     "custom/playerlabel": {
-      "format": "<span>{}</span>",
-      "return-type": "json",
-      "max-length": 48,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click-middle": "playerctl play-pause",
-      "on-click": "playerctl previous",
-      "on-click-right": "playerctl next",
-      "format-icons": {
-        "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
-        "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
-      }
-    },
-
-    
-    "custom/appname": {
-        "max-length": 40,
-        "escape": true,
-        "exec": "~/.config/eww/scripts/appname 2> /dev/null"
-    }
+  
 }
-
