@@ -25,7 +25,7 @@ alias less="bat --paging=always"
 alias x='exit'
 alias logout='pkill -u $USER'
 alias dir='dir --color=auto'
-alias pdfmaker='pandoc --pdf-engine=pdfroff $1 -o $1.pdf'
+alias pdfmaker="pandoc --pdf-engine=pdfroff $1 -o $1.pdf"
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'
@@ -53,4 +53,4 @@ alias xco='xclip -selection clipboard -o'
 alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 alias uninstall="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rcns"
 alias update="paru -Syu --noconfirm"
-alias garbage="paru -Rcns $(paru -Qqdtt)"
+#alias garbage="paru -Rcns $(paru -Qqdtt)"

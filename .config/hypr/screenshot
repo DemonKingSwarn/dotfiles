@@ -1,8 +1,8 @@
 #!/bin/sh
 
 x="Screenshot copied to clipboard"
-name=$(date '+%y%m%d_%H-%M-%S')
-[ "$*" = "fullclip" ] && grim - | xclip -sel c -t image/png
+name="shot_$(date '+%y%m%d_%H-%M-%S')"
+[ "$*" = "fullclip" ] && grim $HOME/pix/ss/$name.png && cat $HOME/pix/ss/$name.png | wl-copy && x="Screenshot saved"
 [ "$*" = "fullsave" ] && grim $HOME/pix/ss/$name.png && cat $HOME/pix/ss/$name.png | wl-copy && x="Screenshot saved"
 [ "$*" = "selclip" ] && grim -g "$(slurp)" - | swappy -f -
 
