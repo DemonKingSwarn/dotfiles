@@ -112,8 +112,11 @@ upfile() {
     curl -F"file=@/tmp/$dir.zip" 0x0.st
 }
 
-epic() {
-    cd $HOME/.local/share/wine/drive_c/Program\ Files\ \(x86\)/Epic\ Games/Launcher/Portal/Binaries/Win64/
+get_cookies() {                
+        for i in $(sqlite3 "$HOME/.config/BraveSoftware/Brave-Browser/Default/Cookies" "SELECT name,REPLACE(base64(SUBSTR(encrypted_value,4)),CHAR(10),'') FROM cookies WHERE host_key='$1';")
+        do
+                printf "%s=%s; " "$(printf '%s' "$i" | cut -d'|' -f1)" "$(printf '%s' "$i" | cut -d'|' -f2 | base64 -d | openssl enc -d -aes-128-cbc -K fd621fe5a2b402539dfa147ca9272778 -iv 20202020202020202020202020202020)"
+        done
 }
 
 # Edit line in vim with ctrl-e:

@@ -1,39 +1,45 @@
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 print_info() {
-    prin "┌─────────\n Hardware Information \n─────────┐"
-    info " ​ ​  " model
-    info " ​ ​  " cpu
-    info " ​ ​ ﬙ " gpu
-#    info " ​ ​  " disk
-    info " ​ ​ 塞" memory
-    info " ​ ​  " resolution
-#    info " ​ ​ 󱈑 " battery 
-    prin "├─────────\n Software Information \n─────────┤"
-#    info " ​ ​  " users
-    info " ​ ​  " distro
-# Just get your distro's logo off nerdfonts.com
-    info " ​ ​  " kernel
-#    info " ​ ​  " de
-    info " ​ ​  " wm
-    info " ​ ​  " shell
-    info " ​ ​  " term
-    info " ​ ​  " term_font
-#    info " ​ ​ │  " font
-#    info " ​ ​   " theme
-#    info " ​ ​   " icons
-    info " ​ ​  " packages 
-#    info " ​ ​  󰅐 " uptime
-#    info " ​ ​   " gpu_driver  # Linux/macOS only
-#    info " ​ ​  " cpu_usage
-    info " ​ ​ ﱘ " song
-     #[[ "$player" ]] && prin "Music Player" "$player"
-#    info " ​ ​   " local_ip
-#    info " ​ ​   " public_ip
-#    info " ​ ​   " locale  # This only works on glibc systems.
-    prin "└───────────────────────────────────────┘"
-    info cols
+    # info title
+    # info underline
+    prin ""
+    prin "$(color 1)D E M O N K I N G S W A R N"
+    prin _____________________
+    info "" distro
+      info "" model
+    # info "" cpu
+    # info "" gpu
+      info "" memory
+    # info "" kernel
+      info "" packages
+    # info "" resolution
+      info "" term
+    # info "" shell
+      info "" de
+    #  prin "" "Hyprland"
+    # info "" locale
+    # info "" uptime
+      prin "" "github.com/demonkingswarn"
+  
+
+    # info "GPU Driver" gpu_driver  # Linux/macOS only
+    # info "CPU Usage" cpu_usage
+    # info "Disk" disk
+    # info "Battery" battery
+    # info "Font" font
+    # info "Song" song
+    # [[ "$player" ]] && prin "Music Player" "$player"
+    # info "Local IP" local_ip
+    # info "Public IP" public_ip
+    # info "Users" users
+    # info "Locale" locale  # This only works on glibc systems.
+
+    # info cols
+    prin "$(mypad) $(color 1)▂▂ $(color 2)▂▂ $(color 3)▂▂ $(color 4)▂▂ $(color 5)▂▂ $(color 6)▂▂ $(color 7)▂▂ "
+    prin _____________________
 }
+
 # Title
 
 
@@ -82,7 +88,7 @@ distro_shorthand="off"
 # Example:
 # on:  'Arch Linux x86_64'
 # off: 'Arch Linux'
-os_arch="on"
+os_arch="off"
 
 
 # Uptime
@@ -560,7 +566,7 @@ underline_char="-"
 # Example:
 # separator="->":   'Shell-> bash'
 # separator=" =":   'WM = dwm'
-separator=":"
+separator=""
 
 
 # Color Blocks
@@ -691,7 +697,7 @@ disk_display="off"
 # Values:   'ascii', 'caca', 'chafa', 'jp2a', 'iterm2', 'off',
 #           'pot', 'termpix', 'pixterm', 'tycat', 'w3m', 'kitty'
 # Flag:     --backend
-image_backend="ascii"
+image_backend="iterm2"
 
 # Image Source
 #
@@ -705,8 +711,22 @@ image_backend="ascii"
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-image_source="auto"
-
+#image_source="auto"
+image_source="${HOME}/.config/neofetch/images/pink.jpg"
+#image_source="${HOME}/.config/neofetch/images/arch.png"
+#image_source="${HOME}/.config/neofetch/images/arch_dark.png"
+#image_source="${HOME}/.config/neofetch/images/artix.png"
+#image_source="${HOME}/.config/neofetch/images/bedrock.png"
+#image_source="${HOME}/.config/neofetch/images/gentoo.png"
+#image_source="${HOME}/.config/neofetch/images/gentoo_dark.png"
+#image_source="${HOME}/.config/neofetch/images/lofi.png"
+#image_source="${HOME}/.config/neofetch/images/loli.png"
+#image_source="${HOME}/.config/neofetch/images/lolix.png"
+#image_source="${HOME}/.config/neofetch/images/sakura.png"
+#image_source="${HOME}/.config/neofetch/images/ubuntu.png"
+#image_source="${HOME}/.config/neofetch/images/ubuntu_dark.png"
+#image_source="${HOME}/.config/neofetch/images/void.png"
+#image_source="${HOME}/.config/neofetch/images/void_dark.png"
 
 # Ascii Options
 
@@ -789,7 +809,7 @@ ascii_bold="on"
 # Default:  'off'
 # Values:   'on', 'off'
 # Flag:     --loop
-image_loop="off"
+image_loop="on"
 
 # Thumbnail directory
 #
@@ -823,14 +843,14 @@ crop_offset="center"
 # Values:  'auto', '00px', '00%', 'none'
 # Flags:   --image_size
 #          --size
-image_size="auto"
+image_size="220px"
 
 # Gap between image and text
 #
 # Default: '3'
 # Values:  'num', '-num'
 # Flag:    --gap
-gap=3
+gap=4
 
 # Image offsets
 # Only works with the w3m backend.
