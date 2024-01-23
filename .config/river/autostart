@@ -3,6 +3,7 @@
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #mako &
 dunst &
-#waybar &
-eww open bar &
+waybar &
+#eww open bar &
 udiskie &
+startxwayland &

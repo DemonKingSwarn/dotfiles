@@ -9,12 +9,12 @@
     // "margin-right":25,
     "margin-bottom":-5,
     // "margin-top": 10,
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     //"modules-center": [],
     //"modules-center": ["hyprland/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "backlight", "clock","tray"],
     // Modules configuration
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
         "on-click": "activate",
