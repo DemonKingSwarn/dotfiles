@@ -97,7 +97,8 @@
         "device": "intel_backlight",
         "scroll-step": 5,
 	"format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click": "nightmode"
     },
     "battery": {
         "format": "<span font='Liga SFMono Nerd Font'>{icon}</span>  {capacity}% - {time}",
