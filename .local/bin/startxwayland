@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/Xwayland :0 -rootless -core -terminate 10 -listenfd 52 -listenfd 53 -displayfd 153 -wm 130
