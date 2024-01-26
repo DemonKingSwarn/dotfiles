@@ -1,19 +1,11 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 40, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    // "margin-left":25,
-    // "margin-right":25,
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 4,
     "margin-bottom":-5,
-    // "margin-top": 10,
     "modules-left": ["hyprland/workspaces"],
-    //"modules-center": [],
-    //"modules-center": ["hyprland/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "backlight", "clock","tray"],
-    // Modules configuration
     "hyprland/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
@@ -45,33 +37,7 @@
         "restart-interval": 1,
         "on-click": "dunstctl set-paused toggle"
     },
-    //////////////////////////////////
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
+    
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -84,7 +50,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%A, %B %d, %Y - %I:%M %p}",
+        "format": "{:%a, %b %d, %Y - %I:%M %p}",
         "tooltip-format": "{calendar}",
         "interval": 30,
         "on-click": "notify-send history-pop"
@@ -101,7 +67,7 @@
         "on-click": "nightmode"
     },
     "battery": {
-        "format": "<span font='Liga SFMono Nerd Font'>{icon}</span>  {capacity}% - {time}",
+        "format": "<span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
@@ -114,7 +80,7 @@
         "tooltip": false,
     },
     "network": {
-        "format-wifi": "{essid} ",
+        "format-wifi": " {essid}",
         "tooltip-format": "via {gwaddr} {ifname}",
         "format-disconnected": "wifi",
         "on-click": "wofi-wifi-menu",
