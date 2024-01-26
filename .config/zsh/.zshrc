@@ -139,3 +139,4 @@ else
 fi
 
 #figlet "$(date '+ %I:%M %p')" | lolcat
+greet
