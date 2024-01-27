@@ -5,14 +5,6 @@
 @define-color bgcolor #222436;  /* background color */
 @define-color alert   #df3320;
 
-/* ROSE PINE */
-@define-color accent1 #eb6f92;
-@define-color accent2 #9ccfd8;
-@define-color accent3 #f6c177;
-@define-color accent4 #31748f;
-@define-color accent5 #c4a7e7;
-@define-color accent6 #ebbcba;
-
 /* DRACULA */
 @define-color accent1 #ff5555;
 @define-color accent2 #50fa7b;
@@ -20,22 +12,6 @@
 @define-color accent4 #bd93f9;
 @define-color accent5 #ff79c6;
 @define-color accent6 #8be9fd;
-
-/* MONOKAI PRO */
-@define-color accent1 #ff6188;
-@define-color accent2 #a9dc76;
-@define-color accent3 #ffd866;
-@define-color accent4 #fc9867;
-@define-color accent5 #ab9df2;
-@define-color accent6 #78dce8;
-
-/* TOKYO NIGHT */
-@define-color accent1 #ff7a93;
-@define-color accent2 #b9f27c;
-@define-color accent3 #ff9e64;
-@define-color accent4 #bb9af7;
-@define-color accent5 #7da6ff;
-@define-color accent6 #0db9d7;
 
 * {
     border: none;
