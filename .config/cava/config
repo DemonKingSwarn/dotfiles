@@ -185,6 +185,8 @@
 # 1 will be very slow and smooth, 0 will be fast but noisy.
  noise_reduction = 0.77
 
+method = pulse
+source = alsa_input.pci-0000_00_1f.3.analog-stereo
 
 [eq]
 

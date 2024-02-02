@@ -11,7 +11,7 @@ unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 
-set font "Liga SFMono Nerd Font 15"
+set font "JetBrains Mono Nerd Font 15"
 # Nord theme
 set default-bg "#242730"
 set default-fg "#bbc2cf"
