@@ -10,5 +10,5 @@ sleep 0.1
 
 [ "$*" = "selclip" ] && grim -g "$(slurp)" - | swappy -f -
 
-notify-send "$x"
 killall hyprpicker
+notify-send "$x"
