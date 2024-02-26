@@ -1,4 +1,5 @@
-## Configuration file for CAVA. Default values are commented out. Use either ';' or '#' for commenting.
+## Configuration file for CAVA.
+# Remove the ; to change parameters.
 
 
 [general]
@@ -19,7 +20,7 @@
 # 200 means double height. Accepts only non-negative values.
 ; sensitivity = 100
 
-# The number of bars (0-200). 0 sets it to auto (fill up console).
+# The number of bars (0-512). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 0
 ; bar_width = 2
@@ -30,6 +31,10 @@
 # For SDL width and space between bars is in pixels, defaults are:
 ; bar_width = 20
 ; bar_spacing = 5
+
+# sdl_glsl have these default values, they are only used to calulate max number of bars.
+; bar_width = 1
+; bar_spacing = 0
 
 
 # Lower and higher cutoff frequencies for lowest and highest bars
@@ -47,19 +52,37 @@
 
 [input]
 
-# Audio capturing method. Possible methods are: 'pulse', 'alsa', 'fifo', 'sndio' or 'shmem'
-# Defaults to 'pulse', 'alsa' or 'fifo', in that order, dependent on what support cava was built with.
+# Audio capturing method. Possible methods are: 'fifo', 'portaudio', 'pipewire', 'alsa', 'pulse', 'sndio', 'oss', 'jack' or 'shmem'
+# Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' or 'fifo', in that order, dependent on what support cava was built with.
+# On Mac it defaults to 'portaudio' or 'fifo'
+# On windows this is automatic and no input settings are needed.
 #
 # All input methods uses the same config variable 'source'
 # to define where it should get the audio.
 #
-# For pulseaudio 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
+# For pulseaudio and pipewire 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
 # (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated with them).
+#
+# For pipewire 'source' will be the object name or object.serial of the device to capture from.
+# Both input and output devices are supported.
 #
 # For alsa 'source' will be the capture device.
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
+#
+# For sndio 'source' will be a raw recording audio descriptor or a monitoring sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'.
+# README.md contains further information on how to setup CAVA for sndio.
+#
+# For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. Default: '/dev/dsp', i.e. the default audio device.
+# README.md contains further information on how to setup CAVA for OSS on FreeBSD.
+#
+# For jack 'source' will be the name of the JACK server to connect to, e.g. 'foobar'. Default: 'default'.
+# README.md contains further information on how to setup CAVA for JACK.
+#
 ; method = pulse
+; source = auto
+
+; method = pipewire
 ; source = auto
 
 ; method = alsa
@@ -67,8 +90,6 @@
 
 ; method = fifo
 ; source = /tmp/mpd.fifo
-; sample_rate = 44100
-; sample_bits = 16
 
 ; method = shmem
 ; source = /squeezelite-AA:BB:CC:DD:EE:FF
@@ -76,12 +97,40 @@
 ; method = portaudio
 ; source = auto
 
+; method = sndio
+; source = default
+
+; method = oss
+; source = /dev/dsp
+
+; method = jack
+; source = default
+
+# The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can be configured for some input methods:
+#   sample_rate: fifo, pipewire, sndio, oss
+#   sample_bits: fifo, pipewire, sndio, oss
+#   channels:    sndio, oss, jack
+#   autoconnect: jack
+# Other methods ignore these settings.
+#
+# For 'sndio' and 'oss' they are only preferred values, i.e. if the values are not supported
+# by the chosen audio device, the device will use other supported values instead.
+# Example: 48000, 32 and 2, but the device only supports 44100, 16 and 1, then it
+# will use 44100, 16 and 1.
+#
+; sample_rate = 44100
+; sample_bits = 16
+; channels = 2
+; autoconnect = 2
+
 
 [output]
 
-# Output method. Can be 'ncurses', 'noncurses', 'raw', 'noritake' or 'sdl'.
-# 'noncurses' uses a custom framebuffer technique and prints only changes
-# from frame to frame in the terminal. 'ncurses' is default if supported.
+# Output method. Can be 'ncurses', 'noncurses', 'raw', 'noritake', 'sdl'
+# or 'sdl_glsl'.
+# 'noncurses' (default) uses a buffer and cursor movements to only print
+# changes from frame to frame in the terminal. Uses less resources and is less
+# prone to tearing (vsync issues) than 'ncurses'.
 #
 # 'raw' is an 8 or 16 bit (configurable via the 'bit_format' option) data
 # stream of the bar heights that can be used to send to other applications.
@@ -91,7 +140,15 @@
 #  in graphic mode. It only support the 3000 series graphical VFDs for now.
 #
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
-; method = ncurses
+# 'sdl_glsl' uses SDL to create an OpenGL context. Write your own shaders or
+# use one of the predefined ones.
+; method = noncurses
+
+# Orientation of the visualization. Can be 'bottom', 'top', 'left' or 'right'.
+# Default is 'bottom'. Other orientations are only supported on sdl and ncruses
+# output. Note: many fonts have weird glyphs for 'top' and 'right' characters,
+# which can make ncurses not look right.
+; orientation = bottom
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -124,40 +181,41 @@
 ; sdl_height = 500
 ; sdl_x = -1
 ; sdl_y= -1
+; sdl_full_screen = 0
+
+# set label on bars on the x-axis. Can be 'frequency' or 'none'. Default: 'none'
+# 'frequency' displays the lower cut off frequency of the bar above.
+# Only supported on ncurses and noncurses output.
+; xaxis = none
+
+# enable alacritty synchronized updates. 1 = on, 0 = off
+# removes flickering in alacritty terminal emulator.
+# defaults to off since the behaviour in other terminal emulators is unknown
+; alacritty_sync = 0
+
+# Shaders for sdl_glsl, located in $HOME/.config/cava/shaders
+; vertex_shader = pass_through.vert
+; fragment_shader = bar_spectrum.frag
+
+; for glsl output mode, keep rendering even if no audio
+; continuous_rendering = 0
+
+# disable console blank (screen saver) in tty
+# (Not supported on FreeBSD)
+; disable_blanking = 0
 
 [color]
 
-# Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
-# Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires
-# ncurses output method and a terminal that can change color definitions such as Gnome-terminal or rxvt.
-# if supported, ncurses mode will be forced on if user defined colors are used.
-# default is to keep current terminal color
-; background = default
-; foreground = default
+gradient = 1
 
-# SDL only support hex code colors, these are the default:
-; background = '#111111'
-; foreground = '#33cccc'
-
-
-# Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
-# background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
-# You can define as many as 8 different colors. They range from bottom to top of screen
- gradient = 1
- gradient_count = 6
- gradient_color_6 = '#DD868C'
- gradient_color_5 = '#E4A2A8'
- gradient_color_4 = '#E7B0B6'
- gradient_color_3 = '#EABEC3'
- gradient_color_2 = '#F0CED2'
- gradient_color_1 = '#F5DDE0'
-
-; gradient_color_1 = '#D5CADE'
-; gradient_color_2 = '#DCC7CC'
-; gradient_color_3 = '#E8C4AE'
-; gradient_color_4 = '#F1C096'
-; gradient_color_5 = '#F6BE89'
-; gradient_color_6 = '#FDBC78'
+gradient_color_1 = '#8BE9FD'
+gradient_color_2 = '#9AEDFE'
+gradient_color_3 = '#CAA9FA'
+gradient_color_4 = '#BD93F9'
+gradient_color_5 = '#FF92D0'
+gradient_color_6 = '#FF79C6'
+gradient_color_7 = '#FF6E67'
+gradient_color_8 = '#FF5555'
 
 [smoothing]
 
@@ -180,21 +238,17 @@
 # DEPRECATED as of 0.8.0
 ; ignore = 0
 
-# Noise reduction, float 0 - 1. default 0.77
+# Noise reduction, int 0 - 100. default 77
 # the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
-# 1 will be very slow and smooth, 0 will be fast but noisy.
- noise_reduction = 0.77
+# 100 will be very slow and smooth, 0 will be fast but noisy.
+; noise_reduction = 77
 
-method = pulse
-source = alsa_input.pci-0000_00_1f.3.analog-stereo
 
 [eq]
 
 # This one is tricky. You can have as much keys as you want.
-# Remember to uncomment more then one key! More keys = more precision.
+# Remember to uncomment more than one key! More keys = more precision.
 # Look at readme.md on github for further explanations and examples.
-# DEPRECATED as of 0.8.0 can be brought back by popular request, open issue at:
-# https://github.com/karlstav/cava
 ; 1 = 1 # bass
 ; 2 = 1
 ; 3 = 1 # midtone
