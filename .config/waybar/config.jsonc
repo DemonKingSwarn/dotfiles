@@ -32,13 +32,7 @@
     "tag-labels": ["一","二","三","四","五","六","七","八","九"]
     },
     // custom modules ////////////////
-    "custom/dunst": {
-        "exec": "~/.config/waybar/scripts/dunst.sh",
-        "return-type": "json",
-        "restart-interval": 1,
-        "on-click": "dunstctl set-paused toggle"
-    },
-    
+        
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -47,19 +41,25 @@
         },
         "on-click": "way-inhibitor"
     },
+    
     "tray": {
         "spacing": 10
     },
+    
+
     "clock": {
         "format": "{:%a, %b %d, %Y - %I:%M %p}",
         "tooltip-format": "{calendar}",
         "interval": 30,
         "on-click": "notify-send history-pop"
     },
-    "memory": {
-        "interval": 30,
-        "format": "{used:0.1f}/{total:0.1f}G"
-    },
+
+    /*
+     "clock": {
+        "tooltip-format": "{:%A, %B %d, %Y}",
+        "format": "{:%H:%M}"
+    },*/
+
     "backlight": {
         "device": "intel_backlight",
         "scroll-step": 5,
@@ -67,28 +67,35 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-click": "nightmode"
     },
+       
     "battery": {
-        "format": "<span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
+        "states": {
+            "good": 76,
+            "warning": 20
+        },
+        "format": "{icon}",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
         "format-full": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  Charged",
+        "tooltip-format": "{capacity}% capacity",
         "interval": 30,
         "states": {
             "warning": 25,
             "critical": 10
         },
-        "tooltip": false,
     },
+
+    
     "network": {
-        "format-wifi": " {essid}",
-        "tooltip-format": "via {gwaddr} {ifname}",
+        "format-wifi": " ",
+        "tooltip-format": "Connected to {essid}",
         "format-disconnected": "wifi",
-        "on-click": "wofi-wifi-menu",
     },
-    "pulseaudio": {
+
+       "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": "{icon} {volume}%",
+        "format": "{icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -101,6 +108,7 @@
             "car": "",
             "default": ["", "", ""]
         },
+        "tooltip-format": "{volume}% volume",
         "on-click": "pavucontrol"
     },
     "custom/media": {

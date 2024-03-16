@@ -17,6 +17,7 @@ endif
 " Plugged
 call plug#begin(expand('~/.local/share/nvim/plugged'))
 Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'comfysage/evergarden'
 Plug 'andweeb/presence.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'preservim/nerdtree'
@@ -46,7 +47,7 @@ call plug#end()
 set autoindent
 set expandtab
 set number relativenumber
-" colorscheme dracula
+colorscheme dracula
 set background=dark
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_diff_background = 1
