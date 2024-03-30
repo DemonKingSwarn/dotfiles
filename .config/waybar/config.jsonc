@@ -31,6 +31,7 @@
     "num-tags": 9,
     "tag-labels": ["一","二","三","四","五","六","七","八","九"]
     },
+    
     // custom modules ////////////////
         
     "idle_inhibitor": {
@@ -45,7 +46,6 @@
     "tray": {
         "spacing": 10
     },
-    
 
     "clock": {
         "format": "{:%a, %b %d, %Y - %I:%M %p}",
@@ -53,12 +53,6 @@
         "interval": 30,
         "on-click": "notify-send history-pop"
     },
-
-    /*
-     "clock": {
-        "tooltip-format": "{:%A, %B %d, %Y}",
-        "format": "{:%H:%M}"
-    },*/
 
     "backlight": {
         "device": "intel_backlight",
@@ -85,7 +79,6 @@
             "critical": 10
         },
     },
-
     
     "network": {
         "format-wifi": " ",
@@ -111,25 +104,7 @@
         "tooltip-format": "{volume}% volume",
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "on-click" : "playerctl -p spotify_player play-pause",
-        "on-click-right" : "playerctl -p spotify_player next",
-        "format-icons": {
-            "spotify": " ",
-            "default": " "
-        },
-        "escape": true,
-        "exec": "python $HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null" // Script in resources folder
-    },
-    
-    "custom/appname": {
-        "max-length": 40,
-        "escape": true,
-        "exec": "~/.config/eww/scripts/appname 2> /dev/null"
-    },
+   
     "hyprland/window": {  
         "format": "<span font='JetBrains Mono Nerd Font' rise='-4444'>{}</span>"  
     }

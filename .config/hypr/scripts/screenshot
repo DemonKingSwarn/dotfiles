@@ -6,7 +6,7 @@ name="shot_$(date '+%y%m%d_%H-%M-%S')"
 hyprpicker -r -z &
 sleep 0.1
 
-[ "$*" = "fullsave" ] && grim $HOME/pix/ss/$name.png && cat $HOME/pix/ss/$name.png | wl-copy && notify-send -i $HOME/pix/ss/$name.png "Screenshot saved"
+[ "$*" = "fullsave" ] && grim $HOME/pix/ss/$name.png && cat $HOME/pix/ss/$name.png | wl-copy && notify-send -i $HOME/pix/ss/$name.png "Screenshot saved" "$HOME/pix/ss/$name.png"
 
 [ "$*" = "selclip" ] && grim -g "$(slurp)" - | swappy -f -
 
