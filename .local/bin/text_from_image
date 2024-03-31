@@ -1,0 +1,8 @@
+#!/bin/sh
+
+img="/tmp/clipboard.png"
+file="$HOME/Files/tesseract/tesseract_$(date '+%y%m%d_%H-%M-%S').txt"
+
+wl-paste > $img
+tesseract "$img" "$file" -l eng > /dev/null
+cat "$file" | wl-copy
