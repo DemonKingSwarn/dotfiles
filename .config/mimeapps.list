@@ -1,17 +1,18 @@
 [Default Applications]
-inode/directory=pcmanfm.desktop
+inode/directory=thunar.desktop
 application/pdf=org.pwmt.zathura.desktop
-text/html=firefox.desktop
+text/html=floorp.desktop
+text/php=floorp.desktop
 x-scheme-handler/http=floorp.desktop
 x-scheme-handler/https=floorp.desktop
 x-scheme-handler/about=floorp.desktop
-image/png=swappy.desktop
-image/jpeg=swappy.desktop
-image/tiff=swappy.desktop;
-image/webp=swappy.desktop
+image/png=nsxiv.desktop
+image/jpeg=nsxiv.desktop
+image/tiff=nsxiv.desktop;
+image/webp=nsxiv.desktop
 image/gif=mpv.desktop;
 application/octet-stream=mpv.desktop;
-text/*=code-oss.desktop
+text/*=vscodium-wayland.desktop
 x-scheme-handler/whatsapp=WhatsApp.desktop
 x-scheme-handler/steam=steam.desktop;
 x-scheme-handler/steamlink=steam.desktop;

@@ -1,0 +1,4 @@
+Config(
+  prefix: "mon:",
+  max_entries: 10,
+)
