@@ -28,7 +28,7 @@ alias x='exit'
 alias logout='pkill -u $USER'
 alias dir='dir --color=auto'
 alias pdfmaker="pandoc --pdf-engine=pdfroff $1 -o $1.pdf"
-alias rpi='TERM="st-256color" ssh 192.168.29.30'
+alias networkusage='vnstat -i wlo1'
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'
@@ -36,6 +36,7 @@ else
         alias ls='eza --icons'
         alias ll='eza -lgh --icons'
         alias la='eza -lagh --icons'
+        alias tree='eza -aT --icons'
 fi
 
 # Confirmations

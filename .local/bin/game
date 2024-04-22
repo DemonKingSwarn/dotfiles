@@ -1,5 +1,5 @@
 #!/bin/sh
 
-PROTON="$HOME/.steam/steam/compatibilitytools.d/GE-Proton8-29/proton"
+PROTON="$HOME/.steam/steam/compatibilitytools.d/GE-Proton9-2/proton"
 
 STEAM_COMPAT_DATA_PATH="$HOME/.proton" STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.local/share/Steam" VKD3D_CONFIG=dxr11 DXVK_HDR=1 PROTON_ENABLE_NVAPI=1 RADV_PERFTEST=gpl __VK_LAYER_NV_optimus=NVIDIA_only VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json __GL_SHADER_DISK_CACHE=1 WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FAKE_CURRENT_RES=1280x720 ENABLE_VKBASALT=1 LD_PRELOAD=$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0 "$PROTON" run "$@"
