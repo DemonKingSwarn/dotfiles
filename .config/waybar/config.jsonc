@@ -67,7 +67,7 @@
             "good": 76,
             "warning": 20
         },
-        "format": "{icon}",
+        "format": "{icon}  {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
@@ -81,14 +81,14 @@
     },
     
     "network": {
-        "format-wifi": " ",
+        "format-wifi": "  {essid}",
         "tooltip-format": "Connected to {essid}",
         "format-disconnected": "wifi",
     },
 
        "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": "{icon}",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
