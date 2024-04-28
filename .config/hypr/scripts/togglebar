@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -z $(pidof waybar) ]; then
+    waybar
+else
+    kill -9 $(pidof waybar)
+fi

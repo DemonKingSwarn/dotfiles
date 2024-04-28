@@ -26,12 +26,30 @@ Enjoy! 🚀
 [[https://media.discordapp.net/attachments/1199630396846002276/1234193698200359032/image.png?ex=662fd7f3&is=662e8673&hm=fb6898805956cfe3a28ce2f08a496b33d8cfcb542006ea6c97136b2c9bfa54a2&=&format=webp&quality=lossless]]
 [[https://media.discordapp.net/attachments/1199630396846002276/1234193799425822760/image.png?ex=662fd80b&is=662e868b&hm=1dbf8092604a9f6862dc712086f8b593a18292f59beb78464d8964d8ad5ee93c&=&format=webp&quality=lossless]]
 
+** Keybinds
+
+| Key Binding         | Description                               |
+| SUPER + Mouse Left  | Move active window                        |
+| SUPER + Mouse Right | Resize active window                      |
+| SUPER + F           | Toggle fullscreen                         |
+| SUPER + V           | Toggle floating window                    |
+| SUPER + {h,j,k,l}   | Move focus                                |
+| SUPER + SHIFT + Q   | Close active  window                      |
+| SUPER + 1-0         | Switch workspaces                         |
+| SUPERSHIFT + 1-0    | Move active window to different workspace |
+| SUPER + ENTER       | Launch foot terminal                      |
+| SUPER + D           | Launch anyrun                             |
+| PRINT SCR           | Take screenshot                           |
+| SUPER + PRINT SCR   | Take screenshot (selected area)           |
+| SUPER + C           | Launch hyprpicker                         |
+| SUPER + G           | Toggle waybar                             |
+
 ** Installation
 
 #+begin_src sh
 git clone https://github.com/demonkingswarn/dotfiles ~/.dots
 cd ~/.dots
-stow --ignore=screenshot.png --ignore=README.org .
+stow --ignore=README.org .
 #+end_src
 
 ** I also recommend installing my scripts
