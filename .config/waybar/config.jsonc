@@ -6,7 +6,7 @@
     "margin-bottom":-5,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "backlight", "clock","tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "backlight", "clock", "custom/off", "tray"],
     "hyprland/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
@@ -31,11 +31,11 @@
     "num-tags": 9,
     "tag-labels": ["一","二","三","四","五","六","七","八","九"]
     },
-    
+    "bar_id": "bar-0",
     // custom modules ////////////////
         
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": " {icon} ",
         "format-icons": {
             "activated": " ",
             "deactivated": " "
@@ -48,7 +48,7 @@
     },
 
     "clock": {
-        "format": "{:%a, %b %d, %Y - %I:%M %p}",
+        "format": " {:%a, %b %d, %Y - %I:%M %p} ",
         "tooltip-format": "{calendar}",
         "interval": 30,
         "on-click": "notify-send history-pop"
@@ -57,7 +57,7 @@
     "backlight": {
         "device": "intel_backlight",
         "scroll-step": 5,
-	"format": "{icon} {percent}%",
+	"format": " {icon} {percent}% ",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-click": "nightmode"
     },
@@ -67,7 +67,7 @@
             "good": 76,
             "warning": 20
         },
-        "format": "{icon}  {capacity}%",
+        "format": " {icon}  {capacity}% ",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
@@ -81,14 +81,21 @@
     },
     
     "network": {
-        "format-wifi": "  {essid}",
+        "format-wifi": "   {essid} ",
         "tooltip-format": "Connected to {essid}",
         "format-disconnected": "wifi",
     },
 
+    "custom/off": {
+        "format": "  ",
+        "tooltip-format": "Power-Off Menu",
+        "on-click": "byebye"
+
+    },
+
        "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": "{icon} {volume}%",
+        "format": " {icon} {volume}% ",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

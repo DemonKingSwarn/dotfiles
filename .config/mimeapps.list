@@ -16,3 +16,5 @@ text/x-shellscript=foot.desktop;
 text/*=vscodium-wayland.desktop
 x-scheme-handler/steam=steam.desktop;
 x-scheme-handler/steamlink=steam.desktop;
+x-scheme-handler/discord-1221314350216646828=discord-1221314350216646828.desktop
+x-scheme-handler/discord-1222229231367487539=discord-1222229231367487539.desktop
