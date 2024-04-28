@@ -1,5 +1,17 @@
 * ~/.dots
 
+** Programs I use
+
+- Window Manager - [[https://github.com/hyprwm/Hyprland][Hyprland]]
+- Panel - [[https://github.com/Alexays/Waybar][waybar]]
+- Launcher - [[https://github.com/Kirottu/anyrun][anyrun]]
+- Shell - [[https://github.com/zsh-users/zsh][zsh]]
+- Prompt - [[https://github.com/starship/starship][starship]]
+- Terminal - [[https://codeberg.org/dnkl/foot][foot]]
+- File Manager - [[https://gitlab.xfce.org/xfce/thunar][Thunar]]
+- Browser - [[https://github.com/Floorp-Projects/Floorp][floorp]]
+- Wallpapers - [[https://github.com/hyprwm/hyprpaper][hyprpaper]]
+
 Explore the repo and incorporate what you like into your own setup. If you have any questions, comments or suggestions, feel free to open and issue or PR!
 
 When you fork, remember to grep for =demonkingswarn= and replace with your username.
@@ -8,20 +20,23 @@ For daily usage, I recommend forking [[https://github.com/demonkingswarn/dotfile
 
 Enjoy! 🚀
 
-[[https://raw.githubusercontent.com/DemonKingSwarn/dotfiles/master/screenshot.png]]
+** Screenshots
 
-** Some of the worthy tools that I use:
+[[https://media.discordapp.net/attachments/1199630396846002276/1234193099954327603/image.png?ex=662fd765&is=662e85e5&hm=054a4b5cd7d1d68213171d5fc4f0ae112c17beb407d654195b51970fb4925730&=&format=webp&quality=lossless]]
+[[https://media.discordapp.net/attachments/1199630396846002276/1234193698200359032/image.png?ex=662fd7f3&is=662e8673&hm=fb6898805956cfe3a28ce2f08a496b33d8cfcb542006ea6c97136b2c9bfa54a2&=&format=webp&quality=lossless]]
+[[https://media.discordapp.net/attachments/1199630396846002276/1234193799425822760/image.png?ex=662fd80b&is=662e868b&hm=1dbf8092604a9f6862dc712086f8b593a18292f59beb78464d8964d8ad5ee93c&=&format=webp&quality=lossless]]
 
-- [Hyprland](hyprctl monitors -j) (window manager) + [[https://github.com/elkowar/eww][eww]] (status bar)
-- [[https://github.com/wez/wezterm][wezterm]] - fast GPU accelerated terminal
-- [[https://github.com/neovim/neovim][neovim]] - text editor
-- [[https://www.zsh.org/][zsh]] with various other plugins
-
-** Usage:
+** Installation
 
 #+begin_src sh
 git clone https://github.com/demonkingswarn/dotfiles ~/.dots
 cd ~/.dots
 stow --ignore=screenshot.png --ignore=README.org .
+#+end_src
+
+** I also recommend installing my scripts
+
+#+begin_src sh
+git clone https://github.com/demonkingswarn/scripts ~/.scripts
 #+end_src
 

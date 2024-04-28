@@ -1,4 +1,4 @@
 Config(
-  prefix: "!",
+  prefix: "sh:",
   shell: None,
 )

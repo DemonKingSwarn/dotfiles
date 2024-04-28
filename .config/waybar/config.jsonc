@@ -21,7 +21,8 @@
             "6": "六",
             "7": "七",
             "8": "八",
-            "9": "九"
+            "9": "九",
+            "10": "十"
         },
         "active-only": false,
         "sort-by-name": true,
@@ -48,7 +49,7 @@
     },
 
     "clock": {
-        "format": " {:%a, %b %d, %Y - %I:%M %p} ",
+        "format": "{:%a, %b %d, %Y - %I:%M %p} ",
         "tooltip-format": "{calendar}",
         "interval": 30,
         "on-click": "notify-send history-pop"
@@ -67,7 +68,7 @@
             "good": 76,
             "warning": 20
         },
-        "format": " {icon}  {capacity}% ",
+        "format": "{icon}  {capacity}% ",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
@@ -81,13 +82,13 @@
     },
     
     "network": {
-        "format-wifi": "   {essid} ",
+        "format-wifi": "  {essid} ",
         "tooltip-format": "Connected to {essid}",
         "format-disconnected": "wifi",
     },
 
     "custom/off": {
-        "format": "  ",
+        "format": " ",
         "tooltip-format": "Power-Off Menu",
         "on-click": "byebye"
 
@@ -95,7 +96,7 @@
 
        "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": " {icon} {volume}% ",
+        "format": "{icon} {volume}% ",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

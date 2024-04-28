@@ -1,0 +1,36 @@
+#window {
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  color: #f8f8f2;
+  background: rgba(0, 0, 0, 0.33);
+  /* border-radius: 16px; */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* backdrop-filter: blur(10.6px); */
+  /* -webkit-backdrop-filter: blur(10.6px); */
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+box#main {
+  /* border-radius: 30px; */
+  background-color: #282a36;
+  color: #f8f8f2;
+}
+
+list#main {
+  background-color: rgba(0, 0, 0, 0);
+  /* border-radius: 30px; */
+  color: #f8f8f2;
+}
+
+list#plugin {
+  background-color: rgba(0, 0, 0, 0);
+  color: #f8f8f2;
+}
+
+label#match-desc {
+  font-size: 12px;
+  color: #f8f8f2;
+}
+
+label#plugin {
+  font-size: 24px;
+  color: #f8f8f2;
+}
