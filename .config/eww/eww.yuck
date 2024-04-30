@@ -1,212 +1,92 @@
-(defpoll clock_time :interval "5s" "date '+\%I:\%M \%p'")
-(defpoll clock_date :interval "1h" "date '+%b %d, %Y'")
-(defpoll calendar_day :interval "2h" "date '+%d'")
-(defpoll calendar_year :interval "2h" "date '+%Y'")
-(defpoll volume_percent :interval "1s"  "pamixer --get-volume")
-(defpoll memory_usage :interval "1s" "scripts/memory")
-(defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
-(defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
-(defpoll battery :interval "5s" "echo $(cat /sys/class/power_supply/BAT1/capacity)%")
-(deflisten workspace "scripts/workspace")
-(deflisten appname "scripts/appname")
-(deflisten idle "scripts/idel")
-(deflisten pow "scripts/pow")
+;; Variables
+(defpoll time :interval "20s" "date +\" %a %H:%M\"")
+(defpoll clock_time :interval "5m" "date +\%I")
+(defpoll clock_minute :interval "5s" "date +\%M")
+(defpoll clock_date :interval "10h" "date '+%d/%m'")
+(defpoll calendar_day :interval "20h" "date '+%d'")
+(defpoll calendar_year :interval "20h" "date '+%Y'")
 
-(defvar vol_reveal false)
-(defvar wifi_rev false)
-(defvar time_rev false)
+(deflisten volume `zsh ./scripts/audio --get-volicon`)
+(deflisten network `zsh ./scripts/network --icon`)
+(deflisten battery `zsh ./scripts/battery --icon`)
+(deflisten workspace `zsh ./scripts/workspaces`)
 
+(defvar eww "/usr/bin/eww -c $HOME/.config/eww/bar")
+
+
+;; widgets
 (defwidget workspaces []
-  (literal
-   :content workspace))
+  (literal :content workspace))
 
-(defwidget idle []
-    (literal
-     :class "idle"
-     :content idle))
-
-(defwidget pow []
-    (literal
-     :class "power"
-     :content pow))
-
-(defwidget appnames []
-  (eventbox
-    (box
-      :orientation "h"
-      :space-evenly "false"
-      :vexpand "false"
-      :hexpand "false"
-      (literal
-       :content appname))))
-
-(defwidget volume []
-  (eventbox
-    :onhover "${EWW_CMD} update vol_reveal=true"
-    :onhoverlost "${EWW_CMD} update vol_reveal=false"
-    (box
-      :class "module-2"
-      :space-evenly "false"
-      :orientation "h"
-      :spacing "5"
-      (revealer
-        :transition "slideright"
-        :reveal vol_reveal
-        :duration "350ms"
-        (scale
-          :class "volbar"
-          :value volume_percent
-          :orientation "h"
-          :tooltip "${volume_percent}%"
-          :max 100
-          :min 0
-         :onchange "pamixer --set-volume {}"))
-      (button
-        :onclick "${EWW_CMD} open --toggle audio_ctl"
-        :class "volume_icon"
-       "墳"))))
-
-(defwidget wifi []
-  (eventbox
-    :onhover "${EWW_CMD} update wifi_rev=true"
-    :onhoverlost "${EWW_CMD} update wifi_rev=false"
-    (box
-      :vexpand "false"
-      :hexpand "false"
-      :space-evenly "false"
-      (revealer
-        :transition "slideright"
-        :reveal wifi_rev
-        :duration "350ms"
-        (label
-          :class "module_essid"
-         :text ESSID_WLAN))
-      (button
-        :class "module-wif"
-        :onclick "networkmanager_dmenu"
-       WLAN_ICON))))
-
-(defwidget mem []
-  (box
-    :class "mem_module"
-    :vexpand "false"
-    :hexpand "false"
-    (label
-     :text memory_usage)))
-  
-
-(defwidget bat []
-    (box
-        :class "bat_module"
-        :vexpand "false"
-        :hexpand "false"
-        (label
-         :text battery)))
-    
-
-
-(defwidget clock_module []
-  (eventbox
-    :onhover "${EWW_CMD} update time_rev=true"
-    :onhoverlost "${EWW_CMD} update time_rev=false"
-    (box
-      :class "module"
-      :space-evenly "false"
-      :orientation "h"
-      :spacing "0"
-      (label
-        :text clock_time
-       :class "clock_time_class")
-      (button
-        :class "clock_time_class"
-       :onclick "${EWW_CMD} open --toggle calendar" clock_date))))
-
-
-(defwidget sep []
-  (box
-    :class "module-2"
-    :vexpand "false"
-    :hexpand "false"
-    (label
-      :class "separ"
-     :text "|")))
-
-(defwidget gap []
-  (box
-    :orientation "h"
-    :hexpand "false"
-    :visible "true"
-   :width "150"))
-
-
-;;define widget groups
 (defwidget left []
-  (box
-    :orientation "h"
-    :space-evenly false
-    :halign "start"
-    :class "left_modules"
-    (workspaces)))
-(defwidget center []
-  (box
-    :orientation "h"
-    :space-evenly false
-    :halign "center"
-    :class "center_modules"
-    (appnames)))
-(defwidget right []
-  (box
-    :orientation "h"
-    :space-evenly false
-    :halign "end"
-    :class "right_modules"
-    (volume)
-    (wifi)
-    (sep)
-    (bat)
-    (sep)
-    (idle)
-    (sep)
-    (clock_module)))
-  
-(defwidget bar_layout []
-  (centerbox
-    :class "bar_class"
-    :orientation "h"
-    (left)
-    (center)
-    (right)))
-  
-
-(defwindow bar
-  :monitor 0
-  :exclusive true
-  :geometry (geometry
-             :height "3%"
-             :width "100%"
-             :anchor "top center")
-  
-  :stacking "fg"
-  :windowtype "dock"
- (bar_layout))
-
-
-(defwindow calendar
-  :monitor 0
-  :exclusive false
-  :geometry (geometry
-             :height "20%"
-             :width "20%"
-             :anchor "top right")
-  
-  :stacking "fg"
-  :windowtype "normal"
- (cal))
-
-(defpoll date :interval "5s"
-         `date +'{"hour":"%I","min":"%M","am_pm":"%p","day":"%d","month":"%m","year":"%Y"}'`)
+    (box :orientation "h"
+         :space-evenly false
+         :halign "start"
+         :class "left_modules"
+     (workspaces)))
 
 (defwidget cal []
-           (calendar :class "calendar"
-                     :date "${date.year}-${date.month}-${date.day}"
-                     :format "%a %d %b"))
+    (box :class "cal" :orientation "v"
+     (box :class "cal-in"
+      (calendar :class "cal"
+                :day calendar_day
+                :year calendar_year))))
+
+(defwidget clock_module []
+    (box :class "module" :halign "center"
+      (button :class "clock_date_class"
+             :onclick "zsh ../scripts/pop calendar"
+             :onmiddleclick `(alacritty -e calcurse &)`
+       (label :text "${time}"))))
+
+(defwidget center []
+    (box :orientation "h"
+         :space-evenly false
+         :halign "center"
+         :class "center_modules"
+     (clock_module)))
+
+;;Make individual buttons clickable
+;;network
+;;time
+;;battery
+
+(defwidget sysboard []
+  (box :halign "end"
+      (button :class "systray"
+              :onclick "zsh ../scripts/launch_dashboard"
+              :onmiddleclick "zsh ../scripts/audio --toggle-vol"
+       (label :text "${network} ${volume} ${battery}"))))
+
+(defwidget right []
+    (box :orientation "h"
+         :space-evenly false
+         :halign "end"
+         :class "right_modules"
+     (sysboard)))
+
+(defwidget bar_1 []
+    (box :class "bar_class"
+         :orientation "h"
+     (left)
+     (center)
+     (right)))
+
+
+;; Window
+(defwindow calendar
+    :monitor 0
+    :geometry (geometry :x "-20px"
+                        :y "1%"
+                        :anchor "top center"
+                        :width "270px"
+                        :height "60px")
+ (cal))
+
+(defwindow bar
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :width "100%"
+                        :anchor "top center")
+    :exclusive true
+ (bar_1))
