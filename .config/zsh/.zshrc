@@ -127,6 +127,15 @@ gdown () {
 
 # gdown "<drive_link>"  "<to_specified_directory>"
 
+hb () {
+    uri="http://bin.christitus.com/documents"
+    content=$(cat $1)
+    response=$(curl -X POST -d "$content" -w "%{http_code}\n" -s "$uri")
+    hasteKey=$(echo $response | jq .key | sed 's/"//g')
+    url="http://bin.christitus.com/$hasteKey"
+    printf "%s\n" "$url"
+}
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line

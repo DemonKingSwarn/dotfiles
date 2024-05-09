@@ -7,7 +7,6 @@ do
         "r") convert "$file" -rotate 90 /tmp/out.jpg ;;
         "m") curl -F"file=@$file" 0x0.st | wl-copy ;;
         "t") zbarimg -q "$file" | awk -F'QR-Code:' '{print $2}' | wl-copy ;;
-        "d") [ "$(printf "yes\\nno" | anyrun --plugins libstdin.so)" == "yes" ] && rm "$file" && notify-send "$file deleted" ;;
         "i") notify-send -i $file "File information" "$(mediainfo $file)" ;;
         "y") readlink -f "$file" | wl-copy && notify-send "$(readlink -f "$file") copied to clipboard" ;;
 	esac
