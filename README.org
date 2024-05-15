@@ -22,9 +22,9 @@ Enjoy! 🚀
 
 ** Screenshots
 
-[[https://media.discordapp.net/attachments/1199630396846002276/1234193099954327603/image.png?ex=662fd765&is=662e85e5&hm=054a4b5cd7d1d68213171d5fc4f0ae112c17beb407d654195b51970fb4925730&=&format=webp&quality=lossless]]
-[[https://media.discordapp.net/attachments/1199630396846002276/1234193698200359032/image.png?ex=662fd7f3&is=662e8673&hm=fb6898805956cfe3a28ce2f08a496b33d8cfcb542006ea6c97136b2c9bfa54a2&=&format=webp&quality=lossless]]
-[[https://media.discordapp.net/attachments/1199630396846002276/1234193799425822760/image.png?ex=662fd80b&is=662e868b&hm=1dbf8092604a9f6862dc712086f8b593a18292f59beb78464d8964d8ad5ee93c&=&format=webp&quality=lossless]]
+[[https://media.discordapp.net/attachments/1199630396846002276/1234193099954327603/image.png?hm=054a4b5cd7d1d68213171d5fc4f0ae112c17beb407d654195b51970fb4925730&=&format=webp&quality=lossless]]
+[[https://media.discordapp.net/attachments/1199630396846002276/1234193698200359032/image.png?hm=fb6898805956cfe3a28ce2f08a496b33d8cfcb542006ea6c97136b2c9bfa54a2&=&format=webp&quality=lossless]]
+[[https://media.discordapp.net/attachments/1199630396846002276/1234193799425822760/image.png?hm=1dbf8092604a9f6862dc712086f8b593a18292f59beb78464d8964d8ad5ee93c&=&format=webp&quality=lossless]]
 
 ** Keybinds
 
