@@ -3,14 +3,16 @@
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 riverctl spawn "$HOME/.config/river/autostart"
+riverctl spawn "foot --server"
+riverctl spawn "blueman-applet"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "xrdb -merge ~/.Xresources"
 
-riverctl map normal Super Return spawn "foot"
-riverctl map normal Super D spawn "tofi-drun --drun-launch=true"
-riverctl map normal Super Print spawn "wayss"
-riverctl map normal Super+Shift X spawn "swaylock -i $HOME/hdd/pix/wall/93.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
+riverctl map normal Super Return spawn "footclient"
+riverctl map normal Super D spawn "anyrun"
+riverctl map normal Super Print spawn "$HOME/.config/hypr/scripts/screenshot fullsave"
+riverctl map normal Super+Shift X spawn "swaylock -i $HOME/pix/wall/93.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
 riverctl map normal Super T spawn "bartoggle"
 
 # Super+Shift+Q to close the focused view
@@ -136,14 +138,14 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brightness with light (https://github.com/haikarainen/light)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 5'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 done
 
 # Set background and border color
 riverctl background-color "#282a36"
-riverctl border-color-focused 0xada400ff
-riverctl border-color-unfocused 0x66333333
+riverctl border-color-focused "#8957B0"
+riverctl border-color-unfocused "#5D587B"
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
@@ -151,9 +153,6 @@ riverctl set-repeat 50 300
 # Make certain views start floating
 riverctl float-filter-add app-id float
 #riverctl float-filter-add title "popup title with spaces"
-
-# Set app-ids and titles of views which should use client side decorations
-riverctl csd-filter-add app-id "gedit"
 
 # Focus follows mouse
 riverctl focus-follows-cursor always

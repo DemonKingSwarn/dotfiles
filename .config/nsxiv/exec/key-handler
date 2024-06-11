@@ -3,7 +3,8 @@
 while read file
 do
 	case "$1" in 
-        "c") cat "$file" | wl-copy ;;
+        "c") wl-copy < "$file" ;;
+        "w") killall hyprpaper && convert "$file" "$HOME/.cache/wall.jpg" && hyprpaper & ;;
         "r") convert "$file" -rotate 90 /tmp/out.jpg ;;
         "m") curl -F"file=@$file" 0x0.st | wl-copy ;;
         "t") zbarimg -q "$file" | awk -F'QR-Code:' '{print $2}' | wl-copy ;;

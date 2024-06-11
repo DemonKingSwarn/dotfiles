@@ -7,7 +7,7 @@ include "/home/demonkingswarn/.gtkrc-2.0.mine"
 gtk-theme-name="Breeze"
 gtk-icon-theme-name="kora"
 gtk-font-name="JetBrains Mono,  10"
-gtk-cursor-theme-name="Simp1e-Tokyo-Night-Storm"
+gtk-cursor-theme-name="Bibata-Modern-Amber"
 gtk-cursor-theme-size=24
 gtk-toolbar-style=3
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR

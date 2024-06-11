@@ -20,7 +20,7 @@ alias diff='diff --color=auto'
 alias df='duf -hide special'
 #alias aria2c="aria2c --file-allocation=none"
 #alias neofetch='neofetch --kitty ~/.config/neofetch/neofetch.jpeg --size 20%'
-alias neofetch="fastfetch"
+alias neofetch="fastfetch --logo linux"
 alias irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/irssi"
 alias cat="bat --paging=never"
 alias less="bat --paging=always"
@@ -29,6 +29,7 @@ alias logout='pkill -u $USER'
 alias dir='dir --color=auto'
 alias pdfmaker="pandoc --pdf-engine=pdfroff $1 -o $1.pdf"
 alias networkusage='vnstat -i wlo1'
+alias b='brightnessctl set'
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'

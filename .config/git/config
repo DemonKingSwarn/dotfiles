@@ -1,6 +1,7 @@
 [user]
 	email = rockingswarn@gmail.com
 	name = DemonKingSwarn
+	signingkey = /home/demonkingswarn/.ssh/github.pub
 
 [init]
 	defaultBranch = master
@@ -22,3 +23,5 @@
 
 [http]
 	sslverify = false
+[gpg]
+	format = ssh

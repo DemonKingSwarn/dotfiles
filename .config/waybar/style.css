@@ -2,8 +2,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: 'JetBrains Mono Nerd Font', sans-serif;
-    font-size: 11pt;
+    font-family: 'JetBrains Mono Nerd Font', 'Akshar Regular', 'YujiBoku Regular', 'Iosevka Nerd Font Complete Mono', sans-serif;
+    font-size: 14px;
     min-height: 0;
 }
 window#waybar {

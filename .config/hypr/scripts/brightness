@@ -11,7 +11,7 @@ root_dir="/sys/class/backlight"
 # brighness directory can be different per device, check above root_dir #
 #########################################################################
 #for intel
-backlight_dir="intel_backlight0"
+backlight_dir="intel_backlight"
 
 #for acpi (generic)
 #backlight_dir="acpi_backlight0"

@@ -1,4 +1,4 @@
 #!/bin/sh
 
 
-pkill -f /dev/video || mpv --profile=low-latency --untimed --geometry=-0-0 --autofit=30% /dev/video2 --force-media-title="webcam" --osd-level=0
+pkill -f /dev/video || mpv --profile=low-latency --untimed --geometry=-0-0 --autofit=30% /dev/video0 --force-media-title="webcam" --osd-level=0
