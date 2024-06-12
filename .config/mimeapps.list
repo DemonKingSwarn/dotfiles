@@ -19,3 +19,4 @@ text/*=vscodium-wayland.desktop
 x-scheme-handler/steam=steam.desktop;
 x-scheme-handler/steamlink=steam.desktop;
 x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/discord-1221314350216646828=discord-1221314350216646828.desktop
