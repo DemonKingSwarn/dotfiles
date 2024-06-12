@@ -60,7 +60,7 @@
         "scroll-step": 5,
 	"format": " {icon} {percent}% ",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-click": "nightmode"
+        "on-click": "~/.config/hypr/scripts/toggle_shader"
     },
        
     "battery": {
