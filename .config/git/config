@@ -23,5 +23,6 @@
 
 [http]
 	sslverify = false
+    version = HTTP/1.1
 [gpg]
 	format = ssh

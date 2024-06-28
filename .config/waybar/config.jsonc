@@ -36,7 +36,7 @@
     // custom modules ////////////////
         
     "idle_inhibitor": {
-        "format": " {icon} ",
+        "format": "{icon}",
         "format-icons": {
             "activated": " ",
             "deactivated": " "
@@ -58,7 +58,7 @@
     "backlight": {
         "device": "intel_backlight",
         "scroll-step": 5,
-	"format": " {icon} {percent}% ",
+	"format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-click": "~/.config/hypr/scripts/toggle_shader"
     },
@@ -68,7 +68,7 @@
             "good": 76,
             "warning": 30
         },
-        "format": "{icon}  {capacity}% ",
+        "format": "{icon}  {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
@@ -82,7 +82,7 @@
     },
     
     "network": {
-        "format-wifi": "  {essid} ",
+        "format-wifi": "  {essid}",
         "tooltip-format": "Connected to {essid}",
         "format-disconnected": "wifi",
     },
@@ -96,7 +96,7 @@
 
        "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": " {icon} {volume}% ",
+        "format": "{icon}  {volume}%",
         "format-bluetooth": " {volume}% {icon} {format_source}",
         "format-bluetooth-muted": "  {icon} {format_source}",
         "format-muted": "  {format_source}",
