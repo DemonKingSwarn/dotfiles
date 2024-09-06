@@ -79,6 +79,7 @@
             "warning": 25,
             "critical": 10
         },
+        "on-click": "batterymode",
     },
     
     "network": {

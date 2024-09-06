@@ -42,6 +42,7 @@ vim.cmd [[
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'rafamadriz/friendly-snippets'
+  Plug 'sioodmy/sixelpreview.nvim'
   call plug#end()
 ]]
 
@@ -97,4 +98,3 @@ vim.opt.ttimeoutlen = 150
 -- Autocommands for fcitx
 vim.api.nvim_create_autocmd("InsertLeave", { callback = fcitx2en })
 vim.api.nvim_create_autocmd("InsertEnter", { callback = fcitx2zh })
-

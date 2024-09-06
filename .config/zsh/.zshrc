@@ -120,9 +120,9 @@ get_cookies() {
 }
 
 gdown () {
-        agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/12$(head /dev/urandom | tr -dc '0-1' | cut -c1).0.0.0 Safari/537.36"
+        agent="Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0"
         uuid=$(curl -sL "$1" -A "$agent" | sed -nE 's|.*(uuid=[^"]*)".*|\1|p')
-        aria2c -x16 -s16 "$1&confirm=t&$uuid" -U "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" --summary-interval=0 -d "${2:-.}"
+        aria2c -x16 -s16 "$1&confirm=t&$uuid" -U "$agent" --summary-interval=0 -d "${2:-.}"
 }
 
 # gdown "<drive_link>"  "<to_specified_directory>"
@@ -142,17 +142,23 @@ bindkey '^e' edit-command-line
 
 plugins_dir="/usr/share/zsh/plugins"
 
-source "$HOME/.config/shell/profile"
-source "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$plugins_dir/fzf-tab/fzf-tab.plugin.zsh"
-source "$HOME/.config/shell/aliasrc"
+#source "$HOME/.config/shell/profile"
+#source "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+#source "$plugins_dir/fzf-tab/fzf-tab.plugin.zsh"
+#source "$HOME/.config/shell/aliasrc"
 
 eval "$(zoxide init zsh)"
 
 if [ "$TERM" = "linux" ] ; then
         echo ""
 else
-    eval "$(starship init zsh)"
+    if [ -z "$(cat /etc/os-release | grep -o "Fedora" | head -n1)" ]; then
+        source "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+        source "$plugins_dir/fzf-tab/fzf-tab.plugin.zsh"
+        source "$HOME/.config/shell/aliasrc"
+        source "$HOME/.config/shell/profile" 
+        eval "$(starship init zsh)"
+    fi
 fi
 
 #figlet "$(date '+ %I:%M %p')" | lolcat

@@ -1,11 +1,11 @@
 [Default Applications]
 inode/directory=thunar.desktop
-application/pdf=org.pwmt.zathura.desktop
-text/html=floorp.desktop
-text/php=floorp.desktop
-x-scheme-handler/http=floorp.desktop
-x-scheme-handler/https=floorp.desktop
-x-scheme-handler/about=floorp.desktop
+application/pdf=zen.desktop
+text/html=zen.desktop
+text/php=zen.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+x-scheme-handler/about=zen.desktop
 image/png=nsxiv.desktop
 image/jpeg=nsxiv.desktop
 image/tiff=nsxiv.desktop;
@@ -13,6 +13,10 @@ image/webp=nsxiv.desktop
 image/gif=mpv.desktop;
 image/xcf=gimp.desktop
 image/svg=nsxiv.desktop
+image/avif=nsxiv.desktop
+image/jxl=nsxiv.desktop
+image/jp2=nsxiv.desktop
+image/heic=nsxiv.desktop
 application/octet-stream=mpv.desktop;
 text/x-shellscript=foot.desktop;
 text/*=vscodium-wayland.desktop
@@ -20,3 +24,15 @@ x-scheme-handler/steam=steam.desktop;
 x-scheme-handler/steamlink=steam.desktop;
 x-scheme-handler/webcal=google-chrome.desktop
 x-scheme-handler/discord-1221314350216646828=discord-1221314350216646828.desktop
+model/obj=blender.desktop
+x-scheme-handler/discord-1222229231367487539=discord-1222229231367487539.desktop
+application/x-ms-dos-executable=wine.desktop
+application/x-shellscript=org.codeberg.dnkl.foot.desktop
+x-scheme-handler/nxm=com.nexusmods.app.desktop
+
+[Added Associations]
+model/obj=blender.desktop;
+application/x-shellscript=org.codeberg.dnkl.foot.desktop;
+text/markdown=nvim.desktop;
+video/x-sgi-movie=org.kde.ark.desktop;
+image/jxl=nsxiv.desktop;

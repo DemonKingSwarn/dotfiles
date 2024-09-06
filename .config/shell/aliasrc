@@ -20,7 +20,7 @@ alias diff='diff --color=auto'
 alias df='duf -hide special'
 #alias aria2c="aria2c --file-allocation=none"
 #alias neofetch='neofetch --kitty ~/.config/neofetch/neofetch.jpeg --size 20%'
-alias neofetch="fastfetch --logo linux"
+alias neofetch="fastfetch"
 alias irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/irssi"
 alias cat="bat --paging=never"
 alias less="bat --paging=always"
@@ -30,13 +30,14 @@ alias dir='dir --color=auto'
 alias pdfmaker="pandoc --pdf-engine=pdfroff $1 -o $1.pdf"
 alias networkusage='vnstat -i wlo1'
 alias b='brightnessctl set'
+alias hostname="cat /etc/hostname"
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'
 else
-        alias ls='eza --icons'
-        alias ll='eza -lgh --icons'
-        alias la='eza -lagh --icons'
+        alias ls='eza --icons --group-directories-first'
+        alias ll='eza -lgh --icons --group-directories-first'
+        alias la='eza -lagh --icons --group-directories-first'
         alias tree='eza -aT --icons'
 fi
 
