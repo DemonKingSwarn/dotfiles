@@ -6,7 +6,7 @@
     "margin-bottom":-5,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "battery", "backlight", "clock", "custom/off", "tray"],
+    "modules-right": ["pulseaudio", "network", "battery", "backlight", "custom/clock", "tray"],
     "hyprland/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
@@ -49,10 +49,16 @@
     },
 
     "clock": {
-        "format": "{:%a, %b %d, %Y - %I:%M %p} ",
+        "format": " {:%a, %b %d, %Y - %I:%M %p }",
         "tooltip-format": "{calendar}",
-        "interval": 30,
-        "on-click": "notify-send history-pop"
+        "interval": 30
+    },
+
+    "custom/clock": {
+        "format": "{} ",
+        "exec": "date '+%a, %b %d, %Y - %I:%M %p' ",
+        "tooltip-format": "{calendar}",
+        "interval": 30
     },
 
     "backlight": {
