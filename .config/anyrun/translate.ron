@@ -1,5 +1,5 @@
 Config(
-  prefix: ":",
+  prefix: "trans:",
   language_delimiter: ">",
   max_entries: 3,
 )

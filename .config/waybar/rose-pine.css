@@ -1,0 +1,134 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: 'JetBrains Mono Nerd Font';
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: rgba(25, 23, 36, 0.93); /* Base with transparency */
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  color: #e0def4; /* Text */
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+button {
+  border: none;
+  border-radius: 0;
+  padding: 5px;
+}
+
+button.icon {
+  color: #eb6f92; /* Love (red) */
+}
+
+button:hover {
+  background: inherit;
+  padding: 5px;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: #e0def4; /* Text */
+}
+
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+  background-color: #64727D; /* Blue-gray */
+}
+
+#workspaces button.urgent {
+  background-color: #eb6f92; /* Love (red) */
+}
+
+#workspaces button.active {
+  background-color: #eb6f92; /* Love (red for highlight) */
+}
+
+#mode {
+  background-color: #64727D; /* Same blue-gray color */
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+  padding: 0 10px;
+  color: #e0def4; /* Text */
+  background-color: transparent;
+}
+
+#clock {
+  background-color: #64727D; /* Blue-gray */
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #e0def4; /* Text */
+  background-color: #9ccfd8; /* Foam (green) */
+}
+
+#battery.critical:not(.charging) {
+  background-color: #eb6f92; /* Love (red) */
+  color: #e0def4; /* Text */
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#power-profiles-daemon.performance {
+  background-color: #eb6f92; /* Love (red) */
+  color: #e0def4; /* Text */
+}
+
+#power-profiles-daemon.balanced {
+  background-color: #31748f; /* Pine (blue) */
+  color: #e0def4; /* Text */
+}
+
+#power-profiles-daemon.power-saver {
+  background-color: #9ccfd8; /* Foam (green) */
+  color: #191724; /* Base */
+}
+
+#tray>.needs-attention {
+  background-color: #eb6f92; /* Love (red) */
+}
+
+#idle_inhibitor {
+  background-color: #26233a; /* Overlay */
+}
+
+#idle_inhibitor.activated {
+  background-color: #e0def4; /* Light */
+  color: #191724; /* Dark */
+}
+
+#mpd.disconnected {
+  background-color: #eb6f92; /* Love (red) */
+}
+

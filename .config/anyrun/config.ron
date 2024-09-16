@@ -1,14 +1,14 @@
 Config(
     x: Fraction(0.5),
-    y: Absolute(0),
+    y: Absolute(150),
     width: Absolute(600),
-    height: Absolute(0),
+    height: Absolute(10),
     hide_icons: false, 
     ignore_exclusive_zones: true, 
     layer: Overlay, 
     hide_plugin_info: true, 
     close_on_click: true,
-    show_results_immediately: false,
+    show_results_immediately: true,
     max_entries: None,
     plugins: [
         "libapplications.so",
