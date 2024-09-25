@@ -1,37 +1,96 @@
-@import url("./colors.css");
 * {
-    border: none;
-    border-radius: 0;
-    font-family: 'JetBrains Mono Nerd Font', 'Akshar Regular', 'YujiBoku Regular', 'Iosevka Nerd Font Complete Mono', sans-serif;
-    font-size: 14px;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: 'JetBrains Mono Nerd Font';
+  font-size: 13px;
 }
+
 window#waybar {
-    opacity: 0.9;
-    background: @background-darker;
-    color: @foreground;
-    border-bottom: 2px solid @background;
+  background-color: rgba(17, 17, 17, 0.93);
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
 }
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+  padding: 5px;
+}
+
+button.icon {
+  color: red;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  padding: 5px;
+}
+
+/* you can set a style on hover for any module like this */
+/* #pulseaudio:hover {
+  background-color: #a37800;
+} */
+
 #workspaces button {
-    padding: 0 10px;
-    background: @background;
-    color: @foreground;
+  padding: 0 5px;
+  background-color: transparent;
+  color: #ffffff;
 }
+
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    background-image: linear-gradient(0deg, @selection, @background-darker);
+  background: rgba(0, 0, 0, 0.2);
 }
-#workspaces button.active {
-    background-image: linear-gradient(0deg, @purple, @selection);
+
+#workspaces button.focused {
+  background-color: #64727D;
 }
+
 #workspaces button.urgent {
-    background-image: linear-gradient(0deg, @red, @background-darker);
+  background-color: #c00300;
 }
-#taskbar button.active {
-    background-image: linear-gradient(0deg, @selection, @background-darker);
+
+#workspaces button.active {
+  background-color: #eb4d4b;
 }
-#clock {
-    padding: 0 4px;
-    background: @background;
+
+#mode {
+  background-color: #64727D;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+  padding: 0 10px;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+#window,
+#workspaces {
+  margin: 0;
 }

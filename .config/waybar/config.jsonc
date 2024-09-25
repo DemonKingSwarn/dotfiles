@@ -1,12 +1,12 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 40,
+    "height": 30,
     "spacing": 4,
     "margin-bottom":-5,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "battery", "backlight", "custom/clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "battery", "clock", "tray"],
     "hyprland/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
@@ -85,20 +85,12 @@
             "warning": 25,
             "critical": 10
         },
-        "on-click": "batterymode",
     },
     
     "network": {
         "format-wifi": "  {essid}",
         "tooltip-format": "Connected to {essid}",
         "format-disconnected": "wifi",
-    },
-
-    "custom/off": {
-        "format": " ",
-        "tooltip-format": "Power-Off Menu",
-        "on-click": "byebye"
-
     },
 
        "pulseaudio": {
