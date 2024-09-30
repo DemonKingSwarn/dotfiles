@@ -6,7 +6,7 @@
     "margin-bottom":-5,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "battery", "clock", "tray"],
+    "modules-right": ["pulseaudio", "battery", "clock", "tray"],
     "hyprland/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
