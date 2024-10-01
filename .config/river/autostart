@@ -10,3 +10,4 @@ nm-applet &
 copyq --start-server &
 blueman-applet &
 foot --server &
+kanata -c $HOME/.config/kanata/config.kbd &
