@@ -27,12 +27,15 @@ alias less="bat --paging=always"
 alias x='exit'
 alias logout='pkill -u $USER'
 alias dir='dir --color=auto'
-alias pdfmaker="pandoc --pdf-engine=pdfroff $1 -o $1.pdf"
+alias pdfmaker='pandoc --pdf-engine=pdfroff $1 -o $1.pdf'
 alias networkusage='vnstat -i wlo1'
 alias b='brightnessctl set'
 alias hostname="cat /etc/hostname"
 alias wiki="nvim $XDG_DATA_HOME/vimwiki/index_$(date '+%a-%d-%m-%y-%H:%M').wiki"
-alias fb="sudo docker run --rm -it -v /home/demonkingswarn/.config/fabric/:/root/.config/fabric/ the-fabric fabric"
+#alias fb="sudo docker run --rm -it -v /home/demonkingswarn/.config/fabric/:/root/.config/fabric/ the-fabric fabric"
+alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
+
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'

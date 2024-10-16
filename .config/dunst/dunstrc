@@ -12,7 +12,7 @@ horizontal_padding = 8
 text_icon_padding = 0
 frame_width = 2
 
-frame_color = "#fab387"
+frame_color = "#C4A7E7"
 separator_color = frame
 
 sort = yes

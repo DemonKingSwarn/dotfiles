@@ -1,11 +1,11 @@
 [Default Applications]
 inode/directory=thunar.desktop
-application/pdf=zen.desktop
-text/html=zen.desktop
-text/php=zen.desktop
-x-scheme-handler/http=zen.desktop
-x-scheme-handler/https=zen.desktop
-x-scheme-handler/about=zen.desktop
+application/pdf=firefox.desktop
+text/html=firefox.desktop
+text/php=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
 image/png=nsxiv.desktop
 image/jpeg=nsxiv.desktop
 image/tiff=nsxiv.desktop;
