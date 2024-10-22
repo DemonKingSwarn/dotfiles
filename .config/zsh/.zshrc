@@ -108,8 +108,9 @@ upfile() {
     mkdir /tmp/$dir
     cp $1 /tmp/$dir
     zip -r /tmp/$dir.zip /tmp/$dir
+    checksum=$(sha256sum /tmp/$dir.zip)
     zipcloak /tmp/$dir.zip
-    curl -F"file=@/tmp/$dir.zip" 0x0.st
+    curl -F"file=@/tmp/$dir.zip" http://0x0.st && echo "$checksum"
 }
 
 get_cookies() {                

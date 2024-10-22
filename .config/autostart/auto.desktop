@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Demon's autostart desktop entry
+Exec=/home/demonkingswarn/.config/autostart/startup.sh
+Type=Application
+StartupNotify=false
+Path=/home/demonkingswarn/.config/autostart/
+Icon=xterm
