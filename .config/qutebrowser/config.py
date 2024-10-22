@@ -24,9 +24,9 @@ c.zoom.default = "100%"
 c.downloads.location.directory = "~/dl"
 
 #searx
-c.url.default_page = 'file:///home/demonkingswarn/.config/qutebrowser/html/homepage.html'
-c.url.start_pages = 'https://search.bus-hit.me/'
-c.url.searchengines = {'DEFAULT':'https://search.bus-hit.me/?q={}'}
+c.url.default_page = 'https://demonkingswarn.is-a.dev/startpage'
+c.url.start_pages = 'https://search.demonkingswarn.live/'
+c.url.searchengines = {'DEFAULT':'https://search.demonkingswarn.live/?q={}'}
 
 #fonts
 c.fonts.default_family = "JetBrains Mono"

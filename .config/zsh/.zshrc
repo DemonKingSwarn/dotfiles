@@ -136,6 +136,10 @@ hb () {
     printf "%s\n" "$url"
 }
 
+mypacman () {
+  pacman -Sp $@ | sudo aria2c -d /var/cache/pacman/pkg/ -i -
+}
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
