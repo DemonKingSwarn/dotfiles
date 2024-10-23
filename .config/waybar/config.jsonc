@@ -114,5 +114,16 @@
    
     "hyprland/window": {  
         "format": "<span font='JetBrains Mono Nerd Font' rise='-4444'>{}</span>"  
-    }
+    },
+
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": {},
+      "icon-theme": "${i_theme}",
+      "spacing": 0,
+      "tooltip-format": "{title}",
+      "on-click": "activate",
+      "on-click-middle": "close",
+      "on-click-right": "fullscreen"
+},
 }
