@@ -29,6 +29,7 @@ x-scheme-handler/discord-1222229231367487539=discord-1222229231367487539.desktop
 application/x-ms-dos-executable=wine.desktop
 application/x-shellscript=org.codeberg.dnkl.foot.desktop
 x-scheme-handler/nxm=com.nexusmods.app.desktop
+application/x-pacman=PacmanExec.desktop
 
 [Added Associations]
 model/obj=blender.desktop;
