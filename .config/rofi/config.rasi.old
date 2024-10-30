@@ -1,0 +1,13 @@
+configuration{
+    modi: "run";
+    icon-theme: "gtk-master";
+    show-icons: false;
+    terminal: "wezterm";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-run: " 🏃  Run ";
+}
+
+@theme "rose-pine"
