@@ -5,9 +5,7 @@ TOGGLE="$HOME/.cache/toggle_shader"
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
     hyprctl keyword decoration:screen_shader '~/.config/hypr/shaders/grayscale.frag'
-    notify-send 'Shader enabled'
 else
     rm $TOGGLE
-    hyprctl keyword decoration:screen_shader ''
-    notify-send 'Shader disabled'
+    hyprctl keyword decoration:screen_shader ''   
 fi
