@@ -4,7 +4,7 @@
   /* Default background color */
   background-color: #282738;
   text-color:       #E5B9C6;
-  font: "JetBrainsMono Bold 10";
+  font: "JetBrains Mono Nerd Font 12", "AppleColorEmoji 14";
 }
 
 
