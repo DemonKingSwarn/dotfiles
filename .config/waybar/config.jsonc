@@ -113,7 +113,7 @@
     },
    
     "hyprland/window": {  
-        "format": "<span font='AppleColorEmoji' rise='-4444'>{}</span>"  
+        "format": "<span font='JetBrains Mono Nerd Font' rise='-4444'>{}</span>"  
     },
 
     "wlr/taskbar": {

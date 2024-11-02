@@ -1,5 +1,7 @@
 * ~/.dots
 
+[[https://github.com/zoddDev/dotfiles/raw/master/readme-resources/dotfiles_.png]]
+
 ** Programs I use
 
 - Window Manager - [[https://github.com/hyprwm/Hyprland][Hyprland]]
@@ -7,14 +9,15 @@
 - Launcher - [[https://github.com/Kirottu/anyrun][anyrun]]
 - Shell - [[https://github.com/zsh-users/zsh][zsh]]
 - Prompt - [[https://github.com/starship/starship][starship]]
-- Terminal - [[https://codeberg.org/dnkl/foot][foot]]
+- Terminal - [[https://codeberg.org/dnkl/foot][foot]] & [[https://github.com/wez/wezterm][wezterm]]
 - File Manager - [[https://gitlab.xfce.org/xfce/thunar][Thunar]]
-- Browser - [[https://github.com/Floorp-Projects/Floorp][floorp]]
-- Wallpapers - [[https://github.com/hyprwm/hyprpaper][hyprpaper]]
+- Browser - [[https://www.mozilla.org/en-US/firefox/new/][Firefox]]
+- Wallpapers - [[https://github.com/LGFae/swww][swww]]
+- Lockscreen = [[https://github.com/hyprwm/hyprlock][hyprlock]]
 
 Explore the repo and incorporate what you like into your own setup. If you have any questions, comments or suggestions, feel free to open and issue or PR!
 
-When you fork, remember to grep for =demonkingswarn= and replace with your username.
+When you fork, remember to grep for =demonkingswarn= or =swarn= and replace with your username.
 
 For daily usage, I recommend forking [[https://github.com/demonkingswarn/dotfiles][my repo]] instead of using it directly, as I am changing things on daily basis 🙂
 
@@ -22,9 +25,7 @@ Enjoy! 🚀
 
 ** Screenshots
 
-[[https://media.discordapp.net/attachments/1199630396846002276/1234193099954327603/image.png?ex=664640e5&is=6644ef65&hm=9f94936b90c60c8f7e5b0b975950e1f97f60748b171a65206bd615155e27712f&=&format=webp&quality=lossless&width=1059&height=596]]
-[[https://media.discordapp.net/attachments/1199630396846002276/1234193698200359032/image.png?ex=66464173&is=6644eff3&hm=4dc736503add6657f6a9a3ec9685b4f1a7774e7e6bf09c0e00a70c8e6fdcb075&=&format=webp&quality=lossless&width=660&height=370]]
-[[https://media.discordapp.net/attachments/1199630396846002276/1234193799425822760/image.png?ex=6646418b&is=6644f00b&hm=b6dad3b7a41846a2ac3f90e322043ad68a1a905279a3e48074772a918cbb788f&=&format=webp&quality=lossless&width=660&height=370]]
+[[./.assets/desk.png]]
 
 ** Keybinds
 
