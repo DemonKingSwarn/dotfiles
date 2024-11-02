@@ -1,5 +1,3 @@
-* ~/.dots
-
 [[https://github.com/zoddDev/dotfiles/raw/master/readme-resources/dotfiles_.png]]
 
 ** Programs I use
