@@ -10,13 +10,13 @@ anchor=top-right
 padding=20
 
 # background-color=#00000066
-background-color=#161616
+background-color=#11111B
 # border-color=#ffffff
-border-color=#94E2D5
+border-color=#B4A0D7
 border-radius=14
 border-size=3
 
-font=JetBrains Mono Nerd Font Italic 12
+font=JetBrains Mono Nerd Font 12
 text-alignment=center
 
 [urgency=high]
