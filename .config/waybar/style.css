@@ -54,6 +54,26 @@ button:hover {
     background-color: #eb4d4b;
 }
 
+#tags button {
+    padding: 0 4px;
+}
+
+#tags button.focused {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @rosewater;
+    border-top: 2px solid @rosewater;
+}
+
+#tags button.active {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @mauve;
+    border-top: 2px solid @mauve;
+}
+
+#tags button.urgent {
+    background-color: #eb4d4b;
+}
+
 #pulseaudio,
 #clock,
 #battery,

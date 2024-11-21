@@ -1,27 +1,26 @@
-#!/bin/sh
+#!/usr/bin/env dash
 
 # --------------------------------------------------------
 # AUTOSTART
 # --------------------------------------------------------
 
 riverctl spawn "dex -a"
+riverctl spawn "foot --server"
+riverctl spawn "blueman-applet"
+riverctl spawn "killall xdg-desktop-portal && /usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &"
 
 # --------------------------------------------------------
 # ENVIRONMENT VARIABLES
 # --------------------------------------------------------
 
-riverctl spawn "foot --server"
-riverctl spawn "blueman-applet"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
-riverctl spawn "killall xdg-desktop-portal && /usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &"
 
 # --------------------------------------------------------
 # THEME
 # --------------------------------------------------------
 
-riverctl spawn "xrdb -merge ~/.Xresources"
 riverctl spawn "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
 riverctl spawn "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
 riverctl spawn "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
@@ -35,15 +34,16 @@ riverctl xcursor-theme "Bibata-Modern-Amber"
 riverctl map normal Super Return spawn "wezterm"
 riverctl map normal Alt Return spawn "footclient"
 riverctl map normal Super D spawn "anyrun"
+riverctl map normal Super E spawn "$HOME/.scripts/emojis/emoji.sh"
 
 # --------------------------------------------------------
 # SCRIPTS
 # --------------------------------------------------------
 
-riverctl map normal Print spawn "$HOME/.config/hypr/scripts/screenshot fullsave"
-riverctl map normal Super Print spawn "$HOME/.config/hypr/scripts/screenshot selclip"
+riverctl map normal Super Print spawn "/home/swarn/.config/hypr/scripts/screenshot fullsave"
+riverctl map normal Super+Shift Print spawn "/home/swarn/.config/hypr/scripts/screenshot selclip"
 #riverctl map normal Super+Shift X spawn "swaylock -i $HOME/pix/wall/93.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
-riverctl map normal Super+Shift X spawn "~/.scripts/system/waylock.sh"
+riverctl map normal Super+Shift X spawn "/home/swarn/.scripts/system/waylock.sh"
 riverctl map normal Super T spawn "bartoggle"
 
 # --------------------------------------------------------
@@ -60,28 +60,6 @@ riverctl keyboard-layout \
 # --------------------------------------------------------
 
 riverctl map normal Super+Shift Q close
-riverctl map normal Super+Shift E exit
-
-riverctl map normal Super J focus-view next
-riverctl map normal Super K focus-view previous
-
-# view in the layout stack
-riverctl map normal Super+Shift J swap next
-riverctl map normal Super+Shift K swap previous
-
-riverctl map normal Super Period focus-output next
-riverctl map normal Super Comma focus-output previous
-
-riverctl map normal Super+Shift Period send-to-output next
-riverctl map normal Super+Shift Comma send-to-output previous
-
-riverctl map normal Super+Shift Return zoom
-
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
-
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
 
 riverctl map normal Super H move left 100
 riverctl map normal Super J move down 100
@@ -102,71 +80,33 @@ riverctl map-pointer normal Super BTN_LEFT move-view
 
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 
+  for i in $(seq 1 9)
+  do
+      tags=$((1 << ($i - 1)))
 
-for i in $(seq 1 9)
-do
-    tags=$((1 << ($i - 1)))
+      # Super+[1-9] to focus tag [0-8]
+      riverctl map normal Super $i set-focused-tags $tags
 
-    # Super+[1-9] to focus tag [0-8]
-    riverctl map normal Super $i set-focused-tags $tags
+      # Super+Shift+[1-9] to tag focused view with tag [0-8]
+      riverctl map normal Super+Shift $i set-view-tags $tags
 
-    # Super+Shift+[1-9] to tag focused view with tag [0-8]
-    riverctl map normal Super+Shift $i set-view-tags $tags
+      # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
+      riverctl map normal Super+Control $i toggle-focused-tags $tags
 
-    # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
-    riverctl map normal Super+Control $i toggle-focused-tags $tags
+      # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+      riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+  done
 
-    # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
-    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
-done
+# --------------------------------------------------------
+# MOUSE THINGS
+# --------------------------------------------------------
 
-# Floating windows
-function float () {
-    # If title field is 0
-    if [ $2 -eq 0 ]; then
-        [ $# -ge 2 ] && ruleAdd "$1" float
-        [ $# -ge 4 ] && ruleAdd "$1" dimensions $3 $4
-        if [ $# -ge 6 ]; then 
-            pos_x="$5"
-            pos_y="$6"
-            case $5 in
-                center) pos_x="$((res_x/2 - $3/2))" ;;
-                right) pos_x="$((res_x - $3))" ;;
-                left) pos_x="1" ;;
-            esac
-            case $6 in
-                center) pos_y="$((res_y/2 - $4/2))" ;;
-                bottom) pos_y="$((res_y - $4))" ;;
-                top) pos_y="1" ;;
-            esac
-            ruleAdd "$1" position $pos_x $pos_y
-        fi
-    else
-        # If title is specified instead of 0
-        [ $# -ge 2 ] && ruleAdd "$1" -title "$2" float
-        [ $# -ge 4 ] && ruleAdd "$1" -title "$2" dimensions $3 $4
-        if [ $# -ge 6 ]; then 
-            pos_x="$5"
-            pos_y="$6"
-            case $5 in
-                center) pos_x="$((res_x/2 - $3/2))" ;;
-                right) pos_x="$((res_x - $3))" ;;
-                left) pos_x="1" ;;
-            esac
-            case $6 in
-                center) pos_y="$((res_y/2 - $4/2))" ;;
-                bottom) pos_y="$((res_y - $4))" ;;
-                top) pos_y="1" ;;
-            esac
-            ruleAdd "$1" -title "$2" position $pos_x $pos_y
-        fi
-    fi
-}
 
 # Settings for all mouse pointers
-function mouse_pointers {
-    pointer_arr=(`riverctl list-inputs | grep --color=never pointer | xargs`)
-    for i in "${pointer_arr[@]}"; do
+mouse_pointers() {
+    pointer_arr=$(riverctl list-inputs | grep pointer | xargs)
+    #for i in "${pointer_arr[@]}"; do
+    echo $pointer_arr | while  IFS=' ' read -r i; do
         riverctl input $i events enabled
         riverctl input $i tap enabled
         riverctl input $i drag enabled
@@ -179,7 +119,6 @@ function mouse_pointers {
 }
 
 mouse_pointers
-
 
 # Super+0 to focus all tags
 # Super+Shift+0 to tag focused view with all tags
@@ -198,16 +137,6 @@ riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
 riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
 riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
 riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
-
-# Declare a passthrough mode. This mode has only a single mapping to return to
-# normal mode. This makes it useful for testing a nested wayland compositor
-riverctl declare-mode passthrough
-
-# Super+F11 to enter passthrough mode
-riverctl map normal Super F11 enter-mode passthrough
-
-# Super+F11 to return to normal mode
-riverctl map passthrough Super F11 enter-mode normal
 
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
@@ -232,28 +161,29 @@ do
     riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 done
 
+
 # Set background and border color
 riverctl background-color 0x002b36
 riverctl border-color-focused 0xaa86e1
 riverctl border-color-unfocused 0x586e75
 riverctl border-width 3
 # Set keyboard repeat rate
-riverctl set-repeat 50 300
+riverctl set-repeat 69 300
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
 riverctl float-filter-add title "popup title with spaces"
-#riverctl float-filter-add title "MainPicker"
+
 # Focus follows mouse
 riverctl focus-follows-cursor always
-
-#     APP ID                  TITLE           W     H   X   Y
-float 'hyprland-share-picker' 'MainPicker'  400   200 center  center
 
 # Bottom stack
 riverctl attach-mode bottom
 
 # Layout
-killall rivertile
-riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.527 &
+#killall rivertile
+#riverctl default-layout rivertile
+#rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.527 &
+killall river-dwindle
+riverctl default-layout river-dwindle
+river-dwindle --view-padding 6 --outer-padding 6 --ratio 0.5 &
