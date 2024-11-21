@@ -1,78 +1,107 @@
 #!/bin/sh
 
-# Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
+# --------------------------------------------------------
+# AUTOSTART
+# --------------------------------------------------------
 
-riverctl spawn "$HOME/.config/river/autostart"
+riverctl spawn "dex -a"
+
+# --------------------------------------------------------
+# ENVIRONMENT VARIABLES
+# --------------------------------------------------------
+
 riverctl spawn "foot --server"
 riverctl spawn "blueman-applet"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
-riverctl spawn "xrdb -merge ~/.Xresources"
+riverctl spawn "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
+riverctl spawn "killall xdg-desktop-portal && /usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &"
 
-riverctl map normal Super Return spawn "footclient"
+# --------------------------------------------------------
+# THEME
+# --------------------------------------------------------
+
+riverctl spawn "xrdb -merge ~/.Xresources"
+riverctl spawn "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
+riverctl spawn "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
+riverctl spawn "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
+riverctl spawn "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'"
+riverctl xcursor-theme "Bibata-Modern-Amber"
+
+# --------------------------------------------------------
+# PROGRAMS
+# --------------------------------------------------------
+
+riverctl map normal Super Return spawn "wezterm"
+riverctl map normal Alt Return spawn "footclient"
 riverctl map normal Super D spawn "anyrun"
-riverctl map normal Super Print spawn "$HOME/.config/hypr/scripts/screenshot fullsave"
-riverctl map normal Super+Shift X spawn "swaylock -i $HOME/pix/wall/93.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
+
+# --------------------------------------------------------
+# SCRIPTS
+# --------------------------------------------------------
+
+riverctl map normal Print spawn "$HOME/.config/hypr/scripts/screenshot fullsave"
+riverctl map normal Super Print spawn "$HOME/.config/hypr/scripts/screenshot selclip"
+#riverctl map normal Super+Shift X spawn "swaylock -i $HOME/pix/wall/93.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
+riverctl map normal Super+Shift X spawn "~/.scripts/system/waylock.sh"
 riverctl map normal Super T spawn "bartoggle"
 
-# Super+Shift+Q to close the focused view
+# --------------------------------------------------------
+# KEYBOARD LAYOUT
+# --------------------------------------------------------
+
+riverctl keyboard-layout \
+            -variant ,digits \
+            -options ctrl:nocaps \
+            us
+
+# --------------------------------------------------------
+# KEYBINDS
+# --------------------------------------------------------
+
 riverctl map normal Super+Shift Q close
-
-# Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit
-#riverctl map normal Super+Shift R spawn "source /home/demonkingswarn/.config/river/autostart"
 
-# Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
 riverctl map normal Super K focus-view previous
 
-# Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
 # view in the layout stack
 riverctl map normal Super+Shift J swap next
 riverctl map normal Super+Shift K swap previous
 
-# Super+Period and Super+Comma to focus the next/previous output
 riverctl map normal Super Period focus-output next
 riverctl map normal Super Comma focus-output previous
 
-# Super+Shift+{Period,Comma} to send the focused view to the next/previous output
 riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
 
-# Super+Return to bump the focused view to the top of the layout stack
 riverctl map normal Super+Shift Return zoom
 
-# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
 riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
 
-# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
 riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
 
-# Super+Alt+{H,J,K,L} to move views
-riverctl map normal Super+Alt H move left 100
-riverctl map normal Super+Alt J move down 100
-riverctl map normal Super+Alt K move up 100
-riverctl map normal Super+Alt L move right 100
+riverctl map normal Super H move left 100
+riverctl map normal Super J move down 100
+riverctl map normal Super K move up 100
+riverctl map normal Super L move right 100
 
-# Super+Alt+Control+{H,J,K,L} to snap views to screen edges
 riverctl map normal Super+Alt+Control H snap left
 riverctl map normal Super+Alt+Control J snap down
 riverctl map normal Super+Alt+Control K snap up
 riverctl map normal Super+Alt+Control L snap right
 
-# Super+Alt+Shift+{H,J,K,L} to resize views
-riverctl map normal Super+Alt+Shift H resize horizontal -100
-riverctl map normal Super+Alt+Shift J resize vertical 100
-riverctl map normal Super+Alt+Shift K resize vertical -100
-riverctl map normal Super+Alt+Shift L resize horizontal 100
+riverctl map normal Super+Shift H resize horizontal -100
+riverctl map normal Super+Shift J resize vertical 100
+riverctl map normal Super+Shift K resize vertical -100
+riverctl map normal Super+Shift L resize horizontal 100
 
-# Super + Left Mouse Button to move views
 riverctl map-pointer normal Super BTN_LEFT move-view
 
-# Super + Right Mouse Button to resize views
 riverctl map-pointer normal Super BTN_RIGHT resize-view
+
 
 for i in $(seq 1 9)
 do
@@ -91,6 +120,67 @@ do
     riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
+# Floating windows
+function float () {
+    # If title field is 0
+    if [ $2 -eq 0 ]; then
+        [ $# -ge 2 ] && ruleAdd "$1" float
+        [ $# -ge 4 ] && ruleAdd "$1" dimensions $3 $4
+        if [ $# -ge 6 ]; then 
+            pos_x="$5"
+            pos_y="$6"
+            case $5 in
+                center) pos_x="$((res_x/2 - $3/2))" ;;
+                right) pos_x="$((res_x - $3))" ;;
+                left) pos_x="1" ;;
+            esac
+            case $6 in
+                center) pos_y="$((res_y/2 - $4/2))" ;;
+                bottom) pos_y="$((res_y - $4))" ;;
+                top) pos_y="1" ;;
+            esac
+            ruleAdd "$1" position $pos_x $pos_y
+        fi
+    else
+        # If title is specified instead of 0
+        [ $# -ge 2 ] && ruleAdd "$1" -title "$2" float
+        [ $# -ge 4 ] && ruleAdd "$1" -title "$2" dimensions $3 $4
+        if [ $# -ge 6 ]; then 
+            pos_x="$5"
+            pos_y="$6"
+            case $5 in
+                center) pos_x="$((res_x/2 - $3/2))" ;;
+                right) pos_x="$((res_x - $3))" ;;
+                left) pos_x="1" ;;
+            esac
+            case $6 in
+                center) pos_y="$((res_y/2 - $4/2))" ;;
+                bottom) pos_y="$((res_y - $4))" ;;
+                top) pos_y="1" ;;
+            esac
+            ruleAdd "$1" -title "$2" position $pos_x $pos_y
+        fi
+    fi
+}
+
+# Settings for all mouse pointers
+function mouse_pointers {
+    pointer_arr=(`riverctl list-inputs | grep --color=never pointer | xargs`)
+    for i in "${pointer_arr[@]}"; do
+        riverctl input $i events enabled
+        riverctl input $i tap enabled
+        riverctl input $i drag enabled
+        riverctl input $i drag-lock disabled
+        riverctl input $i scroll-method edge
+        riverctl input $i disable-while-typing enabled
+        riverctl input $i tap-button-map left-right-middle
+        riverctl input $i scroll-factor 1.5
+    done
+}
+
+mouse_pointers
+
+
 # Super+0 to focus all tags
 # Super+Shift+0 to tag focused view with all tags
 all_tags=$(((1 << 32) - 1))
@@ -98,7 +188,7 @@ riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
 # Super+Space to toggle float
-riverctl map normal Super Space toggle-float
+riverctl map normal Super V toggle-float
 
 # Super+F to toggle fullscreen
 riverctl map normal Super F toggle-fullscreen
@@ -143,19 +233,22 @@ do
 done
 
 # Set background and border color
-riverctl background-color "#282a36"
-riverctl border-color-focused "#8957B0"
-riverctl border-color-unfocused "#5D587B"
-
+riverctl background-color 0x002b36
+riverctl border-color-focused 0xaa86e1
+riverctl border-color-unfocused 0x586e75
+riverctl border-width 3
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
-#riverctl float-filter-add title "popup title with spaces"
-
+riverctl float-filter-add title "popup title with spaces"
+#riverctl float-filter-add title "MainPicker"
 # Focus follows mouse
 riverctl focus-follows-cursor always
+
+#     APP ID                  TITLE           W     H   X   Y
+float 'hyprland-share-picker' 'MainPicker'  400   200 center  center
 
 # Bottom stack
 riverctl attach-mode bottom
@@ -163,4 +256,4 @@ riverctl attach-mode bottom
 # Layout
 killall rivertile
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.527
+rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.527 &

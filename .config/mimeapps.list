@@ -30,6 +30,7 @@ application/x-ms-dos-executable=wine.desktop
 application/x-shellscript=org.codeberg.dnkl.foot.desktop
 x-scheme-handler/nxm=com.nexusmods.app.desktop
 application/x-pacman=PacmanExec.desktop
+x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 model/obj=blender.desktop;

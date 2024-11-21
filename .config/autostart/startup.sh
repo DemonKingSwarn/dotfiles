@@ -1,8 +1,8 @@
 #!/bin/sh
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-#dunst &
-mako &
+dunst &
+#mako &
 waybar &
 udiskie &
 startxwayland &
