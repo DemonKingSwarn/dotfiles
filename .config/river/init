@@ -38,10 +38,11 @@ riverctl map normal Super D spawn "anyrun"
 # --------------------------------------------------------
 
 riverctl map normal Super E spawn "$HOME/.scripts/emojis/emoji.sh"
-riverctl map normal None Print spawn "/home/swarn/.config/hypr/scripts/screenshot fullsave"
-riverctl map normal Super Print spawn "/home/swarn/.config/hypr/scripts/screenshot selclip"
+riverctl map normal None Print spawn "$HOME/.config/hypr/scripts/screenshot fullsave"
+riverctl map normal Super Print spawn "$HOME/.config/hypr/scripts/screenshot selclip"
 #riverctl map normal Super+Shift X spawn "swaylock -i $HOME/pix/wall/93.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
-riverctl map normal Super+Shift X spawn "/home/swarn/.scripts/system/waylock.sh"
+riverctl map normal Super+Shift X spawn "$HOME/.scripts/system/waylock.sh"
+riverctl map normal Super W spawn "$HOME/.scripts/misc/wallmanager"
 riverctl map normal Super T spawn "bartoggle"
 
 # --------------------------------------------------------
@@ -100,23 +101,20 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # --------------------------------------------------------
 
 
-# Settings for all mouse pointers
-mouse_pointers() {
-    pointer_arr=$(riverctl list-inputs | grep pointer | xargs)
-    #for i in "${pointer_arr[@]}"; do
-    echo $pointer_arr | while  IFS=' ' read -r i; do
-        riverctl input $i events enabled
-        riverctl input $i tap enabled
-        riverctl input $i drag enabled
-        riverctl input $i drag-lock disabled
-        riverctl input $i scroll-method edge
-        riverctl input $i disable-while-typing enabled
-        riverctl input $i tap-button-map left-right-middle
-        riverctl input $i scroll-factor 1.5
-    done
+# Settings for laptop touchpad
+touchpad_settings() {
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad events enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad tap enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad drag enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad drag-lock disabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad scroll-method edge
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad disable-while-typing enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad tap-button-map left-right-middle
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad natural-scroll enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad scroll-factor 1.5
 }
 
-mouse_pointers
+touchpad_settings
 
 # Super+0 to focus all tags
 # Super+Shift+0 to tag focused view with all tags
@@ -169,8 +167,10 @@ riverctl border-width 3
 riverctl set-repeat 69 300
 
 # Make certain views start floating
-riverctl float-filter-add app-id float
-riverctl float-filter-add title "popup title with spaces"
+#riverctl float-filter-add app-id float
+#riverctl float-filter-add title "MainPicker"
+
+riverctl rule-add -app-id 'hyprland-share-picker' -title 'MainPicker' float
 
 # Focus follows mouse
 riverctl focus-follows-cursor always
@@ -178,10 +178,37 @@ riverctl focus-follows-cursor always
 # Bottom stack
 riverctl attach-mode bottom
 
+# --------------------------------------------------------
+# Server Side Decorations
+# --------------------------------------------------------
+
+riverctl rule-add ssd
+
+# --------------------------------------------------------
 # Layout
-#killall rivertile
-#riverctl default-layout rivertile
-#rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.527 &
-killall river-dwindle
-riverctl default-layout river-dwindle
-river-dwindle --view-padding 6 --outer-padding 6 --ratio 0.5 &
+# --------------------------------------------------------
+
+# I am using wideriver layout for dwindle, you can download it from the following link:
+# https://github.com/alex-courtis/wideriver
+
+killall wideriver
+riverctl default-layout wideriver
+wideriver \
+    --layout                       left        \
+    --layout-alt                   monocle     \
+    --stack                        dwindle     \
+    --count-master                 1           \
+    --ratio-master                 0.50        \
+    --count-wide-left              0           \
+    --ratio-wide                   0.35        \
+    --no-smart-gaps                            \
+    --inner-gaps                   6           \
+    --outer-gaps                   6           \
+    --border-width                 2           \
+    --border-width-monocle         0           \
+    --border-width-smart-gaps      0           \
+    --border-color-focused         "0xaa86e1"  \
+    --border-color-focused-monocle "0xaa86e1"  \
+    --border-color-unfocused       "0x586e75"  \
+    --log-threshold                info        \
+   > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
