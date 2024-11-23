@@ -2,7 +2,7 @@
 
 ** Programs I use
 
-- Window Manager - [[https://github.com/hyprwm/Hyprland][Hyprland]]
+- Window Manager - [[https://github.com/riverwm/river][River]]
 - Panel - [[https://github.com/Alexays/Waybar][waybar]]
 - Launcher - [[https://github.com/Kirottu/anyrun][anyrun]]
 - Shell - [[https://github.com/zsh-users/zsh][zsh]]
@@ -11,7 +11,7 @@
 - File Manager - [[https://gitlab.xfce.org/xfce/thunar][Thunar]]
 - Browser - [[https://www.mozilla.org/en-US/firefox/new/][Firefox]]
 - Wallpapers - [[https://github.com/LGFae/swww][swww]]
-- Lockscreen = [[https://github.com/hyprwm/hyprlock][hyprlock]]
+- Lockscreen - [[https://github.com/hyprwm/hyprlock][hyprlock]]
 
 Explore the repo and incorporate what you like into your own setup. If you have any questions, comments or suggestions, feel free to open and issue or PR!
 
@@ -34,14 +34,14 @@ Enjoy! 🚀
 | SUPER + V           | Toggle floating window                    |
 | SUPER + {h,j,k,l}   | Move focus                                |
 | SUPER + SHIFT + Q   | Close active  window                      |
-| SUPER + 1-0         | Switch workspaces                         |
-| SUPERSHIFT + 1-0    | Move active window to different workspace |
+| SUPER + 1-9         | Switch workspaces                         |
+| SUPERSHIFT + 1-9    | Move active window to different workspace |
 | SUPER + ENTER       | Launch foot terminal                      |
 | SUPER + D           | Launch anyrun                             |
 | PRINT SCR           | Take screenshot                           |
 | SUPER + PRINT SCR   | Take screenshot (selected area)           |
 | SUPER + C           | Launch hyprpicker                         |
-| SUPER + G           | Toggle waybar                             |
+| SUPER + T           | Toggle waybar                             |
 
 ** Installation
 
