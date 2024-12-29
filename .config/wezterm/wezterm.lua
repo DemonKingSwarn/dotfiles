@@ -2,8 +2,7 @@ local wezterm = require("wezterm")
 return {
   default_cursor_style = "SteadyBar",
   font = wezterm.font_with_fallback {
-    "JetBrains Mono Nerd Font", 
-    "AppleColorEmoji"
+    "JetBrains Mono Nerd Font"
   },
   font_size = 16.0,
   enable_tab_bar = false,

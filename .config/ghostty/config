@@ -1,4 +1,15 @@
 theme = Dracula
-font-family = "JetBrains Mono"
-font-size = 14
+background = #282a36
+#background-opacity = 0.65
+#background-blur-radius = 15
+
+font-family = JetBrainsMonoNL Nerd Font
+font-size = 16
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
 gtk-titlebar = false
+
+keybind = super+r=reload_config
