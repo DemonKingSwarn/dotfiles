@@ -38,6 +38,9 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias time='hyperfine'
 alias lf='yazi'
 alias tor='webtorrent --mpv'
+alias thumb='yt-dlp --write-thumbnail --skip-download'
+alias SS='sudo systemctl'
+alias j='sudo journalctl'
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'

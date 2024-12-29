@@ -26,6 +26,7 @@
     "disk",
     "battery",
     "poweradapter",
+    "media",
     "locale",
     "break",
     "colors"

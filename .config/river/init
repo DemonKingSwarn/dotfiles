@@ -169,7 +169,7 @@ riverctl set-repeat 69 300
 
 # Make certain views start floating
 #riverctl float-filter-add app-id float
-#riverctl float-filter-add title "MainPicker"
+#riverctl float-filter-add title "popup title with spaces"
 
 riverctl rule-add -app-id 'hyprland-share-picker' -title 'MainPicker' float
 
@@ -191,6 +191,8 @@ riverctl rule-add ssd
 
 # I am using wideriver layout for dwindle, you can download it from the following link:
 # https://github.com/alex-courtis/wideriver
+# --border-color-focused         "#B39AD0"  \
+#--border-color-unfocused       "#3F3648"  \
 
 killall wideriver
 riverctl default-layout wideriver
@@ -208,8 +210,6 @@ wideriver \
     --border-width                 2           \
     --border-width-monocle         0           \
     --border-width-smart-gaps      0           \
-    --border-color-focused         "0xaa86e1"  \
     --border-color-focused-monocle "0xaa86e1"  \
-    --border-color-unfocused       "0x586e75"  \
     --log-threshold                info        \
    > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
