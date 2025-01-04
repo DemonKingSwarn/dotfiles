@@ -4,7 +4,7 @@
 swaync &
 waybar &
 udiskie &
-startxwayland &
+xwayland-satellite &
 swww-daemon &
 nm-applet &
 copyq --start-server &

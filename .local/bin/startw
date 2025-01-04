@@ -1,38 +1,50 @@
 #!/bin/sh
-export SDL_VIDEODRIVER=wayland
-export _JAVA_AWT_WM_NONREPARENTING=1
+#export SDL_VIDEODRIVER=wayland
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#
+#export XDG_CURRENT_DESKTOP=river
+#export XDG_SESSION_DESKTOP=river
+#export XDG_CURRENT_SESSION_TYPE=wayland
+#
+#export GDK_BACKEND=wayland
+#export MOZ_ENABLE_WAYLAND=1
+#export KITTY_ENABLE_WAYLAND=1
+#export EGL_PLATFORM=wayland
+#export GTK_USE_PORTAL=0
+#
+#export QT_PLUGIN_PATH=/usr/lib/qt/plugins/
+#export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+#export QT_QPA_PLATFORM="wayland;xcb"
+#export QT_QPA_PLATFORMTHEME=gtk3
+#
+#
+#export XCURSOR_THEME=Bibata-Modern-Amber
+#export XCURSOR_SIZE=24
+#export HYPRCURSOR_THEME=Bibata-Modern-Amber
+#export HYPRCURSOR_SIZE=24
+#
+## nvidia
+##export GBM_BACKEND=nvidia-drm
+#export __GLX_VENDOR_LIBRARY_NAME=nvidia
+#export __GL_VRR_ALLOWED=1
+#export WLR_NO_HARDWARE_CURSORS=1
+#export LIBVA_DRIVER_NAME=nvidia
+#export VDPAU_DRIVER=nvidia
+#export __GL_SYNC_TO_VBLANK=0
+#export NVD_BACKEND=direct
+#
+##exec sway --unsupported-gpu
+##exec Hyprland
+#exec river
 
-export XDG_CURRENT_DESKTOP=river
-export XDG_SESSION_DESKTOP=river
-export XDG_CURRENT_SESSION_TYPE=wayland
+exec owl
+dex -a
+gsettings set org.gnome.desktop.interface gtk-theme "gtk-master"
+gsettings set org.gnome.desktop.wm.preferences theme "gtk-master"
+gsettings set org.gnome.desktop.interface icon-theme "Dracula"
+gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'
+dbus-update-activation-environment --systemd --all
+systemctl --user import-environment QT_QPA_PLATFORMTHEME
 
-export GDK_BACKEND=wayland
-export MOZ_ENABLE_WAYLAND=1
-export KITTY_ENABLE_WAYLAND=1
-export EGL_PLATFORM=wayland
-export GTK_USE_PORTAL=0
-
-export QT_PLUGIN_PATH=/usr/lib/qt/plugins/
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_QPA_PLATFORM="wayland;xcb"
-export QT_QPA_PLATFORMTHEME=gtk3
-
-
-export XCURSOR_THEME=Bibata-Modern-Amber
-export XCURSOR_SIZE=24
-export HYPRCURSOR_THEME=Bibata-Modern-Amber
-export HYPRCURSOR_SIZE=24
-
-# nvidia
-#export GBM_BACKEND=nvidia-drm
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export __GL_VRR_ALLOWED=1
-export WLR_NO_HARDWARE_CURSORS=1
-export LIBVA_DRIVER_NAME=nvidia
-export VDPAU_DRIVER=nvidia
-export __GL_SYNC_TO_VBLANK=0
-export NVD_BACKEND=direct
-
-#exec sway --unsupported-gpu
-#exec Hyprland
-exec river
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY
+killall xdg-desktop-portal && /usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-wlr &

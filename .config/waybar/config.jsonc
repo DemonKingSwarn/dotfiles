@@ -4,8 +4,8 @@
     "height": 30,
     "spacing": 0,
     "margin-bottom":-5,
-    "modules-left": ["hyprland/workspaces", "river/tags"],
-    "modules-center": ["hyprland/window", "river/window"],
+    "modules-left": ["hyprland/workspaces", "river/tags", "wlr/workspaces"],
+    "modules-center": ["hyprland/window", "river/window", "wlr/window"],
     "modules-right": ["pulseaudio", "battery", "clock", "tray"],
     "hyprland/workspaces": {
         "tooltip": true,
@@ -28,6 +28,30 @@
         "sort-by-name": true,
         "all-outputs":  true
     },
+
+    "wlr/workspaces": {
+        "tooltip": true,
+        "disable-scroll": false,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十"
+        },
+        "active-only": false,
+        "sort-by-name": true,
+        "all-outputs":  true
+    },
+
+
     "river/tags": {
     "num-tags": 9,
     "tag-labels": ["一","二","三","四","五","六","七","八","九"],
@@ -119,14 +143,7 @@
     "river/window": {  
         "format": "<span font='JetBrains Mono Nerd Font' rise='-4444'>{}</span>"  
     },
-    "wlr/taskbar": {
-      "format": "{icon}",
-      "icon-size": {},
-      "icon-theme": "${i_theme}",
-      "spacing": 0,
-      "tooltip-format": "{title}",
-      "on-click": "activate",
-      "on-click-middle": "close",
-      "on-click-right": "fullscreen"
-},
-}
+    "wlr/window": {
+      "format": "<span font='JetBrains Mono Nerd Font' rise='-4444'>{$HOME/.config/owl/active-toplevel.sh}</span>" 
+    },
+  }
