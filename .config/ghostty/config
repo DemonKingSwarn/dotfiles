@@ -11,4 +11,6 @@ shell-integration-features = no-cursor
 gtk-titlebar = false
 window-decoration = false
 
+window-theme = ghostty
+
 keybind = super+r=reload_config

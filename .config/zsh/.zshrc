@@ -2,11 +2,11 @@
 
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
-HISTFILE="${XDG_CACHE_HOME:-${HOME}}/.cache/zsh/history"
+HISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/history"
 HISTDUP=erase
 
-if [ ! -d "${XDG_CACHE_HOME:-${HOME}}/.cache/zsh" ]; then
-  mkdir -p "$(dirname ${XDG_CACHE_HOME:-${HOME}}/.cache/zsh)"
+if [ ! -d "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh" ]; then
+  mkdir -p "$(dirname ${XDG_CACHE_HOME:-${HOME}/.cache}/zsh)"
   touch "$HISTFILE"
 fi
 
@@ -38,9 +38,6 @@ zinit light Aloxaf/fzf-tab
 
 autoload -U compinit && compinit
 
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-
 # keybindings
 
 bindkey -v
@@ -53,6 +50,10 @@ bindkey '^n' history-search-forward
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# sourcing
 
 source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/aliasrc"
 source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/profile"
@@ -60,3 +61,5 @@ source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/profile"
 # shell integration
 
 eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(starship init zsh)"

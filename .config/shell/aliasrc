@@ -1,8 +1,8 @@
 #!/bin/zsh
 
 alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias ..='z ..'
-alias cd='z'
+alias ..='cd ..'
+#alias cd='z'
 alias zrc="nvim $HOME/.config/zsh/.zshrc"
 alias ga='git add'
 alias gc='git commit -m'
