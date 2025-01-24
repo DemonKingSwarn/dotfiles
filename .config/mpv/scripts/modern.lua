@@ -28,7 +28,7 @@ local user_opts = {
     iamaprogrammer = false,     -- use native mpv values and disable OSC
                                 -- internal track list management (and some
                                 -- functions that depend on it)
-    font = 'mpv-osd-symbols',    -- default osc font
+    font = 'JetBrainsMono Nerd Font',    -- default osc font
     seekrange = true,            -- show seekrange overlay
     seekrangealpha = 128,          -- transparency of seekranges
     seekbarkeyframes = true,    -- use keyframes when dragging the seekbar

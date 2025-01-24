@@ -50,8 +50,8 @@ bindkey '^n' history-search-forward
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview "eza $realpath"
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "eza $realpath"
 
 # sourcing
 
@@ -63,3 +63,21 @@ source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/profile"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+
+# functions
+
+function help() {
+    "$@" --help 2>&1 | bat --plain --language=help
+}
+
+function chst {
+    [ -z $1 ] && echo "no args provided!" || (curl -s cheat.sh/$1 | bat --style=plain)
+}
+
+function gdown () {
+        agent="Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0"
+        uuid=$(curl -sL "$1" -A "$agent" | sed -nE 's|.*(uuid=[^"]*)".*|\1|p')
+        aria2c -x16 -s16 "$1&confirm=t&$uuid" -U "$agent" --summary-interval=0 -d "${2:-.}"
+}
+
+# gdown "<drive_link>"  "<to_specified_directory>"

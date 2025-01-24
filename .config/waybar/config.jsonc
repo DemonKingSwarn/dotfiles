@@ -6,7 +6,7 @@
     "margin-bottom":-5,
     "modules-left": ["hyprland/workspaces", "river/tags", "wlr/workspaces"],
     "modules-center": ["hyprland/window", "river/window", "wlr/window"],
-    "modules-right": ["pulseaudio", "battery", "clock", "tray"],
+    "modules-right": ["pulseaudio", "battery", "clock", "custom/cc", "tray"],
     "hyprland/workspaces": {
         "tooltip": true,
         "disable-scroll": false,
@@ -146,4 +146,11 @@
     "wlr/window": {
       "format": "<span font='JetBrains Mono Nerd Font' rise='-4444'>{$HOME/.config/owl/active-toplevel.sh}</span>" 
     },
+
+    "custom/cc": {
+    "format": "󰍜 ",
+    "on-click": "swaync-client -t ",
+    "tooltip": false
+  },
+
   }

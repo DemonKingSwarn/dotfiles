@@ -10,6 +10,7 @@ shell-integration-features = no-cursor
 
 gtk-titlebar = false
 window-decoration = false
+confirm-close-surface=false
 
 window-theme = ghostty
 
