@@ -2,14 +2,15 @@
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 swaync &
-waybar &
+#waybar &
+ignis init &
 udiskie &
 xwayland-satellite &
 swww-daemon &
-nm-applet &
+#nm-applet &
 copyq --start-server &
-blueman-applet &
+#blueman-applet &
+hyprwatch -d &> /dev/null &
 #foot --server &
-#swhks &
 
 #kanata -c $HOME/.config/kanata/config.kbd &
