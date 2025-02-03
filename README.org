@@ -1,15 +1,15 @@
-[[https://github.com/zoddDev/dotfiles/raw/master/readme-resources/dotfiles_.png]]
+[[./.assets/dotfiles_.png]]
 
 ** Programs I use
 
-- Window Manager - [[https://github.com/riverwm/river][River]]
-- Panel - [[https://github.com/Alexays/Waybar][waybar]]
-- Launcher - [[https://github.com/Kirottu/anyrun][anyrun]]
+- Window Manager - [[https://github.com/hyprwm/Hyprland][Hyprland]]
+- Panel - [[https://github.com/linkfrg/ignis][ignis]]
+- Launcher - [[https://github.com/davatorium/rofi][rofi]]
 - Shell - [[https://github.com/zsh-users/zsh][zsh]]
 - Prompt - [[https://github.com/starship/starship][starship]]
-- Terminal - [[https://codeberg.org/dnkl/foot][foot]] & [[https://github.com/wez/wezterm][wezterm]]
+- Terminal - [[https://github.com/ghostty-org/ghostty][ghostty]] & [[https://github.com/wez/wezterm][wezterm]]
 - File Manager - [[https://gitlab.xfce.org/xfce/thunar][Thunar]]
-- Browser - [[https://www.mozilla.org/en-US/firefox/new/][Firefox]]
+- Browser - [[https://floorp.app/en/download?platform=linux][Floorp]] & [[https://www.mozilla.org/en-US/firefox/new/][Firefox]]
 - Wallpapers - [[https://github.com/LGFae/swww][swww]]
 - Lockscreen - [[https://github.com/hyprwm/hyprlock][hyprlock]]
 
@@ -23,7 +23,11 @@ Enjoy! 🚀
 
 ** Screenshots
 
+*** Waybar
 [[./.assets/desk.png]]
+
+*** Ignis
+[[./.assets/desk-ignis.png]]
 
 ** Keybinds
 
