@@ -1,6 +1,7 @@
 theme = Dracula
 background = #282a36
 #background = #1B1E1F
+background-opacity = 0.9
 
 font-family = JetBrainsMonoNL Nerd Font
 font-size = 16
