@@ -171,7 +171,7 @@ bindsym $mod+Return exec $term
 bindsym alt+Return exec ghostty
 bindsym $mod+d exec rofi -no-lazy-greb -show run
 bindsym alt+d exec rofi -no-lazy-greb -show drun -show-icons -icon-theme 'Dracula'
-bindsym Print exec ~/.config/hypr/scripts/screenshot fullclip
+bindsym Print exec ~/.config/hypr/scripts/screenshot fullsave
 bindsym $mod+Print exec ~/.config/hypr/scripts/screenshot selclip
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%

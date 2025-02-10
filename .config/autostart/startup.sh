@@ -4,7 +4,7 @@
 /usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &
 swaync &
 waybar &
-#ignis init &
+flameshot -a &
 udiskie &
 xwayland-satellite &
 swww-daemon &

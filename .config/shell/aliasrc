@@ -13,7 +13,7 @@ alias pacgraph='pacgraph --show-req-by -b "#232738" -l "#9778d3" -t "#cca9c6" -d
 alias grep='grep --color=auto'
 alias stow='stow --ignore="screenshot.png" --ignore="README.org" --ignore=".git" --ignore=".assets"'
 #alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
-alias wget='aria2c -x 16 -s 16'
+#alias wget='aria2c -x 16 -s 16'
 alias monerod='monerod --data-dir "$XDG_DATA_HOME"/bitmonero'
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias diff='diff --color=auto'
