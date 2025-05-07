@@ -28,6 +28,7 @@ riverctl map normal Alt Return spawn ghostty
 riverctl map normal Super d spawn "rofi -show drun"
 riverctl map normal Super e spawn "~/.scripts/emojis/emoji.sh"
 riverctl map normal Super w spawn "$HOME/.scripts/misc/wallmanager"
+riverctl map normal Super+Shift x spawn "~/.scripts/system/waylock.sh"
 
 # Clipboard history picker using cliphist + fuzzel
 #riverctl map normal Super v spawn "sh -c 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'"
