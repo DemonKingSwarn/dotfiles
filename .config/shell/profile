@@ -2,9 +2,10 @@
 
 # To start x session
 if [ "$TTY" = "/dev/tty1" ]; then
-    printf "\033[1;32mBooting into sway!\033[0m\n"
+    printf "\033[1;32mBooting into plasma!\033[0m\n"
     #sx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty 2> /dev/null
     $HOME/.local/bin/startw -- -keeptty > $XDG_RUNTIME_DIR/startw.log
+    #startplasma-wayland
     #exec Hyprland
 fi
 

@@ -2,8 +2,8 @@
 export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=river
+export XDG_SESSION_DESKTOP=river
 export XDG_CURRENT_SESSION_TYPE=wayland
 
 export GDK_BACKEND=wayland
@@ -33,18 +33,6 @@ export VDPAU_DRIVER=nvidia
 export __GL_SYNC_TO_VBLANK=0
 export NVD_BACKEND=direct
 
-exec sway --unsupported-gpu
+#exec sway --unsupported-gpu
 ##exec Hyprland
-#exec river
-
-#exec owl
-#dex -a
-#gsettings set org.gnome.desktop.interface gtk-theme "gtk-master"
-#gsettings set org.gnome.desktop.wm.preferences theme "gtk-master"
-#gsettings set org.gnome.desktop.interface icon-theme "Dracula"
-#gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'
-#dbus-update-activation-environment --systemd --all
-#systemctl --user import-environment QT_QPA_PLATFORMTHEME
-#
-#exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY
-#killall xdg-desktop-portal && /usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-wlr &
+exec river

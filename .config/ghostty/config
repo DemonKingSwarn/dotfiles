@@ -1,7 +1,12 @@
-theme = Dracula
-background = #282a36
+theme = rose-pine-moon
+#background = #282a36
 #background = #1B1E1F
-#background-opacity = 0.9
+background-opacity = 0.9
+
+shell-integration = "zsh"
+
+quick-terminal-position = "top"
+quick-terminal-autohide = false
 
 font-family = JetBrainsMonoNL Nerd Font
 font-size = 16
@@ -17,3 +22,4 @@ confirm-close-surface=false
 window-theme = ghostty
 
 keybind = super+r=reload_config
+keybind = ctrl+a=toggle_quick_terminal

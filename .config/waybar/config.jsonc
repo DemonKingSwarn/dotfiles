@@ -4,8 +4,10 @@
     "height": 30,
     "spacing": 0,
     "margin-bottom":-5,
-    "modules-left": ["hyprland/workspaces", "river/tags", "sway/workspaces"],
-    "modules-center": ["hyprland/window", "river/window", "sway/window"],
+    //"modules-left": ["hyprland/workspaces", "river/tags", "sway/workspaces"],
+    "modules-left": ["river/tags"],
+    //"modules-center": ["hyprland/window", "river/window", "sway/window"],
+    "modules-center": ["river/window"],
     "modules-right": ["pulseaudio", "battery", "clock", "custom/notification", "tray"],
     "hyprland/workspaces": {
         "tooltip": true,

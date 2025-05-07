@@ -1,215 +1,88 @@
-#!/usr/bin/env dash
+#!/bin/sh
 
-# --------------------------------------------------------
-# AUTOSTART
-# --------------------------------------------------------
+wlr-randr --output eDP-1 --mode 1920x1080@60.00 &
 
-riverctl spawn "dex -a"
-riverctl spawn "killall xdg-desktop-portal && /usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &"
-
-# --------------------------------------------------------
-# ENVIRONMENT VARIABLES
-# --------------------------------------------------------
-
-riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
-riverctl spawn "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
-
-# --------------------------------------------------------
-# THEME
-# --------------------------------------------------------
-
-riverctl spawn "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
-riverctl spawn "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
-riverctl spawn "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
-riverctl spawn "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'"
-riverctl xcursor-theme "Bibata-Modern-Amber"
-
-# --------------------------------------------------------
-# PROGRAMS
-# --------------------------------------------------------
-
-riverctl map normal Super Return spawn "wezterm"
-riverctl map normal Alt Return spawn "footclient"
-riverctl map normal Super D spawn "anyrun"
-
-# --------------------------------------------------------
-# SCRIPTS
-# --------------------------------------------------------
-
-riverctl map normal Super E spawn "$HOME/.scripts/emojis/emoji.sh"
-riverctl map normal None Print spawn "$HOME/.config/hypr/scripts/screenshot fullsave"
-riverctl map normal Super Print spawn "$HOME/.config/hypr/scripts/screenshot selclip"
-#riverctl map normal Super+Shift X spawn "swaylock -i $HOME/pix/wall/93.jpg --ring-color 8218c4 --key-hl-color 3e0c60"
-riverctl map normal Super+Shift X spawn "$HOME/.scripts/system/waylock.sh"
-riverctl map normal Super W spawn "$HOME/.scripts/misc/wallmanager"
-riverctl map normal Super C spawn "colpick"
-riverctl map normal Super T spawn "bartoggle"
-
-# --------------------------------------------------------
-# KEYBOARD LAYOUT
-# --------------------------------------------------------
-
-riverctl keyboard-layout \
-            -variant ,digits \
-            -options ctrl:nocaps \
-            us
-
-# --------------------------------------------------------
-# KEYBINDS
-# --------------------------------------------------------
-
-riverctl map normal Super+Shift Q close
-
-riverctl map normal Super H move left 100
-riverctl map normal Super J move down 100
-riverctl map normal Super K move up 100
-riverctl map normal Super L move right 100
-
-riverctl map normal Super+Alt+Control H snap left
-riverctl map normal Super+Alt+Control J snap down
-riverctl map normal Super+Alt+Control K snap up
-riverctl map normal Super+Alt+Control L snap right
-
-riverctl map normal Super+Shift H resize horizontal -100
-riverctl map normal Super+Shift J resize vertical 100
-riverctl map normal Super+Shift K resize vertical -100
-riverctl map normal Super+Shift L resize horizontal 100
-
-riverctl map-pointer normal Super BTN_LEFT move-view
-
-riverctl map-pointer normal Super BTN_RIGHT resize-view
-
-  for i in $(seq 1 9)
-  do
-      tags=$((1 << ($i - 1)))
-
-      # Super+[1-9] to focus tag [0-8]
-      riverctl map normal Super $i set-focused-tags $tags
-
-      # Super+Shift+[1-9] to tag focused view with tag [0-8]
-      riverctl map normal Super+Shift $i set-view-tags $tags
-
-      # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
-      riverctl map normal Super+Control $i toggle-focused-tags $tags
-
-      # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
-      riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
-  done
-
-# --------------------------------------------------------
-# MOUSE THINGS
-# --------------------------------------------------------
-
-
-# Settings for laptop touchpad
-touchpad_settings() {
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad events enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad tap enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad drag enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad drag-lock disabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad scroll-method edge
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad disable-while-typing enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad tap-button-map left-right-middle
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad natural-scroll enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad scroll-factor 1.5
-}
-
-touchpad_settings
-
-# Super+0 to focus all tags
-# Super+Shift+0 to tag focused view with all tags
-all_tags=$(((1 << 32) - 1))
-riverctl map normal Super 0 set-focused-tags $all_tags
-riverctl map normal Super+Shift 0 set-view-tags $all_tags
-
-# Super+Space to toggle float
-riverctl map normal Super V toggle-float
-
-# Super+F to toggle fullscreen
-riverctl map normal Super F toggle-fullscreen
-
-# Super+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
-riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
-
-# Various media key mapping examples for both normal and locked mode which do
-# not have a modifier
-for mode in normal locked
-do
-    # Eject the optical drive (well if you still have one that is)
-    riverctl map $mode None XF86Eject spawn 'eject -T'
-
-    # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
-    riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
-
-    # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
-    riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
-    riverctl map $mode None XF86AudioPlay  spawn 'playerctl play-pause'
-    riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
-    riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
-
-    # Control screen backlight brightness with light (https://github.com/haikarainen/light)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
-done
-
-
-# Set background and border color
-riverctl background-color 0x002b36
-riverctl border-color-focused 0xaa86e1
-riverctl border-color-unfocused 0x586e75
-riverctl border-width 3
 # Set keyboard repeat rate
 riverctl set-repeat 69 300
 
-# Make certain views start floating
-#riverctl float-filter-add app-id float
-#riverctl float-filter-add title "popup title with spaces"
-
-riverctl rule-add -app-id 'hyprland-share-picker' -title 'MainPicker' float
-
-# Focus follows mouse
-riverctl focus-follows-cursor always
-
-# Bottom stack
-riverctl attach-mode bottom
-
-# --------------------------------------------------------
-# Server Side Decorations
-# --------------------------------------------------------
-
+# server side decorations
 riverctl rule-add ssd
 
-# --------------------------------------------------------
-# Layout
-# --------------------------------------------------------
+# Set new windows to always split horizontally or vertically based on ratio
+riverctl set-layout simple
 
-# I am using wideriver layout for dwindle, you can download it from the following link:
-# https://github.com/alex-courtis/wideriver
-# --border-color-focused         "#B39AD0"  \
-#--border-color-unfocused       "#3F3648"  \
+# Focus new views automatically
+riverctl set-view-focus new
 
-killall wideriver
-riverctl default-layout wideriver
-wideriver \
-    --layout                       left        \
-    --layout-alt                   monocle     \
-    --stack                        dwindle     \
-    --count-master                 1           \
-    --ratio-master                 0.50        \
-    --count-wide-left              0           \
-    --ratio-wide                   0.35        \
-    --no-smart-gaps                            \
-    --inner-gaps                   6           \
-    --outer-gaps                   6           \
-    --border-width                 2           \
-    --border-width-monocle         0           \
-    --border-width-smart-gaps      0           \
-    --border-color-focused-monocle "0xaa86e1"  \
-    --log-threshold                info        \
-   > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
+# Automatically make certain new windows tile if possible
+riverctl rule-add view float=false
+
+riverctl rule-add app-id "pavucontrol" float=true
+riverctl rule-add app-id "blueman-manager" float=true
+riverctl rule-add app-id "nm-connection-editor" float=true
+riverctl rule-add app-id "thunar" float=false
+
+# Applications
+riverctl map normal Super Return spawn wezterm
+riverctl map normal Alt Return spawn ghostty
+riverctl map normal Super d spawn "rofi -show drun"
+riverctl map normal Super e spawn "~/.scripts/emojis/emoji.sh"
+riverctl map normal Super w spawn "$HOME/.scripts/misc/wallmanager"
+
+# Clipboard history picker using cliphist + fuzzel
+#riverctl map normal Super v spawn "sh -c 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'"
+
+# Full screen screenshot (Print key)
+riverctl map normal None Print spawn "$HOME/.config/hypr/scripts/screenshot fullsave"
+riverctl map normal Super Print spawn "$HOME/.config/hypr/scripts/screenshot selclip"
+
+# Window movement (Vim style)
+riverctl map normal Super H focus-view -skip-floating left
+riverctl map normal Super J focus-view -skip-floating down
+riverctl map normal Super K focus-view -skip-floating up
+riverctl map normal Super L focus-view -skip-floating right
+
+# Close window
+riverctl map normal Super+Shift Q close
+
+# Switch and move between tags
+for i in $(seq 1 9); do
+  riverctl map normal Super $i set-focused-tags $((1 << ($i - 1)))
+  riverctl map normal Super+Shift $i set-view-tags $((1 << ($i - 1)))
+done
+
+# Exit river
+riverctl map normal Super+Shift M exit
+
+# Volume Control
+riverctl map normal None XF86AudioRaiseVolume spawn "pamixer -i 5"
+riverctl map normal None XF86AudioLowerVolume spawn "pamixer -d 5"
+riverctl map normal None XF86AudioMute spawn "pamixer -t"
+
+# Set wallpaper
+# Moved to swww
+#swaybg -i ~/.cache/wall.jpg -m fill &
+
+# Dark mode and styling environment variables (INLINE)
+#export GTK_THEME=gtk-master &
+#export XCURSOR_THEME=Bibata-Modern-Amber &
+#export XCURSOR_SIZE=24 &
+#export QT_QPA_PLATFORMTHEME=qt5ct &
+#export QT_STYLE_OVERRIDE=kvantum &
+
+# Gaps and borders
+riverctl border-width 3
+riverctl set-cursor-warp on-focus-change
+riverctl background-color 0x161616
+riverctl border-color-focused 0xbd93f9
+riverctl border-color-unfocused 0x282828
+
+# Start background services
+$HOME/.config/autostart/startup.sh
+
+# Set the default layout generator to be rivertile and start it.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivertile
+rivertile -view-padding 6 -outer-padding 6 &
+
+riverctl set-cursor-focus-follows-mouse enabled

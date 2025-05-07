@@ -3,6 +3,11 @@
 x="Screenshot copied to clipboard"
 name="shot_$(date '+%y%m%d_%H-%M-%S')"
 
-[ "$*" = "fullsave" ] && flameshot full -c --path $HOME/pix/ss/$name && notify-send -i $HOME/pix/ss/$name.png "Screenshot saved" "$HOME/pix/ss/$name.png"
+hyprpicker -r -z &
+sleep 0.1
 
-[ "$*" = "selclip" ] && flameshot gui
+[ "$*" = "fullsave" ] && grim $HOME/pix/ss/$name.png && wl-copy < $HOME/pix/ss/$name.png && notify-send -i $HOME/pix/ss/$name.png "Screenshot saved" "$HOME/pix/ss/$name.png"
+
+[ "$*" = "selclip" ] && grim -g "$(slurp)" - | swappy -f -
+
+killall hyprpicker
