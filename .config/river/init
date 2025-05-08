@@ -63,6 +63,8 @@ riverctl map normal Super e spawn "~/.scripts/emojis/emoji.sh"
 riverctl map normal Super w spawn "$HOME/.scripts/misc/wallmanager"
 riverctl map normal Super+Shift x spawn "~/.scripts/system/waylock.sh"
 riverctl map normal Super c spawn "colpick"
+riverctl map normal Super V toggle-float
+riverctl map normal Super F toggle-fullscreen
 
 # Clipboard history picker using cliphist + fuzzel
 #riverctl map normal Super v spawn "sh -c 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'"
@@ -107,8 +109,7 @@ riverctl border-color-focused 0xbd93f9
 riverctl border-color-unfocused 0x282828
 
 # Start background services
-$HOME/.config/autostart/startup.sh
-gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber' &
+riverctl spawn "$HOME/.config/autostart/startup.sh"
 
 #riverctl default-layout rivertile
 #rivertile -view-padding 2 -outer-padding 5 &
@@ -139,3 +140,4 @@ wideriver \
    > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
 
 riverctl set-cursor-focus-follows-mouse enabled
+riverctl focus-follows-cursor always

@@ -4,7 +4,7 @@
 # AUTOSTART
 # --------------------------------------------------------
 
-riverctl spawn "dex -a"
+riverctl spawn "$HOME/.config/autostart/startup.sh"
 riverctl spawn "killall xdg-desktop-portal && /usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &"
 
 # --------------------------------------------------------
