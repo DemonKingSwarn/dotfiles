@@ -94,16 +94,10 @@ riverctl map normal None XF86AudioRaiseVolume spawn "pamixer -i 5"
 riverctl map normal None XF86AudioLowerVolume spawn "pamixer -d 5"
 riverctl map normal None XF86AudioMute spawn "pamixer -t"
 
-# Set wallpaper
-# Moved to swww
-#swaybg -i ~/.cache/wall.jpg -m fill &
-
-# Dark mode and styling environment variables (INLINE)
-#export GTK_THEME=gtk-master &
-#export XCURSOR_THEME=Bibata-Modern-Amber &
-#export XCURSOR_SIZE=24 &
-#export QT_QPA_PLATFORMTHEME=qt5ct &
-#export QT_STYLE_OVERRIDE=kvantum &
+# media control
+riverctl map normal None XF86AudioPlay spawn playerctl play-pause
+riverctl map normal None XF86AudioNext spawn playerctl next
+riverctl map normal None XF86AudioPrev spawn playerctl previous
 
 # Gaps and borders
 riverctl border-width 3
@@ -116,8 +110,6 @@ riverctl border-color-unfocused 0x282828
 $HOME/.config/autostart/startup.sh
 gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber' &
 
-# Set the default layout generator to be rivertile and start it.
-# River will send the process group of the init executable SIGTERM on exit.
 #riverctl default-layout rivertile
 #rivertile -view-padding 2 -outer-padding 5 &
 
