@@ -66,6 +66,10 @@ riverctl map normal Super c spawn "colpick"
 riverctl map normal Super V toggle-float
 riverctl map normal Super F toggle-fullscreen
 
+# makes it easier for moving floating windows
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
 # Clipboard history picker using cliphist + fuzzel
 #riverctl map normal Super v spawn "sh -c 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'"
 
