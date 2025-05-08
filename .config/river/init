@@ -1,6 +1,38 @@
 #!/bin/sh
 
-wlr-randr --output eDP-1 --mode 1920x1080@60.00 &
+wlr-randr --output eDP-1 --mode 1920x1080@60.004002 &
+
+riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
+
+riverctl spawn "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
+riverctl spawn "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
+riverctl spawn "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
+riverctl spawn "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'"
+riverctl xcursor-theme "Bibata-Modern-Amber"
+
+# keyboard layout
+
+riverctl keyboard-layout -variant ,digits -options ctrl:nocaps us
+
+# touchpad things
+
+touchpad_settings() {
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad events enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad tap enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad drag enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad drag-lock disabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad scroll-method edge
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad disable-while-typing enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad tap-button-map left-right-middle
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad natural-scroll enabled
+        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad scroll-factor 1.5
+}
+
+touchpad_settings
+
+
 
 # Set keyboard repeat rate
 riverctl set-repeat 69 300
@@ -21,6 +53,7 @@ riverctl rule-add app-id "pavucontrol" float=true
 riverctl rule-add app-id "blueman-manager" float=true
 riverctl rule-add app-id "nm-connection-editor" float=true
 riverctl rule-add app-id "thunar" float=false
+riverctl rule-add app-id "hyprland-share-picker" -title "MainPicker" float
 
 # Applications
 riverctl map normal Super Return spawn wezterm
@@ -29,6 +62,7 @@ riverctl map normal Super d spawn "rofi -show drun"
 riverctl map normal Super e spawn "~/.scripts/emojis/emoji.sh"
 riverctl map normal Super w spawn "$HOME/.scripts/misc/wallmanager"
 riverctl map normal Super+Shift x spawn "~/.scripts/system/waylock.sh"
+riverctl map normal Super c spawn "colpick"
 
 # Clipboard history picker using cliphist + fuzzel
 #riverctl map normal Super v spawn "sh -c 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'"
@@ -80,10 +114,36 @@ riverctl border-color-unfocused 0x282828
 
 # Start background services
 $HOME/.config/autostart/startup.sh
+gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber' &
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+#riverctl default-layout rivertile
+#rivertile -view-padding 2 -outer-padding 5 &
+
+#riverctl default-layout rivercarro
+#exec rivercarro -no-smart-gaps &
+
+killall wideriver
+riverctl default-layout wideriver
+wideriver \
+    --layout                       left        \
+    --layout-alt                   monocle     \
+    --stack                        dwindle     \
+    --count-master                 1           \
+    --ratio-master                 0.50        \
+    --count-wide-left              0           \
+    --ratio-wide                   0.35        \
+    --no-smart-gaps                            \
+    --inner-gaps                   6           \
+    --outer-gaps                   6           \
+    --border-width                 2           \
+    --border-width-monocle         0           \
+    --border-width-smart-gaps      0           \
+    --border-color-focused "0xaa86e1" \
+    --border-color-unfocused "0x282828" \
+    --border-color-focused-monocle "0xbd93f9"  \
+    --log-threshold                info        \
+   > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
 
 riverctl set-cursor-focus-follows-mouse enabled
