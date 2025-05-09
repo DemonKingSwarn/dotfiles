@@ -74,6 +74,10 @@ riverctl map normal Super e spawn "$EMOJI_PROGRAM"
 riverctl map normal Super w spawn "$WALL_PROGRAM"
 riverctl map normal Super+Shift x spawn "$LOCK_PROGRAM"
 riverctl map normal Super i spawn "$TERM -e htop"
+riverctl map normal None XF86Explorer spawn "$FILE_MANAGER"
+
+# reload configuration
+riverctl map normal Super+Shift r spawn "source ${XDG_CONFIG_HOME:-$HOME/.config}/river/init"
 
 riverctl map normal Super V toggle-float
 riverctl map normal Super F toggle-fullscreen
