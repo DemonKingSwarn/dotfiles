@@ -36,7 +36,6 @@ alias wiki="nvim $XDG_DATA_HOME/vimwiki/index_$(date '+%a-%d-%m-%y-%H:%M').wiki"
 alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias time='hyperfine'
-alias lf='yazi'
 alias tor='webtorrent --mpv'
 alias thumb='yt-dlp --write-thumbnail --skip-download'
 alias SS='sudo systemctl'

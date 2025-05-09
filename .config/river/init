@@ -1,10 +1,21 @@
 #!/bin/sh
 
+TERM="wezterm"
+ALT_TERM="ghostty"
+LAUNCHER="rofi -show drun"
+FILE_MANAGER="thunar"
+LOCK_PROGRAM="$HOME/.scripts/system/waylock.sh"
+SS_PROGRAM="$HOME/.config/hypr/scripts/screenshot"
+EMOJI_PROGRAM="$HOME/.scripts/emojis/emoji.sh"
+WALL_PROGRAM="$HOME/.scripts/misc/wallmanager"
+
 wlr-randr --output eDP-1 --mode 1920x1080@60.004002 &
 
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
+
+# theme
 
 riverctl spawn "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
 riverctl spawn "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
@@ -56,13 +67,14 @@ riverctl rule-add app-id "thunar" float=false
 riverctl rule-add app-id "hyprland-share-picker" -title "MainPicker" float
 
 # Applications
-riverctl map normal Super Return spawn wezterm
-riverctl map normal Alt Return spawn ghostty
-riverctl map normal Super d spawn "rofi -show drun"
-riverctl map normal Super e spawn "~/.scripts/emojis/emoji.sh"
-riverctl map normal Super w spawn "$HOME/.scripts/misc/wallmanager"
-riverctl map normal Super+Shift x spawn "~/.scripts/system/waylock.sh"
-riverctl map normal Super c spawn "colpick"
+riverctl map normal Super Return spawn "$TERM"
+riverctl map normal Alt Return spawn "$ALT_TERM"
+riverctl map normal Super d spawn "$LAUNCHER"
+riverctl map normal Super e spawn "$EMOJI_PROGRAM"
+riverctl map normal Super w spawn "$WALL_PROGRAM"
+riverctl map normal Super+Shift x spawn "$LOCK_PROGRAM"
+riverctl map normal Super i spawn "$TERM -e htop"
+
 riverctl map normal Super V toggle-float
 riverctl map normal Super F toggle-fullscreen
 
@@ -70,12 +82,9 @@ riverctl map normal Super F toggle-fullscreen
 riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 
-# Clipboard history picker using cliphist + fuzzel
-#riverctl map normal Super v spawn "sh -c 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'"
-
-# Full screen screenshot (Print key)
-riverctl map normal None Print spawn "$HOME/.config/hypr/scripts/screenshot fullsave"
-riverctl map normal Super Print spawn "$HOME/.config/hypr/scripts/screenshot selclip"
+# screenshot
+riverctl map normal None Print spawn "$SS_PROGRAM fullsave"
+riverctl map normal Super Print spawn "$SS_PROGRAM selclip"
 
 # Window movement (Vim style)
 riverctl map normal Super H focus-view -skip-floating left
