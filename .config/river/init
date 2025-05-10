@@ -60,10 +60,11 @@ riverctl set-view-focus new
 # Automatically make certain new windows tile if possible
 riverctl rule-add view float=false
 
-riverctl rule-add app-id "pavucontrol" float=true
-riverctl rule-add app-id "blueman-manager" float=true
-riverctl rule-add app-id "nm-connection-editor" float=true
-riverctl rule-add app-id "thunar" float=false
+riverctl rule-add app-id "pavucontrol" float
+riverctl rule-add app-id "blueman-manager" float
+riverctl rule-add app-id "nm-connection-editor" float
+riverctl rule-add app-id "thunar" float
+riverctl rule-add -title "galculator" float
 riverctl rule-add app-id "hyprland-share-picker" -title "MainPicker" float
 
 # Applications
@@ -74,7 +75,11 @@ riverctl map normal Super e spawn "$EMOJI_PROGRAM"
 riverctl map normal Super w spawn "$WALL_PROGRAM"
 riverctl map normal Super+Shift x spawn "$LOCK_PROGRAM"
 riverctl map normal Super i spawn "$TERM -e htop"
+
+# special function keys
 riverctl map normal None XF86Explorer spawn "$FILE_MANAGER"
+riverctl map normal None XF86Calculator spawn galculator
+riverctl map normal None XF86Search spawn "rofi -no-lazy-greb -show file-browser-extended -icon-theme 'Dracula'"
 
 # reload configuration
 riverctl map normal Super+Shift r spawn "source ${XDG_CONFIG_HOME:-$HOME/.config}/river/init"
@@ -167,4 +172,4 @@ wideriver \
    > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
 
 riverctl set-cursor-focus-follows-mouse enabled
-riverctl focus-follows-cursor always
+riverctl focus-follows-cursor normal
