@@ -67,6 +67,8 @@ riverctl rule-add app-id "thunar" float
 riverctl rule-add -title "galculator" float
 riverctl rule-add app-id "hyprland-share-picker" -title "MainPicker" float
 
+## Keybinds
+
 # Applications
 riverctl map normal Super Return spawn "$TERM"
 riverctl map normal Alt Return spawn "$ALT_TERM"
@@ -80,6 +82,7 @@ riverctl map normal Super i spawn "$TERM -e htop"
 riverctl map normal None XF86Explorer spawn "$FILE_MANAGER"
 riverctl map normal None XF86Calculator spawn galculator
 riverctl map normal None XF86Search spawn "rofi -no-lazy-greb -show file-browser-extended -icon-theme 'Dracula'"
+riverctl map normal None XF86Tools spawn 'brave --app="https://music.youtube.com"'
 
 # reload configuration
 riverctl map normal Super+Shift r spawn "source ${XDG_CONFIG_HOME:-$HOME/.config}/river/init"
@@ -143,23 +146,18 @@ riverctl border-color-unfocused 0x282828
 # Start background services
 riverctl spawn "$HOME/.config/autostart/startup.sh"
 
-#riverctl default-layout rivertile
-#rivertile -view-padding 2 -outer-padding 5 &
-
-#riverctl default-layout rivercarro
-#exec rivercarro -no-smart-gaps &
-
 killall wideriver
 riverctl default-layout wideriver
+# --no-smart-gaps                            \
 wideriver \
     --layout                       left        \
     --layout-alt                   monocle     \
     --stack                        dwindle     \
     --count-master                 1           \
+    --smart-gaps  \
     --ratio-master                 0.50        \
     --count-wide-left              0           \
     --ratio-wide                   0.35        \
-    --no-smart-gaps                            \
     --inner-gaps                   6           \
     --outer-gaps                   6           \
     --border-width                 2           \
