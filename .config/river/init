@@ -84,6 +84,11 @@ riverctl map normal None XF86Search spawn "rofi -no-lazy-greb -show file-browser
 # reload configuration
 riverctl map normal Super+Shift r spawn "source ${XDG_CONFIG_HOME:-$HOME/.config}/river/init"
 
+# media control
+riverctl map normal None XF86AudioPlay spawn "playerctl play-pause"
+riverctl map normal None XF86AudioNext spawn "playerctl next"
+riverctl map normal None XF86AudioPrev spawn "playerctl previous"
+
 riverctl map normal Super V toggle-float
 riverctl map normal Super F toggle-fullscreen
 
@@ -127,11 +132,6 @@ riverctl map normal Super+Shift M exit
 riverctl map normal None XF86AudioRaiseVolume spawn "pamixer -i 5"
 riverctl map normal None XF86AudioLowerVolume spawn "pamixer -d 5"
 riverctl map normal None XF86AudioMute spawn "pamixer -t"
-
-# media control
-riverctl map normal None XF86AudioPlay spawn playerctl play-pause
-riverctl map normal None XF86AudioNext spawn playerctl next
-riverctl map normal None XF86AudioPrev spawn playerctl previous
 
 # Gaps and borders
 riverctl border-width 3
