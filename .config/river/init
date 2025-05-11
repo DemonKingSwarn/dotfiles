@@ -1,5 +1,7 @@
 #!/bin/sh
 
+CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/river/init"
+
 TERM="wezterm"
 ALT_TERM="ghostty"
 LAUNCHER="rofi -show drun"
@@ -85,7 +87,7 @@ riverctl map normal None XF86Search spawn "rofi -no-lazy-greb -show file-browser
 riverctl map normal None XF86Tools spawn 'brave --app="https://music.youtube.com"'
 
 # reload configuration
-riverctl map normal Super+Shift r spawn "source ${XDG_CONFIG_HOME:-$HOME/.config}/river/init"
+riverctl map normal Super+Shift r spawn "source $CONFIG_FILE"
 
 # media control
 riverctl map normal None XF86AudioPlay spawn "playerctl play-pause"
