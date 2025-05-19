@@ -11,7 +11,6 @@ swaync &
 pkill -f waybar
 waybar &
 
-
 #flameshot -a &
 
 pkill -f udiskie

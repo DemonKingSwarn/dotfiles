@@ -31,16 +31,19 @@ riverctl keyboard-layout -variant ,digits -options ctrl:nocaps us
 
 # touchpad things
 
+# change this to yours
+TOUCHPAD="pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad"
+
 touchpad_settings() {
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad events enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad tap enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad drag enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad drag-lock disabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad scroll-method edge
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad disable-while-typing enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad tap-button-map left-right-middle
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad natural-scroll enabled
-        riverctl input pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad scroll-factor 1.5
+        riverctl input "$TOUCHPAD" events enabled
+        riverctl input "$TOUCHPAD" tap enabled
+        riverctl input "$TOUCHPAD" drag enabled
+        riverctl input "$TOUCHPAD" drag-lock disabled
+        riverctl input "$TOUCHPAD" scroll-method edge
+        riverctl input "$TOUCHPAD" disable-while-typing enabled
+        riverctl input "$TOUCHPAD" tap-button-map left-right-middle
+        riverctl input "$TOUCHPAD" natural-scroll enabled
+        riverctl input "$TOUCHPAD" scroll-factor 1.5
 }
 
 touchpad_settings
@@ -156,7 +159,7 @@ wideriver \
     --layout-alt                   monocle     \
     --stack                        dwindle     \
     --count-master                 1           \
-    --smart-gaps  \
+    --no-smart-gaps  \
     --ratio-master                 0.50        \
     --count-wide-left              0           \
     --ratio-wide                   0.35        \

@@ -8,6 +8,7 @@ export XDG_CURRENT_SESSION_TYPE=wayland
 
 export GDK_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
+export MOZ_DISABLE_RDD_SANDBOX=1
 export KITTY_ENABLE_WAYLAND=1
 export EGL_PLATFORM=wayland
 export GTK_USE_PORTAL=0
@@ -16,7 +17,6 @@ export QT_PLUGIN_PATH=/usr/lib/qt/plugins/
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORMTHEME=gtk3
-
 
 export XCURSOR_THEME=Bibata-Modern-Amber
 export XCURSOR_SIZE=24
@@ -34,5 +34,5 @@ export __GL_SYNC_TO_VBLANK=0
 export NVD_BACKEND=direct
 
 #exec sway --unsupported-gpu
-##exec Hyprland
+#exec Hyprland
 exec river

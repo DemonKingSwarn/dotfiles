@@ -30,6 +30,8 @@ x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/steam=steam.desktop
 x-scheme-handler/steamlink=steam.desktop
 x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/discord-424004941485572097=discord-424004941485572097.desktop
+x-scheme-handler/discord-1139939140494971051=discord-1139939140494971051.desktop
 
 [Added Associations]
 application/x-shellscript=org.codeberg.dnkl.foot.desktop

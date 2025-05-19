@@ -7,6 +7,20 @@
   font: "JetBrains Mono Nerd Font 12", "AppleColorEmoji 14";
 }
 
+configuration{
+    modi: "drun,calc,file-browser-extended,run";
+    icon-theme: "gtk-master";
+    show-icons: true;
+    terminal: "wezterm";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-run: " 🏃  Run ";
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+}
 
 window {
   padding: 1em;
