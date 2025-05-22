@@ -5,11 +5,6 @@ SAVEHIST=$HISTSIZE
 HISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/history"
 HISTDUP=erase
 
-if [ ! -d "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh" ]; then
-  mkdir -p "$(dirname ${XDG_CACHE_HOME:-${HOME}/.cache}/zsh)"
-  touch "$HISTFILE"
-fi
-
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -35,6 +30,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light jeffreytse/zsh-vi-mode
 
 autoload -U compinit && compinit
 

@@ -17,7 +17,7 @@ configuration{
     disable-history: false;
     hide-scrollbar: true;
     display-run: " 🏃  Run ";
-    matching: "fuzzy";
+    /*matching: "fuzzy";*/
     sort: true;
     sorting-method: "fzf";
 }

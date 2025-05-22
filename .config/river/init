@@ -48,8 +48,6 @@ touchpad_settings() {
 
 touchpad_settings
 
-
-
 # Set keyboard repeat rate
 riverctl set-repeat 69 300
 
@@ -71,6 +69,7 @@ riverctl rule-add app-id "nm-connection-editor" float
 riverctl rule-add app-id "thunar" float
 riverctl rule-add -title "galculator" float
 riverctl rule-add app-id "hyprland-share-picker" -title "MainPicker" float
+riverctl rule-add app-id "pureref" -title "PureRef" float
 
 ## Keybinds
 
@@ -82,6 +81,7 @@ riverctl map normal Super e spawn "$EMOJI_PROGRAM"
 riverctl map normal Super w spawn "$WALL_PROGRAM"
 riverctl map normal Super+Shift x spawn "$LOCK_PROGRAM"
 riverctl map normal Super i spawn "$TERM -e htop"
+riverctl map normal Super n spawn "nightmode"
 
 # special function keys
 riverctl map normal None XF86Explorer spawn "$FILE_MANAGER"
@@ -168,7 +168,7 @@ wideriver \
     --border-width                 2           \
     --border-width-monocle         0           \
     --border-width-smart-gaps      0           \
-    --border-color-focused "0xaa86e1" \
+    --border-color-focused "0xd9c1cd" \
     --border-color-unfocused "0x282828" \
     --border-color-focused-monocle "0xbd93f9"  \
     --log-threshold                info        \
