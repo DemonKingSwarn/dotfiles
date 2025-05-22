@@ -1,10 +1,60 @@
 [user]
 	email = rockingswarn@gmail.com
 	name = DemonKingSwarn
-	signingkey = /home/demonkingswarn/.ssh/github.pub
+	signingkey = /home/swarn/.ssh/github.pub
+
+[core]
+  compression = 4
+  whitespace = error
+  preloadindex = true
+
+[advice]
+  addEmptyPathSpec = false
+  pushNonFastForward = false
+  statusHints = false
 
 [init]
 	defaultBranch = master
+
+[status]
+  branch = true
+  showStatsh = true
+  showUntrackedFiles = all
+
+[diff]
+  context = 3
+  renames = copies
+  interHunkContext = 10
+
+[pager]
+  diff = diff-so-fancy | $PAGER
+
+[diff-so-fancy]
+  markEmptyLines = false
+
+[color "diff"]
+  meta = black bold
+  frag = magenta
+  context = white
+  whitespace = yellow reverse
+  old = red
+
+[interactive]
+  diffFilter = diff-so-fancy --patch
+  singleKey = true
+
+[push]
+  autoSetupRemote = true
+  default = current
+  followTags = true
+
+[pull]
+  default = current
+  rebase = true
+
+[rebase]
+  autoStash = true
+  missingCommitsCheck = warn
 
 [alias]
 	cmp = "!f() { git add . && git commit -m \"$@\" && git push; }; f"
@@ -25,4 +75,10 @@
 	sslverify = false
     version = HTTP/1.1
 [gpg]
-	format = ssh
+  format = ssh
+
+[url "git@github.com:demonkingswarn/"]
+  insteadOf = "dks:/"
+
+[url "git@github.com"]
+  insteadOf = "gh:/"

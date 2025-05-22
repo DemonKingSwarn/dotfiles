@@ -1,4 +1,4 @@
-#files: 1376	version: 5.9
+#files: 1217	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -154,7 +154,7 @@ _comps=(
 'cc' '_gcc'
 'ccache' '_ccache'
 'ccal' '_ccal'
-'cd' '__zoxide_z_complete'
+'cd' '_cd'
 'cdc' '_sccs'
 'cdcd' '_cdcd'
 'cdr' '_cdr'
@@ -2167,39 +2167,7 @@ autoload -Uz _afew _age _android _archlinux-java _artisan \
             _supervisord _svm _teamocil _thor _tmuxinator \
             _tmuxp _tox _tsc _ts-node _udisksctl \
             _ufw _uuidgen _virtualbox _vnstat _wemux \
-            _wg-quick _xsel _yarn _yfm _zcash-cli \
-            _afew _age _android _archlinux-java _artisan \
-            _atach _avdmanager _bitcoin-cli _bower _bundle \
-            _cap _cask _ccache _cf _chatblade \
-            _choc _chromium _clang-check _clang-format _clang-tidy \
-            _cmake _coffee _conan _concourse _console \
-            _cppcheck _dad _dart _dget _dhcpcd \
-            _diana _direnv _docpad _do-release-upgrade _drush \
-            _ecdsautil _emacs _emacsclient _emulator _envdir \
-            _exportfs _fab _fail2ban-client _ffind _fleetctl \
-            _flutter _fwupdmgr _gas _ghc _gist \
-            _git-flow _git-pulls _git-revise _git-wtf _glances \
-            _golang _google _gpgconf _grpcurl _gtk-launch \
-            _hello _hledger _homestead _httpie _ibus \
-            _include-what-you-use _inxi _jest _jmeter _jmeter-plugins \
-            _jonas _jrnl _kak _kitchen _knife \
-            _l3build _language_codes _lilypond _lscpu _lunchy \
-            _mc _middleman _mina _mix _mkcert \
-            _mssh _mussh _mvn _nano _nanoc \
-            _neo _neofetch _networkQuality _nftables _node \
-            _nvm _openssl _openvpn3 _optirun _patool \
-            _periscope _pgsql_utils _phing _pixz _pkcon \
-            _play _pm2 _port _pre-commit _protoc \
-            _pygmentize _qmk _rails _ralio _rdfind \
-            _redis-cli _rfkill _rkt _rmlint _rslsync \
-            _rspec _rsvm _rubocop _sbt _scala \
-            _screencapture _scrub _sdd _sdkmanager _setcap \
-            _setup.py _sfdx _shallow-backup _shellcheck _showoff \
-            _srm _stack _subliminal _supervisorctl _supervisord \
-            _svm _teamocil _thor _tmuxinator _tmuxp \
-            _tox _tsc _ts-node _udisksctl _ufw \
-            _uuidgen _virtualbox _vnstat _wemux _wg-quick \
-            _xsel _yarn _yfm _zcash-cli
+            _wg-quick _xsel _yarn _yfm _zcash-cli
 autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs

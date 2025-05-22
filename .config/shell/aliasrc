@@ -4,9 +4,17 @@ alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias ..='cd ..'
 #alias cd='z'
 alias zrc="nvim $HOME/.config/zsh/.zshrc"
+
 alias ga='git add'
-alias gc='git commit -m'
-alias push='git push'
+alias gc='git commit'
+alias gp='git push'
+alias gu='git pull'
+alias gd='git diff'
+alias gl="git log --all --graph --pretty=format:'%C(magenta))%h %C(white) %an  %ar%C(auto) %D%n%s%n"
+alias gb='git branch'
+alias gi='git init'
+alias gcl='git clone'
+
 alias weather='curl -s "https://wttr.in/?1n"'
 alias vps='ssh -p 54783 demon@3.108.32.164'
 alias pacgraph='pacgraph --show-req-by -b "#232738" -l "#9778d3" -t "#cca9c6" -d "#b8d0eb"'
