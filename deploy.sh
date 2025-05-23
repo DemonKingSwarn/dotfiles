@@ -1,16 +1,22 @@
 #!/usr/bin/env sh
 
-#   ____  _____ __  __  ___  _   _  ___  ____  
-#  |  _ \| ____|  \/  |/ _ \| \ | |/ _ \/ ___| 
-#  | | | |  _| | |\/| | | | |  \| | | | \___ \ 
-#  | |_| | |___| |  | | |_| | |\  | |_| |___) |
-#  |____/|_____|_|  |_|\___/|_| \_|\___/|____/ 
-#                                              
+# create log file
+logfile="$HOME/install.log"
+mkfifo "$logfile.pipe"
+tee -a "$logfile" < "$logfile.pipe" &
+exec > "$logfile.pipe" 2>&1
+trap 'rm -f "$logfile.pipe"' EXIT
 
-# configuration script for my arch linux based meta distribution
 
-# create log
-exec > >(tee -a "$HOME/install.log") 2>&1
+cat <<- 'EOF'
+ ____  _____ __  __  ___  _   _  ___  ____  
+|  _ \| ____|  \/  |/ _ \| \ | |/ _ \/ ___| 
+| | | |  _| | |\/| | | | |  \| | | | \___ \ 
+| |_| | |___| |  | | |_| | |\  | |_| |___) |
+|____/|_____|_|  |_|\___/|_| \_|\___/|____/ 
+
+     an Arch Linux meta-distribution
+EOF
 
 ARCH="$(uname -m)"
 GITHUB="https://github.com/demonkingswarn"
@@ -23,14 +29,15 @@ PKGS="opendoas fastfetch dash git zoxide starship stow zsh fzf river wideriver p
 
 mkdir -p "$HOME/.local/bin" && mkdir -p "$HOME/.cache/zsh" && mkdir -p "$HOME/.proton"
 test "$HOME/.cache/zsh/history" || touch "$HOME/.cache/zsh/history"
-test -d $WALLPAPER_DIR || mkdir -p $WALLPAPER_DIR
+test -d "$WALLPAPER_DIR" || mkdir -p "$WALLPAPER_DIR"
 
+echo "[*] Installing packages..."
 $AUR_HELPER -S $PKGS --noconfirm
 
-git clone --depth 1 "$GITHUB/dotfiles" $HOME/.dots
-git clone --depth 1 "$GITHUB/scripts" $HOME/.scripts
-git clone --depth 1 "$GITHUB/fonts" $HOME/.local/share/
-git clone --depth 1 "$GITHUB/wallpapers" $WALLPAPER_DIR/wall
+git clone --quiet --depth 1 "$GITHUB/dotfiles" $HOME/.dots
+git clone --quiet --depth 1 "$GITHUB/scripts" $HOME/.scripts
+git clone --quiet --depth 1 "$GITHUB/fonts" $HOME/.local/share/
+git clone --quiet --depth 1 "$GITHUB/wallpapers" $WALLPAPER_DIR/wall
 
 fc-cache -vf
 
@@ -53,4 +60,19 @@ if [ "$ARCH" = "x86_64" ]; then
 
   sudo mv cpg /usr/local/bin
   sudo mv mvg /usr/local/bin
+fi
+
+gpu_type=$(lspci)
+
+echo "$gpu_type" | grep -qE "NVIDIA|GeForce"
+if [ $? -eq 0 ]; then
+  $AUR_HELPER -S --noconfirm --needed nvidia-open-dkms opencl-nvidia nvidia-utils nvidia-prime nvidia-container-toolkit libvdpau nvtop libnvidia-container libva-nvidia-driver lib32-libvdpau lib32-nvidia-utils lib32-opencl-nvidia
+fi
+
+cpu_vendor=$(grep 'vendor_id' /proc/cpuinfo | head -n1 | cut -d':' -f2 | sed 's/ //g')
+
+if [ "$cpu_vendor" = "GenuineIntel" ]; then
+  $AUR_HELPER -S --noconfirm --needed vulkan-intel libva-intel-driver intel-ucode lib32-vulkan-intel intel-media-driver mesa lib32-mesa mesa-utils lib32-mesa-utils
+else
+  $AUR_HELPER -S --noconfirm --needed mesa lib32-mesa mesa-utils lib32-mesa-utils
 fi
