@@ -1,11 +1,20 @@
 #!/usr/bin/env sh
 
+#   ____  _____ __  __  ___  _   _  ___  ____  
+#  |  _ \| ____|  \/  |/ _ \| \ | |/ _ \/ ___| 
+#  | | | |  _| | |\/| | | | |  \| | | | \___ \ 
+#  | |_| | |___| |  | | |_| | |\  | |_| |___) |
+#  |____/|_____|_|  |_|\___/|_| \_|\___/|____/ 
+#                                              
+
+# configuration script for my arch linux based meta distribution
+
 # create log
 exec > >(tee -a "$HOME/install.log") 2>&1
 
 ARCH="$(uname -m)"
 GITHUB="https://github.com/demonkingswarn"
-WALLPAPER_DIR="$HOME/.config/wall"
+WALLPAPER_DIR="${XDG_PICTURE_HOME:-$HOME/pix}"
 CPG_BIN="https://github.com/DemonKingSwarn/dotfiles/releases/download/0.0.1/cpg"
 MVG_BIN="https://github.com/DemonKingSwarn/dotfiles/releases/download/0.0.1/mvg"
 AUR_HELPER="paru"
@@ -14,13 +23,14 @@ PKGS="opendoas fastfetch dash git zoxide starship stow zsh fzf river wideriver p
 
 mkdir -p "$HOME/.local/bin" && mkdir -p "$HOME/.cache/zsh" && mkdir -p "$HOME/.proton"
 test "$HOME/.cache/zsh/history" || touch "$HOME/.cache/zsh/history"
+test -d $WALLPAPER_DIR || mkdir -p $WALLPAPER_DIR
 
 $AUR_HELPER -S $PKGS --noconfirm
 
 git clone --depth 1 "$GITHUB/dotfiles" $HOME/.dots
 git clone --depth 1 "$GITHUB/scripts" $HOME/.scripts
 git clone --depth 1 "$GITHUB/fonts" $HOME/.local/share/
-git clone --depth 1 "$GITHUB/wallpapers" $WALLPAPER_DIR
+git clone --depth 1 "$GITHUB/wallpapers" $WALLPAPER_DIR/wall
 
 fc-cache -vf
 
