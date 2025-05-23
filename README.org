@@ -50,10 +50,10 @@ Enjoy! 🚀
 ** Installation
 
 #+begin_src sh
-git clone https://github.com/demonkingswarn/dotfiles ~/.dots
-cd ~/.dots
-stow --ignore=README.org .
+curl -sL "https://github.com/DemonKingSwarn/dotfiles/raw/refs/heads/master/deploy.sh" | sh
 #+end_src
+
+NOTE: You need =paru= for this
 
 ** I also recommend installing my scripts
 

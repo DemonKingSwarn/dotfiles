@@ -4,7 +4,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 
 export PATH=/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/sbin:/bin
 
-export PATH="$PATH:$HOME/.local/bin:$HOME/Applications:$HOME/.local/bin/statusbar:$HOME/.local/share/cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/Applications:$HOME/.local/bin/statusbar:$HOME/.local/bin/microfetch:$HOME/.local/share/cargo/bin"
 
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
@@ -56,7 +56,7 @@ export QT_SCREEN_SCALE_FACTORS="1;1;1"
 export GDK_SCALE=1
 export GDK_DPI_SCALE=1
 export XCURSOR_SIZE=24
-export XCURSOR_THEME="Bibata-Modern-Amber"
+#export XCURSOR_THEME="Bibata-Modern-Amber"
 
 #export PYTHONHOME=/usr/lib/python2.7
 
