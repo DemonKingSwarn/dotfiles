@@ -8,6 +8,6 @@ sleep 0.1
 
 [ "$*" = "fullsave" ] && grim $HOME/pix/ss/$name.png && wl-copy < $HOME/pix/ss/$name.png && notify-send -i $HOME/pix/ss/$name.png "Screenshot saved" "$HOME/pix/ss/$name.png"
 
-[ "$*" = "selclip" ] && grim -g "$(slurp)" - | swappy -f -
+[ "$*" = "selclip" ] && grim -t png -g "$(slurp)" - | swappy -f -
 
 killall hyprpicker

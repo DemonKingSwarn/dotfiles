@@ -1,7 +1,11 @@
-theme = rose-pine-moon
-#background = #282a36
-#background = #1B1E1F
+theme = Dracula
+background = #282a36
 background-opacity = 0.9
+
+window-vsync = false
+
+title = "Ghostty"
+class = "ghostty"
 
 shell-integration = "zsh"
 
@@ -16,7 +20,7 @@ cursor-style-blink = false
 shell-integration-features = no-cursor
 
 gtk-titlebar = false
-window-decoration = false
+window-decoration = server
 confirm-close-surface=false
 
 window-theme = ghostty

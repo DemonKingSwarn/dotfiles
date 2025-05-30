@@ -63,13 +63,13 @@ riverctl set-view-focus new
 # Automatically make certain new windows tile if possible
 riverctl rule-add view float=false
 
-riverctl rule-add app-id "pavucontrol" float
-riverctl rule-add app-id "blueman-manager" float
-riverctl rule-add app-id "nm-connection-editor" float
-riverctl rule-add app-id "thunar" float
-riverctl rule-add -title "galculator" float
-riverctl rule-add app-id "hyprland-share-picker" -title "MainPicker" float
-riverctl rule-add app-id "pureref" -title "PureRef" float
+riverctl rule-add app-id "pavucontrol" -float
+riverctl rule-add app-id "blueman-manager" -float
+riverctl rule-add app-id "nm-connection-editor" -float
+riverctl rule-add app-id "thunar" -float
+riverctl rule-add -title "galculator" -float
+riverctl rule-add app-id "hyprland-share-picker" -title "MainPicker" -float
+riverctl rule-add app-id "pureref" -title "PureRef" -float
 
 ## Keybinds
 
@@ -82,6 +82,9 @@ riverctl map normal Super w spawn "$WALL_PROGRAM"
 riverctl map normal Super+Shift x spawn "$LOCK_PROGRAM"
 riverctl map normal Super i spawn "$TERM -e htop"
 riverctl map normal Super n spawn "nightmode"
+riverctl map normal Super o spawn "ocr"
+riverctl map normal Super f1 spawn "brightnessctl set +5%"
+riverctl map normal Super f2 spawn "brightnessctl set 5%-"
 
 # special function keys
 riverctl map normal None XF86Explorer spawn "$FILE_MANAGER"
@@ -90,7 +93,7 @@ riverctl map normal None XF86Search spawn "rofi -no-lazy-greb -show file-browser
 riverctl map normal None XF86Tools spawn 'brave --app="https://music.youtube.com"'
 
 # reload configuration
-riverctl map normal Super+Shift r spawn "source $CONFIG_FILE"
+riverctl map normal Super+Shift R spawn "source $CONFIG_FILE"
 
 # media control
 riverctl map normal None XF86AudioPlay spawn "playerctl play-pause"
@@ -100,7 +103,7 @@ riverctl map normal None XF86AudioPrev spawn "playerctl previous"
 riverctl map normal Super V toggle-float
 riverctl map normal Super F toggle-fullscreen
 
-# makes it easier for moving floating windows
+# makes it easier for moving foating windows
 riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 
@@ -134,7 +137,7 @@ riverctl map normal Super S toggle-view-tags $stickyTag
 riverctl spawn-tagmask $((((1 << 32) - 1) ^ stickyTag))
 
 # Exit river
-riverctl map normal Super+Shift M exit
+riverctl map normal Super+Shift M spawn wlogout
 
 # Volume Control
 riverctl map normal None XF86AudioRaiseVolume spawn "pamixer -i 5"

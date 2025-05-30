@@ -1,0 +1,5 @@
+#!/bin/sh
+
+grim -t png -g "$(slurp)" - | tesseract stdin stdout | wl-copy
+
+notify-send -i $HOME/.config/dunst/clip.png "Copied to clipboard" "$(wl-paste)"
