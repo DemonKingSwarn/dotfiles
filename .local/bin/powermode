@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ch=$(printf "performance\nbalanced\npower-saver" | rofi -dmenu -i)
+
+powerprofilesctl set $ch
+
+notify-send "power profile set" "$(powerprofilesctl get)"

@@ -94,7 +94,7 @@
         "scroll-step": 5,
 	"format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-click": "~/.config/hypr/scripts/toggle_shader"
+        "on-click": "~/.local/bin/nightmode"
     },
        
     "battery": {
@@ -113,6 +113,7 @@
             "warning": 25,
             "critical": 10
         },
+        "on-click": "~/.local/bin/powermode"
     },
     
     "network": {

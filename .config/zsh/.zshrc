@@ -87,3 +87,5 @@ function fshow() {
                 {}
 FZF-EOF"
 }
+
+greet

@@ -10,6 +10,8 @@ LOCK_PROGRAM="$HOME/.scripts/system/waylock.sh"
 SS_PROGRAM="$HOME/.config/hypr/scripts/screenshot"
 EMOJI_PROGRAM="$HOME/.scripts/emojis/emoji.sh"
 WALL_PROGRAM="$HOME/.scripts/misc/wallmanager"
+NIGHTLIGHT="nightmode"
+OCR="ocr"
 
 wlr-randr --output eDP-1 --mode 1920x1080@60.004002 &
 
@@ -27,11 +29,12 @@ riverctl xcursor-theme "Bibata-Modern-Amber"
 
 # keyboard layout
 
-riverctl keyboard-layout -variant ,digits -options ctrl:nocaps us
+riverctl keyboard-layout -variant ,digits -options ctrl:nocaps,compose:menu us
 
 # touchpad things
 
 # change this to yours
+# you can find your touchpad by using "riverctl list-inputs"
 TOUCHPAD="pointer-1267-12525-ELAN0710:01_04F3:30ED_Touchpad"
 
 touchpad_settings() {
@@ -81,8 +84,8 @@ riverctl map normal Super e spawn "$EMOJI_PROGRAM"
 riverctl map normal Super w spawn "$WALL_PROGRAM"
 riverctl map normal Super+Shift x spawn "$LOCK_PROGRAM"
 riverctl map normal Super i spawn "$TERM -e htop"
-riverctl map normal Super n spawn "nightmode"
-riverctl map normal Super o spawn "ocr"
+riverctl map normal Super n spawn "$NIGHTLIGHT"
+riverctl map normal Super o spawn "$OCR"
 riverctl map normal Super f1 spawn "brightnessctl set +5%"
 riverctl map normal Super f2 spawn "brightnessctl set 5%-"
 
