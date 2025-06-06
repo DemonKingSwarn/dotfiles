@@ -14,6 +14,7 @@ NIGHTLIGHT="nightmode"
 OCR="ocr"
 
 wlr-randr --output eDP-1 --mode 1920x1080@60.004002 &
+#wlr-randr --output HDMI-A-2 --mode 1280x1024@60.020000 --left-of eDP-1 &
 
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
