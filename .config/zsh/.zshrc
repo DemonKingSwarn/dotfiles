@@ -88,4 +88,20 @@ function fshow() {
 FZF-EOF"
 }
 
-greet
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        /usr/sbin/rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+bindkey -s '^o' 'lfcd\n'
+
+if [ "$TERM_PROGRAM" = "tmux" ]; then
+  figlet "tmux uwu"
+else 
+  greet
+fi

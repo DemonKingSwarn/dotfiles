@@ -89,6 +89,7 @@ riverctl map normal Super n spawn "$NIGHTLIGHT"
 riverctl map normal Super o spawn "$OCR"
 riverctl map normal Super f1 spawn "brightnessctl set +5%"
 riverctl map normal Super f2 spawn "brightnessctl set 5%-"
+riverctl map normal Super t spawn "killall waybar && waybar"
 
 # special function keys
 riverctl map normal None XF86Explorer spawn "$FILE_MANAGER"
