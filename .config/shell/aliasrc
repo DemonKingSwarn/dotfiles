@@ -45,6 +45,7 @@ alias thumb='yt-dlp --write-thumbnail --skip-download'
 alias SS='sudo systemctl'
 alias j='sudo journalctl'
 alias lsusb='cyme --headings --tree --hide-buses'
+alias cla="\c"
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'

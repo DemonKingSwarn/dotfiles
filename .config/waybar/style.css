@@ -35,7 +35,11 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 4px;
+  background: @crust;
+  color: @mauve;
+  margin: 2px;
+  padding: 0px;
+  border-radius: 4px;
 }
 
 #workspaces button.focused {

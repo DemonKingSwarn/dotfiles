@@ -93,6 +93,7 @@ _comps=(
 'beep' '_beep'
 'bg' '_jobs_bg'
 'bibtex' '_bibtex'
+'bindgen' '_bindgen'
 'bindkey' '_bindkey'
 'bison' '_bison'
 'bitcoin-cli' '_bitcoin-cli'
@@ -985,6 +986,7 @@ _comps=(
 'ngrep' '_ngrep'
 'nice' '_nice'
 'ninja' '_ninja'
+'niri' '_niri'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
@@ -1415,9 +1417,7 @@ _comps=(
 'svnliteadmin' '_subversion'
 'swaks' '_swaks'
 'swanctl' '_swanctl'
-'sway' '_sway'
 'swayidle' '_swayidle'
-'swaymsg' '_swaymsg'
 'swaync' '_swaync'
 'swaync-client' '_swaync-client'
 'swift' '_swift'
@@ -1958,27 +1958,27 @@ autoload -Uz _afew _age _android _archlinux-java _artisan \
             _tsc _ts-node _udisksctl _ufw _uuidgen \
             _virtualbox _vnstat _wemux _wg-quick _xsel \
             _yarn _yfm _zcash-cli _zinit _hyprctl \
-            _hyprpm _bat _bluetoothctl _bootctl _btm \
-            _busctl _bwrap _cargo _chafa _checkupdates \
-            _codium _coredumpctl _ctr _curl _cyme \
-            _distrobox _distrobox-assemble _distrobox_containers _distrobox-create _distrobox-enter \
-            _distrobox-ephemeral _distrobox-export _distrobox-generate-entry _distrobox-host-exec _distrobox_images \
-            _distrobox-init _distrobox-list _distrobox-rm _distrobox_running_containers _distrobox-stop \
-            _distrobox-upgrade _dkms _docker _dog _dotnet \
-            _downgrade _dunst _dunstctl _eza _fastfetch \
-            _flatpak _ghostty _gum _hostnamectl _hyperfine \
-            _img2sixel _insmod _journalctl _kdeconnect _kernel-install \
-            _konsole _lf _libinput _localectl _loginctl \
-            _lsmod _luarocks _luarocks-admin _machinectl _meson \
-            _mkinitcpio _mkosi _mpv _networkctl _newsboat \
-            _ninja _oomctl _paccache _pacdiff _pacignore \
-            _paclist _paclog-pkglist _pacman _pacscripts _pacsearch \
-            _pacsort _pactree _paru _pass _pip \
-            _pkgfile _playerctl _powerprofilesctl _pulseaudio _qpdf \
-            _rankmirrors _resolvectl _rg _riverctl _rmmod \
-            _run0 _scrcpy _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \
-            _sd_unit_files _sensors _sensors-detect _starship _sway \
-            _swayidle _swaymsg _swaync _swaync-client _swww \
+            _hyprpm _bat _bindgen _bluetoothctl _bootctl \
+            _btm _busctl _bwrap _cargo _chafa \
+            _checkupdates _codium _coredumpctl _ctr _curl \
+            _cyme _distrobox _distrobox-assemble _distrobox_containers _distrobox-create \
+            _distrobox-enter _distrobox-ephemeral _distrobox-export _distrobox-generate-entry _distrobox-host-exec \
+            _distrobox_images _distrobox-init _distrobox-list _distrobox-rm _distrobox_running_containers \
+            _distrobox-stop _distrobox-upgrade _dkms _docker _dog \
+            _dotnet _downgrade _dunst _dunstctl _eza \
+            _fastfetch _flatpak _ghostty _gum _hostnamectl \
+            _hyperfine _img2sixel _insmod _journalctl _kdeconnect \
+            _kernel-install _konsole _lf _libinput _localectl \
+            _loginctl _lsmod _luarocks _luarocks-admin _machinectl \
+            _meson _mkinitcpio _mkosi _mpv _networkctl \
+            _newsboat _ninja _niri _oomctl _paccache \
+            _pacdiff _pacignore _paclist _paclog-pkglist _pacman \
+            _pacscripts _pacsearch _pacsort _pactree _paru \
+            _pass _pip _pkgfile _playerctl _powerprofilesctl \
+            _pulseaudio _qpdf _rankmirrors _resolvectl _rg \
+            _riverctl _rmmod _run0 _scrcpy _sd_hosts_or_user_at_host \
+            _sd_machines _sd_outputmodes _sd_unit_files _sensors _sensors-detect \
+            _starship _swayidle _swaync _swaync-client _swww \
             _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
             _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles _timedatectl \
             _udevadm _udiskie _udiskie-canonical_paths _udiskie-mount _udiskie-umount \

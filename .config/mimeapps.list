@@ -1,6 +1,6 @@
 [Default Applications]
 application/octet-stream=mpv.desktop
-application/pdf=floorp.desktop
+application/pdf=brave.desktop
 application/x-ms-dos-executable=wine.desktop
 application/x-shellscript=org.codeberg.dnkl.foot.desktop
 image/avif=nsxiv.desktop
@@ -17,14 +17,14 @@ image/xcf=gimp.desktop
 inode/directory=com.system76.CosmicFiles.desktop
 model/obj=blender.desktop
 text/*=vscodium-wayland.desktop
-text/html=floorp.desktop
-text/php=floorp.desktop
+text/html=brave.desktop
+text/php=brave.desktop
 text/x-shellscript=foot.desktop
-x-scheme-handler/about=floorp.desktop
+x-scheme-handler/about=brave.desktop
 x-scheme-handler/discord-1221314350216646828=discord-1221314350216646828.desktop
 x-scheme-handler/discord-1222229231367487539=discord-1222229231367487539.desktop
-x-scheme-handler/http=floorp.desktop
-x-scheme-handler/https=floorp.desktop
+x-scheme-handler/http=brave.desktop
+x-scheme-handler/https=brave.desktop
 x-scheme-handler/nxm=com.nexusmods.app.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/steam=steam.desktop

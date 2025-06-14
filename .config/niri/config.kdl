@@ -1,0 +1,218 @@
+// niri compositor config 
+
+binds {
+    Super+Shift+Slash { show-hotkey-overlay; }
+
+    // binds for running programs
+    Super+Return { spawn "wezterm"; }
+    Alt+Return { spawn "ghostty"; }
+    Super+D { spawn "rofi" "-show" "drun"; }
+    Super+E { spawn "~/.scripts/emojis/emoji.sh"; }
+    Super+Shift+X { spawn "~/.scripts/system/waylock.sh"; }
+    Print { spawn "~/.config/hypr/scripts/screenshot" "fullsave"; }
+    Super+Print { spawn "~/.config/hypr/scripts/screenshot" "selclip"; }
+    Super+N { spawn "nightmode"; }
+    Super+O { spawn "ocr"; }
+
+    // media keys
+    XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
+    XF86AudioLowerVolume  { spawn "pamixer" "-d" "5"; }
+    XF86AudioMute { spawn "pamixer" "-t" "mute"; }
+    
+    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    Super+F1   { spawn "brightnessctl" "set" "+5%"; }
+    Super+F2 { spawn "brightnessctl" "set" "5%-"; }
+    
+    XF86AudioPlay  { spawn "playerctl" "play-pause";} 
+    XF86AudioPrev  { spawn "playerctl" "previous";} 
+    XF86AudioNext  { spawn "playerctl" "next";} 
+
+    Super+Shift+Q { close-window; }
+
+    Super+Left  { focus-column-left; }
+    Super+Down  { focus-window-down; }
+    Super+Up    { focus-window-up; }
+    Super+Right { focus-column-right; }
+
+    Super+H     { focus-column-left; }
+    Super+J     { focus-window-down; }
+    Super+K     { focus-window-up; }
+    Super+L     { focus-column-right; }
+
+    Super+Shift+Left  { move-column-left; }
+    Super+Shift+Down  { move-window-down; }
+    Super+Shift+Up    { move-window-up; }
+    Super+Shift+Right { move-column-right; }
+    Super+Shift+H     { move-column-left; }
+    Super+Shift+J     { move-window-down; }
+    Super+Shift+K     { move-window-up; }
+    Super+Shift+L     { move-column-right; }
+
+    Super+Home { focus-column-first; }
+    Super+End  { focus-column-last; }
+    Super+Shift+Home { move-column-to-first; }
+    Super+Shift+End  { move-column-to-last; }
+
+    Super+Page_Down      { focus-workspace-down; }
+    Super+Page_Up        { focus-workspace-up; }
+    Super+U              { focus-workspace-down; }
+    Super+I              { focus-workspace-up; }
+    Super+Shift+Page_Down { move-column-to-workspace-down; }
+    Super+Shift+Page_Up   { move-column-to-workspace-up; }
+    Super+Shift+U         { move-column-to-workspace-down; }
+    Super+Shift+I         { move-column-to-workspace-up; }
+
+    Super+1 { focus-workspace 1; }
+    Super+2 { focus-workspace 2; }
+    Super+3 { focus-workspace 3; }
+    Super+4 { focus-workspace 4; }
+    Super+5 { focus-workspace 5; }
+    Super+6 { focus-workspace 6; }
+    Super+7 { focus-workspace 7; }
+    Super+8 { focus-workspace 8; }
+    Super+9 { focus-workspace 9; }
+    Super+Shift+1 { move-column-to-workspace 1; }
+    Super+Shift+2 { move-column-to-workspace 2; }
+    Super+Shift+3 { move-column-to-workspace 3; }
+    Super+Shift+4 { move-column-to-workspace 4; }
+    Super+Shift+5 { move-column-to-workspace 5; }
+    Super+Shift+6 { move-column-to-workspace 6; }
+    Super+Shift+7 { move-column-to-workspace 7; }
+    Super+Shift+8 { move-column-to-workspace 8; }
+    Super+Shift+9 { move-column-to-workspace 9; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Super+Shift+1 { move-window-to-workspace 1; }
+
+    Super+Comma  { consume-window-into-column; }
+    Super+Period { expel-window-from-column; }
+
+    Super+R { switch-preset-column-width; }
+    Super+Shift+F { maximize-column; }
+    Super+F { fullscreen-window; }
+    Super+C { center-column; }
+
+    Super+Minus { set-column-width "-10%"; }
+    Super+Equal { set-column-width "+10%"; }
+
+    // Finer height adjustments when in column with other windows.
+    Super+Shift+Minus { set-window-height "-10%"; }
+    Super+Shift+Equal { set-window-height "+10%"; }
+
+    Super+Shift+M { quit; }
+
+    Super+Ctrl+Shift+T { toggle-debug-tint; }
+}
+
+//startup programs
+spawn-at-startup "~/.config/autostart/startup.sh"
+spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
+spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
+
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
+spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'"
+
+// input settings
+input {
+
+    keyboard {
+        repeat-delay 300
+        repeat-rate 69
+        xkb {
+          layout "us"
+          options "compose:menu"
+        }
+    }
+
+    touchpad {
+        click-method "button-areas"
+        tap
+        natural-scroll
+        scroll-method "two-finger"
+        middle-emulation
+        accel-profile "adaptive"
+    }
+
+  focus-follows-mouse
+  warp-mouse-to-focus
+  workspace-auto-back-and-forth
+}
+
+// output settings
+output "eDP-1" {
+
+    scale 1
+
+    mode "1920x1080@60"
+}
+
+// layout settings
+layout {
+    focus-ring {
+         off
+    }
+    border {
+        width 2
+        active-color "#d9c1cd"
+        inactive-color "#282828"
+        urgent-color "#9b0000"
+    }
+
+    shadow {
+      softness 30
+      spread 5
+      offset x=0 y=5
+      draw-behind-window true
+      color "#00000070"
+    }
+
+    default-column-width { proportion 1.0; }
+
+    gaps 6
+}
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+
+animations {
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-open {
+      duration-ms 150
+      curve "ease-out-expo"
+    }
+
+    window-close {
+      duration-ms 150
+      curve "ease-out-quad"
+    }
+
+    overview-open-close {
+      spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+}
+
+
+window-rule {
+  geometry-corner-radius 12
+  clip-to-geometry true
+}
+
+cursor {
+  xcursor-theme "Bibata-Modern-Amber"
+
+  hide-when-typing
+  hide-after-inactive-ms 1000
+}
+
+
