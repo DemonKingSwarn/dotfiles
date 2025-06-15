@@ -31,6 +31,7 @@ copyq --start-server &
 pkill -f blueman-applet
 blueman-applet &
 
+hypr-wellbeing -d &> /dev/null &
 
 #hyprwatch -d &> /dev/null &
 #foot --server &

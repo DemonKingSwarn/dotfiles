@@ -1,0 +1,19 @@
+[
+  { 
+   "id": "bar-0",
+   "name": "bar-niri",
+   "layer": "top",
+   "mode": "dock",
+   "height": 24,
+   "margin": 0,
+   "spacing": 1,
+    //"modules-left": ["hyprland/workspaces", "river/tags", "sway/workspaces"],
+    //"modules-left": ["river/tags"],
+    "include": [
+      "$HOME/.config/waybar/modules.jsonc"
+    ],
+    "module-left": ["niri/workspaces"],
+    "modules-center": ["niri/window"],
+    "modules-right": ["pulseaudio", "battery", "clock", "custom/notification", "tray"],
+  }
+]

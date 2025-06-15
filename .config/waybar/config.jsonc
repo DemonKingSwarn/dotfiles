@@ -1,19 +1,242 @@
-[
-  { 
-   "id": "bar-0",
-   "name": "bar-niri",
-   "layer": "top",
-   "mode": "dock",
-   "height": 24,
-   "margin": 0,
-   "spacing": 1,
-    //"modules-left": ["hyprland/workspaces", "river/tags", "sway/workspaces"],
-    //"modules-left": ["river/tags"],
-    "include": [
-      "$HOME/.config/waybar/modules.jsonc"
-    ],
-    "module-left": ["niri/workspaces"],
-    "modules-center": ["niri/window"],
-    "modules-right": ["pulseaudio", "battery", "clock", "custom/notification", "tray"],
-  }
-]
+{
+  "id": "bar-0",
+  "name": "bar-demon",
+  "layer": "top",
+  "position": "top",
+  "mode": "dock",
+  "height": 24,
+  "margin": 0,
+  "spacing": 1, // Gaps between modules (8px)
+
+  "modules-left": [
+    "niri/workspaces"
+  ],
+  "modules-center": [
+    "niri/window"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "battery",
+    "clock",
+    "custom/notification",
+    "tray",
+  ],
+
+
+  
+  "clock": {
+        "format": " {:%a, %b %d, %Y - %I:%M %p }",
+        "tooltip-format": "{calendar}",
+        "interval": 30
+    },
+
+  "niri/language": {
+    "format": "{short}",
+  },
+  
+  "battery": {
+        "states": {
+            "good": 76,
+            "warning": 30
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  Charged",
+        "tooltip-format": "{capacity}% capacity",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "on-click": "~/.local/bin/powermode"
+    },
+
+  "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": " {volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "  {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "tooltip-format": "{volume}% volume",
+        "on-click": "pavucontrol"
+    },
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+
+  "niri/workspaces": {
+    "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+    },
+    //"on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+    //"on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+    "sort-by-number": true,
+    "active-only": true,
+    "justify": "center",
+  },
+
+    "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}{percent}%",
+    "format-icons": ["󰃞 ","󰃟 ","󰃠 "],
+    "on-scroll-down": "brightnessctl s 5%-",
+    "on-scroll-up": "brightnessctl s +5%",
+    "justify": "center",
+    "tooltip": false
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": " <span foreground='red'><small><sup>⬤</sup></small></span> ",
+      "none": " ",
+      "dnd-notification": " <span foreground='red'><small><sup>⬤</sup></small></span> ",
+      "dnd-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  },
+
+  "niri/window": {
+    "format": "{}",
+    "min-length": 5,
+
+    // === Window Titles ===
+
+    "rewrite": {
+      // == Desktop ==
+
+
+      // == Terminal ==
+
+      "~": "  Terminal",
+      "zsh": "  Terminal",
+      "kitty": "  Terminal",
+      "swarn@deadlock:(.*)": "  Terminal",
+      "(.*)swarn@deadlock:~": "  Terminal",
+
+      // == Browser ==
+
+      "(.*)Mozilla Firefox": 
+        "<span foreground='#f38ba8'>󰈹 </span> Firefox",
+      "(.*) — Mozilla Firefox": 
+        "<span foreground='#f38ba8'>󰈹 </span> $1",
+
+      "(.*)Zen Browser": 
+        "<span foreground='#cdd6f4'>󰈹 </span> Zen Browser",
+      "(.*) — Zen Browser": 
+        "<span foreground='#cdd6f4'>󰈹 </span> $1",
+      
+      "(.*)Ablaze Floorp": 
+        "<span foreground='#cdd6f4'>󰈹 </span> Ablaze Floorp",
+      "(.*) — Ablaze Floorp": 
+        "<span foreground='#cdd6f4'>󰈹 </span> $1",
+
+      // == Development ==
+
+      "(.*) - Visual Studio Code": 
+        "<span foreground='#89b4fa'>󰨞 </span> $1",
+      "(.*)Visual Studio Code": 
+        "<span foreground='#89b4fa'>󰨞 </span> Visual Studio Code",
+
+      "Godot": 
+        "<span foreground='#89b4fa'> </span> Godot Engine",
+      "Godot Engine - (.*)": 
+        "<span foreground='#89b4fa'> </span> $1",
+      "(.*) - Godot Engine": 
+        "<span foreground='#89b4fa'> </span> $1",
+
+      // == Media ==
+
+      "(.*)Spotify": 
+        "<span foreground='#a6e3a1'> </span> Spotify",
+      "(.*)Spotify Premium": 
+        "<span foreground='#a6e3a1'> </span> Spotify Premium",
+
+      "OBS(.*)": 
+        "<span foreground='#a6adc8'>󰐌 </span> OBS Studio",
+
+      "VLC media player": 
+        "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
+      "(.*) - VLC media player": 
+        "<span foreground='#fab387'>󰕼 </span> $1",
+
+      "GNU Image Manipulation Program": 
+        "<span foreground='#a6adc8'> </span> GNU Image Manipulation Program",
+
+      "nsxiv": "  nsxiv",
+
+      "(.*).jpg": "  $1.jpg",
+      "(.*).png": "  $1.png",
+      "(.*).svg": "  $1.svg",
+
+      // == Social ==
+
+      "vesktop": 
+        "<span foreground='#89b4fa'> </span> Discord",
+
+      "• Discord(.*)": "Discord$1",
+      "(.*)Discord(.*)": 
+        "<span foreground='#89b4fa'> </span> $1Discord$2",
+
+      // == Documents ==
+
+      "ONLYOFFICE Desktop Editors": 
+        "<span foreground='#f38ba8'> </span> OnlyOffice Desktop",
+
+      "(.*).docx": 
+        "<span foreground='#89b4fa'> </span> $1.docx",
+      "(.*).xlsx": 
+        "<span foreground='#a6e3a1'> </span> $1.xlsx",
+      "(.*).pptx": 
+        "<span foreground='#fab387'> </span> $1.pptx",
+      "(.*).pdf": 
+        "<span foreground='#f38ba8'> </span> $1.pdf",
+
+      "/": "  File Manager",
+
+      // == System ==
+
+      "Timeshift-gtk": 
+        "<span foreground='#a6e3a1'> </span> Timeshift",
+
+      "Authenticate": "  Authenticate"
+    }
+  },
+
+    // "custom/power": {
+  //   "format": "",
+  //   "tooltip": false,
+  //   "on-click": "wlogout",
+  //   "justify": "center"
+  // }
+}

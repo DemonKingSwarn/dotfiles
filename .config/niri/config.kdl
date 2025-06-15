@@ -1,5 +1,9 @@
 // niri compositor config 
 
+environment {
+  DISPLAY ":1"
+}
+
 binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
@@ -13,7 +17,8 @@ binds {
     Super+Print { spawn "~/.config/hypr/scripts/screenshot" "selclip"; }
     Super+N { spawn "nightmode"; }
     Super+O { spawn "ocr"; }
-
+    Super+TAB { toggle-column-tabbed-display; }
+    
     // media keys
     XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
     XF86AudioLowerVolume  { spawn "pamixer" "-d" "5"; }
@@ -107,6 +112,7 @@ binds {
 
 //startup programs
 spawn-at-startup "~/.config/autostart/startup.sh"
+
 spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
@@ -134,7 +140,9 @@ input {
         natural-scroll
         scroll-method "two-finger"
         middle-emulation
-        accel-profile "adaptive"
+        scroll-factor 1
+        accel-speed 5.0
+        accel-profile "flat"
     }
 
   focus-follows-mouse
@@ -144,7 +152,6 @@ input {
 
 // output settings
 output "eDP-1" {
-
     scale 1
 
     mode "1920x1080@60"
@@ -170,8 +177,16 @@ layout {
       color "#00000070"
     }
 
-    default-column-width { proportion 1.0; }
+    tab-indicator {
+      width 8
+      gap 8
+      length total-proportion=1.0
+      position "top"
+      place-within-column
+    }
 
+    default-column-width { proportion 1.0; }
+    background-color "transparent"
     gaps 6
 }
 
@@ -205,6 +220,7 @@ animations {
 
 window-rule {
   geometry-corner-radius 12
+  draw-border-with-background false
   clip-to-geometry true
 }
 
@@ -215,4 +231,58 @@ cursor {
   hide-after-inactive-ms 1000
 }
 
+layer-rule {
+  match namespace="^wallpaper$"
+  place-within-backdrop true
+}
 
+overview {
+    zoom 0.295
+    backdrop-color "#000201"
+
+    workspace-shadow {
+        //off
+        softness 400
+        spread 300
+        offset x=0 y=10
+        color "#00000000"
+    }
+}
+
+switch-events {
+  lid-close { spawn "systemctl" "suspend-then-hibernate"; }
+  lid-open { spawn "notify-send" "System resume complete"; }
+}
+
+layer-rule {
+    match namespace="swww"
+    geometry-corner-radius 12
+    place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="swaync"
+  geometry-corner-radius 30
+  shadow {
+    on
+    softness 400
+    spread 30
+    offset x=0 y=0
+    color "#88332282"
+    draw-behind-window true
+  }
+}
+
+layer-rule {
+  match namespace="waybar"
+
+
+  shadow {
+    on
+    softness 100
+    spread 30
+    offset x=0 y=0
+    color "#eeddFF22"
+    draw-behind-window true
+ }
+}
