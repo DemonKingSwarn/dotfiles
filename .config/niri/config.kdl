@@ -7,7 +7,6 @@ environment {
 binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
-    // binds for running programs
     Super+Return { spawn "wezterm"; }
     Alt+Return { spawn "ghostty"; }
     Super+D { spawn "rofi" "-show" "drun"; }
@@ -19,7 +18,6 @@ binds {
     Super+O { spawn "ocr"; }
     Super+TAB { toggle-column-tabbed-display; }
     
-    // media keys
     XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
     XF86AudioLowerVolume  { spawn "pamixer" "-d" "5"; }
     XF86AudioMute { spawn "pamixer" "-t" "mute"; }
@@ -32,6 +30,11 @@ binds {
     XF86AudioPlay  { spawn "playerctl" "play-pause";} 
     XF86AudioPrev  { spawn "playerctl" "previous";} 
     XF86AudioNext  { spawn "playerctl" "next";} 
+
+    XF86Explorer { spawn "thunar"; }
+    XF86Search { spawn "rofi" "-no-lazy-greb" "-show" "file-browser-extended" "-icon-theme" "'Dracula'"; }
+    XF86Calculator { spawn "galculator"; }
+    XF86Tools { spawn "brave" "--app=https://music.youtube.com";}
 
     Super+Shift+Q { close-window; }
 
@@ -87,9 +90,6 @@ binds {
     Super+Shift+8 { move-column-to-workspace 8; }
     Super+Shift+9 { move-column-to-workspace 9; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Super+Shift+1 { move-window-to-workspace 1; }
-
     Super+Comma  { consume-window-into-column; }
     Super+Period { expel-window-from-column; }
 
@@ -110,7 +110,6 @@ binds {
     Super+Ctrl+Shift+T { toggle-debug-tint; }
 }
 
-//startup programs
 spawn-at-startup "~/.config/autostart/startup.sh"
 
 spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -241,7 +240,7 @@ overview {
     backdrop-color "#000201"
 
     workspace-shadow {
-        //off
+        off
         softness 400
         spread 300
         offset x=0 y=10
