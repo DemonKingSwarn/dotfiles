@@ -2,6 +2,33 @@
 
 environment {
   DISPLAY ":0"
+
+  SDL_VIDEODRIVER "wayland"
+  _JAVA_AWT_WM_NONREPARENTING "1"
+
+  XDG_CURRENT_DESKTOP "niri"
+  XDG_SESSION_DESKTOP "niri"
+  XDG_CURRENT_SESSION_TYPE "wayland"
+
+  GDK_BACKEND "wayland"
+  MOZ_ENABLE_WAYLAND "1"
+  MOZ_DISABLE_RDD_SANDBOX "1"
+  KITTY_ENABLE_WAYLAND "1"
+  EGL_PLATFORM "wayland"
+  GTK_USE_PORTAL "0"
+
+  QT_PLUGIN_PATH "/usr/lib/qt/plugins/"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  QT_QPA_PLATFORM "xcb;wayland"
+  QT_QPA_PLATFORMTHEME "gtk3"
+
+  __GLX_VENDOR_LIBRARY_NAME "nvidia"
+  __GL_VRR_ALLOWED "1"
+  WLR_NO_HARDWARE_CURSORS "1"
+  LIBVA_DRIVER_NAME "nvidia"
+  VDPAU_DRIVER "nvidia"
+  __GL_SYNC_TO_VBLANK "0"
+  NVD_BACKEND "direct"
 }
 
 binds {
@@ -12,11 +39,12 @@ binds {
     Super+D { spawn "rofi" "-show" "drun"; }
     Super+E { spawn "~/.scripts/emojis/emoji.sh"; }
     Super+Shift+X { spawn "~/.scripts/system/waylock.sh"; }
-    Print { spawn "~/.config/hypr/scripts/screenshot" "fullsave"; }
-    Super+Print { spawn "~/.config/hypr/scripts/screenshot" "selclip"; }
+    Print { screenshot-screen; }
+    Super+Print { screenshot; }
+    Alt+Print { screenshot-window; }
     Super+N { spawn "nightmode"; }
     Super+O { spawn "ocr"; }
-    Super+TAB { toggle-column-tabbed-display; }
+    Super+TAB repeat=false { toggle-overview; }
     
     XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
     XF86AudioLowerVolume  { spawn "pamixer" "-d" "5"; }
@@ -111,6 +139,8 @@ binds {
 }
 
 spawn-at-startup "~/.config/autostart/startup.sh"
+spawn-at-startup " /usr/lib/xdg-desktop-portal"
+spawn-at-startup "/usr/lib/xdg-desktop-portal-gnome"
 
 spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
@@ -189,6 +219,7 @@ layout {
     gaps 6
 }
 
+screenshot-path "~/pix/ss/shot_%y%m%d_%H-%M-%S.png"
 prefer-no-csd
 
 hotkey-overlay {

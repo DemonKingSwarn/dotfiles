@@ -3,15 +3,13 @@
 pkill -f /usr/libexec/polkit-gnome-authentication-agent-1
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-/usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &
+#/usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &
 
 pkill -f swaync
 swaync &
 
 pkill -f waybar
 waybar &
-
-#flameshot -a &
 
 pkill -f udiskie
 udiskie &
@@ -33,7 +31,6 @@ blueman-applet &
 
 hypr-wellbeing -d &> /dev/null &
 
-#hyprwatch -d &> /dev/null &
 #foot --server &
 
 #kanata -c $HOME/.config/kanata/config.kbd &
