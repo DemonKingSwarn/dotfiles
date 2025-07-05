@@ -101,7 +101,7 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 if [ "$TERM_PROGRAM" = "tmux" ]; then
-  figlet "tmux uwu"
+  figlet "tmux"
 else 
   greet
 fi

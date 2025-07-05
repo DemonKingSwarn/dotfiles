@@ -4,7 +4,9 @@ theme = Dracula
 background = #282a36
 background-opacity = 0.9
 
-window-vsync = false
+#custom-shader = "/home/swarn/.config/ghostty/bettercrt.glsl"
+
+window-vsync = true
 
 title = "Ghostty"
 class = "ghostty"

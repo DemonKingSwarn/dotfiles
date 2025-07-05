@@ -4,6 +4,7 @@ environment {
   DISPLAY ":0"
 
   SDL_VIDEODRIVER "wayland"
+  SDL_AUDIODRIVER "pipewire"
   _JAVA_AWT_WM_NONREPARENTING "1"
 
   XDG_CURRENT_DESKTOP "niri"
@@ -44,6 +45,8 @@ binds {
     Alt+Print { screenshot-window; }
     Super+N { spawn "nightmode"; }
     Super+O { spawn "ocr"; }
+    Super+W { spawn "~/.scripts/misc/wallmanager"; }
+    Super+G { spawn "nirifreeze"; }
     Super+TAB repeat=false { toggle-overview; }
     
     XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
@@ -171,7 +174,16 @@ input {
         middle-emulation
         scroll-factor 1
         accel-speed 5.0
-        accel-profile "flat"
+        accel-profile "adaptive"
+    }
+
+    mouse {
+      accel-speed 0.3
+      accel-profile "flat"
+      scroll-factor 1.0
+      scroll-method "on-button-down"
+      scroll-button 274
+      middle-emulation
     }
 
   focus-follows-mouse

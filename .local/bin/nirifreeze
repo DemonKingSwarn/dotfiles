@@ -1,0 +1,13 @@
+#!/bin/sh
+
+active_pid=$(niri msg focused-window | grep -Eo "PID.*" | cut -d':' -f2)
+cache_dir="$HOME/.cache/nirifreeze.cache"
+
+if [ ! -f "$cache_dir" ]; then
+  kill -STOP "$active_pid"
+  echo "$active_pid" > "$cache_dir"
+else 
+  frozen_pid=$(cat "$cache_dir")
+  kill -CONT "$frozen_pid"
+  rm -rf "$cache_dir"
+fi

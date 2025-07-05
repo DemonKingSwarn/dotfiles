@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+alias sch="sudo systemctl set-environment SCX_SCHEDULER_OVERRIDE=scx_lavd && sudo systemctl restart scx"
+
 #alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias ..='cd ..'
 alias zrc="nvim $HOME/.config/zsh/.zshrc"
@@ -58,7 +60,7 @@ fi
 
 # Confirmations
 alias mv='mvg -ig'
-alias rm='rip -i'
+alias rm='rip -i --graveyard $HOME/.local/share/Trash'
 alias ln='ln -i'
 alias cp='cpg -ig'
 

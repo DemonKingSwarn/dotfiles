@@ -25,7 +25,7 @@
 
   
   "clock": {
-        "format": " {:%a, %b %d, %Y - %I:%M %p }",
+        "format": "  {:%a, %b %d, %Y - %I:%M %p }",
         "tooltip-format": "{calendar}",
         "interval": 30
     },
@@ -202,11 +202,11 @@
       // == Social ==
 
       "vesktop": 
-        "<span foreground='#89b4fa'> </span> Discord",
+        "<span foreground='#89b4fa'>  </span> Discord",
 
       "• Discord(.*)": "Discord$1",
       "(.*)Discord(.*)": 
-        "<span foreground='#89b4fa'> </span> $1Discord$2",
+        "<span foreground='#89b4fa'>  </span> $1Discord$2",
 
       // == Documents ==
 
