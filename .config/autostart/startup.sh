@@ -20,8 +20,8 @@ xwayland-satellite &
 pkill -f swww-daemon
 swww-daemon &
 
-pkill -f nm-applet
-nm-applet &
+#pkill -f nm-applet
+#nm-applet &
 
 pkill -f copyq
 copyq --start-server &

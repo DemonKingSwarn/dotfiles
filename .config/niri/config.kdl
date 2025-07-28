@@ -173,17 +173,17 @@ input {
         scroll-method "two-finger"
         middle-emulation
         scroll-factor 1
-        accel-speed 5.0
+        accel-speed 0.2
         accel-profile "adaptive"
     }
 
     mouse {
       accel-speed 0.3
       accel-profile "flat"
-      scroll-factor 1.0
-      scroll-method "on-button-down"
-      scroll-button 274
-      middle-emulation
+      //scroll-factor 1.0
+      scroll-method "no-scroll"
+      //scroll-button 274
+      //middle-emulation
     }
 
   focus-follows-mouse
@@ -200,24 +200,45 @@ output "eDP-1" {
 
 // layout settings
 layout {
+    preset-column-widths {
+        proportion 0.25      // Quarter screen
+        proportion 0.33333   // Third screen
+        proportion 0.5       // Half screen
+        proportion 0.66667   // Two-thirds screen
+        proportion 0.75      // Three-quarters screen
+        fixed 1280           // Fixed width for specific apps
+    }
+    
+    preset-window-heights {
+        proportion 0.5       // Half height
+        proportion 0.66667   // Two-thirds height
+        proportion 1.0       // Full height
+    }
+    
+    default-column-width { proportion 1.0; }
+
     focus-ring {
          off
     }
     border {
+        //width 2
+        //active-color "#d9c1cd"
+        //inactive-color "#282828"
+        //urgent-color "#9b0000"
         width 2
-        active-color "#d9c1cd"
-        inactive-color "#282828"
+        active-gradient from="#f2f2f7" to="#e5e5ea" angle=180 relative-to="workspace-view"
+        inactive-gradient from="#d1d1d6" to="#c7c7cc" angle=180 relative-to="workspace-view"
         urgent-color "#9b0000"
     }
-
+    
     shadow {
-      softness 30
-      spread 5
-      offset x=0 y=5
-      draw-behind-window true
-      color "#00000070"
+        on
+        softness 30
+        spread 8
+        offset x=0 y=5
+        color "#00000040"
     }
-
+    
     tab-indicator {
       width 8
       gap 8
@@ -226,12 +247,12 @@ layout {
       place-within-column
     }
 
-    default-column-width { proportion 1.0; }
     background-color "transparent"
     gaps 6
 }
 
 screenshot-path "~/pix/ss/shot_%y%m%d_%H-%M-%S.png"
+
 prefer-no-csd
 
 hotkey-overlay {
@@ -241,22 +262,34 @@ hotkey-overlay {
 
 animations {
     workspace-switch {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        // off
+        spring damping-ratio=0.75 stiffness=600 epsilon=0.001
     }
-
+    horizontal-view-movement {
+        // off
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+    
     window-open {
-      duration-ms 150
-      curve "ease-out-expo"
+      //duration-ms 150
+      //curve "ease-out-expo"
+      custom-shader "~/.config/niri/shaders/macos.glsl"
+      duration-ms 200
+      curve "linear"
     }
 
     window-close {
-      duration-ms 150
+      //duration-ms 150
+      //curve "ease-out-quad"
+      duration-ms 200
       curve "ease-out-quad"
     }
 
     overview-open-close {
-      spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+      spring damping-ratio=0.75 stiffness=650 epsilon=0.001
     }
+
+    
 }
 
 
@@ -264,6 +297,25 @@ window-rule {
   geometry-corner-radius 12
   draw-border-with-background false
   clip-to-geometry true
+}
+
+window-rule {
+    match app-id="Godot" title="Create New Node"
+    open-floating true
+    default-window-height { fixed 750; }
+}
+
+window-rule {
+    match title="nmtui"
+    open-floating true
+}
+
+window-rule {
+    match title="Picture-in-Picture"
+    open-floating true
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
+    default-floating-position x=50 y=50 relative-to="top-right"
 }
 
 cursor {
@@ -304,27 +356,26 @@ layer-rule {
 
 layer-rule {
   match namespace="swaync"
-  geometry-corner-radius 30
+  geometry-corner-radius 9
   shadow {
     on
-    softness 400
-    spread 30
-    offset x=0 y=0
-    color "#88332282"
+    softness 50
+    spread 0
+    offset x=0 y=25
+    color "#00000099"
     draw-behind-window true
   }
 }
 
 layer-rule {
   match namespace="waybar"
-
-
+  geometry-corner-radius 9
   shadow {
     on
-    softness 100
-    spread 30
-    offset x=0 y=0
-    color "#eeddFF22"
+    softness 50
+    spread 0
+    offset x=0 y=25
+    color "#00000000"
     draw-behind-window true
- }
+  }
 }

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Demon's autostart desktop entry
-Exec=/home/swarn/.config/autostart/startup.sh
-Type=Application
-StartupNotify=false
-Path=/home/swarn/.config/autostart/
-Icon=xterm

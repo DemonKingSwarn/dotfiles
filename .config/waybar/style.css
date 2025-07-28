@@ -1,151 +1,303 @@
-@import "mocha.css"; 
-
 * {
+	border: none;
+	border-radius: 10;
     font-family: "JetBrains Mono Nerd Font", "YujiBoku";
-    font-size: 14px;
-    min-height: 0;
-    font-weight: bold;
+	font-size: 14px;
+	min-height: 10px;
 }
 
 window#waybar {
-    background: transparent;
-    background-color: @crust;
-    color: @overlay0;
-    transition-property: background-color;
-    transition-duration: 0.1s;
-    /*border-bottom: 1px solid @overlay1;*/
+	padding-top: 10px;
+	background-color: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
 }
 
 #window {
-    margin: 0;
-    padding-left: 8;
-    padding-right: 8;
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: none;
+    color: transparent;
+	background: transparent;
 }
 
-button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
-}
-
-button:hover {
-    background: inherit;
-    color: @mauve;
-    border-top: 2px solid @mauve;
-}
-
-#workspaces button {
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    color: white;
-    /* border-bottom: 3px solid transparent; */
-}
-
-#workspaces button.focused {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @rosewater;
-    border-top: 2px solid @rosewater;
-}
-
-#workspaces button.active {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @mauve;
-    border-top: 2px solid @mauve;
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#tags button {
-    padding: 0 4px;
-}
-
-#tags button.focused {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @rosewater;
-    border-top: 2px solid @rosewater;
-}
-
-#tags button.active {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @mauve;
-    border-top: 2px solid @mauve;
-}
-
-#tags button.urgent {
-    background-color: #eb4d4b;
-}
-
-#pulseaudio,
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#wireplumber,
-#tray,
-#network,
-#mode,
-#scratchpad {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#clock {
-    color: @maroon;
-    border-bottom: 2px solid @maroon;
-}
-
-#clock.date {
-    color: @mauve;
-    border-bottom: 2px solid @mauve;
-}
-
-#pulseaudio {
-    color: @blue;
-    border-bottom: 2px solid @blue;
+#battery.charging, #battery.plugged {
+	
 }
 
 #network {
-    color: @yellow;
-    border-bottom: 2px solid @yellow;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
 }
 
-#idle_inhibitor {
-    margin-right: 12px;
-    color: #7cb342;
+#pulseaudio {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
 }
 
-#idle_inhibitor.activated {
-    color: @red;
+#cava {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
 }
 
 #battery {
-    color: @green;
-    border-bottom: 2px solid @green;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
+#battery.charging, #battery.plugged {
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
+#battery.critical:not(.charging) {
+    color: #f7a6a6;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
 }
 
-#custom-vpn {
-    color: @lavender;
-    border-radius: 15px;
-    padding-left: 6px;
-    padding-right: 6px;
+@keyframes blink {
+    to {
+        color: #ffffff;
+    }
+}
+
+#backlight {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#clock {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#memory {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#cpu {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+#custom-notification {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	margin-bottom: 0px;
+	padding-right: 4px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#tray {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 4px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#user {
+	font-size: 14px;
+	margin-top: 6px;
+	margin-left: 8px;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#bluetooth {
+	font-size: 14px;
+	margin-top: 6px;
+	margin-left: 8px;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#custom-power {
+	font-size: 20px;
+	margin-top: 6px;
+	margin-left: 8px;
+	margin-right: 8px;
+	padding-left: 10px;
+	padding-right: 15px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#custom-media {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#custom-notifications {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 15px;
+	margin-bottom: 0px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#workspaces {
+	font-size: 14px;
+	margin-top: 6px;
+	margin-left: 8px;
+	margin-bottom: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	transition: none;
+
+	color: white;
+	background-color: rgba(41, 42, 52, 0.8);
+	border: 2px solid rgb(69, 71, 87);
+	border-radius: 10px;
+}
+
+#workspaces button {
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+#workspaces button.focused {
+	background-color: rgb(69, 71, 87);
+	color: white;
+}
+
+#workspaces button.active {
+	background-color: rgb(69, 71, 87);
+	color: white;
 }
