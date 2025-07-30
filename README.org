@@ -2,7 +2,7 @@
 
 ** Programs I use
 
-- Window Manager - [[https://github.com/riverwm/river][river]]
+- Window Manager - [[https://github.com/YaLTeR/niri][niri]]
 - Panel - [[https://github.com/Alexays/Waybar][waybar]]
 - Launcher - [[https://github.com/davatorium/rofi][rofi]]
 - Shell - [[https://github.com/zsh-users/zsh][zsh]]

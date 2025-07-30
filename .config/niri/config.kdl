@@ -47,6 +47,7 @@ binds {
     Super+O { spawn "ocr"; }
     Super+W { spawn "~/.scripts/misc/wallmanager"; }
     Super+G { spawn "nirifreeze"; }
+    Alt+C { spawn "colpick"; }
     Super+TAB repeat=false { toggle-overview; }
     
     XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
@@ -357,14 +358,14 @@ layer-rule {
 layer-rule {
   match namespace="swaync"
   geometry-corner-radius 9
-  shadow {
-    on
-    softness 50
-    spread 0
-    offset x=0 y=25
-    color "#00000099"
-    draw-behind-window true
-  }
+  //shadow {
+  //  on
+  //  softness 50
+  //  spread 0
+  //  offset x=0 y=25
+  //  color "#00000099"
+  //  draw-behind-window true
+  //}
 }
 
 layer-rule {

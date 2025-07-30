@@ -45,8 +45,6 @@
       "image-size": 100,
       "image-radius": 0,
       "blacklist": [
-        "kew",
-        "firefox",
         "spotify"
       ]
     },
@@ -90,7 +88,8 @@
         },
         {
           "label": "󰖩",
-          "command": "~/.scripts/misc/wifi"
+          "command": "~/.scripts/misc/wifi",
+          "type": "toggle"
         },
         {
           "label": "󰂯",
