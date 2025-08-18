@@ -1,9 +1,6 @@
 local wezterm = require("wezterm")
 local home = os.getenv("HOME")
---wezterm.add_to_config_reload_watch_list(home.."/.cache/wal")
 return {
-  --color_scheme_dirs = {home.."/.cache/wal"},
-  --color_scheme = "wezterm-wal",
   default_cursor_style = "SteadyBar",
   font = wezterm.font_with_fallback {
     "JetBrains Mono Nerd Font"

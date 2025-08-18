@@ -7,7 +7,7 @@
   "height": 24,
   "margin": 0,
   "spacing": 1, // Gaps between modules (8px)
-
+  "reload_style_on_change": true,
   "modules-left": [
     "niri/workspaces"
   ],
@@ -60,7 +60,7 @@
 
   "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": "{icon}  {volume}%",
+        "format": "{icon} {volume}%",
         "format-bluetooth": " {volume}% {icon} {format_source}",
         "format-bluetooth-muted": "  {icon} {format_source}",
         "format-muted": "  {format_source}",

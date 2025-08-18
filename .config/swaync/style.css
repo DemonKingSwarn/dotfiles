@@ -1,9 +1,9 @@
-@define-color cc-bg #191724;
-@define-color noti-border-color #44475a;
-@define-color noti-bg #1f1d2e;
-@define-color noti-bg-darker #26233a;
-@define-color noti-bg-hover #21202e;
-@define-color noti-bg-focus #191724;
+@define-color cc-bg #292a34;
+@define-color noti-border-color #454757;
+@define-color noti-bg #292a34;
+@define-color noti-bg-darker #23232c;
+@define-color noti-bg-hover #2a2a35;
+@define-color noti-bg-focus #292a34;
 @define-color noti-close-bg #e0def4;
 @define-color noti-close-bg-hover #e0def4;
 @define-color text-color #e0def4;
@@ -52,7 +52,7 @@
 .widget-mpris>box>button,
 .widget-mpris-player,
 .widget-mpris-album-art {
-  border-radius: 0;
+  border-radius: 12px;
 }
 
 .notification {

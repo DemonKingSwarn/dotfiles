@@ -31,6 +31,8 @@ blueman-applet &
 
 hypr-wellbeing -d &> /dev/null &
 
+rm ~/ly-session.log
+
 #foot --server &
 
 #kanata -c $HOME/.config/kanata/config.kbd &

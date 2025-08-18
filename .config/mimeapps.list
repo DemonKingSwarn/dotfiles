@@ -2,7 +2,6 @@
 application/octet-stream=mpv.desktop
 application/pdf=brave.desktop
 application/x-ms-dos-executable=wine.desktop
-application/x-shellscript=org.codeberg.dnkl.foot.desktop
 image/avif=nsxiv.desktop
 image/gif=mpv.desktop
 image/heic=nsxiv.desktop
@@ -14,24 +13,18 @@ image/svg=nsxiv.desktop
 image/tiff=nsxiv.desktop
 image/webp=nsxiv.desktop
 image/xcf=gimp.desktop
-inode/directory=com.system76.CosmicFiles.desktop
+image/psd=gimp.desktop
+inode/directory=thunar.desktop
 model/obj=blender.desktop
 text/*=vscodium-wayland.desktop
 text/html=brave.desktop
 text/php=brave.desktop
-text/x-shellscript=foot.desktop
 x-scheme-handler/about=brave.desktop
-x-scheme-handler/discord-1221314350216646828=discord-1221314350216646828.desktop
-x-scheme-handler/discord-1222229231367487539=discord-1222229231367487539.desktop
 x-scheme-handler/http=brave.desktop
 x-scheme-handler/https=brave.desktop
-x-scheme-handler/nxm=com.nexusmods.app.desktop
-x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/steam=steam.desktop
 x-scheme-handler/steamlink=steam.desktop
 x-scheme-handler/webcal=brave-browser.desktop
-x-scheme-handler/discord-424004941485572097=discord-424004941485572097.desktop
-x-scheme-handler/discord-1139939140494971051=discord-1139939140494971051.desktop
 
 [Added Associations]
 application/x-shellscript=org.codeberg.dnkl.foot.desktop
