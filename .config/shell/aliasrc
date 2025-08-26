@@ -47,7 +47,7 @@ alias thumb='yt-dlp --write-thumbnail --skip-download'
 alias SS='sudo systemctl'
 alias j='sudo journalctl'
 alias lsusb='cyme --headings --tree --hide-buses'
-alias cla="\c"
+alias wget='wcurl'
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'
@@ -64,7 +64,7 @@ alias rm='rip -i --graveyard $HOME/.local/share/Trash'
 alias ln='ln -i'
 alias cp='cpg -ig'
 
-alias shred='shred -f -u -z -v -n 3'
+#alias shred='shred -f -u -z -v -n 3'
 
 # QoL
 alias e="$EDITOR"

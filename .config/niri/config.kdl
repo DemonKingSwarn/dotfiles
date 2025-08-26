@@ -52,6 +52,7 @@ binds {
     Super+O { spawn "ocr"; }
     Super+W { spawn "~/.scripts/misc/wallmanager"; }
     Super+G { spawn "nirifreeze"; }
+    Super+V { spawn "clip"; }
     Alt+C { spawn "colpick"; }
     Super+TAB repeat=false { toggle-overview; }
     
@@ -313,8 +314,24 @@ window-rule {
 }
 
 window-rule {
+  match app-id="Godot" title="Godot Engine - Project Manager"
+  open-floating true
+  default-window-height { fixed 750; }
+}
+
+window-rule {
+  match app-id="com.network.manager"
+  open-floating true
+}
+
+window-rule {
     match title="nmtui"
     open-floating true
+}
+
+window-rule {
+  match app-id="SuperPacker"
+  open-floating true
 }
 
 window-rule {

@@ -23,8 +23,11 @@ swww-daemon &
 #pkill -f nm-applet
 #nm-applet &
 
-pkill -f copyq
-copyq --start-server &
+#pkill -f copyq
+#copyq --start-server &
+
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
 
 pkill -f blueman-applet
 blueman-applet &
