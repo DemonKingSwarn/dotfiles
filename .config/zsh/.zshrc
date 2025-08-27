@@ -59,6 +59,7 @@ source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/profile"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+eval "$(atuin init zsh)"
 
 # functions
 
@@ -88,7 +89,7 @@ function fshow() {
 FZF-EOF"
 }
 
-lfcd () {
+function lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then

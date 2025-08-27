@@ -160,7 +160,8 @@ spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
 spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
-spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'"
+//spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'"
 
 // input settings
 input {
@@ -325,25 +326,27 @@ window-rule {
 }
 
 window-rule {
-    match title="nmtui"
-    open-floating true
-}
-
-window-rule {
   match app-id="SuperPacker"
   open-floating true
 }
 
+//window-rule {
+//  match app-id=""
+//  block-out-from "screencast"
+//  block-out-from "screen-capture"
+//}
+
 window-rule {
-    match title="Picture-in-Picture"
+    match app-id="" title="Picture-in-Picture"
     open-floating true
-    default-column-width { fixed 480; }
-    default-window-height { fixed 270; }
+    //default-column-width { fixed 480; }
+    //default-window-height { fixed 270; }
     default-floating-position x=50 y=50 relative-to="top-right"
 }
 
 cursor {
-  xcursor-theme "Bibata-Modern-Amber"
+  //xcursor-theme "Bibata-Modern-Amber"
+  xcursor-theme "Adwaita"
 
   hide-when-typing
   hide-after-inactive-ms 1000
