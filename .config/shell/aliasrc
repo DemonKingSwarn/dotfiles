@@ -48,6 +48,7 @@ alias SS='sudo systemctl'
 alias j='sudo journalctl'
 alias lsusb='cyme --headings --tree --hide-buses'
 alias wget='wcurl'
+alias open='xdg-open'
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+wezterm -e "nvim --server /tmp/godot.pipe --remote $1 "
