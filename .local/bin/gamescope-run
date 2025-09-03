@@ -3,5 +3,5 @@
 export AMD_VULKAN_ICD=RADV
 igpu=$(lspci -nn | sed -n '/VGA/{s/^.*\[//;s/\].*$//;p;q}')
 
-gamescope --default-touch-mode 4 --prefer-vk-device "$igpu" --rt -w 1280 -h 720 -W 1920 -H 1080 -f $@
-#gamescope --default-touch-mode 4 --prefer-vk-device "$igpu" --rt -w 1280 -h 720 -W 1920 -H 1080 -F fsr -- $@
+#gamescope --default-touch-mode 4 --prefer-vk-device "$igpu" --rt -w 1280 -h 720 -W 1920 -H 1080 -f $@
+gamescope --default-touch-mode 4 --prefer-vk-device "$igpu" --rt -w 1280 -h 720 -W 1920 -H 1080 -F fsr -- $@
