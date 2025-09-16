@@ -18,7 +18,6 @@ alias gi='git init'
 alias gcl='git clone'
 
 alias weather='curl -s "https://wttr.in/?1n"'
-alias vps='ssh -p 54783 demon@3.108.32.164'
 alias pacgraph='pacgraph --show-req-by -b "#232738" -l "#9778d3" -t "#cca9c6" -d "#b8d0eb"'
 alias grep='grep --color=auto'
 alias stow='stow --ignore="screenshot.png" --ignore="README.org" --ignore=".git" --ignore=".assets" --ignore="deploy.sh"'

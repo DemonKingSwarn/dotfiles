@@ -11,11 +11,10 @@
   "modules-left": [
     "niri/workspaces"
   ],
-  //"modules-center": [
-  //  "niri/window"
-  //],
+  "modules-center": [
+    "niri/window"
+  ],
   "modules-right": [
-    "cava",
     "pulseaudio",
     "network",
     "battery",
@@ -25,7 +24,7 @@
   ],
 
   "clock": {
-        "format": "  {:%a, %b %d, %Y - %H:%M }",
+        "format": "    {:%a, %b %d, %Y - %H:%M }",
         "tooltip-format": "{calendar}",
         "interval": 30
     },
@@ -35,20 +34,29 @@
   },
  "network": {
         "tooltip": false,
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 {ifname} | {bandwidthUpBytes} {bandwidthDownBytes}"
+        "format-wifi": "{icon} {essid}",
+        "format-icons": [" 󰤯  ", " 󰤟  ", " 󰤢  ", " 󰤥  ", " 󰤨  "],
+        "format-ethernet": "󰀂",
+        "format-alt": "󱛇",
+        "format-disconnected": "󰖪",
+        "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nmgui",
+        "interval": 5,
+        "nospacing": 1
     }, 
-  
-  "battery": {
+
+    "battery": {
         "states": {
             "good": 76,
             "warning": 30
         },
         "format": "{icon}  {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
         "format-time": "{H}h{M}m",
-        "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
-        "format-full": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  Charged",
+        "format-charging": "<span font='JetBrains Mono Nerd Font'> </span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='JetBrains Mono Nerd Font'> </span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  Charged",
         "tooltip-format": "{capacity}% capacity",
         "interval": 30,
         "states": {
@@ -60,18 +68,18 @@
 
   "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": "{icon} {volume}%",
+        "format": " {icon} {volume}%",
         "format-bluetooth": " {volume}% {icon} {format_source}",
         "format-bluetooth-muted": "  {icon} {format_source}",
         "format-muted": "  {format_source}",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": "" ,
+            "car": " ",
+            "default": [" ", " ", "  "]
         },
         "tooltip-format": "{volume}% volume",
         "on-click": "pavucontrol"
@@ -164,9 +172,6 @@
     // === Window Titles ===
 
     "rewrite": {
-      // == Desktop ==
-
-
       // == Terminal ==
 
       "~": "  Terminal",
