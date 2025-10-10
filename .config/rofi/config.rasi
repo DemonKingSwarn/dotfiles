@@ -1,218 +1,62 @@
-
-
-* {
-  /* Default background color */
-  background-color: #282738;
-  text-color:       #E5B9C6;
-  font: "JetBrains Mono Nerd Font 12", "AppleColorEmoji 14";
+entry {
+    placeholder: "";
+    text-color: #dddddd;
+    padding: 8px 0 8px 8px;
 }
 
-configuration{
-    modi: "drun,calc,file-browser-extended,run";
-    icon-theme: "gtk-master";
-    show-icons: true;
-    terminal: "wezterm";
-    drun-display-format: "{icon} {name}";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: true;
-    display-run: " 🏃  Run ";
-    /*matching: "fuzzy";*/
-    sort: true;
-    sorting-method: "fzf";
-}
-
-window {
-  padding: 1em;
-  border-color: #282738;
-  border:       5px;
-  border-radius: 10px;
-  background-color: #282738;
-
-}
-
-mainbox {
-  spacing: 0px;
-  children: [message,inputbar,listview];
-}
-
-message {
-    enabled:                     true;
-    margin:                      0px 100px;
-    padding:                     15px;
-    border:                      0px solid;
-    border-radius:               15px;
-    border-color:                inherit;
-    background-color:            inherit;
-    text-color:                  inherit;
-    size:                        400em;
-}
-textbox {
-    background-color:            inherit;
-    text-color:                  inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
-    placeholder-color:           inherit;
-    blink:                       true;
-    markup:                      true;
-    size:                        400em;
-    font: "JetBrainsMono Bold 15";
-
-}
-error-message {
-    padding:                     12px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                inherit;
-    background-color:            inherit;
-    text-color:                  inherit;
-}
-
-element {
-  background: transparent;
-  children: [ element-icon, element-text ];
-}
-element,element-text,element-icon, button {
-    cursor: pointer;
+configuration {
+    font: "JetBrainsMono Nerd Font Mono 12";
+    lines: 10;
+    fixed-num-lines: true;
+    padding: 10px;
 }
 
 inputbar {
-  margin: 0px 10px;
-  spacing: 0.4em;
-  border-color: #282738;
-  border:        5px;
-  background-color: #282738;
-  children: [entry,overlay,case-indicator];
+    children: [entry];
+}
+
+* {
+    separatorcolor: transparent;
+    selected-normal-background: rgba(255,255,255, 5%);
+    normal-background: rgba(255,255,255, 0%);
+    alternate-normal-background: rgba(255,255,255, 0%);
+}
+
+mainbox {
+    border: 2px;
+    border-color: rgba(255,255,255, 20%);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+window {
+    border-radius: 11px;
+    border: 1px solid;
+    border-color: #000000;
+    background-color: rgba(38,43,52,85%);
+    padding: 0px;
+    width: 30%;
 }
 
 
-listview, message {
-  padding: 0.5em;
-  border-color: #282738;
-  border:        5px;
-  border-radius: 10px;
-  background-color: #282738;
-
-  columns: 1;
-  lines:   8;
-}
 listview {
-  border:       0px 5px 5px 5px;
-  border-radius: 10px 10px 10px 10px;
-  spacing: 10px;
-  background-color: #282738;
-  border-color:     #282738;
-  scrollbar:    true;
+    lines: 10;
 }
-
 
 element {
-    border:  5px;
+    padding: 10px 10px;
+    height: 50px;
     border-radius: 5px;
-    padding: 5px;
-    border-color: #282738;
+    children: [ element-text, element-icon ];
 }
+
 element-text {
-    background-color: #282738;
-    text-color:       #FFFFFF;
-    font: "JetBrains Mono Medium";
+    text-color: #e1e1e1;
 }
 
-element normal.normal {
-    background-color: #282738;
-    text-color:       #E5B9C6;
-}
-element.normal.urgent {
-    background-color: #282738;
-    text-color:       #E5B9C6;
-}
-element.normal.active {
-    background-color: #282738;
-    text-color:       #E5B9C6;
-}
-element.selected.normal {
-    background-color: #E5B9C6;
-    border-color: #E5B9C6;
-    text-color:       #E5B9C6;
-}
-element.selected.urgent {
-    background-color: #E5B9C6;
-    border-color: #E5B9C6;
-    text-color:       #E5B9C6;
-}
-element.selected.active {
-    background-color: #E5B9C6;
-    border-color: #E5B9C6;
-    text-color:       #E5B9C6;
-}
-element.alternate.normal {
-    background-color: #282738;
-    text-color:       #E5B9C6;
-}
-element.alternate.urgent {
-    background-color: #282738;
-    text-color:       #E5B9C6;
-}
-element.alternate.active {
-    background-color: #282738;
-    text-color:       #E5B9C6;
+#scrollbar {
+    handle-color: #3a3f4a;
+    handle-width: 4px ;
+    padding: 0;
 }
 
-
-element-text.selected.normal {
-    background-color: #E5B9C6;
-    border-color: #E5B9C6;
-    text-color:       #282738;
-    font: "JetBrains Mono Medium";
-}
-element-text.selected.urgent {
-    background-color: #E5B9C6;
-    border-color: #E5B9C6;
-    text-color:       #282738;
-    font: "JetBrains Mono Medium";
-}
-element-text.selected.active {
-    background-color: #E5B9C6;
-    border-color: #E5B9C6;
-    text-color:       #282738;
-    font: "JetBrains Mono Medium";
-}
-scrollbar {
-    width:        4px ;
-    border:       0;
-    handle-color: #E5B9C6;
-    handle-width: 8px ;
-    padding:      0;
-}
-mode-switcher {
-    border:  0px;
-    spacing: 0px;
-    expand: true;
-}
-button {
-    text-color: #E5B9C6;
-    border:       0px 0px 5px ;
-    border-color: #282738;
-    border-radius:    10px 10px 0 0;
-    background-color: #282738;
-    horizontal-align: 0.5;
-}
-button selected.normal {
-    text-color: #E5B9C6;
-    margin: 0px;
-    padding: 0px;
-    border:     5px 5px 5px 5px ;
-    border-color: #282738;
-    border-radius:    10px 10px 10px 10px;
-    background-color: #353446;
-}
-
-entry {
-    placeholder: "Search here";
-    placeholder-color: #282738;
-    border-color: #353446;
-    background-color: #353446;
-    border:        10px;
-    border-radius: 2px 2px 2px 2px;
-    text-color: #E5B9C6;
-  }

@@ -27,6 +27,11 @@ get_source_info() {
 	fi
 }
 
+title=$(get_metadata "xesam:title")
+if [[ "$title" = "Not album" ]]; then
+  echo ""
+fi
+
 # Parse the argument
 case "$1" in
 --title)

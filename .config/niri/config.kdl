@@ -20,7 +20,7 @@ environment {
 
   QT_PLUGIN_PATH "/usr/lib/qt/plugins/"
   QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-  QT_QPA_PLATFORM "xcb;wayland"
+  QT_QPA_PLATFORM "wayland"
   QT_QPA_PLATFORMTHEME "gtk3"
 
   __GLX_VENDOR_LIBRARY_NAME "nvidia"
@@ -74,7 +74,9 @@ binds {
     XF86Calculator { spawn "galculator"; }
     XF86Tools { spawn "brave" "--app=https://music.youtube.com";}
     Super+F9 { spawn "brave" "--app=https://perplexity.ai";}
-  
+ 
+    Super+I { spawn "wezterm" "-e" "htop"; }
+
     Super+Shift+Q { close-window; }
   
     Super+Left  { focus-column-left; }
@@ -104,7 +106,6 @@ binds {
     Super+Page_Down      { focus-workspace-down; }
     Super+Page_Up        { focus-workspace-up; }
     Super+U              { focus-workspace-down; }
-    Super+I              { focus-workspace-up; }
     Super+Shift+Page_Down { move-column-to-workspace-down; }
     Super+Shift+Page_Up   { move-column-to-workspace-up; }
     Super+Shift+U         { move-column-to-workspace-down; }
@@ -230,14 +231,13 @@ layout {
          off
     }
     border {
-        //width 2
-        //active-color "#d9c1cd"
-        //inactive-color "#282828"
-        //urgent-color "#9b0000"
         width 2
-        active-gradient from="#f2f2f7" to="#e5e5ea" angle=180 relative-to="workspace-view"
-        inactive-gradient from="#d1d1d6" to="#c7c7cc" angle=180 relative-to="workspace-view"
+        active-color "#F8F8F8"
+        inactive-color "#282828"
         urgent-color "#9b0000"
+        //active-gradient from="#f2f2f7" to="#e5e5ea" angle=180 relative-to="workspace-view"
+        //inactive-gradient from="#d1d1d6" to="#c7c7cc" angle=180 relative-to="workspace-view"
+        //urgent-color "#9b0000"
     }
     
     shadow {
@@ -373,6 +373,20 @@ overview {
 switch-events {
   lid-close { spawn "systemctl" "suspend-then-hibernate"; }
   lid-open { spawn "notify-send" "System resume complete"; }
+}
+
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^quickshell-overview$"
+    place-within-backdrop true
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
 }
 
 layer-rule {
