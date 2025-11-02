@@ -46,26 +46,32 @@
                     "labelMode": "index"
                 },
                 {
-                    "autoHide": true,
+                    "colorizeIcons": false,
+                    "hideMode": "hidden",
                     "id": "ActiveWindow",
+                    "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showIcon": true,
-                    "width": 145
+                    "useFixedWidth": false
                 },
                 {
-                    "autoHide": true,
+                    "hideMode": "hidden",
                     "id": "MediaMini",
+                    "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showAlbumArt": true,
                     "showVisualizer": false,
+                    "useFixedWidth": false,
                     "visualizerType": "linear"
                 }
             ],
             "right": [
                 {
+                    "displayMode": "onhover",
                     "id": "WiFi"
                 },
                 {
+                    "displayMode": "onhover",
                     "id": "Bluetooth"
                 },
                 {
@@ -93,10 +99,16 @@
                     "showUnreadBadge": true
                 },
                 {
+                    "blacklist": [
+                    ],
+                    "colorizeIcons": false,
                     "id": "Tray"
                 }
             ]
         }
+    },
+    "battery": {
+        "chargingMode": 0
     },
     "brightness": {
         "brightnessStep": 5
@@ -104,15 +116,71 @@
     "colorSchemes": {
         "darkMode": true,
         "generateTemplatesForPredefined": true,
+        "manualSunrise": "06:30",
+        "manualSunset": "18:30",
         "matugenSchemeType": "scheme-fidelity",
         "predefinedScheme": "Noctalia (legacy)",
+        "schedulingMode": "off",
         "useWallpaperColors": true
     },
     "controlCenter": {
-        "position": "close_to_bar_button"
+        "cards": [
+            {
+                "enabled": true,
+                "id": "profile-card"
+            },
+            {
+                "enabled": true,
+                "id": "shortcuts-card"
+            },
+            {
+                "enabled": true,
+                "id": "audio-card"
+            },
+            {
+                "enabled": true,
+                "id": "weather-card"
+            },
+            {
+                "enabled": true,
+                "id": "media-sysmon-card"
+            }
+        ],
+        "position": "close_to_bar_button",
+        "shortcuts": {
+            "left": [
+                {
+                    "id": "WiFi"
+                },
+                {
+                    "id": "Bluetooth"
+                },
+                {
+                    "id": "ScreenRecorder"
+                },
+                {
+                    "id": "WallpaperSelector"
+                }
+            ],
+            "right": [
+                {
+                    "id": "Notifications"
+                },
+                {
+                    "id": "PowerProfile"
+                },
+                {
+                    "id": "KeepAwake"
+                },
+                {
+                    "id": "NightLight"
+                }
+            ]
+        }
     },
     "dock": {
         "backgroundOpacity": 1,
+        "colorizeIcons": false,
         "displayMode": "auto_hide",
         "floatingRatio": 1,
         "monitors": [
@@ -120,15 +188,20 @@
         "onlySameOutput": true,
         "pinnedApps": [
             "firefox"
-        ]
+        ],
+        "size": 1
     },
     "general": {
         "animationDisabled": false,
         "animationSpeed": 1,
         "avatarImage": "/home/swarn/pix/creations/Demon-Stardew.png",
+        "compactLockScreen": false,
         "dimDesktop": false,
         "forceBlackScreenCorners": false,
+        "language": "",
+        "lockOnSuspend": true,
         "radiusRatio": 1,
+        "scaleRatio": 1,
         "screenRadiusRatio": 1,
         "showScreenCorners": true
     },
@@ -138,10 +211,12 @@
         "wallpaperChange": ""
     },
     "location": {
-        "name": "Hyderabad",
+        "name": "Bengaluru",
+        "showCalendarEvents": true,
         "showWeekNumberInCalendar": false,
         "use12hourFormat": false,
-        "useFahrenheit": false
+        "useFahrenheit": false,
+        "weatherEnabled": true
     },
     "network": {
         "wifiEnabled": true
@@ -156,15 +231,14 @@
         "nightTemp": "4000"
     },
     "notifications": {
-        "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": true,
-        "lastSeenTs": 1760102906000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
         ],
         "normalUrgencyDuration": 8,
+        "overlayLayer": true,
         "respectExpireTimeout": false
     },
     "osd": {
@@ -172,7 +246,8 @@
         "enabled": true,
         "location": "top_right",
         "monitors": [
-        ]
+        ],
+        "overlayLayer": true
     },
     "screenRecorder": {
         "audioCodec": "opus",
@@ -185,26 +260,33 @@
         "videoCodec": "h264",
         "videoSource": "portal"
     },
-    "settingsVersion": 12,
+    "settingsVersion": 16,
+    "setupCompleted": true,
     "templates": {
+        "discord": false,
+        "discord_armcord": false,
+        "discord_dorion": false,
+        "discord_equibop": false,
+        "discord_lightcord": false,
+        "discord_vesktop": false,
+        "discord_webcord": false,
         "enableUserTemplates": false,
         "foot": false,
         "fuzzel": true,
         "ghostty": false,
         "gtk": false,
+        "kcolorscheme": false,
         "kitty": false,
         "pywalfox": true,
         "qt": false,
-        "vesktop": true
+        "vicinae": false
     },
     "ui": {
         "fontDefault": "JetBrainsMono Nerd Font",
         "fontDefaultScale": 1,
         "fontFixed": "JetBrains Mono",
         "fontFixedScale": 1,
-        "idleInhibitorEnabled": false,
-        "monitorsScaling": [
-        ],
+        "panelsOverlayLayer": true,
         "tooltipsEnabled": true
     },
     "wallpaper": {

@@ -1,9 +1,17 @@
 local wezterm = require("wezterm")
-local home = os.getenv("HOME")
+
+function scheme_for_appearance(appearance)
+  if appearance:find "Dark" then
+    return "Catppuccin Mocha"
+  else
+    return "Catppuccin Latte"
+  end
+end
+
 return {
   default_cursor_style = "SteadyBar",
   font = wezterm.font_with_fallback {
-    "JetBrains Mono Nerd Font"
+    "JetBrainsMono Nerd Font"
   },
   font_size = 16.0,
   enable_tab_bar = false,
@@ -13,3 +21,4 @@ return {
   default_prog = { "zsh" },
   color_scheme = "Dracula (Official)",
 }
+

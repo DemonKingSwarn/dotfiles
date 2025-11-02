@@ -26,6 +26,7 @@ x-scheme-handler/steam=steam.desktop
 x-scheme-handler/steamlink=steam.desktop
 x-scheme-handler/webcal=brave-browser.desktop
 x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/arattai=arattai.desktop
 
 [Added Associations]
 application/x-shellscript=org.codeberg.dnkl.foot.desktop
