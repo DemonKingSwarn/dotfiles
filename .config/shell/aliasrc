@@ -21,8 +21,6 @@ alias weather='curl -s "https://wttr.in/?1n"'
 alias pacgraph='pacgraph --show-req-by -b "#232738" -l "#9778d3" -t "#cca9c6" -d "#b8d0eb"'
 alias grep='grep --color=auto'
 alias stow='stow --ignore="screenshot.png" --ignore="README.org" --ignore=".git" --ignore=".assets" --ignore="deploy.sh"'
-alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
-alias monerod="monerod --data-dir $XDG_DATA_HOME/bitmonero"
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias diff='diff --color=auto'
 alias df='duf -hide special'
@@ -49,6 +47,7 @@ alias lsusb='cyme --headings --tree --hide-buses'
 alias wget='wcurl'
 alias open='xdg-open'
 alias loc='~/.local/share/go/bin/scc'
+alias lf='yazi'
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'

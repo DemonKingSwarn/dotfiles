@@ -67,3 +67,5 @@ if [ "$TERM_PROGRAM" = "tmux" ]; then
 else 
   greet
 fi
+
+export PATH=$PATH:/home/swarn/.spicetify

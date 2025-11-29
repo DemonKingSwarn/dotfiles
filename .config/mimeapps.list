@@ -1,6 +1,6 @@
 [Default Applications]
 application/octet-stream=mpv.desktop
-application/pdf=brave.desktop
+application/pdf=firefox.desktop
 application/x-ms-dos-executable=wine.desktop
 image/avif=nsxiv.desktop
 image/gif=mpv.desktop
@@ -17,14 +17,14 @@ image/psd=gimp.desktop
 inode/directory=thunar.desktop
 model/obj=blender.desktop
 text/*=vscodium-wayland.desktop
-text/html=brave.desktop
-text/php=brave.desktop
-x-scheme-handler/about=brave.desktop
-x-scheme-handler/http=brave.desktop
-x-scheme-handler/https=brave.desktop
+text/html=firefox.desktop
+text/php=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
 x-scheme-handler/steam=steam.desktop
 x-scheme-handler/steamlink=steam.desktop
-x-scheme-handler/webcal=brave-browser.desktop
+x-scheme-handler/webcal=firefox-browser.desktop
 x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/arattai=arattai.desktop
 
