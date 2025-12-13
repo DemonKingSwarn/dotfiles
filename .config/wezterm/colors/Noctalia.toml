@@ -1,0 +1,31 @@
+[colors]
+ansi = [
+    "#161312",
+    "#ffb4ab",
+    "#b4ccbd",
+    "#d7c1c1",
+    "#e6bdbb",
+    "#b4ccbd",
+    "#d7c1c1",
+    "#e9e1e0",
+]
+background = "#161312"
+brights = [
+    "#9c8d8d",
+    "#ffb4ab",
+    "#b4ccbd",
+    "#d7c1c1",
+    "#e6bdbb",
+    "#b4ccbd",
+    "#d7c1c1",
+    "#e9e1e0",
+]
+cursor_bg = "#e9e1e0"
+cursor_border = "#e9e1e0"
+cursor_fg = "#161312"
+foreground = "#e9e1e0"
+selection_bg = "#504444"
+selection_fg = "#d4c3c2"
+
+[metadata]
+name = "Noctalia"

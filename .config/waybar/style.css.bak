@@ -1,229 +1,58 @@
-waybar * {
-  border: 2px;
-  border-radius: 2px;
-  min-height: 0;
-  font-family: "JetBrainsMono Nerd Font Mono", "YujiBoku";
-  font-size: 12px;
+* {
+  font-family: "JetBrainsMono Nerd Font", "YujiBoku";
+  font-size: 14px;
 }
 
-#waybar {
-  background-color: #3b4252;
-  border-radius: 2px;
-  opacity: 0.95;
+.modules-left {
+  padding-left: 10px;
 }
-
-window#waybar {
-  background: #282c34;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  color: #9cdef2;
-  border: 3px solid #61afef;
-  border-left: 3px solid #56b6c2;
-  border-right: 3px solid #56b6c2;
-}
-
-
-/* === Workspaces ========================================================== */
 
 #workspaces {
-  background-color: transparent;
-  padding-left: 20px;
+  background-color: @base01;
+  margin: 0.25em;
+  border-radius: 1em;
 }
 
 #workspaces button {
-  all: initial;
-  min-width: 0;
-  box-shadow: inherit;
-  padding: 6px 6px;
-  margin: 6px 3px;
-  border-radius: 4px;
-  background-color: #2e3440;
-  color: #56b6c2;
+  padding: 0 0.5em;
+  color: @base06;
+}
+
+#workspaces button.empty {
+  color: @base03;
+}
+
+#workspaces button.visible {
+  color: @base06;
 }
 
 #workspaces button.active {
-  color: #e6f4f6;
-  background-color: #56b6c2;
+  color: @base0D;
 }
 
-#workspaces button:hover {
-  color: #2e3440;
-  background-color: #56b6c2;
+#window {
+  color: @base0D;
+  padding: 0 1em;
 }
 
-
-/* === Default Module Container Styling ==================================== */
-
-#custom-microphone,
-#bluetooth,
-#custom-bluetooth,
-#custom-brightness,
-#custom-volume,
-#custom-battery,
-#custom-power,
-#custom-asus-profile,
-#network,
+#cpu,
+#memory,
+#temperature,
 #battery,
-#pulseaudio,
-#backlight,
-#custom-vpn,
-#clock,
-#window,
-#custom-notification {
-  padding: 2px 6px;
-  margin: 6px 6px;
-  background-color: #292d35;
-  border: 2px solid #61afef;
-  border-radius: 2px;
-}
-
-#tray {
-  padding: 2px 6px;
-  margin: 6px 6px;
-  background-color: #292d35;
-  border: 2px solid #61afef;
-  border-radius: 2px;
-}
-
-/* === Audio ============================================================== */
-
-#pulseaudio.muted {
-  background-color: #f38ba8;
-  color: #1e1e2e;
-}
-
-
-/* === Bluetooth =========================================================== */
-
-#bluetooth.disabled {
-  color: #fab387;
-}
-
-#custom-bluetooth {
-  color: #56b6c2;
-  transition: color 0.2s ease-in-out;
-}
-
-window#waybar.empty #window {
-  opacity: 0;
-}
-
-/* === Network ============================================================= */
-
-#network.disconnected {
-  background-color: #e06c75;
-  color: #1e1e2e;
-}
-
-
-/* === Clock =============================================================== */
-
+#disk,
 #clock {
-  font-weight: bold;
-  font-size: 12px;
-  color: #fab387;
+  color: @base00;
+  background-color: @base0D;
+  margin: 0.25em;
+  border-radius: 0.5em;
+  padding: 0 0.5em;
 }
-
-
-
-/* === Battery ============================================================= */
-
-#custom-battery {
-  border-radius: 2px;
-  font-weight: normal;
-}
-
-/* 🔴 Critical */
-#custom-battery .battery-critical {
-  background-color: #bf616a;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-/* 🟠 Warning */
-#custom-battery .battery-warning {
-  background-color: #fab387;
-  color: #2e3440;
-  padding: 2px 6px;
-  border-radius: 6px;
-}
-
-/* 🟢 Normal */
-#custom-battery .battery-normal {
-  color: #ffffff;
-}
-
-
-/* === Brightness ========================================================== */
-
-#backlight {
-  background-color: #3b4252;
-}
-
-
-/* === Tray ================================================================ */
 
 #tray {
-  padding: 4px 8px;
-  background-color: #1e1e2e;
+  background-color: @base00;
 }
 
-
-/* === Custom Workspace Labels ============================================= */
-
-#custom-work-left,
-#custom-work-right {
-  padding: 6px 6px;
-  margin: 6px 3px;
-}
-
-#custom-workspace-1:hover,
-#custom-workspace-2:hover,
-#custom-workspace-3:hover,
-#custom-workspace-4:hover {
-  color: #fab387; 
-  transition: all 0.2s ease-in-out;
-}
-
-
-
-/* === Hover Effects ======================================================= */
-/* Unified look for all interactive modules                                */
-
-#custom-microphone:hover,
-#custom-volume:hover,
-#pulseaudio:hover,
-#network:hover,
-#custom-vpn:hover,
-#bluetooth:hover,
-#custom-bluetooth:hover,
-#custom-power:hover,
-#custom-asus-profile:hover,
-#custom-battery:hover,
-#battery:hover,
-#backlight:hover,
-#custom-brightness:hover,
-#clock:hover,
-#tray:hover {
-  background-color: #4c566a;
-  border: 2px solid #56b6c2;
-  color: #56b6c2;
-  transition: all 0.2s ease-in-out;
-}
-
-
-/* === Tooltips ============================================================ */
-
-tooltip {
-  color: #56b6c2;
-  background-color: #3b4252;
-  border: 1px solid #56b6c2;
-  font-weight: bold;
-}
-
-tooltip label {
-  color: #78bec7;
+.modules-right {
+  padding-right: 10px;
 }
 

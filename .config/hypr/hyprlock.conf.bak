@@ -1,0 +1,233 @@
+source = ~/.config/hypr/include/colors.conf
+
+general {
+    disable_loading_bar = true
+    hide_cursor = true
+    grace = 0
+    no_fade_in = false
+}
+
+# Blurred background
+background {
+    monitor =
+
+    path = /home/swarn/.cache/lock.png
+
+    blur_passes = 3
+    blur_size = 8
+}
+
+# LOCATION & WEATHER 
+#label {
+#    monitor =
+#    text = cmd[update:1000] echo "$(bash ~/.config/hypr/scripts/location.sh) $(bash ~/.config/hypr/scripts/weather.sh)"
+#    color = rgba(255, 255, 255, 1)
+#    font_size = 10
+#    font_family = SF Pro Bold
+#    position = 0, 465
+#    halign = center
+#    valign = center
+#}
+#background {
+#    monitor =
+#    path = /home/swarn/pix/wall/blur.png   # only png supported for now
+#    color = rgba(40, 42, 54, 1.0)
+#    blur_passes = 0 # 0 disables blurring
+#    blur_size = 7
+#    noise = 0.0117
+#    contrast = 0.8916
+#    brightness = 0.8172
+#    vibrancy = 0.1696
+#    vibrancy_darkness = 0.0
+#}
+
+
+input-field {
+    monitor =
+    size = 200, 50
+    outline_thickness = 3
+    dots_size = 0.33 # Scale of input-field height, 0.2 - 0.8
+    dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0
+    dots_center = true
+    dots_rounding = -1
+    outer_color = $C_PRIMARY
+    inner_color = $C_BACKGROUND
+    font_color = $C_FOREGROUND
+    fade_on_empty = false
+    shadow_passes = 2
+    fade_timeout = 1000
+    placeholder_text = <i>Enter Password</i> # Text rendered in the input box when it's empty.
+    hide_input = false
+    rounding = -1
+    check_color = rgb(204, 136, 34)
+    fail_color = rgb(204, 34, 34)
+    fail_text = <i>FAIL <b>($ATTEMPTS)</b></i>
+    fail_transition = 300
+    capslock_color = -1
+    numlock_color = -1
+    bothlock_color = -1
+    invert_numlock = false
+    swap_font_color = false
+    position = 0, -150
+    halign = center
+    valign = center
+}
+
+
+label {
+    monitor =
+    text = cmd[update:1000] echo "<span>$(date '+%A, %d %B')</span>"
+    #text = cmd[update:120000] echo "<span font_weight='bold'>$(date +'%a %d %B')</span>"
+    color = $C_PRIMARY
+    font_size = 30
+    font_family = SF Pro
+
+    position = 0, 210
+    halign = center
+    valign = center
+    shadow_passes = 1
+}
+
+label {
+    monitor =
+    text = cmd[update:1000] echo "<span>$(date '+%H:%M')</span>"
+    color = $C_PRIMARY
+    font_size = 75
+    font_family = SF Pro Bold
+
+    position = 0, -150
+    halign = center
+    valign = top
+}
+
+# 
+
+label {
+    monitor =
+    text = <span font_weight="bold">$USER</span>
+    color = $C_PRIMARY
+    font_size = 25
+    font_family = SF Pro Medium
+    position = 0, -60
+    halign = center
+    valign = center
+    shadow_passes = 1
+}
+
+#label {
+#    monitor =
+#    text = Where’s the glory in repeating what others have done?
+#    color = $C_PRIMARY
+#    font_size = 15
+#    font_family = Montserrat Thin
+#    position = 0, 25
+#    halign = center
+#    valign = bottom
+#}
+
+image {
+    monitor =
+    path = $HOME/pix/creations/Demon-Stardew.png
+    size = 120
+    rounding = -1
+    border_size = 5
+    border_color = $C_PRIMARY
+    rotate = 0
+    reload_time = -1
+    position = 0, 45
+    halign = center
+    valign = center
+    shadow_passes = 1
+}
+
+# Music
+image {
+    monitor =
+    path = 
+    size = 60 # lesser side if not 1:1 ratio
+    rounding = 5 # negative values mean circle
+    border_size = 0
+    rotate = 0 # degrees, counter-clockwise
+    reload_time = 2
+    reload_cmd = ~/.config/hypr/scripts/playerctlock.sh --arturl
+    position = -150, -300
+    halign = center
+    valign = center
+    opacity=0.5
+}
+
+# PLAYER TITTLE
+label {
+    monitor =
+#    text = cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:title }}" 2>/dev/null | cut -c1-25)"
+    text = cmd[update:1000] echo "$(~/.config/hypr/scripts/playerctlock.sh --title)"
+    color = rgba(255, 255, 255, 0.8)
+    font_size = 12
+    font_family = SF Pro Bold
+    position = 880, -290
+    halign = left
+    valign = center
+}
+
+# PLAYER Length
+label {
+    monitor =
+#    text= cmd[update:1000] echo "$(( $(playerctl metadata --format "{{ mpris:length }}" 2>/dev/null) / 60000000 ))m"
+    text = cmd[update:1000] echo "$(~/.config/hypr/scripts/playerctlock.sh --length) "
+    color = rgba(255, 255, 255, 1)
+    font_size = 11
+    font_family = SF Pro
+    position = -730, -310
+    halign = right
+    valign = center
+}
+
+# PLAYER STATUS
+label {
+    monitor =
+#    text= cmd[update:1000] echo "$(( $(playerctl metadata --format "{{ mpris:length }}" 2>/dev/null) / 60000000 ))m"
+    text = cmd[update:1000] echo "$(~/.config/hypr/scripts/playerctlock.sh --status)"
+    color = rgba(255, 255, 255, 1)
+    font_size = 14
+    font_family = SF Pro
+    position = -740, -290
+    halign = right
+    valign = center
+}
+# PLAYER SOURCE
+label {
+    monitor =
+#    text= cmd[update:1000] echo "$(playerctl metadata --format "{{ mpris:trackid }}" 2>/dev/null | grep -Eo "chromium|firefox|spotify")"
+    text = cmd[update:1000] echo "$(~/.config/hypr/scripts/playerctlock.sh --source)"
+    color = rgba(255, 255, 255, 0.6)
+    font_size = 10
+    font_family = SF Pro
+    position = -740, -330
+    halign = right
+    valign = center
+}
+
+# PLAYER ALBUM
+label {
+    monitor =
+#    text= cmd[update:1000] echo "$(~/.config/hypr/bin/album.sh)"
+    text = cmd[update:1000] echo "$(~/.config/hypr/scripts/playerctlock.sh --album)"
+    color = rgba(255, 255, 255, 1)
+    font_size = 10 
+    font_family = JetBrains Mono Nerd Font Mono
+    position = 880, -330
+    halign = left
+    valign = center
+}
+# PLAYER Artist
+label {
+    monitor =
+#    text = cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:artist }}" 2>/dev/null | cut -c1-30)"
+    text = cmd[update:1000] echo "$(~/.config/hypr/scripts/playerctlock.sh --artist)"
+    color = rgba(255, 255, 255, 0.8)
+    font_size = 10
+    font_family = SF Pro Bold
+    position = 880, -310
+    halign = left
+    valign = center
+}

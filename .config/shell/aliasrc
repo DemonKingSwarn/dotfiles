@@ -48,6 +48,7 @@ alias wget='wcurl'
 alias open='xdg-open'
 alias loc='~/.local/share/go/bin/scc'
 alias lf='yazi'
+alias dfm='demonfm'
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'

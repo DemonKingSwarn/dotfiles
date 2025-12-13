@@ -1,0 +1,151 @@
+@import 'catppuccin.css';
+
+/* === Global reset === */
+* {
+  font-family: "JetBrainsMono Nerd Font", "YujiBoku";
+  font-size: 14px;
+  border: none;
+  min-height: 0;
+  background: none;
+  color: inherit;
+}
+
+/* === Waybar window === */
+window#waybar {
+  background-color: @surface0;
+  color: @text;
+  padding: 4px 2px;
+  border-top: 2px solid @surface2;
+  border-bottom: 2px solid @surface2;
+  transition: background-color 0.3s ease;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* === Workspaces / Buttons === */
+#workspaces {
+  margin: 2px 4px;
+  padding: 2px 6px;
+  background-color: @surface0;
+  border-radius: 10px;
+}
+
+#workspaces button {
+  padding: 0 12px;
+  margin: 0 2px;
+  background: transparent;
+  color: @subtext0;
+  border: 1px dashed @surface2;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+#workspaces button:hover {
+  background: @surface1;
+  color: @text;
+}
+
+#workspaces button.active {
+  background: @mauve;
+  color: @crust;
+  border: 1px dashed @mauve;
+}
+
+/* === Module containers (left / center / right) === */
+.modules-left, .modules-center, .modules-right {
+  padding: 0 6px;
+}
+
+/* === Module “pills” styling === */
+#cpu, #memory, #disk, #temperature,
+#network, #pulseaudio, #battery, #clock, #tray {
+  padding: 4px 10px;
+  margin: 0 3px;
+  border-radius: 6px;
+  font-weight: 500;
+  background: @surface1;
+  color: @text;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* === Specific module colors === */
+#clock {
+  background: @lavender;
+  color: @crust;
+}
+
+#cpu {
+  background: @red;
+  color: @crust;
+}
+
+#memory {
+  background: @peach;
+  color: @crust;
+}
+
+#disk {
+  background: @sapphire;
+  color: @crust;
+}
+
+#temperature {
+  background: @flamingo;
+  color: @crust;
+}
+
+#pulseaudio {
+  background: @blue;
+  color: @crust;
+}
+
+#pulseaudio.muted {
+  background: @surface2;
+  color: @subtext1;
+}
+
+#network {
+  background: @green;
+  color: @crust;
+}
+
+#network.disconnected {
+  background: @surface2;
+  color: @subtext1;
+}
+
+#battery {
+  background: @teal;
+  color: @crust;
+}
+
+#battery.charging, #battery.plugged {
+  background: @green;
+  color: @crust;
+}
+
+#battery.critical:not(.charging) {
+  background: @maroon;
+  color: @crust;
+  animation: blink 1s linear infinite alternate;
+}
+
+/* === Tray (system icons) === */
+#tray {
+  background: @surface0;
+  color: @text;
+  padding: 4px 8px;
+  margin: 0 3px;
+  border-radius: 6px;
+}
+
+/* === Animations === */
+@keyframes blink {
+  to {
+    background-color: @red;
+    color: @crust;
+  }
+}
+

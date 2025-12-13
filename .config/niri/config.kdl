@@ -158,11 +158,9 @@ spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURREN
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
 
-spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
-spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
-spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
-//spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'"
-spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
+spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'Adwaita'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Pop'"
 
 // input settings
 input {
@@ -345,16 +343,25 @@ window-rule {
 }
 
 cursor {
-  //xcursor-theme "Bibata-Modern-Amber"
-  xcursor-theme "Adwaita"
+  xcursor-theme "Bibata-Modern-Ice"
+
+  xcursor-size 24
 
   hide-when-typing
-  hide-after-inactive-ms 1000
+  // hide-after-inactive-ms 1000
 }
 
 layer-rule {
   match namespace="^wallpaper$"
   place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="^waybar$"
+
+  opacity 0.85
+
+  geometry-corner-radius 12
 }
 
 overview {

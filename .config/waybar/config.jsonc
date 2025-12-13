@@ -35,7 +35,7 @@
  "network": {
         "tooltip": false,
         "format-wifi": "{icon} {essid}",
-        "format-icons": [" 󰤯  ", " 󰤟  ", " 󰤢  ", " 󰤥  ", " 󰤨  "],
+        "format-icons": [" 󰤯", "  󰤟", "  󰤢", "  󰤥", "  󰤨"],
         "format-ethernet": "󰀂",
         "format-alt": "󱛇",
         "format-disconnected": "󰖪",
@@ -52,7 +52,7 @@
             "good": 76,
             "warning": 30
         },
-        "format": "{icon}  {capacity}%",
+        "format": " {icon}{capacity}% ",
         "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='JetBrains Mono Nerd Font'> </span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
@@ -150,7 +150,7 @@
 
    "custom/notification": {
     "tooltip": false,
-    "format": "{icon}",
+    "format": " {icon} ",
     "format-icons": {
       "notification": "<span foreground='red'><sup> </sup></span>",
       "none": "",

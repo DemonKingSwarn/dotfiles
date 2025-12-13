@@ -37,3 +37,4 @@ function lfcd () {
 }
 
 bindkey -s '^o' 'lfcd\n'
+
