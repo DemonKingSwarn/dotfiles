@@ -38,6 +38,6 @@ rm ~/ly-session.log
 
 #qs -c noctalia-shell &
 
-#foot --server &
+foot --server &
 
 #kanata -c $HOME/.config/kanata/config.kbd &

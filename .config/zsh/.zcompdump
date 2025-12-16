@@ -1,4 +1,4 @@
-#files: 1181	version: 5.9
+#files: 1186	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -231,6 +231,7 @@ _comps=(
 'cal' '_cal'
 'calendar' '_calendar'
 'cap' '_cap'
+'cargo' '_cargo'
 'cask' '_cask'
 'cat' '_cat'
 'catchsegv' '_precommand'
@@ -496,6 +497,8 @@ _comps=(
 'fold' '_fold'
 'folder' '_mh'
 'folders' '_mh'
+'foot' '_foot'
+'footclient' '_footclient'
 'fortune' '_fortune'
 'forw' '_mh'
 'fprev' '_mh'
@@ -507,6 +510,7 @@ _comps=(
 'functions' '_typeset'
 'fuser' '_fuser'
 'fusermount' '_fusermount'
+'fuzzel' '_fuzzel'
 'fwhois' '_whois'
 'fwupdmgr' '_fwupdmgr'
 'g++' '_gcc'
@@ -566,7 +570,6 @@ _comps=(
 'ghci' '_ghc'
 'ghead' '_head'
 'ghostscript' '_ghostscript'
-'ghostty' '_ghostty'
 'ghostview' '_pspdf'
 'gid' '_id'
 'ginstall' '_install'
@@ -1026,6 +1029,7 @@ _comps=(
 'neutron' '_openstack'
 'new' '_mh'
 'newgrp' '_groups'
+'newsboat' '_newsboat'
 'next' '_mh'
 'nft' '_nftables'
 'nginx' '_nginx'
@@ -1298,6 +1302,7 @@ _comps=(
 'run0' '_run0'
 'rup' '_hosts'
 'rusage' '_precommand'
+'rustup' '_rustup'
 'rview' '_vim'
 'rvim' '_vim'
 'rwho' '_hosts'
@@ -1924,17 +1929,18 @@ autoload -Uz _afew _age _android _archlinux-java _artisan \
             _ufw _uuidgen _virtualbox _vnstat _warp-cli \
             _wemux _wg-quick _xsel _yarn _yfm \
             _zcash-cli _zinit _atuin _bat _bluetoothctl \
-            _bootctl _busctl _bwrap _chafa _coredumpctl \
-            _curl _cyme _dotnet _dpkg-parsechangelog _dualsensectl \
-            _ec_probe _eza _fastfetch _fd _flatpak \
-            _gh _ghostty _hostnamectl _img2sixel _insmod \
-            _journalctl _kdeconnect _kernel-install _localectl _loginctl \
-            _lsmod _machinectl _meson _mkinitcpio _mpv \
-            _nbfc _nbfc_service _networkctl _ninja _niri \
-            _oomctl _p11-kit _pacman _paru _pass \
-            _pip _pkgstats _playerctl _podman _podman-remote \
-            _powerprofilesctl _pulseaudio _qpdf _resolvectl _rg \
-            _rmmod _run0 _scrcpy _sd_bus_address _sd_hosts_or_user_at_host \
+            _bootctl _busctl _bwrap _cargo _chafa \
+            _coredumpctl _curl _cyme _dotnet _dpkg-parsechangelog \
+            _dualsensectl _ec_probe _eza _fastfetch _fd \
+            _flatpak _foot _footclient _fuzzel _gh \
+            _hostnamectl _img2sixel _insmod _journalctl _kdeconnect \
+            _kernel-install _localectl _loginctl _lsmod _machinectl \
+            _meson _mkinitcpio _mpv _nbfc _nbfc_service \
+            _networkctl _newsboat _ninja _niri _oomctl \
+            _p11-kit _pacman _paru _pass _pip \
+            _pkgstats _playerctl _podman _podman-remote _powerprofilesctl \
+            _pulseaudio _qpdf _resolvectl _rg _rmmod \
+            _run0 _rustup _scrcpy _sd_bus_address _sd_hosts_or_user_at_host \
             _sd_machines _sd_outputmodes _sd_unit_files _sensors _sensors-detect \
             _sk _starship _swaync _swaync-client _swww \
             _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
