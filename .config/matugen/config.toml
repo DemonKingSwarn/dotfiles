@@ -1,0 +1,11 @@
+
+[config]
+[templates.pywalfox]
+input_path = '~/.config/matugen/pywalfox.json'         
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar/color.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'

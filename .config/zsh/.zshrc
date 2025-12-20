@@ -68,4 +68,3 @@ else
   greet
 fi
 
-export PATH=$PATH:/home/swarn/.spicetify

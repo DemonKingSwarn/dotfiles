@@ -1,14 +1,6 @@
 local wezterm = require("wezterm")
 
-function scheme_for_appearance(appearance)
-  if appearance:find "Dark" then
-    return "Catppuccin Mocha"
-  else
-    return "Catppuccin Latte"
-  end
-end
-
-return {
+local config = {
   default_cursor_style = "SteadyBar",
   font = wezterm.font_with_fallback {
     "JetBrainsMono Nerd Font"
@@ -22,3 +14,4 @@ return {
   color_scheme = "Dracula (Official)",
 }
 
+return config
