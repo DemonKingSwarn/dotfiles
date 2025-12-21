@@ -47,6 +47,7 @@ alias lsusb='cyme --headings --tree --hide-buses'
 alias wget='wcurl'
 alias open='xdg-open'
 alias loc='~/.local/share/go/bin/scc'
+alias rtmp='podman run -d -p 1935:1935 --name nginx docker.io/tiangolo/nginx-rtmp'
 alias lf='yazi'
 alias dfm='demonfm'
 

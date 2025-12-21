@@ -1,6 +1,6 @@
 [user]
-	email = rockingswarn@gmail.com
-	name = DemonKingSwarn
+	email = swarn@demonkingswarn.live
+	name = s-warn
 	signingkey = /home/swarn/.ssh/github.pub
 
 [core]
