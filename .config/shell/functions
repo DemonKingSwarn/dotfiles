@@ -28,7 +28,7 @@ function fshow() {
 
 function lfcd () {
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+    yazi -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         /usr/sbin/rm -f "$tmp"

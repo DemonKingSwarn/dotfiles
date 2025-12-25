@@ -53,6 +53,7 @@ binds {
     Super+V { spawn "clip"; }
     Alt+C { spawn "colpick"; }
     Super+TAB repeat=false { toggle-overview; }
+    Super+Ctrl+F { spawn "nscratch" "-id" "com.system76.CosmicFiles" "-s" "cosmic-files" "-a"; }
     
     XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
     XF86AudioLowerVolume  { spawn "pamixer" "-d" "5"; }
@@ -67,11 +68,10 @@ binds {
     XF86AudioPrev  { spawn "playerctl" "previous";} 
     XF86AudioNext  { spawn "playerctl" "next";} 
 
-    XF86Explorer { spawn "cosmic-files"; }
+    XF86Explorer { spawn "nscratch -id cosmic-files"; }
     XF86Search { spawn "rofi" "-no-lazy-greb" "-show" "file-browser-extended" "-icon-theme" "'Dracula'"; }
     XF86Calculator { spawn "galculator"; }
-    XF86Tools { spawn "firefox" "--new-window" "-kiosk" "https://music.youtube.com";}
-    Super+F9 { spawn "firefox" "--new-window" "-kiosk" "https://perplexity.ai";}
+    XF86Tools { spawn "waterfox" "--new-window" "-kiosk" "https://music.youtube.com";}
  
     Super+I { spawn "footclient" "-e" "htop"; }
 
@@ -118,15 +118,17 @@ binds {
     Super+7 { focus-workspace 7; }
     Super+8 { focus-workspace 8; }
     Super+9 { focus-workspace 9; }
-    Super+Shift+1 { move-column-to-workspace 1; }
-    Super+Shift+2 { move-column-to-workspace 2; }
-    Super+Shift+3 { move-column-to-workspace 3; }
-    Super+Shift+4 { move-column-to-workspace 4; }
-    Super+Shift+5 { move-column-to-workspace 5; }
-    Super+Shift+6 { move-column-to-workspace 6; }
-    Super+Shift+7 { move-column-to-workspace 7; }
-    Super+Shift+8 { move-column-to-workspace 8; }
-    Super+Shift+9 { move-column-to-workspace 9; }
+    Super+0 { focus-workspace "scratch"; }
+    Super+Shift+1 { move-window-to-workspace 1; }
+    Super+Shift+2 { move-window-to-workspace 2; }
+    Super+Shift+3 { move-window-to-workspace 3; }
+    Super+Shift+4 { move-window-to-workspace 4; }
+    Super+Shift+5 { move-window-to-workspace 5; }
+    Super+Shift+6 { move-window-to-workspace 6; }
+    Super+Shift+7 { move-window-to-workspace 7; }
+    Super+Shift+8 { move-window-to-workspace 8; }
+    Super+Shift+9 { move-window-to-workspace 9; }
+    Super+Shift+0 { move-window-to-workspace "scratch"; }
 
     Super+Comma  { consume-window-into-column; }
     Super+Period { expel-window-from-column; }
@@ -147,6 +149,8 @@ binds {
 
     Super+Ctrl+Shift+T { toggle-debug-tint; }
 }
+
+workspace "scratch"
 
 spawn-at-startup "~/.config/autostart/startup.sh"
 spawn-at-startup " /usr/lib/xdg-desktop-portal"
@@ -297,6 +301,16 @@ animations {
     
 }
 
+window-rule {
+  match app-id="waterfox" title=r#"^File Upload$"#
+  open-floating true
+}
+
+window-rule {
+    match app-id=r#"^com.system76.CosmicFiles$"#
+    open-on-workspace "scratch"
+    open-floating true
+}
 
 window-rule {
   geometry-corner-radius 12

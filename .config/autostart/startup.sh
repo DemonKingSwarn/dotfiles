@@ -40,4 +40,5 @@ rm ~/ly-session.log
 
 foot --server &
 
+niri-float-sticky &
 #kanata -c $HOME/.config/kanata/config.kbd &
