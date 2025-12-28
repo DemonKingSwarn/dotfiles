@@ -53,7 +53,6 @@ binds {
     Super+V { spawn "clip"; }
     Alt+C { spawn "colpick"; }
     Super+TAB repeat=false { toggle-overview; }
-    Super+Ctrl+F { spawn "nscratch" "-id" "com.system76.CosmicFiles" "-s" "cosmic-files" "-a"; }
     
     XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
     XF86AudioLowerVolume  { spawn "pamixer" "-d" "5"; }
@@ -68,7 +67,7 @@ binds {
     XF86AudioPrev  { spawn "playerctl" "previous";} 
     XF86AudioNext  { spawn "playerctl" "next";} 
 
-    XF86Explorer { spawn "nscratch -id cosmic-files"; }
+    XF86Explorer { spawn "cosmic-files"; }
     XF86Search { spawn "rofi" "-no-lazy-greb" "-show" "file-browser-extended" "-icon-theme" "'Dracula'"; }
     XF86Calculator { spawn "galculator"; }
     XF86Tools { spawn "waterfox" "--new-window" "-kiosk" "https://music.youtube.com";}

@@ -70,7 +70,7 @@ alias cp='cpg -ig'
 
 # QoL
 alias e="$EDITOR"
-alias edit='ms-edit'
+alias edit='msedit'
 alias c='clear'
 alias xcc='xclip -selection clipboard'
 alias xco='xclip -selection clipboard -o'
