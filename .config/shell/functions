@@ -38,3 +38,7 @@ function lfcd () {
 
 bindkey -s '^o' 'lfcd\n'
 
+function tm () {
+  d="$1"
+  tmux new-session -c "$d"
+}

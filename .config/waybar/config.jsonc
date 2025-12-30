@@ -127,6 +127,26 @@
     "justify": "center",
   },
 
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+    },
+    "sort-by-number": true,
+    "active-only": true,
+    "justify": "center",
+  },
+
     "backlight": {
     "device": "intel_backlight",
     "format": "{icon}{percent}%",
@@ -177,7 +197,28 @@
       "org.telegram.desktop": "Telegram",
       "(.*)whatsapp(.*)": "Whatsapp"
     } 
-},
+  },
+
+  "hyprland/window": {
+    "format": " {}",
+    "separate-outputs": true,
+    "icon": false,
+    "icon-size": 18,
+    "rewrite": {
+      "(.*) Thunar": "Thunar",
+      "(.*)obs(.*)": "OBS",
+      "Spotify (.*)": "Spotify",
+      "discord(.*)": "Discord",
+      "Code": "VS Code",
+      "Docker Desktop": " Docker",
+      "kitty": "Kitty",
+      "zen": "Zen",
+      "com.mitchellh.ghostty": "Ghostty",
+      "org.telegram.desktop": "Telegram",
+      "(.*)whatsapp(.*)": "Whatsapp"
+    } 
+  },
+
 
   "custom/pacman": {
     "format": "  {}",
