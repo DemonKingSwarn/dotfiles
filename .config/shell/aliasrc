@@ -82,3 +82,10 @@ alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru
 alias uninstall="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rcns"
 alias update="paru -Syu --noconfirm"
 alias garbage='paru -Rcns $(paru -Qqdtt)'
+
+# global aliases
+alias -g NE='2>/dev/null'
+alias -g DN='> /dev/null'
+alias -g NUL='>/dev/null 2>&1'
+alias -g JQ='| jq'
+alias -g C='| wl-copy'

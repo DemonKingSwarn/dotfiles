@@ -21,6 +21,9 @@ environment {
   QT_QPA_PLATFORM "wayland"
   QT_QPA_PLATFORMTHEME "gtk3"
 
+  HYPRCURSOR_THEME "Bibata-Modern-Ice"
+  HYPRCURSOR_SIZE "24"
+
   __GLX_VENDOR_LIBRARY_NAME "nvidia"
   __GL_VRR_ALLOWED "1"
   WLR_NO_HARDWARE_CURSORS "1"
@@ -159,9 +162,12 @@ spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURREN
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
 
-spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
-spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'Adwaita'"
-spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Pop'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Cosmic'"
+spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'Cosmic'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Cosmic'"
+spawn-at-startup " gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
+
+//spawn-at-startup "swayidle" "-w" "timeout" "601" "niri msg action power-off-monitors" "timeout" "600" "~/.scripts/system/waylock.sh"
 
 // input settings
 input {

@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+hash -d sp=~/dox/UnityThings/super-packer

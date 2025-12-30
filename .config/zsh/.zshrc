@@ -41,6 +41,12 @@ bindkey '^f' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^e' edit-command-line
+
+bindkey ' ' magic-space
+
 # completion styling
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -52,6 +58,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "eza $realpath"
 # sourcing
 
 source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/aliasrc"
+source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/bookmarks"
 source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/profile"
 source "${XDG_CONFIG_HOME:-${HOME}/.config}/shell/functions"
 

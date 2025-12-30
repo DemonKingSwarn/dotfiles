@@ -3,10 +3,11 @@
 pkill -f /usr/libexec/polkit-gnome-authentication-agent-1
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-#/usr/lib/xdg-desktop-portal && /usr/lib/xdg-desktop-portal-hyprland &
-
 pkill -f swaync
 swaync &
+
+pkill -f hypridle
+hypridle &
 
 pkill -f waybar
 waybar &
@@ -41,4 +42,3 @@ rm ~/ly-session.log
 foot --server &
 
 niri-float-sticky &
-#kanata -c $HOME/.config/kanata/config.kbd &
