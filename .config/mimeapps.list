@@ -1,6 +1,6 @@
 [Default Applications]
 application/octet-stream=mpv.desktop
-application/pdf=firefox.desktop
+application/pdf=waterfox.desktop
 application/x-ms-dos-executable=wine.desktop
 application/x-terminal-emulator=org.wezfurlong.wezterm.desktop
 image/avif=nsxiv.desktop
@@ -18,8 +18,8 @@ image/xcf=gimp.desktop
 inode/directory=com.system76.CosmicFiles.desktop
 model/obj=blender.desktop
 text/*=vscodium-wayland.desktop
-text/html=firefox.desktop
-text/php=firefox.desktop
+text/html=waterfox.desktop
+text/php=waterfox.desktop
 text/plain=com.microsoft.edit.desktop
 video/3gpp=mpv.desktop
 video/3gpp2=mpv.desktop
@@ -56,15 +56,15 @@ video/x-nsv=mpv.desktop
 video/x-ogm+ogg=mpv.desktop
 video/x-sgi-movie=mpv.desktop
 video/x-theora+ogg=mpv.desktop
-x-scheme-handler/about=firefox.desktop
+x-scheme-handler/about=waterfox.desktop
 x-scheme-handler/arattai=arattai.desktop
 x-scheme-handler/discord=vesktop.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
+x-scheme-handler/http=waterfox.desktop
+x-scheme-handler/https=waterfox.desktop
 x-scheme-handler/steam=steam.desktop
 x-scheme-handler/steamlink=steam.desktop
 x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop
-x-scheme-handler/webcal=firefox-browser.desktop
+x-scheme-handler/webcal=waterfox-browser.desktop
 
 [Added Associations]
 application/x-shellscript=org.codeberg.dnkl.foot.desktop
