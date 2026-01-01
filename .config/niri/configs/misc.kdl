@@ -1,0 +1,34 @@
+screenshot-path "~/pix/ss/shot_%y%m%d_%H-%M-%S.png"
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+cursor {
+  xcursor-theme "Bibata-Modern-Ice"
+
+  xcursor-size 24
+
+  hide-when-typing
+  // hide-after-inactive-ms 1000
+}
+
+overview {
+    zoom 0.333
+    backdrop-color "#262626"
+
+    workspace-shadow {
+        off
+        softness 100
+        spread 50
+        offset x=20 y=20
+        color "#000a"
+    }
+}
+
+switch-events {
+  lid-close { spawn "systemctl" "suspend-then-hibernate"; }
+  lid-open { spawn "notify-send" "System resume complete"; }
+}

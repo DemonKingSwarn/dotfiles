@@ -1,0 +1,76 @@
+window-rule {
+  match app-id="waterfox" title=r#"^File Upload$"#
+  open-floating true
+}
+
+window-rule {
+  geometry-corner-radius 12
+  draw-border-with-background false
+  clip-to-geometry true
+}
+
+window-rule {
+    match app-id="Godot" title="Create New Node"
+    open-floating true
+    default-window-height { fixed 750; }
+}
+
+window-rule {
+  match app-id="Godot" title="Godot Engine - Project Manager"
+  open-floating true
+  default-window-height { fixed 750; }
+}
+
+window-rule {
+  match app-id="com.network.manager"
+  open-floating true
+}
+
+window-rule {
+  match app-id="SuperPacker"
+  open-floating true
+}
+
+//window-rule {
+//  match app-id=""
+//  block-out-from "screencast"
+//  block-out-from "screen-capture"
+//}
+
+window-rule {
+    match app-id="" title="Picture-in-Picture"
+    open-floating true
+    //default-column-width { fixed 480; }
+    //default-window-height { fixed 270; }
+    default-floating-position x=50 y=50 relative-to="top-right"
+}
+
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+layer-rule {
+  match namespace="^wallpaper$"
+  place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="waybar"
+  opacity 0.99
+}
+
+layer-rule {
+    match namespace="swaync-notification-window"
+    block-out-from "screen-capture"
+}
+
+layer-rule {
+    match namespace="^quickshell-overview$"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="swww"
+    geometry-corner-radius 12
+    place-within-backdrop true
+}

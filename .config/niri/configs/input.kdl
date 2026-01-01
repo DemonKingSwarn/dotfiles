@@ -1,0 +1,35 @@
+input {
+
+    keyboard {
+        repeat-delay 300
+        repeat-rate 69
+        xkb {
+          layout "us"
+          options "compose:menu,caps:escape"
+        }
+    }
+
+    touchpad {
+        click-method "button-areas"
+        tap
+        natural-scroll
+        scroll-method "two-finger"
+        middle-emulation
+        scroll-factor 1
+        accel-speed 0.2
+        accel-profile "adaptive"
+    }
+
+    mouse {
+      accel-speed 0.3
+      accel-profile "flat"
+      //scroll-factor 1.0
+      scroll-method "no-scroll"
+      //scroll-button 274
+      //middle-emulation
+    }
+
+  focus-follows-mouse
+  warp-mouse-to-focus
+  workspace-auto-back-and-forth
+}
