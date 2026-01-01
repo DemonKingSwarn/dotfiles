@@ -18,7 +18,6 @@
     ],
     "modules-right": [
         "privacy",
-        "idle_inhibitor",
         "pulseaudio",
         "backlight",
         "battery",
