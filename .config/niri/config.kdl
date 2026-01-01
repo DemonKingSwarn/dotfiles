@@ -120,7 +120,6 @@ binds {
     Super+7 { focus-workspace 7; }
     Super+8 { focus-workspace 8; }
     Super+9 { focus-workspace 9; }
-    Super+0 { focus-workspace "scratch"; }
     Super+Shift+1 { move-window-to-workspace 1; }
     Super+Shift+2 { move-window-to-workspace 2; }
     Super+Shift+3 { move-window-to-workspace 3; }
@@ -130,7 +129,6 @@ binds {
     Super+Shift+7 { move-window-to-workspace 7; }
     Super+Shift+8 { move-window-to-workspace 8; }
     Super+Shift+9 { move-window-to-workspace 9; }
-    Super+Shift+0 { move-window-to-workspace "scratch"; }
 
     Super+Comma  { consume-window-into-column; }
     Super+Period { expel-window-from-column; }
@@ -312,12 +310,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^com.system76.CosmicFiles$"#
-    open-on-workspace "scratch"
-    open-floating true
-}
-
-window-rule {
   geometry-corner-radius 12
   draw-border-with-background false
   clip-to-geometry true
@@ -374,11 +366,13 @@ layer-rule {
 }
 
 layer-rule {
-  match namespace="^waybar$"
+  match namespace="waybar"
+  opacity 0.99
+}
 
-  opacity 0.85
-
-  geometry-corner-radius 12
+layer-rule {
+    match namespace="swaync-notification-window"
+    block-out-from "screen-capture"
 }
 
 overview {
@@ -420,28 +414,3 @@ layer-rule {
     place-within-backdrop true
 }
 
-layer-rule {
-  match namespace="swaync"
-  geometry-corner-radius 9
-  //shadow {
-  //  on
-  //  softness 50
-  //  spread 0
-  //  offset x=0 y=25
-  //  color "#00000099"
-  //  draw-behind-window true
-  //}
-}
-
-layer-rule {
-  match namespace="waybar"
-  geometry-corner-radius 9
-  shadow {
-    on
-    softness 50
-    spread 0
-    offset x=0 y=25
-    color "#00000000"
-    draw-behind-window true
-  }
-}

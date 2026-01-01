@@ -12,6 +12,9 @@ hypridle &
 pkill -f waybar
 waybar &
 
+pkill -f auto-hide-waybar
+auto-hide-waybar &
+
 pkill -f udiskie
 udiskie &
 

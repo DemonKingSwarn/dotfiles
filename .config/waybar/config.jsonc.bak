@@ -1,0 +1,232 @@
+{
+  "id": "bar-0",
+  "name": "bar-demon",
+  "layer": "top",
+  "position": "top",
+  "mode": "dock",
+  "height": 24,
+  "margin": 0,
+  "spacing": 1, // Gaps between modules (8px)
+  "reload_style_on_change": true,
+  "modules-left": [
+    "niri/workspaces",
+    "niri/window",
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "network",
+    "battery",
+    "custom/notification",
+    "tray",
+  ],
+
+  "clock": {
+        "format": "    {:%a, %b %d, %Y - %H:%M }",
+        "tooltip-format": "{calendar}",
+        "interval": 30
+    },
+
+  "niri/language": {
+    "format": "{short}",
+  },
+ "network": {
+        "tooltip": true,
+        "format-wifi": " {icon} {essid} ",
+        "format-icons": ["󰤯", " 󰤟", " 󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "󰀂",
+        "format-alt": "󱛇",
+        "format-disconnected": "󰖪",
+        "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nmgui",
+        "interval": 5,
+        "nospacing": 1
+    }, 
+
+    "battery": {
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "max-length": 20,
+      "format": "{icon} ",
+      "format-warning": "{icon}",
+      "format-critical": "{icon}",
+      "format-charging": "<span font-family='Font Awesome 6 Free'></span>",
+      "format-plugged": "",
+
+      "format-alt": "{icon} {time}",
+      "format-full": "",
+      "format-icons": ["󱊡", "󱊢", "󱊣"]
+    },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "󰂱 {volume}%",
+    "format-muted": "󰖁",
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"],
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰖀", "󰕾"]
+    },
+    "tooltip-format": "Volume: {volume}%"
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 5%-",
+  },
+
+  "tray": {
+    "icon-size": 15,
+    "icon-theme": "Pop",
+    "spacing": 10
+  },
+
+  "custom/spacer": {
+        "format": " ", // Empty space
+        "tooltip": false
+  },
+  "separator": {
+    "format": " | "
+  },
+
+  "niri/workspaces": {
+    "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+    },
+    "sort-by-number": true,
+    "active-only": true,
+    "justify": "center",
+  },
+
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+    },
+    "sort-by-number": true,
+    "active-only": true,
+    "justify": "center",
+  },
+
+    "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}{percent}%",
+    "format-icons": ["󰃞 ","󰃟 ","󰃠 "],
+    "on-scroll-down": "brightnessctl s 5%-",
+    "on-scroll-up": "brightnessctl s +5%",
+    "justify": "center",
+    "tooltip": false,
+    "on-click": "nightmode"
+  },
+
+   "custom/notification": {
+    "tooltip": false,
+    "format": " {icon} ",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup> </sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup> </sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup> </sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup> </sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "niri/window": {
+    "format": " {}",
+    "separate-outputs": true,
+    "icon": false,
+    "icon-size": 18,
+    "rewrite": {
+      "(.*) Thunar": "Thunar",
+      "(.*)obs(.*)": "OBS",
+      "Spotify (.*)": "Spotify",
+      "discord(.*)": "Discord",
+      "Code": "VS Code",
+      "Docker Desktop": " Docker",
+      "kitty": "Kitty",
+      "zen": "Zen",
+      "com.mitchellh.ghostty": "Ghostty",
+      "org.telegram.desktop": "Telegram",
+      "(.*)whatsapp(.*)": "Whatsapp"
+    } 
+  },
+
+  "hyprland/window": {
+    "format": " {}",
+    "separate-outputs": true,
+    "icon": false,
+    "icon-size": 18,
+    "rewrite": {
+      "(.*) Thunar": "Thunar",
+      "(.*)obs(.*)": "OBS",
+      "Spotify (.*)": "Spotify",
+      "discord(.*)": "Discord",
+      "Code": "VS Code",
+      "Docker Desktop": " Docker",
+      "kitty": "Kitty",
+      "zen": "Zen",
+      "com.mitchellh.ghostty": "Ghostty",
+      "org.telegram.desktop": "Telegram",
+      "(.*)whatsapp(.*)": "Whatsapp"
+    } 
+  },
+
+
+  "custom/pacman": {
+    "format": "  {}",
+    "interval": "once",
+    "exec": "checkupdates | wc -l",
+    "on-click": "update-system",
+    "signal": 8,
+    "tooltip-format": "{} updates available"
+  },
+
+}

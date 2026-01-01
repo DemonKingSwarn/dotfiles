@@ -42,3 +42,8 @@ function tm () {
   d="$1"
   tmux new-session -c "$d"
 }
+
+function ytmpv () {
+  STREAM=$(yt-dlp -f best -g "$1" | tail -n1)
+  mpv "$STREAM"
+}

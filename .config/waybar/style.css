@@ -1,170 +1,246 @@
+@import url("./themes/mocha.css");
+
 * {
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  min-height: 0;
-  text-shadow: none;
-  transition: none;
-  box-shadow: none;
+    font-family: "JetBrainsMono Nerd Font", "YujiBoku";
+    font-size: 12px;
+    color: @base;
+    transition: 0.1s ease-in-out;
+    font-weight: bolder;
 }
 
-#custom-rofi,
-#window,
-#disk,
-#cpu,
-#custom-cpu_temp,
-#custom-cpu_temp.critical,
-#backlight,
-#custom-memory,
-#pulseaudio,
-#pulseaudio.muted,
-#battery,
-#battery.critical,
-#battery.warning,
-#network,
-#clock {
-  padding-right: 3pt;
-}
-
+/* Base bar background */
 window#waybar {
-  color: #cdd6f4;              /* text */
-  background: #1e1e2e;         /* base */
-  font-family: JetBrainsMono Nerd Font, YujiBoku;
-  font-size: 15px;
-  font-weight: 900;
+    background-color: @base;
+    border-radius: 12px;
 }
 
-.modules-left,
-.modules-center,
-.modules-right {
-  padding: 3pt;
+tooltip label {
+    color: @lavender;
 }
 
-/* Workspaces */
-#workspaces button {
-  color: #cdd6f4;
-  background: #1e1e2e;
-  border: 2pt solid #bac2de;   /* subtext */
-  margin-right: 3pt;
-  min-width: 15pt;
-  padding: 0 3.75pt;
+#tray menu label {
+    color: @lavender;
 }
 
-#workspaces button:last-child {
-  margin-right: 0;
+/* === Individual Module Styles === */
+
+/* Clock - Sky */
+#clock {
+    background-color: @sky;
+    border-radius: 10px;
 }
 
-#workspaces button:hover {
-  color: #f5c2e7;              /* pink */
-  border-color: #f5c2e7;
+/* Battery - Green (normal), Yellow (warning), Red (critical) */
+#battery {
+    background-color: @green;
+    border-radius: 10px;
 }
 
-#workspaces button.visible,
-#workspaces button.visible:hover,
-#workspaces button.active,
-#workspaces button.active:hover {
-  color: #a6e3a1;              /* green */
-  border-color: #a6e3a1;
+#battery.warning:not(.charging) {
+    background-color: @yellow;
 }
 
-#workspaces button.urgent {
-  color: #f38ba8;              /* red */
-  border-color: #f38ba8;
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @base;
+    animation: blink 0.5s linear infinite alternate;
 }
 
-/* Launcher */
-#custom-rofi {
-  color: #1e1e2e;
-  border: 2pt solid #89b4fa;   /* blue */
-  background: #89b4fa;
-  padding: 0 6pt;
-}
-
-/* Window title */
-#window {
-  border-bottom: 2pt solid #f5c2e7; /* pink */
-}
-
-/* Tray */
-#tray {
-  border-bottom: 2pt solid #6c7086; /* overlay */
-  background: #313244;             /* surface0 */
-  padding: 0 6pt;
-}
-
-/* System stats */
-#disk {
-  border-bottom: 2pt solid #f38ba8; /* red */
-}
-
-#cpu {
-  border-bottom: 2pt solid #fab387; /* peach */
-}
-
-#custom-cpu_temp {
-  border-bottom: 2pt solid #f9e2af; /* yellow */
-}
-
-#custom-cpu_temp.critical {
-  color: #f38ba8;
-  border-bottom: 2pt solid #f38ba8;
-}
-
-#custom-cpu_temp.unknown {
-  color: #6c7086;
-  border-bottom: 2pt solid #6c7086;
-}
-
-#backlight {
-  border-bottom: 2pt solid #f9e2af; /* yellow */
-}
-
-#custom-memory {
-  border-bottom: 2pt solid #89b4fa; /* blue */
-}
-
-/* Audio */
 #pulseaudio {
-  border-bottom: 2pt solid #94e2d5; /* teal */
+    background-color: @blue;
+    border-radius: 10px;
 }
 
 #pulseaudio.muted {
-  color: #f38ba8;
-  border-bottom: 2pt solid #f38ba8;
+    background-color: @red;
 }
 
-/* Battery */
-#battery {
-  border-bottom: 2pt solid #a6e3a1; /* green */
+#backlight {
+    background-color: @yellow;
+    border-radius: 10px;
 }
 
-#battery.critical,
-#battery.charging.critical {
-  color: #f38ba8;
-  border-bottom: 2pt solid #f38ba8;
+#workspaces {
+    background-color: @surface1;
+    border-radius: 10px;
+    margin: 4px 0px;
 }
 
-#battery.warning,
-#battery.charging.warning {
-  color: #fab387; /* peach */
-  border-bottom: 2pt solid #fab387;
+#workspaces button label {
+    color: @lavender;
+    padding: 0 4px;
 }
 
-/* Clock & Network */
-#clock {
-  border-bottom: 2pt solid #a6e3a1;
+#workspaces button {
+    padding: 2px 6px;
+    border-radius: 8px;
+    background: transparent;
+    min-width: 0px;
 }
 
-#network {
-  border-bottom: 2pt solid #f5c2e7;
+#workspaces button.active label {
+    color: @base;
 }
 
-/* Modes */
-#mode,
-#submap {
-  color: #1e1e2e;
-  border: 2pt solid #cba6f7;   /* mauve */
-  background: #cba6f7;
-  padding: 0 4.5pt;
+#workspaces button.active,
+#workspaces button.focused {
+    background-color: @lavender;
+    border-radius: 8px;
+    padding: 2 10px;
+    font-weight: bold;
+
 }
 
+#workspaces button:hover {
+    color: rgba(0, 0, 0, 0);
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
+#tray,
+#custom-power,
+#battery,
+#custom-launcher,
+#custom-clock,
+#custom-notification,
+#clock,
+#backlight,
+/* #custom-clipboard, */
+/* #custom-vkeyboard, */
+#custom-notification.notification,
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification,
+#custom-screen-time,
+#idle_inhibitor,
+#privacy,
+#mpris,
+#misc,
+#nwtwork,
+#pulseaudio {
+    padding: 0px 10px;
+    margin: 4px 0px;
+}
+
+/* Tray - Flamingo */
+#tray {
+    background-color: @flamingo;
+    border-radius: 10px;
+}
+
+/* Custom Power - Red */
+#custom-power {
+    margin-right: 3px;
+    background-color: @red;
+    border-radius: 10px;
+}
+
+/* Custom Launcher - Peach */
+#custom-launcher {
+    margin-left: 3px;
+    background-color: @peach;
+    border-radius: 10px;
+}
+
+/* Custom Clipboard - Pink */
+/* #custom-clipboard { */
+/*     background-color: #f5c2e7; */
+/*     border-radius: 10px; */
+/* } */
+
+/* Custom Notification - Mauve */
+#custom-notification {
+    background-color: @mauve;
+    border-radius: 10px;
+}
+
+#custom-screen-time {
+    background-color: #94e2d5;
+    border-radius: 10px;
+}
+
+/* Custom VKeyboard - Teal */
+/* #custom-vkeyboard { */
+/*     background-color: #94e2d5; */
+/*     border-radius: 10px; */
+/*     font-size: 14; */
+/* } */
+
+/* Privacy - Maroon */
+#privacy {
+    background-color: @maroon;
+    border-radius: 10px;
+}
+
+#custom-vkeyboard,
+#custom-screenrecording,
+#custom-clipboard {
+    margin: 0 6px;
+    font-size: 13px;
+}
+
+#misc {
+    background-color: @teal;
+    border-radius: 10px;
+    padding: 0 2px;
+}
+
+#privacy-item.audio-out {
+    color: @base;
+}
+
+/* Idle Inhibitor - Rosewater */
+#idle_inhibitor {
+    background-color: @rosewater;
+    border-radius: 10px;
+}
+
+/* MPRIS - Sapphire */
+#mpris {
+    background-color: @sapphire;
+    border-radius: 10px;
+}
+
+/* #custom-notification.dnd-none { */
+/*     padding-left: 7px; */
+/*     padding-right: 13px; */
+/* } */
+/**/
+
+#custom-notification.dnd-notification {
+    padding-left: 8px;
+    padding-right: 7px;
+}
+
+/**/
+/* #custom-notification.notification { */
+/*     padding-left: 8px; */
+/*     padding-right: 7px; */
+/* } */
+
+/* Hover effect for all modules */
+#clock:hover,
+#battery:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#tray:hover,
+#workspaces:hover,
+#custom-power:hover,
+#custom-launcher:hover,
+#custom-clipboard:hover,
+#custom-notification:hover,
+#custom-vkeyboard:hover,
+#privacy:hover,
+#idle_inhibitor:hover,
+#mpris:hover {
+    transition: all 0.2s ease-in;
+    text-shadow: 0 0 1px @base;
+}
+
+/* Blinking critical battery */
+@keyframes blink {
+    to {
+        color: @base;
+    }
+}
