@@ -6,7 +6,7 @@ spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURREN
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
 
-spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Cosmic'"
-spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'Cosmic'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
+spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'Adwaita'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Cosmic'"
 spawn-at-startup " gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
