@@ -39,11 +39,6 @@ function lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 function tm () {
-  d="$1"
-  tmux new-session -c "$d"
+  tmux-sessionizer
 }
 
-function ytmpv () {
-  STREAM=$(yt-dlp -f best -g "$1" | tail -n1)
-  mpv "$STREAM"
-}

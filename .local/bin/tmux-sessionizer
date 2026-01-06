@@ -3,13 +3,12 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/ ~/dox/code ~/.dots/.config/ -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find ~/.config/nvim ~/.scripts ~/dox/code ~/dox/UnityThings ~/.dots/.config/ -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
   exit 0
 fi
-
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
