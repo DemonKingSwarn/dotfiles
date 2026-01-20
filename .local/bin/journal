@@ -1,0 +1,8 @@
+#!/bin/sh
+
+JOURNAL_DIR="$HOME/.journals"
+EDITOR="nvim"
+
+d=$(date '+%A %d %Y' | sed 's/ /-/g')
+
+"$EDITOR" "$JOURNAL_DIR/$d.md"

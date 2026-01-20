@@ -42,3 +42,6 @@ function tm () {
   tmux-sessionizer
 }
 
+alias man () {
+  $EDITOR "man://$1"
+}

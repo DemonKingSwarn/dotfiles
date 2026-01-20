@@ -44,4 +44,4 @@ rm ~/ly-session.log
 
 foot --server &
 
-niri-float-sticky &
+#niri-float-sticky &

@@ -21,6 +21,7 @@
         "pulseaudio",
         "backlight",
         "battery",
+        "idle_inhibitor",
         "tray"
     ],
     

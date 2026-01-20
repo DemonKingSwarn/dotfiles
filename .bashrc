@@ -7,7 +7,7 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 ALIAS="$XDG_CONFIG_HOME/shell/aliasrc"
 FUNCTIONS="$XDG_CONFIG_HOME/shell/functions"
 
-source "$ALIAS"
+#source "$ALIAS"
 
 eval "$(starship init bash)"
 eval "$(zoxide init --cmd cd bash)"

@@ -34,7 +34,7 @@ alias dir='dir --color=auto'
 alias pdfmaker="pandoc --pdf-engine=pdfroff \$1 -o \$2.pdf"
 alias networkusage='vnstat -i wlo1'
 alias b='brightnessctl set'
-alias hostname="hostnamectl hostname"
+alias hostname="uname -n"
 alias wiki="nvim $XDG_DATA_HOME/vimwiki/index_$(date '+%a-%d-%m-%y-%H:%M').wiki"
 alias dosbox="dosbox -conf $XDG_CONFIG_HOME/dosbox/dosbox.conf"
 alias adb="HOME=$XDG_DATA_HOME/android adb"
