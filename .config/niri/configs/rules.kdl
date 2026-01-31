@@ -3,11 +3,11 @@ window-rule {
   open-floating true
 }
 
-window-rule {
+/*window-rule {
   geometry-corner-radius 12
   draw-border-with-background false
   clip-to-geometry true
-}
+}*/
 
 window-rule {
     match app-id="Godot" title="Create New Node"

@@ -3,6 +3,12 @@
 pkill -f /usr/libexec/polkit-gnome-authentication-agent-1
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+pkill -f /usr/lib/xdg-desktop-portal
+/usr/lib/xdg-desktop-portal &
+
+pkill -f /usr/lib/xdg-desktop-portal-gnome
+/usr/lib/xdg-desktop-portal-gnome &
+
 pkill -f swaync
 swaync &
 

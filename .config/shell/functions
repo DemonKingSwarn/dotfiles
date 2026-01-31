@@ -42,6 +42,11 @@ function tm () {
   tmux-sessionizer
 }
 
-alias man () {
+function man () {
   $EDITOR "man://$1"
+}
+
+function cheat() {
+  lang=$(curl -s cheat.sh/:list | fzf --reverse --height=50%)
+  curl -s cheat.sh/$lang | bat --paging=always
 }

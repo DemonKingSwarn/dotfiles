@@ -1,6 +1,7 @@
 {
     "layer": "top",
     "position": "top",
+    "mode": "dock",
     "height": 36,
     "margin-top": 3,
     "margin-left": 2,
@@ -13,17 +14,12 @@
         "niri/workspaces",
         "niri/window"
     ],
-    /*"modules-center": [
-        "clock",
-        "custom/notification"
-    ],*/
     "modules-right": [
         "privacy",
         "custom/nettraf",
-        "pulseaudio",
+        "custom/volume",
         "custom/clock",
-        "wifi",
-        //"backlight",
+        "custom/internet",
         "battery",
         "custom/notification",
         "tray"
@@ -59,11 +55,6 @@
     "tray": {
         "spacing": 10
     },
-    "clock": {
-        "format": "{%Y  %b %d (%a) 󰥔 %H:%M}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "interval": 60
-    },
 
     "custom/clock": {
       "exec": "/home/swarn/.dots/.local/bin/statusbar/clock",
@@ -77,6 +68,7 @@
         "on-scroll-up": "brightnessctl --exponent=2 set 2%+",
         "on-scroll-down": "brightnessctl --exponent=2 set 2%-"
     },
+    
     "battery": {
         "states": {
             "good": 80,
@@ -95,26 +87,17 @@
         "interval": 1,
         "tooltip": true
     },
-    "pulseaudio": {
-        "tooltip": false,
-        "format": "<span font_desc='CommitMono Nerd Font Propo 10'>{icon}</span> {volume}%",
-        "format-bluetooth": "󰂯 {volume}%",
-        "format-bluetooth-muted": "󰂲 {volume}%",
-        "format-muted": "󰝟 {volume}%",
-        "format-source": "󰍬 {volume}%",
-        "format-source-muted": "󰍭",
-        "format-icons": {
-            "headphone": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["󰕿", "󰖀", "󰕾"],
-        },
-        "on-click": "pamixer --toggle-mute",
-        "on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 2",
-        "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2",
-        "tooltip": true,
-        "max-volume": 150
+    
+    "custom/volume": {
+      "exec": "/home/swarn/.dots/.local/bin/statusbar/volume",
+      "on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 2",
+      "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2",
+      "interval": 1
+    },
+
+    "custom/internet": {
+      "exec": "/home/swarn/.dots/.local/bin/statusbar/internet",
+      "interval": 1
     },
     
     "custom/nettraf": {
@@ -151,6 +134,7 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true,
     },
+    
     "privacy": {
         "icon-spacing": 10,
         "icon-size": 16,

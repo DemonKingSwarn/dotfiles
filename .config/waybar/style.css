@@ -124,6 +124,7 @@ window#waybar {
 }
 
 /* Audio */
+#custom-volume,
 #pulseaudio {
   border-bottom: 2pt solid #94e2d5; /* teal */
 }
@@ -155,6 +156,7 @@ window#waybar {
   border-bottom: 2pt solid #a6e3a1;
 }
 
+#custom-internet,
 #network {
   border-bottom: 2pt solid #f5c2e7;
 }

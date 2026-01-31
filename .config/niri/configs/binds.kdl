@@ -85,6 +85,7 @@ binds {
     Super+7 { focus-workspace 7; }
     Super+8 { focus-workspace 8; }
     Super+9 { focus-workspace 9; }
+    
     Super+Shift+1 { move-window-to-workspace 1; }
     Super+Shift+2 { move-window-to-workspace 2; }
     Super+Shift+3 { move-window-to-workspace 3; }
