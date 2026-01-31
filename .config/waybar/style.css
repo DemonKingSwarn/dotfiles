@@ -1,246 +1,169 @@
-@import url("./themes/mocha.css");
-
 * {
-    font-family: "JetBrainsMono Nerd Font", "YujiBoku";
-    font-size: 12px;
-    color: @base;
-    transition: 0.1s ease-in-out;
-    font-weight: bolder;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  min-height: 0;
+  text-shadow: none;
+  transition: none;
+  box-shadow: none;
 }
 
-/* Base bar background */
-window#waybar {
-    background-color: @base;
-    border-radius: 12px;
-}
-
-tooltip label {
-    color: @lavender;
-}
-
-#tray menu label {
-    color: @lavender;
-}
-
-/* === Individual Module Styles === */
-
-/* Clock - Sky */
+#custom-nettraf,
+#window,
+#disk,
+#cpu,
+#custom-cpu_temp,
+#custom-cpu_temp.critical,
+#backlight,
+#custom-memory,
+#pulseaudio,
+#pulseaudio.muted,
+#battery,
+#battery.critical,
+#battery.warning,
+#network,
 #clock {
-    background-color: @sky;
-    border-radius: 10px;
+  padding-right: 3pt;
 }
 
-/* Battery - Green (normal), Yellow (warning), Red (critical) */
-#battery {
-    background-color: @green;
-    border-radius: 10px;
+window#waybar {
+  color: #cdd6f4;              /* text */
+  background: #1e1e2e;         /* base */
+  font-family: JetBrainsMono Nerd Font, YujiBoku, Noto Color Emoji;
+  font-size: 15px;
+  font-weight: 900;
 }
 
-#battery.warning:not(.charging) {
-    background-color: @yellow;
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 3pt;
 }
 
-#battery.critical:not(.charging) {
-    background-color: @red;
-    color: @base;
-    animation: blink 0.5s linear infinite alternate;
-}
-
-#pulseaudio {
-    background-color: @blue;
-    border-radius: 10px;
-}
-
-#pulseaudio.muted {
-    background-color: @red;
-}
-
-#backlight {
-    background-color: @yellow;
-    border-radius: 10px;
-}
-
-#workspaces {
-    background-color: @surface1;
-    border-radius: 10px;
-    margin: 4px 0px;
-}
-
-#workspaces button label {
-    color: @lavender;
-    padding: 0 4px;
-}
-
+/* Workspaces */
 #workspaces button {
-    padding: 2px 6px;
-    border-radius: 8px;
-    background: transparent;
-    min-width: 0px;
+  color: #cdd6f4;
+  background: #1e1e2e;
+  border: 2pt solid #bac2de;   /* subtext */
+  margin-right: 3pt;
+  min-width: 15pt;
+  padding: 0 3.75pt;
 }
 
-#workspaces button.active label {
-    color: @base;
-}
-
-#workspaces button.active,
-#workspaces button.focused {
-    background-color: @lavender;
-    border-radius: 8px;
-    padding: 2 10px;
-    font-weight: bold;
-
+#workspaces button:last-child {
+  margin-right: 0;
 }
 
 #workspaces button:hover {
-    color: rgba(0, 0, 0, 0);
+  color: #f5c2e7;              /* pink */
+  border-color: #f5c2e7;
+}
+
+#workspaces button.visible,
+#workspaces button.visible:hover,
+#workspaces button.active,
+#workspaces button.active:hover {
+  color: #a6e3a1;              /* green */
+  border-color: #a6e3a1;
 }
 
 #workspaces button.urgent {
-    background-color: @red;
+  color: #f38ba8;              /* red */
+  border-color: #f38ba8;
 }
 
-#tray,
-#custom-power,
-#battery,
-#custom-launcher,
-#custom-clock,
-#custom-notification,
-#clock,
-#backlight,
-/* #custom-clipboard, */
-/* #custom-vkeyboard, */
-#custom-notification.notification,
-#custom-notification.dnd-none,
-#custom-notification.dnd-notification,
-#custom-screen-time,
-#idle_inhibitor,
-#privacy,
-#mpris,
-#misc,
-#nwtwork,
-#pulseaudio {
-    padding: 0px 10px;
-    margin: 4px 0px;
+/* Launcher */
+#custom-rofi {
+  color: #1e1e2e;
+  border: 2pt solid #89b4fa;   /* blue */
+  background: #89b4fa;
+  padding: 0 6pt;
 }
 
-/* Tray - Flamingo */
+/* Window title */
+#window {
+  border-bottom: 2pt solid #f5c2e7; /* pink */
+}
+
+/* Tray */
 #tray {
-    background-color: @flamingo;
-    border-radius: 10px;
+  border-bottom: 2pt solid #6c7086; /* overlay */
+  background: #313244;             /* surface0 */
+  padding: 0 6pt;
 }
 
-/* Custom Power - Red */
-#custom-power {
-    margin-right: 3px;
-    background-color: @red;
-    border-radius: 10px;
+/* System stats */
+#disk {
+  border-bottom: 2pt solid #f38ba8; /* red */
 }
 
-/* Custom Launcher - Peach */
-#custom-launcher {
-    margin-left: 3px;
-    background-color: @peach;
-    border-radius: 10px;
+#cpu {
+  border-bottom: 2pt solid #fab387; /* peach */
 }
 
-/* Custom Clipboard - Pink */
-/* #custom-clipboard { */
-/*     background-color: #f5c2e7; */
-/*     border-radius: 10px; */
-/* } */
-
-/* Custom Notification - Mauve */
-#custom-notification {
-    background-color: @mauve;
-    border-radius: 10px;
+#custom-nettraf {
+  border-bottom: 2pt solid #f9e2af; /* yellow */
 }
 
-#custom-screen-time {
-    background-color: #94e2d5;
-    border-radius: 10px;
+#custom-cpu_temp.critical {
+  color: #f38ba8;
+  border-bottom: 2pt solid #f38ba8;
 }
 
-/* Custom VKeyboard - Teal */
-/* #custom-vkeyboard { */
-/*     background-color: #94e2d5; */
-/*     border-radius: 10px; */
-/*     font-size: 14; */
-/* } */
-
-/* Privacy - Maroon */
-#privacy {
-    background-color: @maroon;
-    border-radius: 10px;
+#custom-cpu_temp.unknown {
+  color: #6c7086;
+  border-bottom: 2pt solid #6c7086;
 }
 
-#custom-vkeyboard,
-#custom-screenrecording,
-#custom-clipboard {
-    margin: 0 6px;
-    font-size: 13px;
+#backlight {
+  border-bottom: 2pt solid #f9e2af; /* yellow */
 }
 
-#misc {
-    background-color: @teal;
-    border-radius: 10px;
-    padding: 0 2px;
+#custom-memory {
+  border-bottom: 2pt solid #89b4fa; /* blue */
 }
 
-#privacy-item.audio-out {
-    color: @base;
+/* Audio */
+#pulseaudio {
+  border-bottom: 2pt solid #94e2d5; /* teal */
 }
 
-/* Idle Inhibitor - Rosewater */
-#idle_inhibitor {
-    background-color: @rosewater;
-    border-radius: 10px;
+#pulseaudio.muted {
+  color: #f38ba8;
+  border-bottom: 2pt solid #f38ba8;
 }
 
-/* MPRIS - Sapphire */
-#mpris {
-    background-color: @sapphire;
-    border-radius: 10px;
+/* Battery */
+#battery {
+  border-bottom: 2pt solid #a6e3a1; /* green */
 }
 
-/* #custom-notification.dnd-none { */
-/*     padding-left: 7px; */
-/*     padding-right: 13px; */
-/* } */
-/**/
-
-#custom-notification.dnd-notification {
-    padding-left: 8px;
-    padding-right: 7px;
+#battery.critical,
+#battery.charging.critical {
+  color: #f38ba8;
+  border-bottom: 2pt solid #f38ba8;
 }
 
-/**/
-/* #custom-notification.notification { */
-/*     padding-left: 8px; */
-/*     padding-right: 7px; */
-/* } */
-
-/* Hover effect for all modules */
-#clock:hover,
-#battery:hover,
-#pulseaudio:hover,
-#backlight:hover,
-#tray:hover,
-#workspaces:hover,
-#custom-power:hover,
-#custom-launcher:hover,
-#custom-clipboard:hover,
-#custom-notification:hover,
-#custom-vkeyboard:hover,
-#privacy:hover,
-#idle_inhibitor:hover,
-#mpris:hover {
-    transition: all 0.2s ease-in;
-    text-shadow: 0 0 1px @base;
+#battery.warning,
+#battery.charging.warning {
+  color: #fab387; /* peach */
+  border-bottom: 2pt solid #fab387;
 }
 
-/* Blinking critical battery */
-@keyframes blink {
-    to {
-        color: @base;
-    }
+/* Clock & Network */
+#custom-clock {
+  border-bottom: 2pt solid #a6e3a1;
+}
+
+#network {
+  border-bottom: 2pt solid #f5c2e7;
+}
+
+/* Modes */
+#mode,
+#submap {
+  color: #1e1e2e;
+  border: 2pt solid #cba6f7;   /* mauve */
+  background: #cba6f7;
+  padding: 0 4.5pt;
 }

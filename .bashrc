@@ -41,3 +41,28 @@ function fshow() {
                 {}
                 FZF-EOF"
 }
+
+man() {
+  if test $(/bin/man -w "${@:$#}"); then
+    if [[ "$PAGER" =~ ^page.* ]]; then
+      if [ $2 ]; then
+        $PAGER man://"$2($1)"
+      elif [ $1 ]; then
+        $PAGER man://"$1"
+      fi
+    elif command -v nvim >/dev/null; then
+      nvim -c "Man $* | only"
+    else
+      # shellcheck disable=SC2068
+      /usr/bin/man $@
+    fi
+  else
+    if [ $# -gt 1 ]; then
+      last=$#
+      h "${!last}"
+    else
+      h "$1"
+    fi
+  fi
+  #  SECT=${@[-2]}; PROG=${@[-1]}; page man://"$PROG($SECT)"
+}

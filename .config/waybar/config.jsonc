@@ -10,18 +10,22 @@
     "spacing": 11,
     "exclusive": false,
     "modules-left": [
-        "niri/workspaces"
+        "niri/workspaces",
+        "niri/window"
     ],
-    "modules-center": [
+    /*"modules-center": [
         "clock",
         "custom/notification"
-    ],
+    ],*/
     "modules-right": [
         "privacy",
+        "custom/nettraf",
         "pulseaudio",
-        "backlight",
+        "custom/clock",
+        "wifi",
+        //"backlight",
         "battery",
-        "idle_inhibitor",
+        "custom/notification",
         "tray"
     ],
     
@@ -56,10 +60,16 @@
         "spacing": 10
     },
     "clock": {
-        "format": "󰥔 {:%R  󰃭 %A %d}",
+        "format": "{%Y  %b %d (%a) 󰥔 %H:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "interval": 60
     },
+
+    "custom/clock": {
+      "exec": "/home/swarn/.dots/.local/bin/statusbar/clock",
+      "interval": 1
+    },
+
     "backlight": {
         "tooltip": false,
         "format": "{icon} {percent}%",
@@ -86,7 +96,6 @@
         "tooltip": true
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "tooltip": false,
         "format": "<span font_desc='CommitMono Nerd Font Propo 10'>{icon}</span> {volume}%",
         "format-bluetooth": "󰂯 {volume}%",
@@ -107,33 +116,12 @@
         "tooltip": true,
         "max-volume": 150
     },
-    "custom/launcher": {
-        "format": "",
-        // "format": "",
-        "on-click": "pkill fuzzel || fuzzel",
-        "tooltip-format": "Launcher"
+    
+    "custom/nettraf": {
+      "exec": "/home/swarn/.dots/.local/bin/statusbar/nettraf",
+      "interval": 1
     },
-    "custom/clipboard": {
-        "format": "󰅇",
-        "on-click": "pkill fuzzel || cliphist-fuzzel-img",
-        "tooltip-format": "Clipboard"
-    },
-    "custom/vkeyboard": {
-        "format": "󰌌",
-        "on-click": "pkill wf-osk || wf-osk --height 200 -a bottom",
-        "tooltip-format": "Virtual Keyboard"
-    },
-    "custom/screenrecording": {
-        "format": "󰻂",
-        "tooltip-format": "Screen Recording",
-        "on-click": "pkill fuzzel || screen-recording",
-        "on-click-right": "pkill -INT wf-recorder"
-    },
-    "custom/power": {
-        "format": "⏼",
-        "tooltip": false,
-        "on-click": "wlogout -c 15 -b 6 -T 350 -B 350 -L 100 -R 100"
-    },
+    
     "wlr/taskbar": {
         "format": "{icon}",
         "icon-size": 22,
@@ -142,14 +130,7 @@
         "on-click": "activate",
         "on-click-middle": "close"
     },
-    "custom/screen-time": {
-        "tooltip": true,
-        "format": " {text}",
-        // "exec": "niri-screen-time | grep 'time' | grep -oP '\\d+h\\s+\\d+m'",
-        "exec": "screen-time",
-        "interval": 60,
-        "return-type": "json"
-    },
+    
     "custom/notification": {
         "tooltip-format": "Notifications",
         "format": "{icon}",
@@ -203,12 +184,24 @@
             }
         ]
     },
-    "group/misc": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/clipboard",
-            "custom/vkeyboard",
-            "custom/screenrecording"
-        ]
-    }
+    
+    "niri/window": {
+      "format": " {}",
+      "separate-outputs": true,
+      "icon": false,
+      "icon-size": 18,
+      "rewrite": {
+        "(.*) Thunar": "Thunar",
+        "(.*)obs(.*)": "OBS",
+        "Spotify (.*)": "Spotify",
+        "discord(.*)": "Discord",
+        "Code": "VS Code",
+        "Docker Desktop": " Docker",
+        "kitty": "Kitty",
+        "zen": "Zen",
+        "com.mitchellh.ghostty": "Ghostty",
+        "org.telegram.desktop": "Telegram",
+        "(.*)whatsapp(.*)": "Whatsapp"
+    } 
+  }
 }
