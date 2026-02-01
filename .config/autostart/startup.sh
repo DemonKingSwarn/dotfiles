@@ -18,8 +18,8 @@ hypridle &
 pkill -f waybar
 waybar &
 
-pkill -f auto-hide-waybar
-auto-hide-waybar &
+#pkill -f auto-hide-waybar
+#auto-hide-waybar &
 
 pkill -f udiskie
 udiskie &
@@ -30,12 +30,6 @@ xwayland-satellite &
 pkill -f swww-daemon
 swww-daemon &
 
-#pkill -f nm-applet
-#nm-applet &
-
-#pkill -f copyq
-#copyq --start-server &
-
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 
@@ -45,8 +39,6 @@ blueman-applet &
 hypr-wellbeing -d &> /dev/null &
 
 rm ~/ly-session.log
-
-#qs -c noctalia-shell &
 
 foot --server &
 
