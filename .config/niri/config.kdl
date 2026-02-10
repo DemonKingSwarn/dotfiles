@@ -31,7 +31,7 @@ layout {
     }
     border {
         width 2
-        active-color "#89B3F8"
+        active-color "#C1CAF5"
         inactive-color "#282828"
         urgent-color "#9b0000"
     }

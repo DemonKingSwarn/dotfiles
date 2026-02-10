@@ -35,8 +35,8 @@ binds {
     XF86AudioPrev  { spawn "playerctl" "previous";} 
     XF86AudioNext  { spawn "playerctl" "next";} 
 
-    XF86Explorer { spawn "cosmic-files"; }
-    XF86Search { spawn "rofi" "-no-lazy-greb" "-show" "file-browser-extended" "-icon-theme" "'Dracula'"; }
+    XF86Explorer { spawn "thunar"; }
+    XF86Search { spawn "rofi" "-no-lazy-greb" "-show" "file-browser-extended" "-icon-theme" "'Cosmic'"; }
     XF86Calculator { spawn "galculator"; }
     XF86Tools { spawn "waterfox" "--new-window" "-kiosk" "https://music.youtube.com";}
  

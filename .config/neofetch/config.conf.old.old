@@ -1,13 +1,13 @@
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 
-fake_model="ASUS ROG Strix X870E-E"
-fake_cpu="AMD Ryzen 9 7950X3D (32) @ 4.200GHz"
-fake_gpu="NVIDIA GeForce RTX 5090 [Discrete]"
-fake_gpu2="AMD Radeon RX 9070 XT [Discrete]"
-fake_res='5120x1440 @ 240 Hz in 49" [External]'
+fake_model="ASUS ROG Flow Z13 GZ302EA-XS99"
+#fake_cpu="AMD Ryzen 9 7950X3D (32) @ 4.200GHz"
+fake_cpu="AMD RYZEN AI MAX+ PRO 395 (16)"
+fake_gpu="AMD / ATI Strix Halo (Radeon Graphics / Radeon 8050S Graphics / Radeon 8060S Graphics)"
+fake_res='2560x1600 @ 180 Hz in 13.4" [Built-in]'
 #fake_mem=" 4059MiB / 95837MiB"
-fake_mem="9.65 GiB / 125.69 GiB"
+fake_mem="4.43 GiB / 29.80 GiB"
 wm_name="niri (Wayland)"
 
 
@@ -16,7 +16,6 @@ print_info() {
     info " ​ ​  " fake_model
     info " ​ ​  " fake_cpu
     info " ​ ​ ﬙ " fake_gpu
-    info " ​ ​ ﬙ " fake_gpu2
 #    info " ​ ​  " disk
     info " ​ ​ 塞" fake_mem
     info " ​ ​  " fake_res
