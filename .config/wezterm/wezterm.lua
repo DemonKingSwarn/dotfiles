@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = {
   default_cursor_style = "SteadyBar",
   font = wezterm.font_with_fallback {
-    "JetBrainsMono Nerd Font"
+    "LythMono Nerd Font"
   },
   font_size = 16.0,
   enable_tab_bar = false,

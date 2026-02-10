@@ -1,0 +1,112 @@
+/*
+* GTK Colors
+* Generated with Matugen
+*/
+
+/*@define-color accent_color #e6bdbb;
+@define-color accent_bg_color #e6bdbb;
+@define-color accent_fg_color #442929;
+@define-color window_bg_color #161312;
+@define-color window_fg_color #e9e1e0;
+@define-color headerbar_bg_color #161312;
+@define-color headerbar_fg_color #e9e1e0;
+@define-color popover_bg_color #504444;
+@define-color popover_fg_color #d4c3c2;
+@define-color view_bg_color #161312;
+@define-color view_fg_color #e9e1e0;
+@define-color card_bg_color #161312;
+@define-color card_fg_color #e9e1e0;
+
+@define-color sidebar_bg_color #221f1f;
+@define-color sidebar_fg_color #e9e1e0;
+@define-color sidebar_border_color @window_bg_color;
+@define-color sidebar_backdrop_color @window_bg_color;*/
+
+@import 'colors.css';
+
+/* Toolbar and Menubar (The top sections) */
+.thunar toolbar, 
+menubar {
+    background-color: #1e1e2e;
+    border: none;
+    box-shadow: none;
+}
+
+/* Address bar / Path bar entry box */
+.thunar entry {
+    background-color: #313244; /* Surface0 for contrast */
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 6px;
+}
+
+/* Status bar (The bottom info bar) */
+.thunar statusbar {
+    background-color: #1e1e2e;
+    color: #a6adc8;
+}
+
+/* Column headers (Name, Size, Type, etc.) */
+.thunar treeview button {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: none;
+    padding: 4px;
+}
+
+/* Sidebar background and text */
+.thunar .sidebar treeview.view {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+}
+
+/* Sidebar row hover/selection */
+.thunar .sidebar treeview.view:selected {
+    background-color: #313244;
+    color: #cba6f7;
+}
+
+/* Handling the 'Paned' separator line color */
+.thunar paned separator {
+    background-color: #313244;
+}
+
+/* Main file view area */
+.thunar .standard-view .view {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+}
+
+/* Toolbar and Menubar (File, Edit, View, etc.) */
+.thunar toolbar, 
+menubar,
+.thunar menubar {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: none;
+}
+
+/* Address/Path bar background */
+.thunar entry {
+    background-color: #313244; /* Surface0 for subtle contrast */
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 4px;
+}
+
+/* Status bar at the bottom */
+.thunar statusbar {
+    background-color: #1e1e2e;
+    color: #a6adc8;
+}
+
+/* Search button and navigation arrows */
+.thunar toolbar button {
+    background-image: none;
+    background-color: transparent;
+    color: #cdd6f4;
+}
+
+.thunar toolbar button:hover {
+    background-color: #313244;
+}

@@ -29,7 +29,7 @@
 window#waybar {
   color: #cdd6f4;              /* text */
   background: #1e1e2e;         /* base */
-  font-family: JetBrainsMono Nerd Font, YujiBoku, Noto Color Emoji;
+  font-family: LythMono Nerd Font, YujiBoku, Noto Color Emoji;
   font-size: 15px;
   font-weight: 900;
 }
