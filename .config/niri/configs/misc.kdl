@@ -28,6 +28,22 @@ overview {
     }
 }
 
+recent-windows {
+  highlight {
+    corner-radius 14
+  }
+
+  previews {
+    max-height 320
+  }
+}
+
+gestures {
+  hot-corners {
+    off
+  }
+}
+
 switch-events {
   lid-close { spawn "systemctl" "suspend-then-hibernate"; }
   lid-open { spawn "notify-send" "System resume complete"; }
