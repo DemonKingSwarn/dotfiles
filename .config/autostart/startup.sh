@@ -12,8 +12,8 @@ pkill -f /usr/lib/xdg-desktop-portal-gnome
 pkill -f swaync
 swaync &
 
-pkill -f hypridle
-hypridle &
+#pkill -f hypridle
+#hypridle &
 
 pkill -f waybar
 waybar &

@@ -16,7 +16,7 @@ binds {
     
     Super+N { spawn "nightmode"; }
     Super+O { spawn "ocr"; }
-    Super+W { spawn "~/.scripts/custom_emoji/custom_emoji.sh"; }
+    Super+W { spawn "~/.scripts/misc/wallmanager"; }
     Super+G { spawn "nirifreeze"; }
     Super+V { spawn "clip"; }
     Alt+C { spawn "colpick"; }
