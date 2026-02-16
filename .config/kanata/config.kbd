@@ -3,7 +3,7 @@
 )
 
 (defalias
-  a-lsup (tap-hold-release 200 200 a lmet)
+  a-lsup (tap-hold-release 200 300 a lmet)
   s-lalt (tap-hold-release 200 200 s lalt)
   d-lsft (tap-hold-release 200 200 d lsft)
   f-lctl (tap-hold-release 200 200 f lctl)
@@ -11,7 +11,7 @@
   j-rctl (tap-hold-release 200 200 j rctl)
   k-rsft (tap-hold-release 200 200 k rsft)
   l-ralt (tap-hold-release 200 200 l ralt)
-  ;-rsup (tap-hold-release 200 200 ; rmet)
+  ;-rsup (tap-hold-release 200 300 ; rmet)
 )
 
 (deflayer base
