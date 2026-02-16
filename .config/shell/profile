@@ -4,7 +4,8 @@
 if [ "$TTY" = "/dev/tty1" ]; then
     printf "\033[1;32mBooting into graphical session!\033[0m\n"
     #sx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty 2> /dev/null
-    $HOME/.local/bin/startw -- -keeptty > $XDG_RUNTIME_DIR/startw.log
+    #$HOME/.local/bin/startw -- -keeptty > $XDG_RUNTIME_DIR/startw.log
+    /usr/sbin/niri > $XDG_RUNTIME_DIR/niri.log
     #startplasma-wayland
 fi
 

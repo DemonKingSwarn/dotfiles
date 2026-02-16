@@ -1,11 +1,19 @@
 (defsrc
-  caps
+  a s d f j k l ;
 )
 
 (defalias
-  escctrl (tap-hold 100 100 esc lctrl)
+  a-lsup (tap-hold-release 200 200 a lmet)
+  s-lalt (tap-hold-release 200 200 s lalt)
+  d-lsft (tap-hold-release 200 200 d lsft)
+  f-lctl (tap-hold-release 200 200 f lctl)
+
+  j-rctl (tap-hold-release 200 200 j rctl)
+  k-rsft (tap-hold-release 200 200 k rsft)
+  l-ralt (tap-hold-release 200 200 l ralt)
+  ;-rsup (tap-hold-release 200 200 ; rmet)
 )
 
 (deflayer base
-  @escctrl
+  @a-lsup @s-lalt @d-lsft @f-lctl @j-rctl @k-rsft @l-ralt @;-rsup
 )

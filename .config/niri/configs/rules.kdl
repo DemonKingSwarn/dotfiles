@@ -3,39 +3,27 @@ window-rule {
   open-floating true
 }
 
-/*window-rule {
-  geometry-corner-radius 12
-  draw-border-with-background false
-  clip-to-geometry true
-}*/
-
+// Godot rules
 window-rule {
     match app-id="Godot" title="Create New Node"
+    match app-id="Godot" title="Godot Engine - Project Manager"
     open-floating true
     default-window-height { fixed 750; }
 }
 
 window-rule {
-  match app-id="Godot" title="Godot Engine - Project Manager"
-  open-floating true
-  default-window-height { fixed 750; }
-}
+  match app-id=r#"^org\.wezfurlong\.wezterm$"#
+  match app-id=r#"^foot|footclient$"#
 
-window-rule {
-  match app-id="com.network.manager"
-  open-floating true
+  background-effect {
+    blur { on; }
+  }
 }
 
 window-rule {
   match app-id="SuperPacker"
   open-floating true
 }
-
-//window-rule {
-//  match app-id=""
-//  block-out-from "screencast"
-//  block-out-from "screen-capture"
-//}
 
 window-rule {
     match app-id="" title="Picture-in-Picture"
@@ -50,7 +38,16 @@ window-rule {
     clip-to-geometry true
 }
 
-// Indicate screencasted windows with red colors.
+window-rule {
+    match app-id="vesktop"
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    match app-id="waterfox" title=r#"^Whatsapp"#
+    block-out-from "screen-capture"
+}
+
 window-rule {
     match is-window-cast-target=true
 
@@ -88,13 +85,17 @@ layer-rule {
     block-out-from "screen-capture"
 }
 
-layer-rule {
-    match namespace="^quickshell-overview$"
-    place-within-backdrop true
-}
 
 layer-rule {
     match namespace="swww"
     geometry-corner-radius 12
     place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="rofi"
+
+  background-effect {
+    blur { on; }
+  }
 }

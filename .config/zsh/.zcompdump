@@ -1,4 +1,4 @@
-#files: 1200	version: 5.9
+#files: 1201	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -972,7 +972,6 @@ _comps=(
 'ngrep' '_ngrep'
 'nice' '_nice'
 'ninja' '_ninja'
-'niri' '_niri'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
@@ -1945,14 +1944,14 @@ autoload -Uz _afew _age _android _archlinux-java _artisan \
             _yfm _zcash-cli _zinit _asciinema _atuin \
             _bat _bluetoothctl _bootctl _busctl _bwrap \
             _cargo _chafa _coredumpctl _curl _cyme \
-            _deno _dog _dotnet _dpkg-parsechangelog _dualsensectl \
-            _dwarfs _dwarfsck _dwarfsextract _ec_probe _eza \
-            _fastfetch _fd _firewalld _flatpak _foot \
-            _footclient _fuzzel _gh _hostnamectl _img2sixel \
-            _insmod _journalctl _just _kdeconnect _kernel-install \
-            _keyring _localectl _loginctl _lsmod _machinectl \
-            _meson _mkdwarfs _mkinitcpio _mpv _nbfc \
-            _nbfc_service _networkctl _newsboat _ninja _niri \
+            _deno _dkms _dog _dotnet _dpkg-parsechangelog \
+            _dualsensectl _dwarfs _dwarfsck _dwarfsextract _ec_probe \
+            _eza _fastfetch _fd _firewalld _flatpak \
+            _foot _footclient _fuzzel _gh _hostnamectl \
+            _img2sixel _insmod _journalctl _just _kdeconnect \
+            _kernel-install _keyring _localectl _loginctl _lsmod \
+            _machinectl _meson _mkdwarfs _mkinitcpio _mpv \
+            _nbfc _nbfc_service _networkctl _newsboat _ninja \
             _oomctl _p11-kit _pacman _paru _pass \
             _pip _pkgstats _playerctl _podman _podman-remote \
             _powerprofilesctl _pulseaudio _qpdf _resolvectl _rg \
