@@ -2,16 +2,22 @@
   a s d f j k l ;
 )
 
-(defalias
-  a-lsup (tap-hold-release 200 300 a lmet)
-  s-lalt (tap-hold-release 200 200 s lalt)
-  d-lsft (tap-hold-release 200 200 d lsft)
-  f-lctl (tap-hold-release 200 200 f lctl)
+(defvar 
+  wait-hold 200
+  tap-hold 200
+  wait-hold-weak 300
+)
 
-  j-rctl (tap-hold-release 200 200 j rctl)
-  k-rsft (tap-hold-release 200 200 k rsft)
-  l-ralt (tap-hold-release 200 200 l ralt)
-  ;-rsup (tap-hold-release 200 300 ; rmet)
+(defalias
+  a-lsup (tap-hold-release $tap-hold $wait-hold-weak a lmet)
+  s-lalt (tap-hold-release $tap-hold $wait-hold s lalt)
+  d-lsft (tap-hold-release $tap-hold $wait-hold d lsft)
+  f-lctl (tap-hold-release $tap-hold $wait-hold f lctl)
+
+  j-rctl (tap-hold-release $tap-hold $wait-hold j rctl)
+  k-rsft (tap-hold-release $tap-hold $wait-hold k rsft)
+  l-ralt (tap-hold-release $tap-hold $wait-hold l ralt)
+  ;-rsup (tap-hold-release $tap-hold $wait-hold-weak ; rmet)
 )
 
 (deflayer base
