@@ -5,7 +5,7 @@ input {
         repeat-rate 69
         xkb {
           layout "us"
-          options "compose:menu,caps:escape"
+          options "compose:menu"
         }
     }
 

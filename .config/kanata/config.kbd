@@ -1,5 +1,5 @@
 (defsrc
-  a s d f j k l ;
+ caps a s d f j k l ;
 )
 
 (defvar 
@@ -9,6 +9,9 @@
 )
 
 (defalias
+  
+  escbspc (tap-hold-release $tap-hold $wait-hold esc bspc)
+
   a-lsup (tap-hold-release $tap-hold $wait-hold-weak a lmet)
   s-lalt (tap-hold-release $tap-hold $wait-hold s lalt)
   d-lsft (tap-hold-release $tap-hold $wait-hold d lsft)
@@ -18,8 +21,10 @@
   k-rsft (tap-hold-release $tap-hold $wait-hold k rsft)
   l-ralt (tap-hold-release $tap-hold $wait-hold l ralt)
   ;-rsup (tap-hold-release $tap-hold $wait-hold-weak ; rmet)
+
+
 )
 
 (deflayer base
-  @a-lsup @s-lalt @d-lsft @f-lctl @j-rctl @k-rsft @l-ralt @;-rsup
+  @escbspc @a-lsup @s-lalt @d-lsft @f-lctl @j-rctl @k-rsft @l-ralt @;-rsup
 )
