@@ -18,6 +18,8 @@ swaync &
 pkill -f waybar
 waybar &
 
+vicinae server & 
+
 #pkill -f auto-hide-waybar
 #auto-hide-waybar &
 
@@ -40,6 +42,6 @@ hypr-wellbeing -d &> /dev/null &
 
 rm ~/ly-session.log
 
-foot --server &
+#foot --server &
 
 #niri-float-sticky &

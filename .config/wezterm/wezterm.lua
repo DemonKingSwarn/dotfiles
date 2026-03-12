@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local catppuccin = require("colors/catppuccin")
 
 local config = {
   default_cursor_style = "SteadyBar",
@@ -11,7 +12,7 @@ local config = {
   window_background_opacity = 0.9,
   window_close_confirmation = "NeverPrompt",
   default_prog = { "zsh" },
-  color_scheme = "Dracula (Official)",
+  colors = catppuccin.mocha,
 }
 
 return config

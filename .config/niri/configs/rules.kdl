@@ -15,9 +15,9 @@ window-rule {
   match app-id=r#"^org\.wezfurlong\.wezterm$"#
   match app-id=r#"^foot|footclient$"#
 
-  background-effect {
+  /*background-effect {
     blur { on; }
-  }
+  }*/
 }
 
 window-rule {
@@ -95,7 +95,7 @@ layer-rule {
 layer-rule {
   match namespace="rofi"
 
-  background-effect {
+  /*background-effect {
     blur { on; }
-  }
+  }*/
 }
