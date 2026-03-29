@@ -18,8 +18,7 @@ swaync &
 pkill -f waybar
 waybar &
 
-vicinae server & 
-
+#vicinae server & 
 #pkill -f auto-hide-waybar
 #auto-hide-waybar &
 
@@ -29,8 +28,8 @@ udiskie &
 pkill -f xwayland-satellite
 xwayland-satellite &
 
-pkill -f swww-daemon
-swww-daemon &
+pkill -f awww-daemon
+awww-daemon &
 
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
@@ -42,6 +41,6 @@ hypr-wellbeing -d &> /dev/null &
 
 rm ~/ly-session.log
 
-#foot --server &
+foot --server &
 
 #niri-float-sticky &

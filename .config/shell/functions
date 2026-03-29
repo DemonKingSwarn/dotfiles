@@ -42,11 +42,15 @@ function tm () {
   tmux-sessionizer
 }
 
-function man () {
-  $EDITOR "man://$1"
-}
-
 function cheat() {
   lang=$(curl -s cheat.sh/:list | fzf --reverse --height=50%)
   curl -s cheat.sh/$lang | bat --paging=always
+}
+
+function supercat() {
+  if [ "$(printf '%s' "$1" | cut -d '.' -f2)" = "jai" ]; then
+    bat -l odin "$1"
+  else
+    bat "$1"
+  fi
 }

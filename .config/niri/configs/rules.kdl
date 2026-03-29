@@ -87,7 +87,7 @@ layer-rule {
 
 
 layer-rule {
-    match namespace="swww"
+    match namespace="awww"
     geometry-corner-radius 12
     place-within-backdrop true
 }

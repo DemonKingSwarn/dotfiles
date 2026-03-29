@@ -4,7 +4,8 @@ local catppuccin = require("colors/catppuccin")
 local config = {
   default_cursor_style = "SteadyBar",
   font = wezterm.font_with_fallback {
-    "LythMono Nerd Font"
+    "LythMono Nerd Font",
+    "NotoColorEmoji Regular"
   },
   font_size = 16.0,
   enable_tab_bar = false,

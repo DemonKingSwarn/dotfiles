@@ -2,9 +2,9 @@ binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
     Super+Return { spawn "wezterm"; }
-    Alt+Return { spawn "ghostty"; }
-    Alt+D { spawn "rofi" "-show" "drun"; }
-    Super+D { spawn "vicinae" "open"; }
+    Alt+Return { spawn "footclient"; }
+    Super+D { spawn "rofi" "-show" "drun"; }
+    //Super+D { spawn "vicinae" "open"; }
     Super+E { spawn "~/.scripts/emojis/emoji.sh"; }
     Super+Shift+X { spawn "~/.scripts/system/waylock.sh"; }
     Print { screenshot-screen; }

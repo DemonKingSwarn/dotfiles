@@ -17,6 +17,7 @@ alias gb='git branch'
 alias gi='git init'
 alias gcl='git clone'
 
+alias swww='awww'
 alias weather='curl -s "https://wttr.in/?1n"'
 alias pacgraph='pacgraph --show-req-by -b "#232738" -l "#9778d3" -t "#cca9c6" -d "#b8d0eb"'
 alias grep='grep --color=auto'
