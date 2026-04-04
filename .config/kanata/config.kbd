@@ -1,4 +1,5 @@
 (defsrc
+ esc
  caps a s d f j k l ; 
 )
 
@@ -10,6 +11,8 @@
 
 (defalias
   
+  compose (tap-hold-release $tap-hold $wait-hold esc comp)
+
   escbspc (tap-hold-release $tap-hold $wait-hold esc bspc)
 
   a-lsup (tap-hold-release $tap-hold $wait-hold-weak a lmet)
@@ -26,5 +29,6 @@
 )
 
 (deflayer base
+  @compose
   @escbspc @a-lsup @s-lalt @d-lsft @f-lctl @j-rctl @k-rsft @l-ralt @;-rsup
 )

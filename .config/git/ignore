@@ -1,2 +1,4 @@
 builds/
 .vscode/
+
+**/.claude/settings.local.json

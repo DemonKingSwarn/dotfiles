@@ -67,10 +67,13 @@ alias rm='rip -i --graveyard $HOME/.local/share/Trash'
 alias ln='ln -i'
 alias cp='cpg -ig'
 
+alias scheiße="bash"
+
 #alias shred='shred -f -u -z -v -n 3'
 
 # QoL
-alias e="$EDITOR"
+#alias e="$EDITOR"
+alias e="nvim.appimage"
 alias edit='msedit'
 alias c='clear'
 alias xcc='xclip -selection clipboard'
