@@ -41,6 +41,6 @@ hypr-wellbeing -d &> /dev/null &
 
 rm ~/ly-session.log
 
-foot --server &
+#foot --server &
 
 #niri-float-sticky &

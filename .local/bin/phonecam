@@ -1,0 +1,30 @@
+#!/usr/bin/env dash
+
+state_file="/tmp/phonecam.tmp"
+
+if [ ! -z "$state_file" ]; then
+  sudo modprobe -v v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
+  echo "v4l2loopback modprobed" > "$state_file"
+else
+  printf "%s\n" "already modprobed"
+fi
+
+camera_facing=$(printf "front\nback" | fzf)
+facing=""
+
+case $camera_facing in
+  front)
+    facing="front"
+    ;;
+  back)
+    facing="back"
+    ;;
+  *)
+    echo "nothing to do"
+    exit 1
+    ;;
+esac
+
+killall scrcpy
+
+scrcpy --video-source=camera --no-audio --camera-facing=$camera_facing --v4l2-sink=/dev/video2 --camera-fps=60 --video-codec=h265 --camera-ar=16:9 -m1920 --capture-orientation=flip180

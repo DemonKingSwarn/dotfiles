@@ -51,6 +51,7 @@ alias loc='~/.local/share/go/bin/scc'
 alias rtmp='podman run -d -p 1935:1935 --name nginx docker.io/tiangolo/nginx-rtmp'
 alias lf='yazi'
 alias dfm='demonfm'
+alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
 
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'
@@ -72,8 +73,7 @@ alias scheiße="bash"
 #alias shred='shred -f -u -z -v -n 3'
 
 # QoL
-#alias e="$EDITOR"
-alias e="nvim.appimage"
+alias e="$EDITOR"
 alias edit='msedit'
 alias c='clear'
 alias xcc='xclip -selection clipboard'

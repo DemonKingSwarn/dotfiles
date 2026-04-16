@@ -2,7 +2,7 @@ binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
     Super+Return { spawn "wezterm"; }
-    Alt+Return { spawn "footclient"; }
+    Alt+Return { spawn "ghostty"; }
     Super+D { spawn "rofi" "-show" "drun"; }
     //Super+D { spawn "vicinae" "open"; }
     Super+E { spawn "~/.scripts/emojis/emoji.sh"; }
@@ -16,7 +16,7 @@ binds {
     Super+Shift+P { screenshot; }
     
     Super+N { spawn "nightmode"; }
-    Super+O { spawn "ocr"; }
+    Super+O { spawn "~/.scripts/0x0/share"; }
     Super+W { spawn "~/.scripts/misc/wallmanager"; }
     Super+G { spawn "nirifreeze"; }
     Super+V { spawn "clip"; }
@@ -41,7 +41,7 @@ binds {
     XF86Calculator { spawn "galculator"; }
     XF86Tools { spawn "waterfox" "--new-window" "-kiosk" "https://music.youtube.com";}
  
-    Super+I { spawn "footclient" "-e" "htop"; }
+    Super+I { spawn "wezterm" "-e" "htop"; }
 
     Super+Shift+Q { close-window; }
   
