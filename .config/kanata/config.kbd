@@ -1,6 +1,7 @@
 (defsrc
  esc
- caps a s d f j k l ; 
+ caps a s d f g h j k l ;
+ lalt
 )
 
 (defvar 
@@ -26,9 +27,21 @@
   ;-rsup (tap-hold-release $tap-hold $wait-hold-weak ; rmet)
 
 
+  altm (tap-hold-release $tap-hold $wait-hold lalt (layer-while-held alt-mod))
+
+
 )
 
 (deflayer base
   @compose
-  @escbspc @a-lsup @s-lalt @d-lsft @f-lctl @j-rctl @k-rsft @l-ralt @;-rsup
+  @escbspc @a-lsup @s-lalt @d-lsft @f-lctl g h @j-rctl @k-rsft @l-ralt @;-rsup
+  @altm
+)
+
+
+
+(deflayer alt-mod
+  _
+  _        _       _       _       _      _ left down    up      right   _
+  _
 )

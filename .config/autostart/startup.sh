@@ -18,7 +18,7 @@ swaync &
 pkill -f waybar
 waybar &
 
-#vicinae server & 
+vicinae server & 
 #pkill -f auto-hide-waybar
 #auto-hide-waybar &
 
@@ -31,8 +31,8 @@ xwayland-satellite &
 pkill -f awww-daemon
 awww-daemon &
 
-wl-paste --type text --watch cliphist store &
-wl-paste --type image --watch cliphist store &
+#wl-paste --type text --watch cliphist store &
+#wl-paste --type image --watch cliphist store &
 
 pkill -f blueman-applet
 blueman-applet &

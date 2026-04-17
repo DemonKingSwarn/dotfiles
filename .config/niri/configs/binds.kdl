@@ -3,9 +3,9 @@ binds {
 
     Super+Return { spawn "wezterm"; }
     Alt+Return { spawn "ghostty"; }
-    Super+D { spawn "rofi" "-show" "drun"; }
-    //Super+D { spawn "vicinae" "open"; }
-    Super+E { spawn "~/.scripts/emojis/emoji.sh"; }
+    //Super+D { spawn "rofi" "-show" "drun"; }
+    Super+D { spawn "vicinae" "toggle"; }
+    Super+E { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
     Super+Shift+X { spawn "~/.scripts/system/waylock.sh"; }
     Print { screenshot-screen; }
     Super+Print { screenshot; }
@@ -19,7 +19,7 @@ binds {
     Super+O { spawn "~/.scripts/0x0/share"; }
     Super+W { spawn "~/.scripts/misc/wallmanager"; }
     Super+G { spawn "nirifreeze"; }
-    Super+V { spawn "clip"; }
+    Super+V { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Alt+C { spawn "colpick"; }
     Super+TAB repeat=false { toggle-overview; }
     
