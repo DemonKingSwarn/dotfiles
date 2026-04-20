@@ -2,7 +2,7 @@ binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
     Super+Return { spawn "wezterm"; }
-    Alt+Return { spawn "ghostty"; }
+    Alt+Return { spawn "/usr/sbin/ghostty"; }
     //Super+D { spawn "rofi" "-show" "drun"; }
     Super+D { spawn "vicinae" "toggle"; }
     Super+E { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
@@ -10,11 +10,11 @@ binds {
     Print { screenshot-screen; }
     Super+Print { screenshot; }
     Alt+Print { screenshot-window; }
-    
+
     // my new keyboard doesnt have print screen
     Super+P { screenshot-screen; }
     Super+Shift+P { screenshot; }
-    
+
     Super+N { spawn "nightmode"; }
     Super+O { spawn "~/.scripts/0x0/share"; }
     Super+W { spawn "~/.scripts/misc/wallmanager"; }
@@ -22,29 +22,29 @@ binds {
     Super+V { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Alt+C { spawn "colpick"; }
     Super+TAB repeat=false { toggle-overview; }
-    
+
     XF86AudioRaiseVolume  { spawn "pamixer" "-i" "5"; }
     XF86AudioLowerVolume  { spawn "pamixer" "-d" "5"; }
     XF86AudioMute { spawn "pamixer" "-t" "mute"; }
-    
+
     XF86MonBrightnessUp   { spawn "brightnessctl" "set" "+5%"; }
     XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
     Super+F1   { spawn "brightnessctl" "set" "+5%"; }
     Super+F2 { spawn "brightnessctl" "set" "5%-"; }
-    
-    XF86AudioPlay  { spawn "playerctl" "play-pause";} 
-    XF86AudioPrev  { spawn "playerctl" "previous";} 
-    XF86AudioNext  { spawn "playerctl" "next";} 
+
+    XF86AudioPlay  { spawn "playerctl" "play-pause";}
+    XF86AudioPrev  { spawn "playerctl" "previous";}
+    XF86AudioNext  { spawn "playerctl" "next";}
 
     XF86Explorer { spawn "thunar"; }
     XF86Search { spawn "rofi" "-no-lazy-greb" "-show" "file-browser-extended" "-icon-theme" "'Cosmic'"; }
     XF86Calculator { spawn "galculator"; }
     XF86Tools { spawn "waterfox" "--new-window" "-kiosk" "https://music.youtube.com";}
- 
+
     Super+I { spawn "wezterm" "-e" "htop"; }
 
     Super+Shift+Q { close-window; }
-  
+
     Super+Left  { focus-column-left; }
     Super+Down  { focus-window-down; }
     Super+Up    { focus-window-up; }
@@ -86,7 +86,7 @@ binds {
     Super+7 { focus-workspace 7; }
     Super+8 { focus-workspace 8; }
     Super+9 { focus-workspace 9; }
-    
+
     Super+Shift+1 { move-window-to-workspace 1; }
     Super+Shift+2 { move-window-to-workspace 2; }
     Super+Shift+3 { move-window-to-workspace 3; }
