@@ -27,7 +27,7 @@
   ;-rsup (tap-hold-release $tap-hold $wait-hold-weak ; rmet)
 
 
-  altm (tap-hold-release $tap-hold $wait-hold lalt (layer-while-held alt-mod))
+  altm (tap-hold-release $tap-hold $wait-hold lalt (layer-while-held vim-arrow))
 
 
 )
@@ -39,8 +39,7 @@
 )
 
 
-
-(deflayer alt-mod
+(deflayer vim-arrow
   _
   _        _       _       _       _      _ left down    up      right   _
   _

@@ -12,7 +12,7 @@ fi
 
 #export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 
-export PATH="$PATH:$HOME/.local/share/go/bin"
+#export PATH="$PATH:$HOME/.local/share/go/bin"
 
 # Adds '~/.scripts' and all directories in $PATH
 # export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
