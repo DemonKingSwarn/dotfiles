@@ -2,7 +2,7 @@ binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
     Super+Return { spawn "wezterm"; }
-    Alt+Return { spawn "/usr/sbin/ghostty"; }
+    Alt+Return { spawn "ghostty"; }
     //Super+D { spawn "rofi" "-show" "drun"; }
     Super+D { spawn "vicinae" "toggle"; }
     Super+E { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
