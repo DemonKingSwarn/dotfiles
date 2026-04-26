@@ -109,5 +109,6 @@ layer-rule {
 
   background-effect {
     blur { on; }
+    xray false;
   }
 }
