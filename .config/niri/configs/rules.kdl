@@ -26,6 +26,7 @@ window-rule {
 window-rule {
   match app-id=r#"^helium$"#
   match app-id=r#"^thunar$"#
+  match app-id=r#"^obsidian$"#
   opacity 0.95
   background-effect {
     blur { on; }
