@@ -1,4 +1,4 @@
-screenshot-path "~/pix/ss/shot_%y%m%d_%H-%M-%S.png"
+screenshot-path "~/media/pix/ss/shot_%y%m%d_%H-%M-%S.png"
 
 prefer-no-csd
 
