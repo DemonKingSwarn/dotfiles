@@ -1,5 +1,5 @@
 output "eDP-1" {
-  off
+  //off
   scale 1
 
   mode "1920x1080@60"
