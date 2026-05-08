@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+sesh="$(tmux ls | fzf | cut -d ':' -f1)"
+
+if [ -z "$sesh" ]; then
+  echo "nothing selected"
+  exit 1
+else
+  tmux a -t "$sesh"
+fi
