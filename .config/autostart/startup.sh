@@ -18,7 +18,7 @@ swaync &
 pkill -f waybar
 waybar &
 
-vicinae server & 
+vicinae server &
 #pkill -f auto-hide-waybar
 #auto-hide-waybar &
 
@@ -44,3 +44,5 @@ rm ~/ly-session.log
 #foot --server &
 
 #niri-float-sticky &
+
+emacs --daemon &
