@@ -45,7 +45,7 @@ environment {
 
 ** Layout
 
-my niri looks way better than your's
+i don't like the default layout, this one feel much better to me
 
 #+begin_src kdl :tangle yes
 layout {
@@ -99,7 +99,7 @@ layout {
 
 ** Keybinds
 
-yep, this is how i like using my system
+yep, i don't use a lot of keybinds, just the absolute necessities
 
 #+begin_src kdl :tangle yes
 binds {
@@ -224,6 +224,8 @@ binds {
 
 ** Input Configs
 
+the input system the way i like
+
 #+begin_src kdl :tangle yes
 input {
 
@@ -263,6 +265,8 @@ input {
 #+end_src
 
 ** Rules
+
+just the right amount of blur/transparency/floating
 
 #+begin_src kdl :tangle yes
 window-rule {
@@ -561,6 +565,8 @@ animations {
 
 ** Startup Programs
 
+yeah, i use the old way to startup my programs and settings than using systemd services
+
 #+begin_src kdl :tangle yes
 spawn-at-startup "~/.config/autostart/startup.sh"
 
@@ -575,6 +581,8 @@ spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata
 #+end_src
 
 ** Misc
+
+other quality of life settings
 
 #+begin_src kdl :tangle yes
 screenshot-path "~/media/pix/ss/shot_%y%m%d_%H-%M-%S.png"
