@@ -1,3 +1,12 @@
+#+title: Niri Configuration
+#+author: Swarnaditya Singh
+#+property: header-args:kdl :tangle "~/.config/niri/config.kdl"
+
+** Environment Variables
+
+yes, i got nvidia gpu and i use wayland
+
+#+begin_src kdl :tangle yes
 environment {
   DISPLAY ":0"
 
@@ -32,7 +41,13 @@ environment {
   __GL_SYNC_TO_VBLANK "0"
   NVD_BACKEND "direct"
 }
+#+end_src
 
+** Layout
+
+my niri looks way better than your's
+
+#+begin_src kdl :tangle yes
 layout {
     preset-column-widths {
         proportion 0.25      // Quarter screen
@@ -80,7 +95,13 @@ layout {
     background-color "transparent"
     gaps 6
 }
+#+end_src
 
+** Keybinds
+
+yep, this is how i like using my system
+
+#+begin_src kdl :tangle yes
 binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
@@ -199,7 +220,11 @@ binds {
 
     Super+Ctrl+Shift+T { toggle-debug-tint; }
 }
+#+end_src
 
+** Input Configs
+
+#+begin_src kdl :tangle yes
 input {
 
     keyboard {
@@ -235,7 +260,11 @@ input {
   warp-mouse-to-focus
   workspace-auto-back-and-forth
 }
+#+end_src
 
+** Rules
+
+#+begin_src kdl :tangle yes
 window-rule {
   match app-id="waterfox" title=r#"^File Upload$"#
   open-floating true
@@ -351,7 +380,13 @@ layer-rule {
     xray false;
   }
 }
+#+end_src
 
+** Monitor Config
+
+yeah, sometimes when i connect to the external monitor, i disable the laptop's monitor
+
+#+begin_src kdl :tangle yes
 output "eDP-1" {
   //off
   scale 1
@@ -366,7 +401,13 @@ output "HDMI-A-2" {
   mode "1920x1080@74.973"
   position x=0 y=0
 }
+#+end_src
 
+** Animations
+
+these feel smooth without being too glittery like some of the hyprland configs out there, if you know what i mean
+
+#+begin_src kdl :tangle yes
 animations {
     workspace-switch {
         // off
@@ -516,7 +557,11 @@ animations {
     curve "ease-out-quad"
   }
 }
+#+end_src
 
+** Startup Programs
+
+#+begin_src kdl :tangle yes
 spawn-at-startup "~/.config/autostart/startup.sh"
 
 spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -527,7 +572,11 @@ spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
 spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'Adwaita'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Cosmic'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
+#+end_src
 
+** Misc
+
+#+begin_src kdl :tangle yes
 screenshot-path "~/media/pix/ss/shot_%y%m%d_%H-%M-%S.png"
 
 prefer-no-csd
@@ -578,7 +627,12 @@ switch-events {
   lid-close { spawn "systemctl" "suspend-then-hibernate"; }
   lid-open { spawn "notify-send" "System resume complete"; }
 }
+#+end_src
 
+** Debug
+
+#+begin_src kdl :tangle yes
 debug {
     honor-xdg-activation-with-invalid-serial
 }
+#+end_src
