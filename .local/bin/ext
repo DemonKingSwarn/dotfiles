@@ -3,18 +3,23 @@
 printf "%s\n\t" "$1"
 printf "extract?[y/N]"
 read ans
-[ $ans = "y" ] && {
-    case $1 in
-        *.tar.bz2) tar -xjf $1 ;;
-        *.tar.gz) tar -xzf $1 ;;
-        *.rar) unrar e $1 ;;
-        *.gz) gunzip $1 ;;
-        *.tar) tar -xf $1 ;;
-        *.tbz2) tar -xjf $1 ;;
-        *.tgz) tar -xzf $1 ;;
-        *.zip) unzip $1 ;;
-        *.Z) uncompress $1 ;;
-        *.7z) 7zz x $1 ;;
-        *.tar.xz) tar -xf $1 ;;
+
+choose() {
+  local filename="$1"
+  case $1 in
+        *.tar.bz2) tar -xjf $filename ;;
+        *.tar.gz) tar -xzf $filename ;;
+        *.rar) unrar e $filename ;;
+        *.gz) gunzip $filename ;;
+        *.tar) tar -xf $filename ;;
+        *.tbz2) tar -xjf $filename ;;
+        *.tgz) tar -xzf $filename ;;
+        *.zip) unzip $filename ;;
+        *.Z) uncompress $filename ;;
+        *.7z) 7zz x $filename ;;
+        *.tar.xz) tar -xf $filename ;;
     esac
 }
+
+
+[ $ans = "y" ] && choose "$1"

@@ -78,6 +78,7 @@ layout {
     }
 
     background-color "transparent"
+
     gaps 6
 }
 
@@ -86,8 +87,8 @@ binds {
 
     Super+Return { spawn "wezterm"; }
     Alt+Return { spawn "ghostty"; }
-    //Super+D { spawn "rofi" "-show" "drun"; }
-    Super+D { spawn "vicinae" "toggle"; }
+    Super+D { spawn "rofi" "-show" "drun"; }
+    //Super+D { spawn "vicinae" "toggle"; }
     Super+E { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
     Super+Shift+X { spawn "~/.scripts/system/waylock.sh"; }
     Print { screenshot-screen; }
@@ -524,8 +525,8 @@ spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURREN
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
 
-spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
-spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'Adwaita'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
+spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Cosmic'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
 
