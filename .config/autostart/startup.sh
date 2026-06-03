@@ -31,8 +31,8 @@ xwayland-satellite &
 pkill -f awww-daemon
 awww-daemon &
 
-#wl-paste --type text --watch cliphist store &
-#wl-paste --type image --watch cliphist store &
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
 
 pkill -f blueman-applet
 blueman-applet &

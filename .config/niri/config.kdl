@@ -31,6 +31,8 @@ environment {
   VDPAU_DRIVER "nvidia"
   __GL_SYNC_TO_VBLANK "0"
   NVD_BACKEND "direct"
+  GBM_BACKEND "nvidia-drm"
+  
 }
 
 layout {
@@ -91,6 +93,7 @@ binds {
     //Super+D { spawn "vicinae" "toggle"; }
     Super+E { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
     Super+Shift+X { spawn "~/.scripts/system/waylock.sh"; }
+    Super+Z { spawn "~/.local/bin/zoomer"; }
     Print { screenshot-screen; }
     Super+Print { screenshot; }
     Alt+Print { screenshot-window; }
@@ -103,7 +106,7 @@ binds {
     Super+O { spawn "~/.scripts/0x0/share"; }
     Super+W { spawn "~/.scripts/misc/wallmanager"; }
     Super+G { spawn "nirifreeze"; }
-    Super+V { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    Super+V { spawn "~/.scripts/misc/clip"; }
     Alt+C { spawn "colpick"; }
     Super+TAB repeat=false { toggle-overview; }
 

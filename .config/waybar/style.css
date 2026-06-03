@@ -27,8 +27,8 @@
 }
 
 window#waybar {
-  color: #cdd6f4;              /* text */
-  background: #1e1e2e;         /* base */
+  color: #d8dee9;              /* snow storm 0 */
+  background: #2e3440;         /* polar night 0 */
   font-family: JetBrainsMono Nerd Font, YujiBoku, Noto Color Emoji;
   font-size: 14.7px;
   font-weight: 900;
@@ -42,9 +42,9 @@ window#waybar {
 
 /* Workspaces */
 #workspaces button {
-  color: #cdd6f4;
-  background: #1e1e2e;
-  border: 2pt solid #bac2de;   /* subtext */
+  color: #d8dee9;
+  background: #2e3440;
+  border: 2pt solid #4c566a;   /* polar night 3 */
   margin-right: 3pt;
   min-width: 15pt;
   padding: 0 3.75pt;
@@ -55,117 +55,117 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  color: #f5c2e7;              /* pink */
-  border-color: #f5c2e7;
+  color: #b48ead;              /* aurora purple */
+  border-color: #b48ead;
 }
 
 #workspaces button.visible,
 #workspaces button.visible:hover,
 #workspaces button.active,
 #workspaces button.active:hover {
-  color: #a6e3a1;              /* green */
-  border-color: #a6e3a1;
+  color: #a3be8c;              /* aurora green */
+  border-color: #a3be8c;
 }
 
 #workspaces button.urgent {
-  color: #f38ba8;              /* red */
-  border-color: #f38ba8;
+  color: #bf616a;              /* aurora red */
+  border-color: #bf616a;
 }
 
 /* Launcher */
 #custom-rofi {
-  color: #1e1e2e;
-  border: 2pt solid #89b4fa;   /* blue */
-  background: #89b4fa;
+  color: #2e3440;
+  border: 2pt solid #81a1c1;   /* frost 2 */
+  background: #81a1c1;
   padding: 0 6pt;
 }
 
 /* Window title */
 #window {
-  border-bottom: 2pt solid #f5c2e7; /* pink */
+  border-bottom: 2pt solid #b48ead; /* aurora purple */
 }
 
 /* Tray */
 #tray {
-  border-bottom: 2pt solid #6c7086; /* overlay */
-  background: #313244;             /* surface0 */
+  border-bottom: 2pt solid #4c566a; /* polar night 3 */
+  background: #3b4252;             /* polar night 1 */
   padding: 0 6pt;
 }
 
 /* System stats */
 #disk {
-  border-bottom: 2pt solid #f38ba8; /* red */
+  border-bottom: 2pt solid #bf616a; /* aurora red */
 }
 
 #cpu {
-  border-bottom: 2pt solid #fab387; /* peach */
+  border-bottom: 2pt solid #d08770; /* aurora orange */
 }
 
 #custom-nettraf {
-  border-bottom: 2pt solid #f9e2af; /* yellow */
+  border-bottom: 2pt solid #ebcb8b; /* aurora yellow */
 }
 
 #custom-cpu_temp.critical {
-  color: #f38ba8;
-  border-bottom: 2pt solid #f38ba8;
+  color: #bf616a;
+  border-bottom: 2pt solid #bf616a;
 }
 
 #custom-cpu_temp.unknown {
-  color: #6c7086;
-  border-bottom: 2pt solid #6c7086;
+  color: #4c566a;
+  border-bottom: 2pt solid #4c566a;
 }
 
 #backlight {
-  border-bottom: 2pt solid #f9e2af; /* yellow */
+  border-bottom: 2pt solid #ebcb8b; /* aurora yellow */
 }
 
 #custom-memory {
-  border-bottom: 2pt solid #89b4fa; /* blue */
+  border-bottom: 2pt solid #81a1c1; /* frost 2 */
 }
 
 /* Audio */
 #custom-volume,
 #pulseaudio {
-  border-bottom: 2pt solid #94e2d5; /* teal */
+  border-bottom: 2pt solid #8fbcbb; /* frost 0 */
 }
 
 #pulseaudio.muted {
-  color: #f38ba8;
-  border-bottom: 2pt solid #f38ba8;
+  color: #bf616a;
+  border-bottom: 2pt solid #bf616a;
 }
 
 /* Battery */
 #battery {
-  border-bottom: 2pt solid #a6e3a1; /* green */
+  border-bottom: 2pt solid #a3be8c; /* aurora green */
 }
 
 #battery.critical,
 #battery.charging.critical {
-  color: #f38ba8;
-  border-bottom: 2pt solid #f38ba8;
+  color: #bf616a;
+  border-bottom: 2pt solid #bf616a;
 }
 
 #battery.warning,
 #battery.charging.warning {
-  color: #fab387; /* peach */
-  border-bottom: 2pt solid #fab387;
+  color: #d08770;              /* aurora orange */
+  border-bottom: 2pt solid #d08770;
 }
 
 /* Clock & Network */
 #custom-clock {
-  border-bottom: 2pt solid #a6e3a1;
+  border-bottom: 2pt solid #a3be8c;
 }
 
 #custom-internet,
 #network {
-  border-bottom: 2pt solid #f5c2e7;
+  border-bottom: 2pt solid #b48ead; /* aurora purple */
 }
 
 /* Modes */
 #mode,
 #submap {
-  color: #1e1e2e;
-  border: 2pt solid #cba6f7;   /* mauve */
-  background: #cba6f7;
+  color: #2e3440;
+  border: 2pt solid #88c0d0;   /* frost 1 */
+  background: #88c0d0;
   padding: 0 4.5pt;
 }
