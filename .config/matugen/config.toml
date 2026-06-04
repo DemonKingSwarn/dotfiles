@@ -1,11 +1,22 @@
 
 [config]
-[templates.pywalfox]
-input_path = '~/.config/matugen/pywalfox.json'         
-output_path = '~/.cache/wal/colors.json'
-post_hook = 'pywalfox update'
+reload_gtk_theme = true
+
+#[templates.ghostty]
+#input_path = '~/.config/matugen/templates/ghostty'
+#output_path = '~/.config/ghostty/themes/matugen'
+#post_hook = 'pkill -SIGUSR2 ghostty'
+
+#[templates.pywalfox]
+#input_path = '~/.config/matugen/pywalfox.json'
+#output_path = '~/.cache/wal/colors.json'
+#post_hook = 'pywalfox update'
 
 [templates.waybar]
 input_path = '~/.config/matugen/templates/waybar/color.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
+
+#[templates.wezterm]
+#input_path = '~/.config/matugen/templates/wezterm.toml'
+#output_path = '~/.config/wezterm/colors/matugen_theme.toml'

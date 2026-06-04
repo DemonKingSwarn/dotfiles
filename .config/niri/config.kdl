@@ -58,7 +58,7 @@ layout {
     }
     border {
         width 2
-        active-color "#C1CAF5"
+        active-color "#c5a5f5"
         inactive-color "transparent"
         urgent-color "#9b0000"
     }

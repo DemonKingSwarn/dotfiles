@@ -1,62 +1,116 @@
-entry {
-    placeholder: "";
-    text-color: #dddddd;
-    padding: 8px 0 8px 8px;
-}
-
 configuration {
-    font: "JetBrainsMono Nerd Font Mono 12";
-    lines: 10;
-    fixed-num-lines: true;
-    padding: 10px;
+  display-drun: "Applications:";
+  display-window: "Windows:";
+  display-calc: "Calculator:";
+  drun-display-format: "{icon} {name}";
+  show-icons: true;
+  font: "SF Pro 13";
+  modi: "window,run,drun,calc";
+  icon-theme:"Papirus";
+  fixed-num-lines: false;
+  location: 2;
+  calc {
+    hint-result: " ";
+    hint-welcome: "Type an expression";
+  }
 }
 
-inputbar {
-    children: [entry];
-}
+@theme "/dev/null"
 
 * {
-    separatorcolor: transparent;
-    selected-normal-background: rgba(255,255,255, 5%);
-    normal-background: rgba(255,255,255, 0%);
-    alternate-normal-background: rgba(255,255,255, 0%);
-}
+  bg: #1e1e2e;
+  bg-alt: #585b7066;
+  bg-selected: #31324466;
 
-mainbox {
-    border: 2px;
-    border-color: rgba(255,255,255, 20%);
-    border-radius: 10px;
-    padding: 10px;
+  fg: #cdd6f4;
+  fg-alt: #7f849c;
+
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
 }
 
 window {
-    border-radius: 11px;
-    border: 1px solid;
-    border-color: #000000;
-    background-color: rgba(38,43,52,85%);
-    padding: 0px;
-    width: 30%;
-}
-
-
-listview {
-    lines: 10;
+  width: 30%;
+  background-color: @bg;
+  location: north;
+  anchor: north;
+  y-offset: 80px;
 }
 
 element {
-    padding: 10px 10px;
-    height: 50px;
-    border-radius: 5px;
-    children: [ element-text, element-icon ];
+  padding: 8 12;
+  background-color: transparent;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+  background-color: @bg-selected;
 }
 
 element-text {
-    text-color: #e1e1e1;
+  background-color: transparent;
+  text-color: inherit;
+  vertical-align: 0.5;
 }
 
-#scrollbar {
-    handle-color: #3a3f4a;
-    handle-width: 4px ;
-    padding: 0;
+element-icon {
+  size: 14;
+  padding: 0 10 0 0;
+  background-color: transparent;
 }
 
+entry {
+  padding: 12;
+  background-color: @bg-alt;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+  background-color: @bg;
+  expand: false;
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 10;
+  require-input: true;
+  dynamic: true;
+  fixed-height: false;
+  expand: false;
+}
+
+@media (enabled: env(ROFI_WINDOW, false)) {
+  listview {
+    require-input: false;
+  }
+}
+
+mainbox {
+  children: [inputbar, message, listview];
+  background-color: @bg;
+}
+
+message {
+  background-color: @bg;
+  padding: 0 12 8 12;
+}
+
+textbox {
+  text-color: @fg;
+  background-color: transparent;
+}
+
+prompt {
+  enabled: true;
+  padding: 12 0 0 12;
+  background-color: @bg-alt;
+  text-color: @fg;
+}
+
+/* vim: ft=sass
