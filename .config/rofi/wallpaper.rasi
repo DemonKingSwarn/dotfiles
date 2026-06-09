@@ -1,3 +1,8 @@
+configuration {
+  display-file-browser-extended: "Select your wallpaper: ";
+  modi: "file-browser-extended";
+}
+
 * {
   bg: #1e1e2ee6;
   bg-alt: #313244cc;

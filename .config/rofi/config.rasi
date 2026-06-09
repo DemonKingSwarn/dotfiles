@@ -1,12 +1,13 @@
 configuration {
+  display-run: "Run: ";
   display-drun: "Applications:";
   display-window: "Windows:";
   display-calc: "Calculator:";
   drun-display-format: "{icon} {name}";
   show-icons: true;
   font: "SF Pro 13";
-  modi: "window,run,drun,calc";
-  icon-theme:"Papirus";
+  modi: "window,run,drun,calc,file-browser-extended";
+  icon-theme:"Dracula";
   fixed-num-lines: false;
   location: 2;
   calc {
@@ -18,12 +19,12 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #1e1e2e;
-  bg-alt: #585b7066;
-  bg-selected: #31324466;
+  bg: #2e3440;
+  bg-alt: #3b415266;
+  bg-selected: #43485566;
 
-  fg: #cdd6f4;
-  fg-alt: #7f849c;
+  fg: #d8dee9;
+  fg-alt: #616e88;
 
 
   border: 0;
@@ -38,6 +39,7 @@ window {
   location: north;
   anchor: north;
   y-offset: 80px;
+  border-radius: 0px;
 }
 
 element {
@@ -49,6 +51,7 @@ element {
 element selected {
   text-color: @fg;
   background-color: @bg-selected;
+  border-radius: 0px;
 }
 
 element-text {

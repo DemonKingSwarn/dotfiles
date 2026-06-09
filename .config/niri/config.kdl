@@ -19,7 +19,7 @@ environment {
   QT_PLUGIN_PATH "/usr/lib/qt/plugins/"
   QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
   QT_QPA_PLATFORM "wayland"
-  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME "qt6ct"
 
   HYPRCURSOR_THEME "Bibata-Modern-Ice"
   HYPRCURSOR_SIZE "24"
@@ -58,7 +58,7 @@ layout {
     }
     border {
         width 2
-        active-color "#c5a5f5"
+        active-color "#B48EAD"
         inactive-color "transparent"
         urgent-color "#9b0000"
     }
@@ -88,7 +88,7 @@ binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
     Super+Return { spawn "wezterm"; }
-    Alt+Return { spawn "ghostty"; }
+    Alt+Return { spawn "footclient"; }
     Super+D { spawn "rofi" "-show" "drun"; }
     //Super+D { spawn "vicinae" "toggle"; }
     Super+E { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
@@ -290,7 +290,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 20
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
