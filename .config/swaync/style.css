@@ -1,12 +1,12 @@
-@define-color bg rgba(46, 52, 64, 0.92);
-@define-color bg-solid #2e3440;
-@define-color bg-alt rgba(59, 66, 82, 0.86);
-@define-color bg-hover rgba(67, 76, 94, 0.9);
-@define-color border rgba(136, 192, 208, 0.35);
-@define-color text #eceff4;
-@define-color text-muted #d8dee9;
-@define-color accent #88c0d0;
-@define-color urgent #bf616a;
+@define-color bg rgba(26, 27, 38, 0.92);
+@define-color bg-solid #1a1b26;
+@define-color bg-alt rgba(36, 40, 59, 0.86);
+@define-color bg-hover rgba(41, 46, 66, 0.9);
+@define-color border rgba(122, 162, 247, 0.35);
+@define-color text #c0caf5;
+@define-color text-muted #a9b1d6;
+@define-color accent #7aa2f7;
+@define-color urgent #f7768e;
 
 * {
   font-family: "SF Pro", sans-serif;
