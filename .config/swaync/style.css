@@ -2,14 +2,14 @@
 @define-color bg-solid #1a1b26;
 @define-color bg-alt rgba(36, 40, 59, 0.86);
 @define-color bg-hover rgba(41, 46, 66, 0.9);
-@define-color border rgba(122, 162, 247, 0.35);
+@define-color border rgba(255, 0, 124, 0.9);
 @define-color text #c0caf5;
 @define-color text-muted #a9b1d6;
 @define-color accent #7aa2f7;
 @define-color urgent #f7768e;
 
 * {
-  font-family: "SF Pro", sans-serif;
+  font-family: "SF Pro", LythMono Nerd Font, YujiBoku, Noto Color Emoji, sans-serif;
   font-size: 13px;
 }
 
