@@ -38,11 +38,11 @@
       "7": "七",
       "8": "八",
       "9": "九",
-      "10": "十",
+      "10": "十"
     },
     "sort-by-number": true,
     "active-only": true,
-    "justify": "center",
+    "justify": "center"
   },
 
     "idle_inhibitor": {

@@ -1,14 +1,12 @@
-local wezterm = require 'wezterm'
-
 local wezterm = require("wezterm")
--- local catppuccin = require("colors/catppuccin")
 
 local config = {
   default_cursor_style = "SteadyBar",
 
-  -- Correct way: main font + emoji as fallback
   font = wezterm.font_with_fallback {
     "LythMono Nerd Font",
+    { family = "YujiBoku", weight = "Regular" },
+    { family = "Akshar", weight = "Regular" },
     "NotoColorEmoji Regular",
   },
 
@@ -20,11 +18,7 @@ local config = {
   window_close_confirmation = "NeverPrompt",
   default_prog = { "zsh" },
 
-  -- Use built-in Catppuccin (recommended, simpler)
-  color_scheme = "nord",
-
-  -- If you prefer your custom colors file instead:
-  -- colors = catppuccin.mocha,
+  color_scheme = "tokyonight",
 }
 
 return config

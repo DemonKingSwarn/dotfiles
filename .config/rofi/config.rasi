@@ -19,13 +19,12 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #2e3440;
-  bg-alt: #3b415266;
-  bg-selected: #43485566;
+  bg:          #1a1b26;
+  bg-alt:      #16161e66;
+  bg-selected: #41486866;
 
-  fg: #d8dee9;
-  fg-alt: #616e88;
-
+  fg:          #c0caf5;
+  fg-alt:      #565f89;
 
   border: 0;
   margin: 0;
@@ -116,4 +115,4 @@ prompt {
   text-color: @fg;
 }
 
-/* vim: ft=sass
+/* vim: ft=sass */
