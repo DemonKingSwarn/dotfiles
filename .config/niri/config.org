@@ -109,7 +109,7 @@ binds {
     Super+Shift+Slash { show-hotkey-overlay; }
 
     Super+Return { spawn "wezterm"; }
-    Alt+Return { spawn "footclient"; }
+    Alt+Return { spawn "st"; }
     Super+D { spawn "rofi" "-show" "drun"; }
     //Super+D { spawn "vicinae" "toggle"; }
     Super+E { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
@@ -290,7 +290,7 @@ window-rule {
 window-rule {
   match app-id=r#"^org\.wezfurlong\.wezterm$"#
   match app-id=r#"^com\.mitchellh\.ghostty$"#
-  match app-id=r#"^foot|footclient$"#
+  match app-id=r#"^foot|footclient|St|st$"#
 
   background-effect {
     blur { on; }
