@@ -93,7 +93,7 @@ binds {
     //Super+D { spawn "vicinae" "toggle"; }
     Super+E { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
     Super+Shift+X { spawn "~/.scripts/system/waylock.sh"; }
-    Super+Z { spawn "~/.local/bin/zoomer"; }
+    //Super+Z { spawn "~/.local/bin/zoomer"; }
     Print { screenshot-screen; }
     Super+Print { screenshot; }
     Alt+Print { screenshot-window; }
@@ -270,6 +270,7 @@ window-rule {
   match app-id=r#"^Helium$"#
   match app-id=r#"^thunar$"#
   match app-id=r#"^emacs$"#
+
   opacity 0.95
   background-effect {
     blur { on; }
@@ -530,7 +531,7 @@ spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"
 
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-master'"
 spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
-spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Cosmic'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
 
 screenshot-path "~/media/pix/ss/shot_%y%m%d_%H-%M-%S.png"

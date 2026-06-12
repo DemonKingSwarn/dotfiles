@@ -53,6 +53,8 @@ alias lf='yazi'
 alias dfm='demonfm'
 alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
 
+alias lsblk='lsblk | bat -l conf -p'
+
 if [ "$TERM" = "linux" ] ; then
         alias ls='/bin/ls --color=auto'
 else

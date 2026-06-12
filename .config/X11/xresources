@@ -5,9 +5,9 @@ Xft.autohint:	0
 Xft.hintstyle:	hintslight
 Xft.rgba:	rgb
 Xft.lcdfilter:	lcddefault
-!Xcursor.theme: macOS-BigSur
+Xcursor.theme: Bibata-Modern-Ice
 
-st.font:        JetBrains Mono:style=medium:pixelsize=18
+st.font:        LythMono Nerd Font:style=medium:pixelsize=18
 
 ! window padding
 ! st.borderpx: 20

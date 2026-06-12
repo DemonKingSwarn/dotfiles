@@ -45,13 +45,14 @@
     "justify": "center"
   },
 
-    "idle_inhibitor": {
+  "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "󰈈",
             "deactivated": "󰈉"
         }
     },
+    
     "tray": {
         "spacing": 10
     },
@@ -109,7 +110,7 @@
     "wlr/taskbar": {
         "format": "{icon}",
         "icon-size": 22,
-        "icon-theme": "Numix-Circle",
+        "icon-theme": "Pop",
         "tooltip-format": "{title}",
         "on-click": "activate",
         "on-click-middle": "close"
@@ -176,7 +177,7 @@
       "icon": false,
       "icon-size": 18,
       "rewrite": {
-        "(.*) Thunar": "Thunar",
+        "(.*) Dolphin": "File Manager",
         "(.*)obs(.*)": "OBS",
         "Spotify (.*)": "Spotify",
         "discord(.*)": "Discord",

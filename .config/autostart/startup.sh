@@ -12,6 +12,8 @@ pkill -f /usr/lib/xdg-desktop-portal-gnome
 pkill -f swaync
 swaync &
 
+xrdb -merge ~/.config/X11/xresources
+
 #pkill -f hypridle
 #hypridle &
 

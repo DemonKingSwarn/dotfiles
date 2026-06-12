@@ -1,10 +1,17 @@
 @import "./colors.css";
 
 * {
+  border: none;
+  border-radius: 0px;
+
+  font-family: "LythMono Nerd Font", "Akshar", "YujiBoku", "Noto Color Emoji", sans-serif;
+  font-size: 14px; 
+  font-weight: bold;
+  
   padding: 0;
   margin: 0;
-  border-radius: 0;
   min-height: 0;
+  
   text-shadow: none;
   transition: none;
   box-shadow: none;
@@ -31,9 +38,6 @@
 window#waybar {
   color: @fg;
   background: @bg;
-  font-family: LythMono Nerd Font, Akshar, YujiBoku, NotoColorEmoji, sans-serif;
-  font-size: 13px;
-  font-weight: 900;
 }
 
 .modules-left,
@@ -57,7 +61,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  color: @color5;              /* purple */
+  color: @color5;              
   border-color: @color5;
 }
 
@@ -65,19 +69,19 @@ window#waybar {
 #workspaces button.visible:hover,
 #workspaces button.active,
 #workspaces button.active:hover {
-  color: @color2;              /* green */
+  color: @color2;              
   border-color: @color2;
 }
 
 #workspaces button.urgent {
-  color: @color1;              /* red */
+  color: @color1;              
   border-color: @color1;
 }
 
 /* Launcher */
 #custom-rofi {
   color: @bg;
-  border: 2pt solid @color4;  /* blue */
+  border: 2pt solid @color4;  
   background: @color4;
   padding: 0 6pt;
 }
