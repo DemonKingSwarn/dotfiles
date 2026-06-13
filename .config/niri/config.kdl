@@ -261,7 +261,7 @@ window-rule {
   match app-id=r#"^foot|footclient|St|st$"#
 
   background-effect {
-    blur { on; }
+    blur true;
   }
 }
 
@@ -274,7 +274,7 @@ window-rule {
 
   opacity 0.95
   background-effect {
-    blur { on; }
+    blur true;
   }
 }
 
@@ -354,7 +354,7 @@ layer-rule {
   match namespace="rofi"
 
   background-effect {
-    blur { on; }
+    blur true;
     xray false;
   }
 }
@@ -525,7 +525,8 @@ animations {
 }
 
 spawn-at-startup "~/.config/autostart/startup.sh"
-
+spawn-at-startup "xrdb -merge ~/.config/X11/xresources"
+  
 spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "systemctl --user import-environment QT_QPA_PLATFORMTHEME"

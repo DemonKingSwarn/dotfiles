@@ -56,7 +56,7 @@ y = 0
 family = "LythMono Nerd Font"
 
 [font.normal]
-family = "LythMono Nerd Font"
+family = "monospace"
 
 [font.offset]
 x = 0
@@ -64,28 +64,28 @@ y = 0
 
 [[keyboard.bindings]]
 action = "Paste"
-key = "V"
-mods = "Command"
+key = "p"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Copy"
-key = "C"
-mods = "Command"
+key = "y"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Hide"
 key = "H"
-mods = "Command"
+mods = "Super"
 
 [[keyboard.bindings]]
 action = "Quit"
 key = "Q"
-mods = "Command"
+mods = "Super"
 
 [[keyboard.bindings]]
 action = "Quit"
 key = "W"
-mods = "Command"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u007F"
