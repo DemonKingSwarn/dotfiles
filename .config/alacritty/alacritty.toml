@@ -1,4 +1,4 @@
-live_config_reload = true
+general.live_config_reload = true
 
 [bell]
 animation = "EaseOutExpo"
@@ -8,32 +8,32 @@ duration = 0
 draw_bold_text_with_bright_colors = true
 
 [colors.bright]
-black = "0x686868"
-blue = "0x57c7ff"
-cyan = "0x9aedfe"
-green = "0x5af78e"
-magenta = "0xff6ac1"
-red = "0xff5c57"
-white = "0xf1f1f0"
-yellow = "0xf3f99d"
+black = "0x414868"
+blue = "0x7aa2f7"
+cyan = "0x7dcfff"
+green = "0x9ece6a"
+magenta = "0xbb9af7"
+red = "0xf7768e"
+white = "0xc0caf5"
+yellow = "0xe0af68"
 
 [colors.cursor]
-background = "0x008ec4"
-foreground = "0xf1f1f1"
+background = "0x7aa2f7"
+foreground = "0x1a1b26"
 
 [colors.normal]
-black = "0x282a36"
-blue = "0x57c7ff"
-cyan = "0x9aedfe"
-green = "0x5af78e"
-magenta = "0xff6ac1"
-red = "0xff5c57"
-white = "0xf1f1f0"
-yellow = "0xf3f99d"
+black = "0x15161e"
+blue = "0x7aa2f7"
+cyan = "0x7dcfff"
+green = "0x9ece6a"
+magenta = "0xbb9af7"
+red = "0xf7768e"
+white = "0xa9b1d6"
+yellow = "0xe0af68"
 
 [colors.primary]
-background = "0x282a36"
-foreground = "0xeff0eb"
+background = "0x1a1b26"
+foreground = "0xc0caf5"
 
 [cursor]
 style = "Block"
@@ -43,20 +43,20 @@ unfocused_hollow = true
 render_timer = false
 
 [font]
-size = 14.5
+size = 16
 
 [font.bold]
-family = "JetBrains Mono Nerd Font"
+family = "LythMono Nerd Font"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "JetBrains Mono Nerd Font"
+family = "LythMono Nerd Font"
 
 [font.normal]
-family = "JetBrains Mono Nerd Font"
+family = "LythMono Nerd Font"
 
 [font.offset]
 x = 0
@@ -148,19 +148,19 @@ multiplier = 3
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
+[terminal.shell]
 program = "/usr/sbin/zsh"
 
 [window]
 decorations = "buttonless"
 dynamic_title = true
-opacity = 1
-startup_mode = "Maximized"
+opacity = 0.9
+startup_mode = "Windowed"
 
 [window.dimensions]
 columns = 82
 lines = 24
 
 [window.padding]
-x = 2
-y = 2
+x = 10
+y = 10

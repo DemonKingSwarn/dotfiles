@@ -8,6 +8,7 @@ Xft.lcdfilter:	lcddefault
 Xcursor.theme: Bibata-Modern-Ice
 
 st.font:        LythMono Nerd Font:style=medium:pixelsize=18
+st.font2:       Noto Color Emoji:pixelsize=18
 
 ! window padding
 st.borderpx: 15
