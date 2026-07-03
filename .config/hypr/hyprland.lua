@@ -94,7 +94,7 @@ hl.config({
 
   master = {
     new_status = "master",
-  }, 
+  },
 
   misc = {
     disable_hyprland_logo = true,

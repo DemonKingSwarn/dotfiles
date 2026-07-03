@@ -103,7 +103,7 @@ binds {
     Super+Shift+P { screenshot; }
 
     Super+N { spawn "nightmode"; }
-    Super+O { spawn "~/.scripts/0x0/share"; }
+    //Super+O { spawn "~/.scripts/0x0/share"; }
     Super+W { spawn "~/.scripts/misc/wallmanager"; }
     Super+G { spawn "nirifreeze"; }
     Super+V { spawn "~/.scripts/misc/clip"; }
@@ -292,7 +292,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 12
     clip-to-geometry true
 }
 
@@ -368,10 +368,11 @@ output "eDP-1" {
 }
 
 output "HDMI-A-2" {
-  scale 1
+  scale 0.85
 
-  mode "1920x1080@74.973"
-  position x=0 y=0
+  mode "1024x768@60"
+  //position x=0 y=0
+  position x=3840 y=0
 }
 
 animations {

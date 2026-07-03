@@ -38,7 +38,7 @@ window {
   location: north;
   anchor: north;
   y-offset: 80px;
-  border-radius: 0px;
+  border-radius: 12px;
 }
 
 element {
@@ -50,7 +50,7 @@ element {
 element selected {
   text-color: @fg;
   background-color: @bg-selected;
-  border-radius: 0px;
+  border-radius: 12px;
 }
 
 element-text {
@@ -115,4 +115,4 @@ prompt {
   text-color: @fg;
 }
 
-/* vim: ft=sass */
+// vim: ft=sass 

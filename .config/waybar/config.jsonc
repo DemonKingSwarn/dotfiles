@@ -151,10 +151,11 @@
         },
         "return-type": "json",
         "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
+        "exec": "swaync-client -swb",        
         "on-click": "swaync-client -t -sw",
+        //"on-click": "qs -p ~/.config/quickshell/Notifications.qml ipc call notifications toggle",
         "on-click-right": "swaync-client -d -sw",
-        "escape": true,
+        "escape": true
     },
 
     "privacy": {

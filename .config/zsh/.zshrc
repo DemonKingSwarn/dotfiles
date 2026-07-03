@@ -75,3 +75,8 @@ else
   greet
 fi
 
+if [ ! -n "/tmp/xran" ]; then
+  xrdb -merge ~/.config/X11/xresources
+  notify-send "Setup'd xwayland's themes"
+  touch "/tmp/xran"
+fi

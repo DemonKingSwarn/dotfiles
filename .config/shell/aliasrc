@@ -52,6 +52,7 @@ alias rtmp='podman run -d -p 1935:1935 --name nginx docker.io/tiangolo/nginx-rtm
 alias lf='yazi'
 alias dfm='demonfm'
 alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
+alias down="aria2c -x 16 -s 16"
 
 alias lsblk='lsblk | bat -l conf -p'
 
