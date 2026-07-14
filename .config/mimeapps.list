@@ -69,5 +69,6 @@ x-scheme-handler/steam=steam.desktop
 x-scheme-handler/steamlink=steam.desktop
 x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop
 x-scheme-handler/webcal=helium-browser.desktop
+x-scheme-handler/discord-1139939140494971051=discord-1139939140494971051.desktop
 
 [Removed Associations]

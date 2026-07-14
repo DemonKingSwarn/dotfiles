@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+rm -f /var/lib/dbus/machine-id
+dbus-uuidgen > /var/lib/dbus/machine-id
+cp /var/lib/dbus/machine-id /etc/machine-id
+chmod 444 /etc/machine-id
+
+exit 0
