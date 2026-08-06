@@ -1,7 +1,49 @@
 #!/bin/sh
 
-#PROTON="/usr/share/steam/compatibilitytools.d/proton-ge-custom/proton"
-PROTON="$HOME/.steam/steam/compatibilitytools.d/GE-Proton11-1/proton"
+# ____                             _       ____            _              
+#|  _ \  ___ _ __ ___   ___  _ __ ( )___  |  _ \ _ __ ___ | |_ ___  _ __  
+#| | | |/ _ \ '_ ` _ \ / _ \| '_ \|// __| | |_) | '__/ _ \| __/ _ \| '_ \ 
+#| |_| |  __/ | | | | | (_) | | | | \__ \ |  __/| | | (_) | || (_) | | | |
+#|____/ \___|_| |_| |_|\___/|_| |_| |___/ |_|   |_|  \___/ \__\___/|_| |_|
+#                                                                         
+# _                           _               
+#| |    __ _ _   _ _ __   ___| |__   ___ _ __ 
+#| |   / _` | | | | '_ \ / __| '_ \ / _ \ '__|
+#| |__| (_| | |_| | | | | (__| | | |  __/ |   
+#|_____\__,_|\__,_|_| |_|\___|_| |_|\___|_|   
+#                                             
 
-STEAM_COMPAT_DATA_PATH="$HOME/.proton" STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.local/share/Steam" VKD3D_CONFIG=dxr11 DXVK_HDR=1 PROTON_ENABLE_NVAPI=1 PROTON_ENABLE_WAYLAND=1 __GL_SHADER_DISK_CACHE=1 WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FAKE_CURRENT_RES=1280x720 "$PROTON" run "$@"
+if [ "$ONLINE_FIX" = "1" ]; then
+  WINEDLLOVERRIDES="OnlineFix64,SteamOverlay64,winmm,dnet,steam_api64=n,b"
+elif [ "$ONLINE_FIX" = "0" ]; then
+  WINEDLLOVERRIDES=""  
+fi
 
+proton_ge () {
+  WINEPREFIX="$HOME/.proton" GAMEID=480 PROTONPATH="$HOME/.steam/steam/compatibilitytools.d/GE-Proton11-1" PROTON_DISCORD_BRIDGE=1 VKD3D_CONFIG=dxr11 PROTON_ENABLE_NVAPI=1 PROTON_ENABLE_WAYLAND=1 __GL_SHADER_DISK_CACHE=1 WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FAKE_CURRENT_RES=1280x720 umu-run "$@"
+}
+
+proton_cachyos () {
+  WINEPREFIX="$HOME/.local/share/proton_cachyos" GAMEID=480 WINEDLLOVERRIDES="dxgi=n,b" PROTONPATH="/usr/share/steam/compatibilitytools.d/proton-cachyos-slr" VKD3D_CONFIG=dxr11 PROTON_ENABLE_NVAPI=1 PROTON_ENABLE_WAYLAND=1 WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FAKE_CURRENT_RES=1280x720 __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 LOW_LATENCY_LAYER=1 umu-run "$@"
+}
+
+if [ -z "$PROTON_DISTRO" ]; then
+  proton_ver=$(echo "GE\nCachyOS" | fzf --reverse --height=50%)
+  case $proton_ver in
+    GE)
+      proton_ge "$@"    
+      ;;
+    CachyOS)
+      proton_cachyos "$@" 
+      ;;
+    *)
+      echo "Nothing selected"
+      ;;
+  esac
+else
+  if [ "$PROTON_DISTRO" = "GE" ]; then
+    proton_ge "$@"
+  elif [ "$PROTON_DISTRO" = "CachyOS" ]; then
+    proton_cachyos "$@"
+  fi
+fi

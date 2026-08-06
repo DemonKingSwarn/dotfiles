@@ -53,6 +53,7 @@ alias lf='yazi'
 alias dfm='demonfm'
 alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
 alias down="aria2c -x 16 -s 16"
+alias loreserver="~/.local/bin/loreserver --config /opt/loreserver/config/local.toml"
 
 alias lsblk='lsblk | bat -l conf -p'
 

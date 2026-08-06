@@ -1,4 +1,4 @@
-+itle: Niri Configuration
+#+title: Niri Configuration
 #+author: Swarnaditya Singh
 #+property: header-args:kdl :tangle "~/.config/niri/config.kdl"
 
@@ -244,6 +244,7 @@ input {
 
     touchpad {
         click-method "button-areas"
+        disabled-on-external-mouse
         tap
         natural-scroll
         scroll-method "two-finger"
@@ -587,6 +588,8 @@ spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'gtk-maste
 spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-master'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
+
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false"
 #+end_src
 
 ** Misc
@@ -643,6 +646,10 @@ gestures {
 switch-events {
   lid-close { spawn "systemctl" "suspend-then-hibernate"; }
   lid-open { spawn "notify-send" "System resume complete"; }
+}
+
+clipboard {
+  disable-primary
 }
 #+end_src
 

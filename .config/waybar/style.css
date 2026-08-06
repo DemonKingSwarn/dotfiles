@@ -17,6 +17,9 @@
   box-shadow: none;
 }
 
+#idle_inhibitor,
+#idle_inhibitor.activated,
+#idle_inhibitor.deactivated,
 #custom-nettraf,
 #window,
 #disk,

@@ -217,6 +217,7 @@ input {
 
     touchpad {
         click-method "button-areas"
+        disabled-on-external-mouse
         tap
         natural-scroll
         scroll-method "two-finger"
@@ -537,6 +538,8 @@ spawn-at-startup "gsettings set org.gnome.desktop.wm.preferences theme 'gtk-mast
 spawn-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Dracula'"
 spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
 
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false"
+
 screenshot-path "~/media/pix/ss/shot_%y%m%d_%H-%M-%S.png"
 
 prefer-no-csd
@@ -586,6 +589,10 @@ gestures {
 switch-events {
   lid-close { spawn "systemctl" "suspend-then-hibernate"; }
   lid-open { spawn "notify-send" "System resume complete"; }
+}
+
+clipboard {
+  disable-primary
 }
 
 debug {
