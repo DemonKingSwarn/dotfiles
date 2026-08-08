@@ -16,7 +16,6 @@
     ],
     "modules-right": [
         "idle_inhibitor", 
-        "privacy",
         "custom/nettraf",
         "custom/volume",
         "custom/clock",

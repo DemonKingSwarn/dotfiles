@@ -1,34 +1,32 @@
 add_newline = true
-command_timeout = 100000000
-
-[aws]
-style = "bold #ffb86c"
+command_timeout = 200
+format = "[$directory$git_branch$git_status]($style)$character"
 
 [character]
-error_symbol = "[❯](bold #ff5555)"
-success_symbol = "[❯](bold #50fa7b)"
-
-[cmd_duration]
-style = "bold #f1fa8c"
+error_symbol = "[✗](bold cyan)"
+success_symbol = "[❯](bold cyan)"
 
 [directory]
-style = "bold #50fa7b"
+truncation_length = 2
+truncation_symbol = "…/"
+repo_root_style = "bold cyan"
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-style = "bold #ff79c6"
+format = "[$branch]($style) "
+style = "italic cyan"
 
 [git_status]
-style = "bold #ff5555"
-
-[hostname]
-style = "bold #bd93f9"
-
-[line_break]
-disabled = true
-
-[package]
-disabled = true
-
-[username]
-format = "[$user]($style) on "
-style_user = "bold #8be9fd"
+format     = '[$all_status]($style)'
+style      = "cyan"
+ahead      = "⇡${count} "
+diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
+behind     = "⇣${count} "
+conflicted = " "
+up_to_date = " "
+untracked  = "? "
+modified   = " "
+stashed    = ""
+staged     = ""
+renamed    = ""
+deleted    = ""
