@@ -39,133 +39,32 @@ yellow = "0xe0af68"
 background = "0x1a1b26"
 foreground = "0xc0caf5"
 
-[cursor]
-style = "Block"
-unfocused_hollow = true
 
-[debug]
-render_timer = false
+[terminal]
+osc52 = "CopyPaste"
 
 [font]
-size = 16
-
-[font.bold]
-family = "LythMono Nerd Font"
-
-[font.glyph_offset]
-x = 0
-y = 0
-
-[font.italic]
-family = "LythMono Nerd Font"
-
-[font.normal]
-family = "monospace"
-
-[font.offset]
-x = 0
-y = 0
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "p"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "y"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "Hide"
-key = "H"
-mods = "Super"
-
-[[keyboard.bindings]]
-action = "Quit"
-key = "Q"
-mods = "Super"
-
-[[keyboard.bindings]]
-action = "Quit"
-key = "W"
-mods = "Super"
-
-[[keyboard.bindings]]
-chars = "\u007F"
-key = "Back"
-
-[[keyboard.bindings]]
-chars = "\u001B[2~"
-key = "Insert"
-
-[[keyboard.bindings]]
-chars = "\u001B[3~"
-key = "Delete"
-
-[[keyboard.bindings]]
-chars = "\u001B[D"
-key = "Left"
-mode = "~AppCursor"
-
-[[keyboard.bindings]]
-chars = "\u001BOD"
-key = "Left"
-mode = "AppCursor"
-
-[[keyboard.bindings]]
-chars = "\u001B[C"
-key = "Right"
-mode = "~AppCursor"
-
-[[keyboard.bindings]]
-chars = "\u001BOC"
-key = "Right"
-mode = "AppCursor"
-
-[[keyboard.bindings]]
-chars = "\u001Bf"
-key = "F"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "\u001Bb"
-key = "B"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "\u001Bd"
-key = "D"
-mods = "Alt"
-
-[mouse]
-
-[[mouse.bindings]]
-action = "PasteSelection"
-mouse = "Middle"
-
-[scrolling]
-history = 15000
-multiplier = 3
-
-[selection]
-save_to_clipboard = false
-semantic_escape_chars = ",│`|:\"' ()[]{}<>"
-
-[terminal.shell]
-program = "/usr/sbin/zsh"
+normal = { family = "LythMono Nerd Font", style = "Regular" }
+bold = { family = "LythMono Nerd Font", style = "Bold" }
+italic = { family = "LythMono Nerd Font", style = "Italic" }
+size = 9
 
 [window]
-decorations = "none"
+padding.x = 14
+padding.y = 14
+decorations = "None"
 dynamic_title = true
 dynamic_padding = true
-opacity = 0.9
+#opacity = 0.9
 startup_mode = "Windowed"
 
-[window.dimensions]
-columns = 82
-lines = 24
 
-[window.padding]
-x = 10
-y = 10
+[keyboard]
+bindings = [
+{ key = "Insert", mods = "Shift", action = "Paste" },
+{ key = "Insert", mods = "Control", action = "Copy" },
+# Send Shift+Return as CSI-u so TUIs can distinguish it from Return without treating it as Alt+Return.
+{ key = "Return", mods = "Shift", chars = "\u001B[13;2u" },
+# Legacy encoding sends Alt+Shift+Return the same as Alt+Return; send CSI-u so tmux can match M-S-Enter.
+{ key = "Return", mods = "Alt|Shift", chars = "\u001B[13;4u" }
+]
