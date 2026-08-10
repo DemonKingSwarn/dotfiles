@@ -1,6 +1,5 @@
 {
   "modules-left": [
-    "custom/omarchy",
     "niri/workspaces",
     "niri/window"
   ],
