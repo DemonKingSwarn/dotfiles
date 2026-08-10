@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local colours = require("colours")
 
 local config = {
   default_cursor_style = "SteadyBar",
@@ -18,7 +19,8 @@ local config = {
   window_close_confirmation = "NeverPrompt",
   default_prog = { "zsh" },
 
-  color_scheme = "tokyonight",
+  --color_scheme = "tokyonight",
+  colors = colours.colours,
 }
 
 return config

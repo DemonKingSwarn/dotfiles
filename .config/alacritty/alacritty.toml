@@ -11,35 +11,33 @@ duration = 0
 [colors]
 draw_bold_text_with_bright_colors = true
 
-[colors.bright]
-black = "0x414868"
-blue = "0x7aa2f7"
-cyan = "0x7dcfff"
-green = "0x9ece6a"
-magenta = "0xbb9af7"
-red = "0xf7768e"
-white = "0xc0caf5"
-yellow = "0xe0af68"
-
-[colors.cursor]
-background = "0x7aa2f7"
-foreground = "0x1a1b26"
+[colors.primary]
+background = "#060114"
+foreground = "#D7DBE9"
 
 [colors.normal]
-black = "0x15161e"
-blue = "0x7aa2f7"
-cyan = "0x7dcfff"
-green = "0x9ece6a"
-magenta = "0xbb9af7"
-red = "0xf7768e"
-white = "0xa9b1d6"
-yellow = "0xe0af68"
+black   = "#060114"
+red     = "#9c8ba9"
+green   = "#a1c4e4"
+yellow  = "#c4f6ff"
+blue    = "#757b9d"
+magenta = "#aaa2ce"
+cyan    = "#bad8ff"
+white   = "#D7DBE9"
 
-[colors.primary]
-background = "0x1a1b26"
-foreground = "0xc0caf5"
+[colors.bright]
+black   = "#66656b"
+red     = "#b39fc5"
+green   = "#aedcff"
+yellow  = "#bcfbff"
+blue    = "#898fb9"
+magenta = "#c1b6ee"
+cyan    = "#caf0ff"
+white   = "#f3f4ff"
 
-
+[colors.cursor]
+text   = "#060114"
+cursor = "#D7DBE9"
 [terminal]
 osc52 = "CopyPaste"
 
