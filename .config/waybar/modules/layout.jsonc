@@ -1,0 +1,19 @@
+{
+  "modules-left": [
+    "custom/omarchy",
+    "niri/workspaces",
+    "niri/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "idle_inhibitor", 
+    "network",
+    "cpu",
+    "pulseaudio",
+    "battery",
+    "custom/notification",
+    "group/tray-expander"
+  ]
+}

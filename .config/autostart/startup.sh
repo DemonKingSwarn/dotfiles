@@ -34,8 +34,8 @@ awww-daemon &
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 
-pkill -f blueman-applet
-blueman-applet &
+#pkill -f blueman-applet
+#blueman-applet &
 
 hypr-wellbeing -d &> /dev/null &
 

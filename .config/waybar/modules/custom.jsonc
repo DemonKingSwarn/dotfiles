@@ -1,0 +1,46 @@
+{
+  "custom/cava": {
+    "format": "{}",
+    "exec": "~/.config/waybar/cava.sh"
+  },
+  "custom/calendar": {
+    "format": " 󰃭 ",
+    "on-click": "lvsk-calendar-launcher",
+    "tooltip-format": "Click to open calendar"
+  },
+  "custom/netspeed": {
+    "exec": "~/.config/waybar/scripts/net_speed.sh",
+    "interval": 2,
+    "format": "{}",
+    "tooltip-format": "Network Speed\nClick to open network manager",
+    "on-click": "ghostty --class=Impala -e impala"
+  },
+  "custom/gpu": {
+    "exec": "~/.config/waybar/waybar-gpu.sh",
+    "interval": 5,
+    "return-type": "json",
+    "tooltip": true
+  },
+
+  "custom/notification": {
+        "tooltip-format": "Notifications",
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󱏧<span foreground='#1e1e2e'><sup></sup></span>",
+            "dnd-none": "󱏧",
+            "inhibited-notification": "󰂚<span foreground='#1e1e2e'><sup></sup></span>",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "<span foreground='#1e1e2e'><sup></sup></span>",
+            "dnd-inhibited-none": "󱏧"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",        
+        "on-click": "swaync-client -t -sw",
+        //"on-click": "qs -p ~/.config/quickshell/Notifications.qml ipc call notifications toggle",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}

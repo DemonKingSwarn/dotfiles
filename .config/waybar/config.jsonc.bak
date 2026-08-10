@@ -1,0 +1,199 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mode": "dock",
+    "height": 36,
+    "margin-top": 3,
+    "margin-left": 2,
+    "margin-right": 2,
+    "margin-bottom": 1,
+    "reload_style_on_change": true,
+    "spacing": 11,
+    "exclusive": false,
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
+    "modules-right": [
+        "idle_inhibitor", 
+        "custom/nettraf",
+        "custom/volume",
+        "custom/clock",
+        "custom/internet",
+        "battery",
+        "custom/notification",
+        "tray"
+    ],
+
+    "niri/workspaces": {
+    "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十"
+    },
+    "sort-by-number": true,
+    "active-only": true,
+    "justify": "center"
+  },
+
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    },
+    "timeout": 480,
+    "dynamic-timeouts": true,
+    "timeout-step": 10
+  },
+    
+    "tray": {
+        "spacing": 10
+    },
+
+    "custom/clock": {
+      "exec": "/home/swarn/.dots/.local/bin/statusbar/clock",
+      "interval": 1
+    },
+
+    "backlight": {
+        "tooltip": false,
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃠"],
+        "on-scroll-up": "brightnessctl --exponent=2 set 2%+",
+        "on-scroll-down": "brightnessctl --exponent=2 set 2%-"
+    },
+
+    "battery": {
+        "states": {
+            "good": 80,
+            "warning": 40,
+            "critical": 20
+        },
+        "format-charging": "<b>↯ {capacity}%</b>",
+        "format": "{icon} {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "interval": 1,
+        "tooltip": true
+    },
+
+    "custom/volume": {
+      "exec": "/home/swarn/.dots/.local/bin/statusbar/volume",
+      "on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 2",
+      "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2",
+      "interval": 1
+    },
+
+    "custom/internet": {
+      "exec": "/home/swarn/.dots/.local/bin/statusbar/internet",
+      "interval": 1,
+      "on-click": "~/.config/rofi/scripts/rofi-wifi-menu.sh"
+    },
+
+    "custom/nettraf": {
+      "exec": "/home/swarn/.dots/.local/bin/statusbar/nettraf",
+      "interval": 1
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 22,
+        "icon-theme": "Pop",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+
+    "custom/notification": {
+        "tooltip-format": "Notifications",
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󱏧<span foreground='#1e1e2e'><sup></sup></span>",
+            "dnd-none": "󱏧",
+            "inhibited-notification": "󰂚<span foreground='#1e1e2e'><sup></sup></span>",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "<span foreground='#1e1e2e'><sup></sup></span>",
+            "dnd-inhibited-none": "󱏧"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",        
+        "on-click": "swaync-client -t -sw",
+        //"on-click": "qs -p ~/.config/quickshell/Notifications.qml ipc call notifications toggle",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "privacy": {
+        "icon-spacing": 10,
+        "icon-size": 16,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ],
+        "ignore-monitor": true,
+        "ignore": [
+            {
+                "type": "audio-in",
+                "name": "cava"
+            },
+            {
+                "type": "screenshare",
+                "name": "obs"
+            }
+        ]
+    },
+
+    "niri/window": {
+      "format": " {}",
+      "separate-outputs": true,
+      "icon": false,
+      "icon-size": 18,
+      "rewrite": {
+        "(.*) Dolphin": "File Manager",
+        "(.*)obs(.*)": "OBS",
+        "Spotify (.*)": "Spotify",
+        "discord(.*)": "Discord",
+        "Code": "VS Code",
+        "Docker Desktop": " Docker",
+        "kitty": "Kitty",
+        "zen": "Zen",
+        "com.mitchellh.ghostty": "Ghostty",
+        "org.telegram.desktop": "Telegram",
+        "(.*)whatsapp(.*)": "Whatsapp"
+      }
+    }
+
+}
