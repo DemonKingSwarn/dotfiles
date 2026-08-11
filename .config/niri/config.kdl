@@ -271,6 +271,7 @@ window-rule {
   match app-id=r#"^helium$"#
   match app-id=r#"^Helium$"#
   match app-id=r#"^thunar$"#
+  match app-id=r#"^org.gnome.Nautilus$"#
   match app-id=r#"^emacs$"#
 
   opacity 0.95
