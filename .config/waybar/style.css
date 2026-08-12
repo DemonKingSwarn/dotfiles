@@ -13,13 +13,6 @@
   font-weight: bold;
 }
 
-.modules-left {
-  margin-left: 8px;
-}
-
-.modules-right {
-  margin-right: 8px;
-}
 
 tooltip {
   background: @dark-bg;
@@ -48,7 +41,7 @@ window#waybar.hidden {
 .modules-center,
 .modules-right {
   background: transparent;
-  margin: 5px;
+  margin: 7px;
   /* margin-top: 5px; */
 }
 

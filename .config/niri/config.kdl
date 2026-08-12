@@ -99,8 +99,8 @@ binds {
     Alt+Print { screenshot-window; }
 
     // my new keyboard doesnt have print screen
-    Super+P { screenshot-screen; }
-    Super+Shift+P { screenshot; }
+    Super+P { spawn "~/.scripts/misc/shot" "full"; }
+    Super+Shift+P { spawn "~/.scripts/misc/shot"; }
 
     Super+N { spawn "nightmode"; }
     //Super+O { spawn "~/.scripts/0x0/share"; }
@@ -190,6 +190,7 @@ binds {
     Super+R { switch-preset-column-width; }
     Super+Shift+F { maximize-column; }
     Super+F { fullscreen-window; }
+    Alt+F { toggle-window-floating; }
     Super+C { center-column; }
 
     Super+Minus { set-column-width "-10%"; }
@@ -294,7 +295,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 12
+    //geometry-corner-radius 12
     clip-to-geometry true
 }
 
