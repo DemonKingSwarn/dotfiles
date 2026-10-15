@@ -251,6 +251,7 @@ window-rule {
 window-rule {
     match app-id="Godot" title="Create New Node"
     match app-id="Godot" title="Godot Engine - Project Manager"
+    match app-id="xdg-desktop-portal-gtk" title="Open Files"
     open-floating true
     default-window-height { fixed 750; }
 }
@@ -295,7 +296,7 @@ window-rule {
 }
 
 window-rule {
-    //geometry-corner-radius 12
+    geometry-corner-radius 25
     clip-to-geometry true
 }
 

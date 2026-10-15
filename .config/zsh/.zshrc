@@ -72,7 +72,8 @@ eval "$(atuin init zsh)"
 if [ "$TERM_PROGRAM" = "tmux" ]; then
   figlet "tmux"
 else
-  greet
+  #greet
+  fastfetch
 fi
 
 if [ ! -n "/tmp/xran" ]; then

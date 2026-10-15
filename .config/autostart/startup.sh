@@ -19,8 +19,8 @@ pkill -f waybar
 waybar &
 
 vicinae server &
-#pkill -f auto-hide-waybar
-#auto-hide-waybar &
+pkill -f auto-hide-waybar
+auto-hide-waybar &
 
 pkill -f udiskie
 udiskie &

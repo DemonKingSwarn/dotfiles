@@ -16,103 +16,59 @@ configuration {
   }
 }
 
-@theme "/dev/null"
-
-* {
-  bg:          #1a1b26;
-  bg-alt:      #16161e66;
-  bg-selected: #41486866;
-
-  fg:          #c0caf5;
-  fg-alt:      #565f89;
-
-  border: 0;
-  margin: 0;
-  padding: 0;
-  spacing: 0;
-}
-
-window {
-  width: 30%;
-  background-color: @bg;
-  location: north;
-  anchor: north;
-  y-offset: 80px;
-  border-radius: 12px;
-}
-
-element {
-  padding: 8 12;
-  background-color: transparent;
-  text-color: @fg-alt;
-}
-
-element selected {
-  text-color: @fg;
-  background-color: @bg-selected;
-  border-radius: 12px;
-}
-
-element-text {
-  background-color: transparent;
-  text-color: inherit;
-  vertical-align: 0.5;
-}
-
-element-icon {
-  size: 14;
-  padding: 0 10 0 0;
-  background-color: transparent;
-}
 
 entry {
-  padding: 12;
-  background-color: @bg-alt;
-  text-color: @fg;
+    placeholder: "";
+    text-color: #dddddd;
+    padding: 8px 0 8px 8px;
 }
+
 
 inputbar {
-  children: [prompt, entry];
-  background-color: @bg;
-  expand: false;
+    children: [entry];
 }
 
-listview {
-  background-color: @bg;
-  columns: 1;
-  lines: 10;
-  require-input: true;
-  dynamic: true;
-  fixed-height: false;
-  expand: false;
-}
-
-@media (enabled: env(ROFI_WINDOW, false)) {
-  listview {
-    require-input: false;
-  }
+* {
+    separatorcolor: transparent;
+    selected-normal-background: rgba(255,255,255, 5%);
+    normal-background: rgba(255,255,255, 0%);
+    alternate-normal-background: rgba(255,255,255, 0%);
 }
 
 mainbox {
-  children: [inputbar, message, listview];
-  background-color: @bg;
+    border: 2px;
+    border-color: rgba(255,255,255, 20%);
+    border-radius: 10px;
+    padding: 10px;
 }
 
-message {
-  background-color: @bg;
-  padding: 0 12 8 12;
+window {
+    border-radius: 11px;
+    border: 1px solid;
+    border-color: #000000;
+    background-color: rgba(38,43,52,85%);
+    padding: 0px;
+    width: 30%;
 }
 
-textbox {
-  text-color: @fg;
-  background-color: transparent;
+
+listview {
+    lines: 10;
 }
 
-prompt {
-  enabled: true;
-  padding: 12 0 0 12;
-  background-color: @bg-alt;
-  text-color: @fg;
+element {
+    padding: 10px 10px;
+    height: 50px;
+    border-radius: 5px;
+    children: [ element-text, element-icon ];
 }
 
-// vim: ft=sass 
+element-text {
+    text-color: #e1e1e1;
+}
+
+#scrollbar {
+    handle-color: #3a3f4a;
+    handle-width: 4px ;
+    padding: 0;
+}

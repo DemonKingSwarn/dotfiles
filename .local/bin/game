@@ -24,7 +24,7 @@ proton_ge () {
 }
 
 proton_cachyos () {
-  WINEPREFIX="$HOME/.local/share/proton_cachyos" GAMEID=480 WINEDLLOVERRIDES="dxgi=n,b" PROTONPATH="/usr/share/steam/compatibilitytools.d/proton-cachyos-slr" VKD3D_CONFIG=dxr11 PROTON_ENABLE_NVAPI=1 PROTON_ENABLE_WAYLAND=1 WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FAKE_CURRENT_RES=1280x720 __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 LOW_LATENCY_LAYER=1 umu-run "$@"
+  WINEPREFIX="$HOME/.local/share/proton_cachyos" VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nouveau_icd.json GAMEID=480 WINEDLLOVERRIDES="dxgi=n,b" PROTONPATH="/usr/share/steam/compatibilitytools.d/proton-cachyos-slr" VKD3D_CONFIG=dxr11 PROTON_DISCORD_BRIDGE=1 PROTON_ENABLE_NVAPI=1 PROTON_ENABLE_WAYLAND=1 WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FAKE_CURRENT_RES=1280x720 __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 LOW_LATENCY_LAYER=1 umu-run "$@"
 }
 
 if [ -z "$PROTON_DISTRO" ]; then
