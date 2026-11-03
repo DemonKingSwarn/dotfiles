@@ -1,7 +1,20 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(deflocalkeys-linux
+  side-btn  275
+  extra-btn 276
+)
+
 (defsrc
- esc
- caps a s d f g h j k l ;
- lalt
+;;  esc
+;;  caps a s d f g h j k l ;
+;;  lalt
+
+  esc
+  caps
+  side-btn extra-btn
 )
 
 (defvar 
@@ -11,38 +24,26 @@
 )
 
 (defalias
-  
   compose (tap-hold-release $tap-hold $wait-hold esc comp)
-
-  escbspc (tap-hold-release $tap-hold $wait-hold esc bspc)
-
-  a-lsup (tap-hold-release $tap-hold $wait-hold-weak a lmet)
-  s-lalt (tap-hold-release $tap-hold $wait-hold s lalt)
-  d-lsft (tap-hold-release $tap-hold $wait-hold d lsft)
-  f-lctl (tap-hold-release $tap-hold $wait-hold f lctl)
-
-  j-rctl (tap-hold-release $tap-hold $wait-hold j rctl)
-  k-rsft (tap-hold-release $tap-hold $wait-hold k rsft)
-  l-ralt (tap-hold-release $tap-hold $wait-hold l ralt)
-  ;-rsup (tap-hold-release $tap-hold $wait-hold-weak ; rmet)
-
-
-  altm (tap-hold-release $tap-hold $wait-hold lalt (layer-while-held vim-arrow))
-
-
+  cap_esc (tap-hold-press $tap-hold $wait-hold esc lctl)
+;;
+;;  a-lsup (tap-hold-release $tap-hold $wait-hold-weak a lmet)
+;;  s-lalt (tap-hold-release $tap-hold $wait-hold s lalt)
+;;  d-lsft (tap-hold-release $tap-hold $wait-hold d lsft)
+;;  f-lctl (tap-hold-release $tap-hold $wait-hold f lctl)
+;;
+;;  j-rctl (tap-hold-release $tap-hold $wait-hold j rctl)
+;;  k-rsft (tap-hold-release $tap-hold $wait-hold k rsft)
+;;  l-ralt (tap-hold-release $tap-hold $wait-hold l ralt)
+;;  ;-rsup (tap-hold-release $tap-hold $wait-hold-weak ; rmet)
 )
 
 (deflayer base
   @compose
-  @escbspc @a-lsup @s-lalt @d-lsft @f-lctl g h @j-rctl @k-rsft @l-ralt @;-rsup
-  @altm
+  @cap_esc
+;;  @escbspc @a-lsup @s-lalt @d-lsft @f-lctl g h @j-rctl @k-rsft @l-ralt @;-rsup
+;;  lalt
+
+  left lctl
 )
-
-
-(deflayer vim-arrow
-  _
-  _        _       _       _       _      _ left down    up      right   _
-  _
-)
-
 
